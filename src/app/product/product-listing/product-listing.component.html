@@ -1,0 +1,93 @@
+<!-- Body -->
+<div class="container-fluid">
+  <div class="row" id="AA_upperRow">
+
+    <div class="col-md-2 ps-3 mb-3 " id="AA_sideNavCol">
+
+      <app-side-nav> </app-side-nav>
+
+    </div>
+
+
+    <div class="col-10">
+      <div class="row">
+        <div class="col-12">
+          <p class="h2"> International Best Sellers</p>
+          <p id="AA_topProducts"> Top products shipped internationally including electronics, baby, books,
+            and
+            more</p>
+
+          <div class="card">
+            <div class="card-body">
+              <span id="AA_1-12">
+                1-12 of over 2,000 results for
+                <span id="AA_exploreBest"> Explore Best Sellers </span>
+
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+
+
+
+      <div class="row">
+        <app-product-item class="col-md-4"></app-product-item>
+        <app-product-item class="col-md-4"></app-product-item>
+        <app-product-item class="col-md-4"></app-product-item>
+        <app-product-item class="col-md-4"></app-product-item>
+        <app-product-item class="col-md-4"></app-product-item>
+       
+       
+
+      </div>
+
+
+
+
+      <div class="row">
+        <div class="col-12">
+
+          <div class="d-grid gap-2" id="AA_SeeResultsBtn">
+            <button class="btn btn-outline-light" type="button">
+              <span class="AA_SeeResults">See all results</span>
+            </button>
+
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12" id="AA_lastRow">
+
+
+      <hr>
+      <p class="h6" id="AA_startHere">See personalized recommendations</p>
+      <a [routerLink]="['/login']">
+        <div class="d-grid gap-2 col-2 mx-auto">
+          <button class="btn btn-warning" type="button"><span id="AA_startHere">Sign in</span> </button>
+        </div>
+      </a>
+      <p class="h6" id="AA_startHere">New customer? <a [routerLink]="['/register']"> start here</a></p>
+
+      <hr>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+</div>

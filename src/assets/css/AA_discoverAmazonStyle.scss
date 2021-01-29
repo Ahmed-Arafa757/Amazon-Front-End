@@ -1,0 +1,173 @@
+body
+{
+    background-color: white;
+}
+#AA_vanRow{
+    background-color: bisque;
+    margin: 10px;
+
+    #AA_amazonShips{
+        font-size: 32px;
+        font-weight: bold;
+        color: #242929;
+        margin-top: 10%;
+        padding-left: 5%;
+
+    }
+
+}
+
+#AA_worldWideCard{
+    border: none;
+    text-align: center;
+
+    #AA_cardBody{
+        padding-top: 20%;
+    }
+    #AA_amazonDelivers{
+        color: red;
+    }
+    #AA_amazonDelivers,
+    #AA_worldWideShipping,
+    #AA_shipOver{
+        font-weight: bold;
+    }
+
+}
+
+#AA_fourColCard{
+    border: none;
+    text-align: center;
+    margin-top: 20%;
+
+    .AA_sideDiv{
+        display: inline-block;
+        margin-right: 3%;
+
+        #AA_sideImg{
+            margin-bottom: 100%;
+        }
+    }
+    .AA_sideText{
+        display: inline-block;
+      
+    }
+}
+
+#AA_walletRow{
+    background-color: bisque;
+
+    #AA_bisqueBg{
+        background-color: bisque;
+
+    }
+
+    .AA_alignCenterDiv{
+        text-align: center;
+
+        .AA_sideImgDiv{
+            display: inline-block;
+            margin-right: 3%;
+
+            #AA_sideImg{
+                margin-bottom: 100%;
+            }
+        }
+        .AA_sideText{
+            display: inline-block;
+            text-align: left;
+        }
+    }
+
+    #AA_walletLeftCard{
+        border: none;
+        text-align: center;
+        margin-top: 20%;
+        background-color: bisque;
+    }
+}
+
+#AA_walletCard{
+    border: none;
+    text-align: center;
+
+    #AA_walletText{
+        background-color: bisque;
+
+        #AA_shopWith,
+        #AA_safe,
+        #AA_protect{
+            font-weight: bold;
+        }
+
+    }
+
+    #AA_walletCardBody{
+        padding-top: 20%;
+        background-color: bisque;
+    }
+}
+
+#AA_starCard{
+    border: none;
+    text-align: center;
+
+    #AA_starCardBody{
+        padding-top: 20%;
+    }
+    #AA_experience{
+        color: red;
+    }
+
+    #AA_experience,
+    #AA_great,
+    #AA_lowPrices{
+        font-weight: bold;
+    }
+}
+
+#AA_starRightCard{
+    border: none;
+    text-align: center;
+    margin-top: 20%;
+
+    .AA_alignLeftDiv{
+        text-align: left;
+
+        .AA_starImgText{
+            display: inline-block;
+        }
+
+        .AA_starImgDiv{
+            display: inline-block;
+            margin-right: 5%;
+
+            #AA_starImg{
+                margin-bottom: 100%;
+            }
+
+        }
+    }
+}
+
+#AA_lastRow{
+    text-align: center;
+    margin-top: 15%;
+
+    #AA_startHere {
+        font-size: calc(0.7rem + 0.1vw);
+
+    }
+
+    a{
+        text-decoration: none;
+    }
+}
+
+#AA_hoveredCursor{
+    color: rgb(67, 67, 243);
+    &:hover{
+        cursor:pointer;
+    }
+}
+        
