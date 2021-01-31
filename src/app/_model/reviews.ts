@@ -5,7 +5,8 @@ export interface Review {
   reviewTime?: string;
   reviewSummary?: string;
   fullReview?: string;
-  overallRate?: number;
+  helpful?: number;
   reviewVote?: number;
   productID?: number;
+  stars?: number[];
 }
