@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , Input} from '@angular/core';
+
+import { Advertisement } from 'src/app/_model/advertisements';
+import { AdvertisementService } from 'src/app/_services/advertisements.service';
 
 @Component({
   selector: 'app-product-item',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductItemComponent implements OnInit {
 
-  constructor() { }
+
+  @Input() advertisement: Advertisement;
+  constructor(private advertisementsService: AdvertisementService) { }
 
   ngOnInit(): void {
+
   }
+
+
 
 }

@@ -1,3 +1,4 @@
+import { EventEmitter } from '@angular/core';
 import { Advertisement } from '../_model/advertisements';
 
 
@@ -149,6 +150,7 @@ export class AdvertisementService{
         }
     ];
 
+    productAdded = new EventEmitter<Advertisement>();
 
     constructor() {}
 
