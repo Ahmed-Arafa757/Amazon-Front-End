@@ -1,1 +1,9 @@
-{"version":3,"sources":["styles.scss"],"names":[],"mappings":"AAAA,8BAA8B;AAC9B,+CAA+C;AAC/C,4CAA4C;AAC5C,mCAAmC;AACnC,uEAAuE","file":"styles.css","sourcesContent":["@import 'assets/css/style.css';\n@import 'assets/css/AA_discoverAmazonStyle.css';\n@import 'assets/css/AA_amazonTopSellers.css';\n@import 'assets/css/splide.min.css';\n@import '../node_modules/@fortawesome/fontawesome-free/css/all.min.css';\n\n/*# sourceMappingURL=file:///c:/Users/USER/Desktop/7agaty/iti/Angular/AngularFinalProject/our-app/src/styles.css.map */"]}
+{
+    "version": 3,
+    "mappings": "AAAA,OAAO,CAAP,8EAAO;AACP,OAAO,CAAP,+FAAO;AACP,OAAO,CAAP,4FAAO;AACP,OAAO,CAAP,mFAAO;AAIP,OAAO,CAAP,gHAAO",
+    "sources": [
+        "styles.scss"
+    ],
+    "names": [],
+    "file": "styles.css"
+}
