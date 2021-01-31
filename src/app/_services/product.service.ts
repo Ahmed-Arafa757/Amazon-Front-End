@@ -1753,5 +1753,7 @@ export class ProductService {
   getAllProducts(){
     return this.products.slice();
   }
-  
+  productById(id:string){
+    
+  }
 }
