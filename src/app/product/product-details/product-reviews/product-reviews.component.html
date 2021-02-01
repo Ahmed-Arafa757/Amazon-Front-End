@@ -48,14 +48,14 @@
       <h4 *ngIf="hasBeenSubmitted" class="mb-3">Thank you, Your review has been submitted!</h4>
       <form #reviewForm="ngForm" class="row g-3">
         <div class="col-12 ">
-          <label for="exampleFormControlInput1" class="form-label">Write Summary</label>
+          <label for="exampleFormControlInput1" class="form-label">Write Summary:</label>
           <input required #txtInputSummary="ngModel" [(ngModel)]="addReview.reviewSummary" type="text"
             class="form-control" name="summary" id="summary">
           <p *ngIf="txtInputSummary.invalid && txtInputSummary.touched" style="color: red;">This field is required</p>
         </div>
 
         <div class="col-12">
-          <label for="exampleFormControlTextarea1" class="form-label">Write Review</label>
+          <label for="exampleFormControlTextarea1" class="form-label">Write Review:</label>
           <textarea required #txtInputReview="ngModel" [(ngModel)]="addReview.fullReview" class="form-control"
             name="review" id="review" rows="3"></textarea>
           <p *ngIf="txtInputReview.invalid && txtInputReview.touched" style="color: red;">This field is required</p>
