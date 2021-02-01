@@ -25,6 +25,7 @@ import { ErrorNotFoundComponent } from './error/error-not-found/error-not-found.
 import { CustomAppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { ReviewsService } from './_services/reviews.service';
+import { ProductInfoComponent } from './product/product-details/product-info/product-info.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { ReviewsService } from './_services/reviews.service';
     DepartmentsComponent,
     SearchResultsComponent,
     ErrorNotFoundComponent,
+    ProductInfoComponent,
   ],
   imports: [BrowserModule, NgbModule, FormsModule, CustomAppRoutingModule],
   providers: [ReviewsService],

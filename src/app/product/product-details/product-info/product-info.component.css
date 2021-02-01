@@ -1,0 +1,46 @@
+.product-thumbnail {
+  width: 50px;
+  height: auto;
+  margin-bottom: 5px;
+}
+@font-face {
+  font-family: Amazon Ember;
+  src: url(../../../../assets/font/AmazonEmber_Lt.ttf) format("truetype");
+}
+.product-thumbnail:hover {
+  border-color: #ff9900;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+    0 0 8px rgba(255, 153, 0, 0.6);
+}
+.word-break {
+  word-break: break-word;
+}
+#productTitle {
+  font-family: "Amazon Ember", Arial, sans-serif;
+  font-size: 24px !important;
+  font-weight: bold;
+  line-height: 32px !important;
+}
+
+.AH_card-link {
+  font-size: 16px;
+}
+i {
+  color: #ff9900;
+}
+.card {
+  max-width: 400px;
+}
+
+.breadcrumb-item,
+.breadcrumb {
+  color: dimgray !important;
+  font-family: Arial, sans-serif;
+  font-size: 14px !important;
+}
+.breadcrumb-item:hover,
+.breadcrumb:hover {
+  color: dimgray !important;
+  font-family: Arial, sans-serif;
+  font-size: 14px !important;
+}
