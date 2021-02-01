@@ -8,7 +8,9 @@ export interface Seller{
     location?: Location;
     logo?: string;
     shortDesc?: string;
-    websiteURL?: string;
+    websiteURL?: string; 
+    email?: string;
+    password?: string;
 
 }
 
