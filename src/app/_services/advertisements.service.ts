@@ -150,7 +150,7 @@ export class AdvertisementService{
         }
     ];
 
-    productAdded = new EventEmitter<Advertisement>();
+    
 
     constructor() {}
 

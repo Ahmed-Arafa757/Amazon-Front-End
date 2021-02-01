@@ -11,8 +11,8 @@ import { AdvertisementService } from 'src/app/_services/advertisements.service';
 export class ProductItemComponent implements OnInit {
 
 
-  @Input() advertisement: Advertisement;
-  constructor(private advertisementsService: AdvertisementService) { }
+ 
+  constructor() { }
 
   ngOnInit(): void {
 
