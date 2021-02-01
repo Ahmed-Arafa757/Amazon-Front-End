@@ -12,6 +12,8 @@ export class SellersService {
                 longitude: -16.594146387
             },
             logo: 'https://static.vecteezy.com/system/resources/previews/000/584/922/non_2x/bird-and-wing-logo-vector-template.jpg',
+            email: 'Kennith.Gottlieb98@hotmail.com',
+            password:'CrWustxT4S8zHFA',
             shortDesc: 'Schmitt, Ortiz and Jacobi Short Description',
             websiteURL: 'http://SchmittOrtizJacobi.com/'
         }, {
@@ -24,6 +26,8 @@ export class SellersService {
                 longitude: -4.959382118
             },
             logo: 'https://static.vecteezy.com/system/resources/previews/000/578/926/non_2x/bat-black-logo-template-white-background-icons-app-vector.jpg',
+            email: 'Denis_Kuvalis@hotmail.com',
+            password:'7uWp3l7PE_MSG4T',
             shortDesc: 'Schaden Inc Short Description',
             websiteURL: 'http://SchadenInc.com/'
         }, {
@@ -36,6 +40,8 @@ export class SellersService {
                 longitude: 36.048264491
             },
             logo: 'https://static.vecteezy.com/system/resources/previews/000/579/226/non_2x/vector-business-finance-logo-template.jpg',
+            email: 'Alvena52@gmail.com',
+            password:'l7BsqPwrjlqVkaI',
             shortDesc: 'Armstrong, Gaylord and McGlynn Short Description',
             websiteURL: 'http://ArmstrongGaylordMcGlynn.com/'
         }, {
@@ -48,6 +54,8 @@ export class SellersService {
                 longitude: 81.18666385
             },
             logo: 'https://static.vecteezy.com/system/resources/previews/000/612/107/non_2x/star-logo-template-vector-icon-illustration-design.jpg',
+            email: 'Filomena68@yahoo.com',
+            password:'5T25l_i4XEkoZAh',
             shortDesc: 'Schroeder, Lehner and Nitzsche Short Description',
             websiteURL: 'http://SchroederLehnerNitzsche.com/'
         }, {
@@ -60,6 +68,8 @@ export class SellersService {
                 longitude: -34.798934745
             },
             logo: 'https://static.vecteezy.com/system/resources/previews/000/599/214/non_2x/book-reading-logo-and-symbols-template-icons-vector.jpg',
+            email: 'Keara75@yahoo.com',
+            password:'V4j0CYDwktZXYxQ',
             shortDesc: 'Herzog, Zemlak and Klein Short Description',
             websiteURL: 'http://HerzogZemlakKlein.com/'
         }, {
@@ -72,6 +82,8 @@ export class SellersService {
                 longitude: -53.925310674
             },
             logo: 'https://static.vecteezy.com/system/resources/previews/000/599/252/non_2x/vector-book-reading-logo-and-symbols-template-icons.jpg',
+            email: 'Fritz_Schneider@hotmail.com',
+            password:'QyYhTulGtYu9Msq',
             shortDesc: 'Reinger - Sanford Short Description',
             websiteURL: 'http://ReingerSanford.com/'
         }, {
@@ -84,6 +96,8 @@ export class SellersService {
                 longitude: 48.444763804
             },
             logo: 'https://static.vecteezy.com/system/resources/previews/000/564/007/non_2x/finance-logo-and-symbols-vector-concept.jpg',
+            email: 'Eloisa_Hamill@gmail.com',
+            password:'EcIHDjxJkY4ZVdB',
             shortDesc: 'Halvorson - Johnson Short Description',
             websiteURL: 'http://HalvorsonJohnson.com/'
         }, {
@@ -96,6 +110,8 @@ export class SellersService {
                 longitude: 6.9000072513
             },
             logo: 'https://static.vecteezy.com/system/resources/previews/000/563/535/non_2x/finance-logo-and-symbols-vector-concept.jpg',
+            email: 'Marianna78@yahoo.com',
+            password:'rqF0XM1c49GBaF7',
             shortDesc: 'Will, Daniel and Kuhlman Short Description',
             websiteURL: 'http://WillDanielKuhlman.com/'
         }, {
@@ -108,6 +124,8 @@ export class SellersService {
                 longitude: -29.611926269
             },
             logo: 'https://static.vecteezy.com/system/resources/previews/000/584/832/non_2x/bird-and-wing-logo-vector-template.jpg',
+            email: 'Andreane_Balistreri37@yahoo.com',
+            password:'H5xqvscG0Hh9pOH',
             shortDesc: 'Pfannerstill, Waelchi and Raynor Short Description',
             websiteURL: 'http://PfannerstillWaelchiRaynor.com/'
         }, {
@@ -120,6 +138,8 @@ export class SellersService {
                 longitude: -53.205117041
             },
             logo: 'https://static.vecteezy.com/system/resources/previews/000/596/339/non_2x/pyramid-logo-and-symbol-business-abstract-design-template-vector.jpg',
+            email: 'Quinten.Hodkiewicz@gmail.com',
+            password:'kjnOGC2VTf4259l',
             shortDesc: 'Mann - Jenkins Short Description',
             websiteURL: 'http://MannJenkins.com/'
         }, {
@@ -132,6 +152,8 @@ export class SellersService {
                 longitude: -64.679373317
             },
             logo: 'https://static.vecteezy.com/system/resources/previews/000/579/628/non_2x/business-finance-logo-template-vector.jpg',
+            email: 'Jailyn_Skiles66@hotmail.com',
+            password:'XqHy0CfAjNwk4nb',
             shortDesc: 'Marquardt, Brakus and Wilderman Short Description',
             websiteURL: 'http://MarquardtBrakusWilderman.com/'
         }, {
@@ -144,6 +166,8 @@ export class SellersService {
                 longitude: -62.953942434
             },
             logo: 'https://static.vecteezy.com/system/resources/previews/000/563/839/non_2x/finance-logo-and-symbols-vector-concept.jpg',
+            email: 'Lawrence81@hotmail.com',
+            password:'3yXZsJxQ47xP1a2',
             shortDesc: 'Reichel, Brekke and Grady Short Description',
             websiteURL: 'http://ReichelBrekkeGrady.com/'
         }, {
@@ -156,6 +180,8 @@ export class SellersService {
                 longitude: -8.738150011
             },
             logo: 'https://static.vecteezy.com/system/resources/previews/000/585/013/non_2x/bird-and-wing-logo-vector-template.jpg',
+            email: 'Walker.Klein@yahoo.com',
+            password:'O3ou0o0D_N83eaH',
             shortDesc: 'Graham, Pacocha and Paucek Short Description',
             websiteURL: 'http://GrahamPacochaPaucek.com/'
         }, {
@@ -168,6 +194,8 @@ export class SellersService {
                 longitude: -35.209501957
             },
             logo: 'https://static.vecteezy.com/system/resources/previews/000/612/445/non_2x/star-logo-template-vector-icon-illustration-design.jpg',
+            email: 'Delfina_Rutherford@yahoo.com',
+            password:'HQeduvcUuZm1px2',
             shortDesc: 'Heller, Larson and Kuhic Short Description',
             websiteURL: 'http://HellerLarsonKuhic.com/'
         }, {
@@ -180,6 +208,8 @@ export class SellersService {
                 longitude: -73.360648364
             },
             logo: 'https://static.vecteezy.com/system/resources/previews/000/579/056/non_2x/business-finance-logo-template-vector.jpg',
+            email: 'Justina10@hotmail.com',
+            password:'HL1n9SvATj8oLLm',
             shortDesc: 'Monahan, Thompson and Walter Short Description',
             websiteURL: 'http://MonahanThompsonWalter.com/'
         }, {
@@ -192,6 +222,8 @@ export class SellersService {
                 longitude: 87.84537932
             },
             logo: 'https://static.vecteezy.com/system/resources/previews/000/585/554/non_2x/bird-and-wing-logo-vector-template.jpg',
+            email: 'Jairo41@hotmail.com',
+            password:'XR6ZkhfMeT_7qY6',
             shortDesc: 'Macejkovic Inc Short Description',
             websiteURL: 'http://MacejkovicInc.com/'
         }, {
@@ -204,6 +236,8 @@ export class SellersService {
                 longitude: -20.647845898
             },
             logo: 'https://static.vecteezy.com/system/resources/previews/000/579/011/non_2x/star-logo-template-vector-icon-illustration-design.jpg',
+            email: 'Stephania.Heathcote@hotmail.com',
+            password:'DJLOdiOwYUEQx6c',
             shortDesc: 'Wilkinson Inc Short Description',
             websiteURL: 'http://WilkinsonInc.com/'
         }, {
@@ -216,6 +250,8 @@ export class SellersService {
                 longitude: 20.394189738
             },
             logo: 'https://static.vecteezy.com/system/resources/previews/000/599/745/non_2x/vector-business-corporate-s-letter-logo.jpg',
+            email: 'Harmony.Senger@hotmail.com',
+            password:'Gxh_hWjgCH46F8p',
             shortDesc: 'Nienow and Sons Short Description',
             websiteURL: 'http://NienowSons.com/'
         }
@@ -247,6 +283,8 @@ export class SellersService {
             logo: seller.logo,
             shortDesc: seller.shortDesc,
             websiteURL: seller.websiteURL,
+            email: seller.email,
+            password: seller.password
 
 
 
@@ -266,6 +304,8 @@ export class SellersService {
             logo: seller.logo,
             shortDesc: seller.shortDesc,
             websiteURL: seller.websiteURL,
+            email: seller.email,
+            password: seller.password
         };
     }
 
