@@ -1753,5 +1753,35 @@ export class ProductService {
   getAllProducts(){
     return this.products.slice();
   }
-  
+  productById(id:string){
+    let product = this.products.find(p=>p._id===id);
+    if(product!==undefined)
+    {
+      let prod:Product={_id:product._id,productName:product.productName,productInfo:product.productInfo,productPrice:product.productPrice,productRate:product.productRate,productImages:product.productImages,productType:product.productType,productCategory:product.productCategory,productSubCategory:product.productSubCategory,keywords:product.keywords,warehouseId:product.warehouseId,productStock:product.productStock,productSales:product.productSales};
+      return prod;
+    }
+  }
+  productByName(name:string){
+    let product = this.products.find(p=>p.productName===name);
+    if(product!==undefined)
+    {
+      let prod:Product={_id:product._id,productName:product.productName,productInfo:product.productInfo,productPrice:product.productPrice,productRate:product.productRate,productImages:product.productImages,productType:product.productType,productCategory:product.productCategory,productSubCategory:product.productSubCategory,keywords:product.keywords,warehouseId:product.warehouseId,productStock:product.productStock,productSales:product.productSales};
+      return prod;
+    }
+
+  }
+  updateProduct(product:Product){
+    const index = this.products.findIndex(p=>p._id===product._id);
+    this.products[index]={_id:product._id,productName:product.productName,productInfo:product.productInfo,productPrice:product.productPrice,productRate:product.productRate,productImages:product.productImages,productType:product.productType,productCategory:product.productCategory,productSubCategory:product.productSubCategory,keywords:product.keywords,warehouseId:product.warehouseId,productStock:product.productStock,productSales:product.productSales};
+    return 'Product Updated'
+  }
+  deleteProduct(id:string){
+    const index = this.products.findIndex(p=>p._id===id);
+    this.products.splice(index,1)
+  }
+  addProduct(product:Product){
+    const productId = this.products.length;
+    const newproduct:Product = {productId:productId,productName:product.productName,productInfo:product.productInfo,productPrice:product.productPrice,productRate:product.productRate,productImages:product.productImages,productType:product.productType,productCategory:product.productCategory,productSubCategory:product.productSubCategory,keywords:product.keywords,warehouseId:product.warehouseId,productStock:product.productStock,productSales:product.productSales};
+    this.products.push(newproduct);
+  }
 }
