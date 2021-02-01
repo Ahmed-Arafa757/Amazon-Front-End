@@ -6,7 +6,7 @@ export interface Order{
     _id?:string;
     orderItems?:OrderItem[];
     orderPrice?:OrderPrice;
-    orderDate?:Date;
+    orderDate?:string;
     shippingAddress?:ShippingAddress;
     orderStatus?:string;
     customerId?:string;     //CustomerId
