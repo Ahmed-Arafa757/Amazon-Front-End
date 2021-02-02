@@ -28,9 +28,6 @@
 i {
   color: #ff9900;
 }
-.card {
-  max-width: 400px;
-}
 
 .breadcrumb-item,
 .breadcrumb {
@@ -59,4 +56,54 @@ i {
 
 .font-weight-bold {
   font-weight: bold;
+}
+
+.button {
+  background: linear-gradient(to bottom, #f7dfa5, #f0c14b);
+  border: 1px solid rgba(128, 128, 128, 0.397);
+  border-radius: 2px;
+  height: 30px;
+}
+.button:hover {
+  background-color: #f3c64a;
+  border: 1px solid rgba(128, 128, 128, 0.397);
+}
+.button_buy {
+  background: linear-gradient(to bottom, #f6c88f, #ed9220);
+  border: 1px solid rgba(128, 128, 128, 0.397);
+  border-radius: 2px;
+  height: 30px;
+}
+.button_buy:hover {
+  background-color: #f3c64a;
+  border: 1px solid rgba(128, 128, 128, 0.397);
+}
+.button-list {
+  border: 1px solid rgba(128, 128, 128, 0.397);
+  border-radius: 2px;
+  height: 30px;
+
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset;
+  background: linear-gradient(to bottom, #f7f8fa, #e7e9ec);
+}
+input[type="button"] {
+  font-size: 14px;
+  background-color: transparent;
+  border: transparent;
+  width: 90%;
+  height: 90%;
+  z-index: 20;
+}
+.square {
+  width: 23px;
+  height: 23px;
+  background-color: rgb(53, 52, 52);
+  border-radius: 4px;
+  margin: 2px;
+}
+.square i {
+  color: white;
+}
+.fs-7 {
+  font-size: 12px;
 }
