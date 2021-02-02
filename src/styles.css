@@ -1,6 +1,6 @@
-@import 'assets/css/style.css';
-@import 'assets/css/AA_discoverAmazonStyle.css';
-@import 'assets/css/AA_amazonTopSellers.css';
-@import 'assets/css/splide.min.css';
-@import '../node_modules/@fortawesome/fontawesome-free/css/all.min.css';
+@import url(e:\ITI\MEARN\Final_Project-Angular\Final-Project\src\assets\css\style.css);
+@import url(e:\ITI\MEARN\Final_Project-Angular\Final-Project\src\assets\css\AA_discoverAmazonStyle.css);
+@import url(e:\ITI\MEARN\Final_Project-Angular\Final-Project\src\assets\css\AA_amazonTopSellers.css);
+@import url(e:\ITI\MEARN\Final_Project-Angular\Final-Project\src\assets\css\splide.min.css);
+@import url(e:\ITI\MEARN\Final_Project-Angular\Final-Project\node_modules\@fortawesome\fontawesome-free\css\all.min.css);
 /*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,33 @@
+
+<div class="container">
+    <form class="login my-5">
+        <h4 class="login__header">
+            I'M A RETURNING CUSTOMER
+        </h4>
+        <div class="form-group" [ngClass]="{'invalid':myEmail.invalid && myEmail.touched}">
+            <label for="">E-mail Address</label>
+            <input [(ngModel)]="seller.email" type="email" name="email"  #myEmail=ngModel ngModel email="true"
+            required class="form-control"  id="">
+        </div>
+        <div class="form-group" [ngClass]="{'invalid':password.invalid && password.touched}">
+            <a href="#" class="login__forget-password">(Forget Password?)</a>
+            <label for="">Password</label>
+            <input [(ngModel)]="seller.password" class="form-control" #password=ngModel required minlength="10" type="password" name="password" placeholder="Password"  ngModel  id="password">
+        <div *ngIf="password.invalid && (password.dirty || password.touched)"
+        class="alert alert-danger">please enter valid password of min length 10 </div>
+
+        </div>
+        
+        <div class="login__remember-me">
+            <div class="form-group__checkbox"><input type="checkbox" name="" id="">
+            <span>Remember Me</span>
+        </div>
+        <div class="add-product__actions">
+                <button href="#" class="btn btn--gray">Cancel</button>
+                <button type="submit" (click)="onSubmit()" class="btn btn--primary">Login</button>
+            </div>
+        </div>
+        <a routerLink="/signup" class="login__register-now">Register Now</a>
+    </form>
+</div>
+
