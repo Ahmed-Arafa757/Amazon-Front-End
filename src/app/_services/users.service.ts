@@ -388,7 +388,7 @@ export class UsersService {
     return this.users.slice();
   }
 
-  getSellerById(id: string): Users {
+  getUserById(id: string): Users {
     return this.users.find((p) => p._id === id);
   }
 
