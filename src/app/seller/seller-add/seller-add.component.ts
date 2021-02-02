@@ -11,5 +11,8 @@ export class SellerAddComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  addImg(test){
+    console.log(test);
+    
+  }
 }
