@@ -84,34 +84,44 @@
     </nav>
   </div>
   <div class="row">
-    <div class="col-md-1 d-flex flex-column align-items-center">
-      <img
-        src="https://images-na.ssl-images-amazon.com/images/I/314aJgjfWfL._AC_US40_.jpg"
-        class="img-thumbnail product-thumbnail"
-        alt="..."
-      />
-      <img
-        src="https://images-na.ssl-images-amazon.com/images/I/314aJgjfWfL._AC_US40_.jpg"
-        class="img-thumbnail product-thumbnail"
-        alt="..."
-      />
-      <img
-        src="https://images-na.ssl-images-amazon.com/images/I/314aJgjfWfL._AC_US40_.jpg"
-        class="img-thumbnail product-thumbnail"
-        alt="..."
-      />
+    <div class="col-md-6">
+      <div class="col-12 d-flex ps-3 justify-content-center sticky-top">
+        <div>
+          <img
+            src="https://images-na.ssl-images-amazon.com/images/I/71X1tdgE27L._AC_SY741_.jpg"
+            onload="if(this.width/this.height > 1.0){this.className += ' a-stretch-horizontal'}else{this.className += ' a-stretch-vertical'};this.onload='';"
+            data-a-image-name="landingImage"
+            class="a-dynamic-image a-stretch-vertical row"
+            id="landingImage"
+            style="max-width: 550px; max-height: 550px"
+          />
+          <span class="row d-flex justify-content-center mt-1">
+            Roll over image to zoom in</span
+          >
+        </div>
+
+        <div
+          class="d-flex flex-column align-items-center position-absolute top-0 start-0 ms-md-4"
+        >
+          <img
+            src="https://images-na.ssl-images-amazon.com/images/I/314aJgjfWfL._AC_US40_.jpg"
+            class="img-thumbnail product-thumbnail"
+            alt="..."
+          />
+          <img
+            src="https://images-na.ssl-images-amazon.com/images/I/314aJgjfWfL._AC_US40_.jpg"
+            class="img-thumbnail product-thumbnail"
+            alt="..."
+          />
+          <img
+            src="https://images-na.ssl-images-amazon.com/images/I/314aJgjfWfL._AC_US40_.jpg"
+            class="img-thumbnail product-thumbnail"
+            alt="..."
+          />
+        </div>
+      </div>
     </div>
-    <div class="col-md-5 d-flex justify-content-center">
-      <img
-        src="https://images-na.ssl-images-amazon.com/images/I/71X1tdgE27L._AC_SY879_.jpg"
-        onload="if(this.width/this.height > 1.0){this.className += ' a-stretch-horizontal'}else{this.className += ' a-stretch-vertical'};this.onload='';"
-        data-a-image-name="landingImage"
-        class="a-dynamic-image a-stretch-vertical"
-        id="landingImage"
-        style="max-width: 485px; max-height: 485px"
-      />
-    </div>
-    <div class="col-md-3">
+    <div class="col-md-4 px-4">
       <span id="productTitle" class="word-break">
         Logitech G300s Optical Ambidextrous Gaming Mouse – 9 Programmable
         Buttons, Onboard Memory
@@ -133,15 +143,153 @@
             <i class="fas fa-star"></i>
             <i class="far fa-star"></i>
 
-            >>
+            <i class="ms-3 fas fa-chevron-right"></i>
           </a>
         </span>
         <div class="d-flex flex-wrap">
           <a href="" class="me-3 AH_card-link"> 3,5488 ratings </a> |
           <a href="" class="ms-3 AH_card-link">135 answered questions</a>
         </div>
+        <hr />
+        <!-- price -->
+        <div class="row">
+          <div class="col-3">
+            <span class="text-secondary">List Price: </span>
+          </div>
+          <div class="col-9 p-0">
+            <del>${{ price }}</del>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-3">
+            <span class="text-secondary"> Price: </span>
+          </div>
+          <div class="col-9 ps-0">
+            <span class="">
+              <span class="price">${{ price - discount | number }}</span>
+              <span class="word-break text-secondary">
+                + ${{ shippingFees }} Shipping & Import Fees Deposit to
+                {{ DeliverTo }}</span
+              >
+            </span>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-3 text-secondary">You Save:</div>
+          <div class="col-9 p-0">
+            <span class="price" style="font-size: 14px">
+              ${{ discount }}
+              <span class="px-2">
+                ({{ (discount / price) * 100 | number }}%)</span
+              >
+            </span>
+          </div>
+        </div>
+        <span class="word-break fs-6">
+          Available at a lower price from other sellers that may not offer free
+          Prime shipping.
+        </span>
+
+        <!-- specs -->
+        <div id="specsDiv" class="mt-2">
+          <div class="row gy-2">
+            <div class="col-3">
+              <span class="font-weight-bold">Connections</span>
+            </div>
+            <div class="col-9 ps-0">Wired, USB</div>
+
+            <div class="col-3">
+              <span class="font-weight-bold">Connections</span>
+            </div>
+            <div class="col-9 ps-0">Wired, USB</div>
+
+            <div class="col-3">
+              <span class="font-weight-bold">Connections</span>
+            </div>
+            <div class="col-9 ps-0">Wired, USB</div>
+
+            <div class="col-3">
+              <span class="font-weight-bold">Connections</span>
+            </div>
+            <div class="col-9 ps-0">Wired, USB</div>
+
+            <div class="col-3">
+              <span class="font-weight-bold">Connections</span>
+            </div>
+            <div class="col-9 ps-0">Wired, USB</div>
+          </div>
+        </div>
+        <hr />
+
+        <!--About this item section  -->
+        <div id="aboutProduct" class="mb-2">
+          <h6 class="font-weight-bold">About this item</h6>
+          <ul type="disk " class="ps-2">
+            <li>
+              Nine programmable controls: Move keyboard commands to mouse
+              buttons that are in easy reach
+            </li>
+            <li>
+              Symmetrical compact shape: Feels comfortable in either hand and
+              perfect for gamers who don't want a large mouse
+            </li>
+            <li>
+              Gaming-grade optical sensor: Tracks accurately on a wide variety
+              of surfaces and is tunable to achieve the responsiveness you need
+            </li>
+          </ul>
+          <a class="AH_card-link">Compare with similar items</a>
+          <div class="AH_card-link mt-1">
+            New (10) from
+            <span class="price" style="font-size: 14px">$27.88</span>
+          </div>
+        </div>
+        <hr />
+        <!--Similar item to consider -->
+        <div>
+          <h5 class="font-weight-bold">Similar item to consider</h5>
+          <div class="row">
+            <div class="col-3">
+              <img
+                alt=""
+                style="width: 100px; height: 100px"
+                src="https://m.media-amazon.com/images/I/615JGNZIEPL._SS100_.jpg"
+                id="value-pick-image"
+              />
+            </div>
+            <div class="col-9 ps-0">
+              <h6 class="word-break AH_card-link">
+                FIODIO Wired Gaming Mouse, 4 RGB LED Backlight Modes Computer
+                Gaming Mice, Comfortable Ergonomic Optical PC Laptop Gamer Mouse
+                for Windows 7/8.1/10
+              </h6>
+              <div class="price" style="font-size: 14px">${{ discount }}</div>
+              <i class="fas fa-star fa-sm"></i>
+              <i class="fas fa-star fa-sm"></i>
+              <i class="fas fa-star fa-sm"></i>
+              <i class="fas fa-star fa-sm"></i>
+              <i class="far fa-star fa-sm"></i>
+              <a class="AH_card-link"> (67) </a>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="col-md-3"></div>
+    </div>
+    <div class="col-md-2 card p-3">
+      <div class="price">${{ price - discount | number }}</div>
+      <div class="word-break text-secondary mb-3" style="font-weight: 500">
+        + ${{ shippingFees }} Shipping & Import Fees Deposit to
+        {{ DeliverTo }}
+      </div>
+
+      <!-- estimated Arrive time  -->
+      <div class="mb-4">
+        Arrives: <span class="font-weight-bold">Feb 11 -March 8</span>
+      </div>
+
+      <h5 class="word-break" style="color: #a53d01">
+        Only 1 left in stock - order soon.
+      </h5>
     </div>
   </div>
 </div>

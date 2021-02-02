@@ -44,3 +44,19 @@ i {
   font-family: Arial, sans-serif;
   font-size: 14px !important;
 }
+.price {
+  font-size: 18px;
+  color: #a53d01;
+  font-weight: 600;
+}
+.tab {
+  text-indent: 40px;
+}
+.text-secondary {
+  color: #565959 !important ;
+  font-weight: 400;
+}
+
+.font-weight-bold {
+  font-weight: bold;
+}
