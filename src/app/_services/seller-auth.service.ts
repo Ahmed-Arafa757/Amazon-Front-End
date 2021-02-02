@@ -11,12 +11,12 @@ export class SellerAuthService {
   register(seller:Seller){
     console.log(seller);
      return seller;
-    // return this.httpClient.post(`${this.baseUrl}user/register`,seller)
+    // return this.httpClient.post(`${this.baseUrl}seller/register`,seller)
   }
   login(seller:Seller){
     console.log(seller);
     return {email:seller.email,password:seller.password} 
-    // return this.httpClient.post(`${this.baseUrl}user/login`,{email:seller.email,password:seller.password})
+    // return this.httpClient.post(`${this.baseUrl}seller/login`,{email:seller.email,password:seller.password})
   }
 //   checkPassword(seller:Seller):Boolean{
      
