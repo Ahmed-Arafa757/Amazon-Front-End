@@ -1,4 +1,4 @@
-import { Location } from './location';
+import { Address } from './address';
 
 export interface Users {
   _id: string;
@@ -10,12 +10,5 @@ export interface Users {
   phone: string;
   img: string;
   dateOfRegister: string;
-  address: {
-    postalCode: number;
-    street: string;
-    state: string;
-    city: string;
-    country: string;
-    geoMap: Location;
-  };
+  address: Address[];
 }

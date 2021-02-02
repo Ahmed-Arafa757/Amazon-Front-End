@@ -27,6 +27,10 @@ import { FormsModule } from '@angular/forms';
 import { ReviewsService } from './_services/reviews.service';
 import { CheckoutComponent } from './additional/checkout/checkout.component';
 import { PaymentMethodsService } from './_services/payment-methods.service';
+import { SellerLoginComponent } from './seller/seller-login/seller-login.component';
+import { SellerHomeComponent } from './seller/seller-home/seller-home.component';
+import { SellerAddComponent } from './seller/seller-add/seller-add.component';
+import { SellerRegisterComponent } from './seller/seller-register/seller-register.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +55,10 @@ import { PaymentMethodsService } from './_services/payment-methods.service';
     DepartmentsComponent,
     SearchResultsComponent,
     ErrorNotFoundComponent,
+    SellerLoginComponent,
+    SellerHomeComponent,
+    SellerAddComponent,
+    SellerRegisterComponent,
   ],
   imports: [BrowserModule, NgbModule, FormsModule, CustomAppRoutingModule],
   providers: [ReviewsService, PaymentMethodsService],
