@@ -1,8 +1,6 @@
 import { Address } from './address';
 
 
-import { Location } from "./location"
-
 export interface Users{
     _id: string;
     userID:string;
