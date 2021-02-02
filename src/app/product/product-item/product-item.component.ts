@@ -6,7 +6,7 @@ import { AdvertisementService } from 'src/app/_services/advertisements.service';
 @Component({
   selector: 'app-product-item',
   templateUrl: './product-item.component.html',
-  styleUrls: ['./product-item.component.css']
+  styleUrls: ['./product-item.component.scss']
 })
 export class ProductItemComponent implements OnInit {
 
