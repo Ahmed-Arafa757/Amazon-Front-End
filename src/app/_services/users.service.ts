@@ -407,10 +407,6 @@ export class UsersService {
     return this.users.find((p) => p._id === id);
   }
 
-  getUserById(id: string): Users {
-    return this.users.find((p) => p.userID === id);
-  }
-
   addUser(user: Users) {
     const newUser: Users = {
       _id: user._id,

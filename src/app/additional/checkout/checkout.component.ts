@@ -31,17 +31,6 @@ export class CheckoutComponent implements OnInit {
     );
   }
 
-  ngOnChanges() {
-    // if (this.addPaymentMethod.paymentMethod === 'Paypal'  || this.addPaymentMethod.paymentMethod==="Cash on Delivery") {
-    //   this.addPaymentMethod.cardOwnerName = null;
-    //   this.addPaymentMethod.cardEndingNum = null;
-    //   this.addPaymentMethod.cardExpires = null;
-    // }
-    // if (this.addPaymentMethod.paymentMethod === 'Debit Card'  || this.addPaymentMethod.paymentMethod==="Credit Card") {
-    //   this.addPaymentMethod.paypalAccountName = null;
-    // }
-  }
-
   onAddPaymentMethod() {
     if (
       this.addPaymentMethod.paymentMethod === 'Paypal' ||
