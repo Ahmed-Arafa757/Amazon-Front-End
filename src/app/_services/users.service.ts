@@ -29,6 +29,7 @@ export class UsersService {
           longitude: 177.65516,
         },
       },
+
       dateOfRegister: 'Friday, September 27, 2019 2:00 PM',
     },
     {
@@ -54,6 +55,7 @@ export class UsersService {
           longitude: -115.269477,
         },
       },
+
       dateOfRegister: 'Monday, September 28, 2020 3:36 PM',
     },
     {
@@ -79,6 +81,7 @@ export class UsersService {
           longitude: 82.572566,
         },
       },
+
       dateOfRegister: 'Sunday, February 24, 2019 10:17 PM',
     },
     {
@@ -104,6 +107,7 @@ export class UsersService {
           longitude: 76.26505,
         },
       },
+
       dateOfRegister: 'Thursday, December 19, 2019 8:21 AM',
     },
     {
@@ -129,6 +133,7 @@ export class UsersService {
           longitude: -42.342339,
         },
       },
+
       dateOfRegister: 'Monday, February 11, 2019 6:22 PM',
     },
     {
@@ -154,6 +159,7 @@ export class UsersService {
           longitude: -162.47567,
         },
       },
+
       dateOfRegister: 'Monday, April 23, 2018 6:42 AM',
     },
     {
@@ -179,6 +185,7 @@ export class UsersService {
           longitude: 40.610158,
         },
       },
+
       dateOfRegister: 'Friday, February 15, 2019 3:20 AM',
     },
     {
@@ -204,6 +211,7 @@ export class UsersService {
           longitude: -146.021172,
         },
       },
+
       dateOfRegister: 'Saturday, October 26, 2019 6:35 PM',
     },
     {
@@ -229,6 +237,7 @@ export class UsersService {
           longitude: 72.969785,
         },
       },
+
       dateOfRegister: 'Sunday, November 19, 2017 6:06 PM',
     },
     {
@@ -254,6 +263,7 @@ export class UsersService {
           longitude: 18.490644,
         },
       },
+
       dateOfRegister: 'Wednesday, November 8, 2017 12:34 PM',
     },
     {
@@ -279,6 +289,7 @@ export class UsersService {
           longitude: 49.027143,
         },
       },
+
       dateOfRegister: 'Tuesday, March 31, 2020 3:56 AM',
     },
     {
@@ -304,6 +315,7 @@ export class UsersService {
           longitude: -93.244229,
         },
       },
+
       dateOfRegister: 'Monday, April 1, 2019 1:17 AM',
     },
     {
@@ -329,6 +341,7 @@ export class UsersService {
           longitude: -149.728456,
         },
       },
+
       dateOfRegister: 'Saturday, December 15, 2018 8:51 AM',
     },
     {
@@ -354,6 +367,7 @@ export class UsersService {
           longitude: -49.995738,
         },
       },
+
       dateOfRegister: 'Sunday, May 31, 2020 4:59 AM',
     },
     {
@@ -379,6 +393,7 @@ export class UsersService {
           longitude: 170.49256,
         },
       },
+
       dateOfRegister: 'Monday, April 20, 2020 5:30 AM',
     },
   ];
@@ -392,6 +407,10 @@ export class UsersService {
     return this.users.find((p) => p._id === id);
   }
 
+  getUserById(id: string): Users {
+    return this.users.find((p) => p.userID === id);
+  }
+
   addUser(user: Users) {
     const newUser: Users = {
       _id: user._id,
@@ -403,14 +422,7 @@ export class UsersService {
       phone: user.phone,
       img: user.img,
       dateOfRegister: user.dateOfRegister,
-      address: {
-        postalCode: user.address.postalCode,
-        street: user.address.street,
-        state: user.address.state,
-        city: user.address.city,
-        country: user.address.country,
-        geoMap: user.address.geoMap,
-      },
+      address: user.address,
     };
     this.users.push(newUser);
     console.log(this.users);
@@ -428,14 +440,7 @@ export class UsersService {
       phone: user.phone,
       img: user.img,
       dateOfRegister: user.dateOfRegister,
-      address: {
-        postalCode: user.address.postalCode,
-        street: user.address.street,
-        state: user.address.state,
-        city: user.address.city,
-        country: user.address.country,
-        geoMap: user.address.geoMap,
-      },
+      address: user.address,
     };
   }
 

@@ -25,6 +25,8 @@ import { ErrorNotFoundComponent } from './error/error-not-found/error-not-found.
 import { CustomAppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { ReviewsService } from './_services/reviews.service';
+import { CheckoutComponent } from './additional/checkout/checkout.component';
+import { PaymentMethodsService } from './_services/payment-methods.service';
 
 @NgModule({
   declarations: [
@@ -43,6 +45,7 @@ import { ReviewsService } from './_services/reviews.service';
     DiscoverAmazonComponent,
     CustomerServiceComponent,
     CartComponent,
+    CheckoutComponent,
     HomeComponent,
     TopSellersComponent,
     DepartmentsComponent,
@@ -50,7 +53,7 @@ import { ReviewsService } from './_services/reviews.service';
     ErrorNotFoundComponent,
   ],
   imports: [BrowserModule, NgbModule, FormsModule, CustomAppRoutingModule],
-  providers: [ReviewsService],
+  providers: [ReviewsService, PaymentMethodsService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

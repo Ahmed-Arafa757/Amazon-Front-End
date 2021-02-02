@@ -11,7 +11,7 @@ export class PaymentMethodsService {
       cardOwnerName: 'Marcia Kub',
       currentCurrency: 'GBP',
       convertedCurrency: 'CAD',
-      userID: 'qxgk_4695_9606',
+      userID: 'nan2_7127_5562',
     },
 
     {
@@ -211,8 +211,15 @@ export class PaymentMethodsService {
     return this.paymentMethods.slice();
   }
 
-  getPaymentMethodById(id: number): PaymentMethod {
-    return this.paymentMethods.find((p) => p.id === id);
+  getPaymentMethodByUserId(id: string): PaymentMethod[] {
+    let userPaymentMethods: PaymentMethod[] = [];
+    for (let index = 0; index < this.paymentMethods.length; index++) {
+      if (this.paymentMethods[index].userID === id) {
+        userPaymentMethods.push(this.paymentMethods[index]);
+      }
+    }
+    // return this.paymentMethods.find((p) => p.userID === id);
+    return userPaymentMethods;
   }
 
   addPaymentMethod(paymentMethod: PaymentMethod) {
