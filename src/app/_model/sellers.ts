@@ -1,11 +1,12 @@
-import { Location } from './location';
+import { Address } from './address';
+
 
 export interface Seller{
     _id?: string;
     sellerName?: string;
     sellerId?: string;
     category?: string;
-    location?: Location;
+    address?: Address;
     logo?: string;
     shortDesc?: string;
     websiteURL?: string; 
