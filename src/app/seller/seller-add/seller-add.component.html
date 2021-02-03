@@ -1,1 +1,36 @@
-<p>seller-add works!</p>
+<div class="container">
+    <img class="m-4" src="../../../assets/images/logo/Amazon_Services.png" alt="">
+    <hr>
+    <form action="" #addform='ngForm'>
+    <div class="row position-relative m-3">
+        <div class="col-6 row">
+            <div class="imgActions col col-12 m-2">
+                <!-- <div class="uploadImg">
+                    <i class="fas fa-upload"></i> Upload Photo
+                </div> -->
+                <input #img (change)='addImg($event)' type="file" name="img" id="img" class="uploadImg" data-multiple-caption="{count} files selected" multiple />
+            </div>
+            <div class="col col-12 m-2">
+                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                    <div id="imgPresent" class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img id="0" src="../../../assets/images/test/featured-image-placeholder.jpg" class="d-block w-100" alt="...">
+                      </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
+                        <i class="fas fa-chevron-left"></i>
+                      <span class="visually-hidden">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
+                        <i class="fas fa-chevron-right"></i>
+                      <span class="visually-hidden">Next</span>
+                    </a>
+                  </div>
+            </div>
+        </div>
+        <div class="col col-6">
+            
+        </div>
+    </div>
+</form>
+</div>

@@ -14,6 +14,7 @@ import { ErrorNotFoundComponent } from './error/error-not-found/error-not-found.
 import { ProductAddComponent } from './product/product-add/product-add.component';
 import { ProductDetailsComponent } from './product/product-details/product-details.component';
 import { ProductListingComponent } from './product/product-listing/product-listing.component';
+import { SellerAddComponent } from './seller/seller-add/seller-add.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -32,6 +33,8 @@ const routes: Routes = [
   { path: 'product/add', component: ProductAddComponent },
   { path: 'product/edit/:id', component: ProductAddComponent },
   { path: 'product/details/:id', component: ProductDetailsComponent },
+  // Seller
+  { path: 'seller/add', component: SellerAddComponent },
   { path: '**', component: ErrorNotFoundComponent },
 ];
 
