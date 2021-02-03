@@ -11,11 +11,16 @@
     box-shadow: 0px 0px 5px black;
     cursor: pointer;
 }
-/* .carousel-control-prev , .carousel-control-next
+.fa-chevron-right , .fa-chevron-left
 {
+    cursor: pointer;
     color: black;
-    font-size: 30px;
-    font-weight: 900;
-    pointer-events: none;
+    font-size: 40px;
+    opacity: 1;   
 }
- */
+.carousel-control-next , .carousel-control-prev
+{
+    text-decoration: none;
+    position: absolute;
+    top: 25%;
+}
