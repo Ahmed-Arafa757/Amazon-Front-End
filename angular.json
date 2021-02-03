@@ -22,11 +22,9 @@
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "src/styles.css"
+              "./src/styles.scss"
             ],
-            "scripts": [
-              "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
-            ]
+            "scripts": ["./node_modules/bootstrap/dist/js/bootstrap.min.js"]
           },
           "configurations": {
             "production": {
@@ -117,6 +115,7 @@
   "schematics": {
     "@schematics/angular:component": {
       "styleext": "scss"
-    }
+    },
+    "cli": { "analytics": false }
   }
 }

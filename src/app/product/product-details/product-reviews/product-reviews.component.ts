@@ -5,7 +5,7 @@ import { ReviewsService } from 'src/app/_services/reviews.service';
 @Component({
   selector: 'app-product-reviews',
   templateUrl: './product-reviews.component.html',
-  styleUrls: ['./product-reviews.component.css'],
+  styleUrls: ['./product-reviews.component.scss'],
 })
 export class ProductReviewsComponent implements OnInit {
   reviews: Review[];

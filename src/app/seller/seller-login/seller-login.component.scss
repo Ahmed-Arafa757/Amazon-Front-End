@@ -1,0 +1,45 @@
+$color-primary:#FF9900;
+
+.login
+{
+    width: 60%;
+    margin:0 auto;
+    margin-top: 10vh;
+    border:4px solid $color-primary;
+    border-top: 6px solid $color-primary;
+    border-radius: 1rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+
+    &__header
+    {
+        margin-bottom: 2rem;
+    }
+
+    &__Password
+    {
+        position: relative;
+    }
+
+    &__forget-password
+    {
+        position: absolute;
+        right: 0;
+        top :0;
+    }
+
+    &__register-now
+    {
+        color:#000000;
+        font-size: 1.3rem;
+        font-weight: 700;
+        align-self: flex-end;
+        text-decoration: none;
+        padding-top: 1rem;
+        &:hover{
+            color:$color-primary;
+            cursor: pointer;
+        }
+    }
+}
