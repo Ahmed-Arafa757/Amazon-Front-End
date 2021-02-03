@@ -460,16 +460,7 @@ export class UsersService {
       phone: user.phone,
       img: user.img,
       dateOfRegister: user.dateOfRegister,
-      address: [
-        {
-          postalCode: user.address[0].postalCode,
-          street: user.address[0].street,
-          state: user.address[0].state,
-          city: user.address[0].city,
-          country: user.address[0].country,
-          geoMap: user.address[0].geoMap,
-        },
-      ],
+      address: user.address,
     };
   }
 

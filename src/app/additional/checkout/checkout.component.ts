@@ -1,4 +1,5 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
+import { Address } from 'src/app/_model/address';
 import { PaymentMethod } from 'src/app/_model/payment-methods';
 import { Users } from 'src/app/_model/users';
 import { PaymentMethodsService } from 'src/app/_services/payment-methods.service';
@@ -12,8 +13,10 @@ import { UsersService } from 'src/app/_services/users.service';
 export class CheckoutComponent implements OnInit {
   user: Users;
 
-  paymentMethods: PaymentMethod[] = [];
+  addresses: Address[] = [];
+  addNewUserAddress: Address = {};
 
+  paymentMethods: PaymentMethod[] = [];
   addPaymentMethod: PaymentMethod = {
     userID: 'nan2_7127_5562',
   };
@@ -24,11 +27,28 @@ export class CheckoutComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.user = this.usersService.getUserById('wzpd_8443_8036');
+    this.user = this.usersService.getUserById('5ff8c51fa4c6cf417005fd5e');
+    this.addresses = this.user.address.slice();
 
     this.paymentMethods = this.paymentMethodService.getPaymentMethodByUserId(
       'nan2_7127_5562'
     );
+  }
+
+  onAddUserAddress() {
+    let newAddress = Object.assign({}, this.addNewUserAddress);
+    this.addresses.push(newAddress);
+    this.user.address = this.addresses.slice();
+
+    this.usersService.updateUser(this.user);
+    this.user = this.usersService.getUserById('5ff8c51fa4c6cf417005fd5e');
+
+    this.addresses = this.user.address.slice();
+
+    this.addNewUserAddress.country = null;
+    this.addNewUserAddress.city = null;
+    this.addNewUserAddress.state = null;
+    this.addNewUserAddress.street = null;
   }
 
   onAddPaymentMethod() {
@@ -54,9 +74,5 @@ export class CheckoutComponent implements OnInit {
     this.paymentMethods = this.paymentMethodService.getPaymentMethodByUserId(
       'nan2_7127_5562'
     );
-
-    // this.addReview.fullReview = '';
-    // this.addReview.reviewSummary = '';
-    // this.hasBeenSubmitted = true;
   }
 }

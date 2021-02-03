@@ -8,29 +8,63 @@
           <div class="row ">
             <div class="col-12">
               <span class="fw-bold">1 Shipping address</span>
-
+              <form #addressForm="ngForm" class="row g-3 mt-1">
+                <div class="w-50">
+                  <label for="" class="form-label">Country:</label>
+                  <input required #txtInputCountry="ngModel" [(ngModel)]="addNewUserAddress.country" type="text"
+                    class="form-control" name="country" id="country">
+                </div>
+                <div class="w-50">
+                  <label for="" class="form-label">City:</label>
+                  <input required #txtInputCity="ngModel" [(ngModel)]="addNewUserAddress.city" type="text"
+                    class="form-control" name="city" id="city">
+                </div>
+                <div class="w-50">
+                  <label for="" class="form-label">State:</label>
+                  <input #txtInputState="ngModel" [(ngModel)]="addNewUserAddress.state" type="text" class="form-control"
+                    name="state" id="state">
+                </div>
+                <div class="col-12">
+                  <label for="" class="form-label">Street:</label>
+                  <input required #txtInputStreet="ngModel" [(ngModel)]="addNewUserAddress.street" type="text"
+                    class="form-control" name="street" id="street">
+                </div>
+                <div class="MM_subTotal">
+                  <span class="me-2">Save Address?</span>
+                  <button style="vertical-align:baseline" (click)="onAddUserAddress()" type="submit"
+                    class="btn bg-gradient p-1 px-3 mb-3" [disabled]="addressForm.invalid">Yes</button>
+                </div>
+              </form>
+              <p class="fw-bold mt-3">Saved Addresses:</p>
+              <div class="media border p-3 mb-3" *ngFor="let address of addresses">
+                <div class="media-body">
+                  <div><span class="fw-bold" style="font-size: 0.8rem;">Country:</span> {{address.country}}</div>
+                  <div><span class="fw-bold" style="font-size: 0.8rem;">City:</span> {{address.city}}</div>
+                  <div *ngIf="address.state"><span class="fw-bold" style="font-size: 0.8rem;">State:</span>
+                    {{address.state}}</div>
+                  <div><span class="fw-bold" style="font-size: 0.8rem;">Street:</span> {{address.street}}</div>
+                </div>
+              </div>
               <hr>
             </div>
 
             <div class="col-12">
               <span class="fw-bold">2 Payment method</span>
-              <form #addressForm="ngForm" class="row g-3 mt-1">
+              <form #paymentForm="ngForm" class="row g-3 mt-1">
                 <div class="col-12">
-
-
-                  <span>
-                    <label for="exampleFormControlInput1" class="form-label ">Select PaymentMethod:</label>
-                    <select [(ngModel)]="addPaymentMethod.paymentMethod" class="form-select w-25"
+                  <div>
+                    <label for="exampleFormControlInput1" class="form-label ">Select Payment Method:</label>
+                    <select [(ngModel)]="addPaymentMethod.paymentMethod" class="form-select w-50"
                       aria-label="Default select example" name="ddl" id="">
                       <option value="Paypal">Paypal</option>
                       <option value="Debit Card">Debit Card</option>
                       <option value="Credit Card">Credit Card</option>
                       <option value="Cash on Delivery">Cash on Delivery</option>
                     </select>
-                  </span>
-                  <span
+                  </div>
+                  <div
                     *ngIf="addPaymentMethod.paymentMethod!=='Paypal' && addPaymentMethod.paymentMethod!=='Cash on Delivery'">
-                    <div class="w-25">
+                    <div class="w-50">
                       <label for="" class="form-label">Select Card Company:</label>
                       <select [(ngModel)]="addPaymentMethod.cardCompany" class="form-select"
                         aria-label="Default select example" name="cardcompany" id="cardcompany">
@@ -40,27 +74,27 @@
                       </select>
                     </div>
 
-                    <div class="w-25">
+                    <div class="w-50">
                       <label for="" class="form-label">Card Owner Name:</label>
                       <input required #txtInputCardOwner="ngModel" [(ngModel)]="addPaymentMethod.cardOwnerName"
                         type="text" class="form-control" name="cardowner" id="cardowner">
                     </div>
 
-                    <div class="w-25">
+                    <div class="w-50">
                       <label for="" class="form-label">Card Ending Number:</label>
                       <input required #txtInputCardEndingNum="ngModel" [(ngModel)]="addPaymentMethod.cardEndingNum"
                         type="text" class="form-control" name="cardendingnum" id="cardendingnum">
                     </div>
 
-                    <div class="w-25">
+                    <div class="w-50">
                       <label for="" class="form-label">Card Expiration Date (MM/YYYY):</label>
                       <input required #txtInputCardExpire="ngModel" [(ngModel)]="addPaymentMethod.cardExpires"
                         type="text" class="form-control" name="cardexpire" id="cardexpire">
                     </div>
-                  </span>
+                  </div>
 
                   <div *ngIf="addPaymentMethod.paymentMethod==='Paypal'">
-                    <div class="w-25">
+                    <div class="w-50">
                       <label for="" class="form-label">Paypal Account Name:</label>
                       <input required #txtInputPaypalAccount="ngModel" [(ngModel)]="addPaymentMethod.paypalAccountName"
                         type="text" class="form-control" name="paypalaccount" id="paypalaccount">
@@ -71,11 +105,13 @@
                 </div>
 
 
-                <div *ngIf="addPaymentMethod.paymentMethod!=='Cash on Delivery'" class="col-12">
+                <div *ngIf="addPaymentMethod.paymentMethod!=='Cash on Delivery'" class="MM_subTotal">
                   <span class="me-2">Save Payment Method?</span>
                   <button style="vertical-align:baseline" (click)="onAddPaymentMethod()" type="submit"
-                    class="btn btn-secondary mb-3" [disabled]="addressForm.invalid">Yes</button>
+                    class="btn bg-gradient p-1 px-3 mb-3" [disabled]="paymentForm.invalid">Yes</button>
                 </div>
+
+
               </form>
               <p class="fw-bold">Saved PaymentMethods:</p>
               <div class="media border p-3 mb-3" *ngFor="let paymentMethod of paymentMethods">
