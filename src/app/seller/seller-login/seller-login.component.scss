@@ -44,6 +44,15 @@ $color-primary:#FF9900;
     }
 }
 
+.btn{
+    padding: 4px 16px;
+    margin: 25px 10px;
+   color: white;
+   background-color:$color-primary !important;
+   border: whitesmoke;
+}
+
+
 .btn-primary{
     font-weight: 700;
     text-shadow: 1px 1px 1px #666;
@@ -72,3 +81,4 @@ $color-primary:#FF9900;
     .form-group{
       padding: 5px;
     }
+
