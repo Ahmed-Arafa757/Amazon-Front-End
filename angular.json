@@ -20,6 +20,7 @@
             "tsConfig": "tsconfig.app.json",
             "aot": true,
             "assets": ["src/favicon.ico", "src/assets"],
+
             "styles": [
               "./node_modules/bootstrap/scss/bootstrap.scss",
               "./src/styles.scss"
@@ -114,10 +115,7 @@
     }
   },
   "defaultProject": "our-app",
-  "schematics": {
-    "@schematics/angular:component": {
-      "styleext": "scss"
-    },
-    "cli": { "analytics": false }
+  "cli": {
+    "analytics": false
   }
 }
