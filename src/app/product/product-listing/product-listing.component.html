@@ -23,7 +23,7 @@
             <div class="card-body">
               <span id="AA_1-12">
                 1-12 of over 2,000 results for
-                <span id="AA_exploreBest"> Explore Best Sellers </span> 
+                <span id="AA_exploreBest"> Explore Best Sellers </span>
 
               </span>
             </div>
@@ -35,14 +35,8 @@
 
 
       <div class="row">
-        <app-product-item class="col-md-4" ></app-product-item>
-        <app-product-item class="col-md-4"></app-product-item>
-        <app-product-item class="col-md-4"></app-product-item>
-        <app-product-item class="col-md-4"></app-product-item>
-        <app-product-item class="col-md-4"></app-product-item>
-
-
-
+        <app-product-item *ngFor="let item of getSlicedArrOfProducts()" [product]="item" class="col-md-4">
+        </app-product-item>
       </div>
 
 
@@ -51,12 +45,35 @@
       <div class="row">
         <div class="col-12">
 
-          <div class="d-grid gap-2" id="AA_SeeResultsBtn">
+          <!-- <div class="d-grid gap-2" id="AA_SeeResultsBtn">
             <button class="btn btn-outline-light" type="button">
               <span class="AA_SeeResults">See all results</span>
             </button>
 
-          </div>
+          </div> -->
+
+
+          <nav aria-label="...">
+            <ul class="pagination justify-content-center">
+
+              <li class="page-link bg-gradien " (click)="currentPage===0?currentPage:currentPage=currentPage-1"
+                style="cursor: pointer;">
+                <i class="fas fa-long-arrow-alt-left"></i> Previous
+              </li>
+
+              <li *ngFor="let page of numOfPages; let i = index" class="page-link bg-gradient" (click)="currentPage = i"
+                [ngClass]="{ active: i == currentPage }" style="cursor: pointer;">
+                {{ page }}
+              </li>
+
+              <li class="page-link bg-gradien" (click)="currentPage>=lastPage-1?currentPage:currentPage=currentPage+1"
+                style="cursor: pointer;">
+                <i class="fas fa-long-arrow-alt-right"></i> Next
+              </li>
+
+            </ul>
+          </nav>
+
         </div>
       </div>
 
@@ -93,4 +110,3 @@
 
 
 </div>
-
