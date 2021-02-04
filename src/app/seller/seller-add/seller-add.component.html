@@ -5,7 +5,7 @@
     <div class="row position-relative m-3 ">
         <div class="col-6 p-1 row">
             <div class="imgActions col col-12 m-2">
-                <input (change)='addImg($event)' type="file" name="img" id="img" style="display: none;" accept=".png, .jpg, .jpeg"  />
+                <input (input)='addImg($event)' type="file" name="img" id="img" style="display: none;" accept=".png, .jpg, .jpeg"  />
                 <div><button class="uploadImg m-2 p-2" onclick="document.getElementById('img').click();" > <i class="fas fa-upload"></i> Upload Photo</button>
                   </div>
 
