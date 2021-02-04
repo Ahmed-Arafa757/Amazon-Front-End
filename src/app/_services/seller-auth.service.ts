@@ -1,16 +1,15 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Seller } from '../_model/sellers';
 @Injectable({
   providedIn: 'root'
 })
 export class SellerAuthService {
 
-  constructor(private httpClient:HttpClient) { }
+  constructor() { }
 
   register(seller:Seller){
     console.log(seller);
-     return seller;
+    
     // return this.httpClient.post(`${this.baseUrl}seller/register`,seller)
   }
   login(seller:Seller){
