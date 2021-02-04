@@ -11,6 +11,7 @@ import { ProductListingComponent } from './product/product-listing/product-listi
 import { ProductItemComponent } from './product/product-item/product-item.component';
 import { ProductAddComponent } from './product/product-add/product-add.component';
 import { ProductDetailsComponent } from './product/product-details/product-details.component';
+import { ProductReviewsComponent } from './product/product-details/product-reviews/product-reviews.component';
 import { SliderComponent } from './shared/slider/slider.component';
 import { SideNavComponent } from './shared/side-nav/side-nav.component';
 import { DiscoverAmazonComponent } from './additional/discover-amazon/discover-amazon.component';
@@ -23,6 +24,17 @@ import { SearchResultsComponent } from './additional/search-results/search-resul
 import { ErrorNotFoundComponent } from './error/error-not-found/error-not-found.component';
 import { CustomAppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
+import { ReviewsService } from './_services/reviews.service';
+
+import { ProductInfoComponent } from './product/product-details/product-info/product-info.component';
+
+import { CheckoutComponent } from './additional/checkout/checkout.component';
+import { PaymentMethodsService } from './_services/payment-methods.service';
+
+import { SellerLoginComponent } from './seller/seller-login/seller-login.component';
+import { SellerHomeComponent } from './seller/seller-home/seller-home.component';
+import { SellerAddComponent } from './seller/seller-add/seller-add.component';
+import { SellerRegisterComponent } from './seller/seller-register/seller-register.component';
 
 @NgModule({
   declarations: [
@@ -35,24 +47,26 @@ import { FormsModule } from '@angular/forms';
     ProductItemComponent,
     ProductAddComponent,
     ProductDetailsComponent,
+    ProductReviewsComponent,
     SliderComponent,
     SideNavComponent,
     DiscoverAmazonComponent,
     CustomerServiceComponent,
     CartComponent,
+    CheckoutComponent,
     HomeComponent,
     TopSellersComponent,
     DepartmentsComponent,
     SearchResultsComponent,
-    ErrorNotFoundComponent
+    ErrorNotFoundComponent,
+    ProductInfoComponent,
+    SellerLoginComponent,
+    SellerHomeComponent,
+    SellerAddComponent,
+    SellerRegisterComponent,
   ],
-  imports: [
-    BrowserModule,
-    NgbModule,
-    FormsModule,
-    CustomAppRoutingModule,
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+  imports: [BrowserModule, NgbModule, FormsModule, CustomAppRoutingModule],
+  providers: [ReviewsService, PaymentMethodsService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
