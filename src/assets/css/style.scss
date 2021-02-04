@@ -1,7 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: border-box; 
 }
 
 .container {
@@ -28,7 +28,7 @@ body {
 }
 
 #AH_Sidenav {
-  background-color: white;
+  background-color: white; 
   position: absolute;
   width: 30%;
   top: 68px;
@@ -45,75 +45,93 @@ body {
 .AH_icon-img {
   width: 20px;
 }
-#AA_sideNavCol {
-  #AA_sideNavTop {
-    border-right: 2px solid rgb(194, 192, 192);
-    font-size: 12px;
+ #AA_sideNavCol {
 
-    li {
-      margin-left: 3%;
+ 
+   #AA_sideNavTop {
+      
+     border-right: 2px solid rgb(194, 192, 192);
+     font-size: 12px;
+    
+     li {
+       
+       margin-left: 3%;
 
-      &:hover {
-        color: orangered;
-        cursor: pointer;
-      }
-    }
+       &:hover {
+         color: orangered;
+         cursor: pointer;
+       }
 
-    .AA_departments {
-      font-size: calc(0.63rem + 0.1vw);
-      font-weight: bold;
-      margin-left: 1%;
-    }
-  }
+     }
 
-  #AA_sideNavBottom {
-    font-size: 13px;
+     .AA_departments {
+       font-size: calc(0.63rem + 0.1vw);
+       font-weight: bold;
+       margin-left: 1%;
 
-    li {
-      margin-left: 3%;
-      margin-bottom: 1%;
 
-      &:hover {
-        color: orangered;
-        cursor: pointer;
-      }
-    }
+     }
+   }
 
-    .AA_department {
-      font-size: calc(0.7rem + 0.09vw);
-      font-weight: bold;
-      margin-left: 1%;
-    }
+   #AA_sideNavBottom {
+     font-size: 13px;
 
-    #AA_explore {
-      font-size: calc(0.7rem + 0.1vw);
-      font-weight: bold;
-      margin-left: 3%;
-    }
-  }
+     li {
+       margin-left: 3%;
+       margin-bottom: 1%;
 
-  #AA_checkBoxList {
-    font-size: calc(0.7rem + 0.1vw);
+       &:hover {
+         color: orangered;
+         cursor: pointer;
+       }
 
-    #AA_eligible {
-      font-size: calc(0.65rem + 0.1vw);
-      font-weight: bold;
+     }
 
-      border: none;
-    }
+     .AA_department {
+       font-size: calc(0.7rem + 0.09vw);
+       font-weight: bold;
+       margin-left: 1%;
 
-    #AA_checkIcon {
-      color: rgb(245, 184, 18);
-      font-size: calc(1rem + 0.1vw);
-    }
+     }
 
-    #AA_prime {
-      color: rgb(42, 157, 202);
-      font-size: calc(1rem + 0.1vw);
-      font-weight: bold;
-    }
-  }
-}
+     #AA_explore {
+       font-size: calc(0.7rem + 0.1vw);
+       font-weight: bold;
+       margin-left: 3%;
+
+
+     }
+   }
+
+
+   #AA_checkBoxList {
+     font-size: calc(0.7rem + 0.1vw);
+
+
+
+     #AA_eligible {
+       font-size: calc(0.65rem + 0.1vw);
+       font-weight: bold;
+
+       border: none;
+
+     }
+
+     #AA_checkIcon {
+       color: rgb(245, 184, 18);
+       font-size: calc(1rem + 0.1vw);
+
+
+     }
+
+     #AA_prime {
+       color: rgb(42, 157, 202);
+       font-size: calc(1rem + 0.1vw);
+       font-weight: bold;
+
+     }
+   }
+ }
 
 #AH_sidenav-head {
   transition: left 1s;
@@ -273,7 +291,7 @@ body {
   display: inline;
   padding: 5px 25px;
   font-size: 14px;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.9); 
 }
 
 /* Arafa */
@@ -417,11 +435,11 @@ body {
 .navFooter {
   background-color: #131a22;
 
-  #grid-container {
+  #grid-container{
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-    grid-template-rows: auto auto auto auto auto;
-    gap: 1em 1em;
+          grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+          grid-template-rows: auto auto auto auto auto;
+          gap: 1em 1em;
   }
 
   a {
@@ -441,6 +459,8 @@ body {
       padding: 0px;
     }
   }
+
+  
 }
 
 #copyrights {
@@ -469,7 +489,7 @@ body {
     max-width: 200px;
     max-height: 330px;
     vertical-align: middle;
-  }
+}
   &:active {
     cursor: grabbing;
   }
@@ -515,12 +535,11 @@ body {
 // Main button color
 @mixin mainBtnColor {
   button {
-    background: linear-gradient(to bottom, #f7dfa5, #f0c14b);
+    background-color: #ffd04f;
     border: 1px solid rgba(128, 128, 128, 0.397);
 
     &:hover {
       background-color: #f3c64a;
-      border: 1px solid rgba(128, 128, 128, 0.397);
     }
   }
 }
