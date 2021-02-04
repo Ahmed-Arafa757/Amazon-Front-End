@@ -3,7 +3,7 @@
     <div class="col-lg-4">
       <div class="card border-0">
         <div class="card-body">
-          <h5 class="card-title">Customer reviews </h5>
+          <h5 class="card-title">Customer reviews</h5>
           <div>
             <a href="#">
               <i class="fas fa-star"></i>
@@ -14,39 +14,111 @@
             </a>
             <span class="ms-1 fw-bold">4 out of 5</span>
           </div>
-          <p>{{reviews.length}} global ratings</p>
+          <p>{{ reviews.length }} global ratings</p>
           5 star
           <div class="progress mb-2">
-            <div class="progress-bar bg-warning" role="progressbar" style="width: 90%" aria-valuenow="90"
-              aria-valuemin="0" aria-valuemax="100"></div>
+            <div
+              class="progress-bar bg-warning"
+              role="progressbar"
+              style="width: 90%"
+              aria-valuenow="90"
+              aria-valuemin="0"
+              aria-valuemax="100"
+            ></div>
           </div>
           4 star
           <div class="progress mb-2">
-            <div class="progress-bar bg-warning" role="progressbar" style="width: 75%" aria-valuenow="75"
-              aria-valuemin="0" aria-valuemax="100"></div>
+            <div
+              class="progress-bar bg-warning"
+              role="progressbar"
+              style="width: 75%"
+              aria-valuenow="75"
+              aria-valuemin="0"
+              aria-valuemax="100"
+            ></div>
           </div>
           3 star
           <div class="progress mb-2">
-            <div class="progress-bar bg-warning" role="progressbar" style="width: 5%" aria-valuenow="5"
-              aria-valuemin="0" aria-valuemax="100"></div>
+            <div
+              class="progress-bar bg-warning"
+              role="progressbar"
+              style="width: 5%"
+              aria-valuenow="5"
+              aria-valuemin="0"
+              aria-valuemax="100"
+            ></div>
           </div>
           2 star
           <div class="progress mb-2">
-            <div class="progress-bar bg-warning" role="progressbar" style="width: 1%" aria-valuenow="1"
-              aria-valuemin="0" aria-valuemax="100"></div>
+            <div
+              class="progress-bar bg-warning"
+              role="progressbar"
+              style="width: 1%"
+              aria-valuenow="1"
+              aria-valuemin="0"
+              aria-valuemax="100"
+            ></div>
           </div>
           1 star
           <div class="progress mb-2">
-            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0"
-              aria-valuemax="100"></div>
+            <div
+              class="progress-bar bg-warning"
+              role="progressbar"
+              aria-valuenow="0"
+              aria-valuemin="0"
+              aria-valuemax="100"
+            ></div>
           </div>
-
         </div>
       </div>
     </div>
-    <div class="col-lg-8 ">
-      <h4 *ngIf="hasBeenSubmitted" class="mb-3">Thank you, Your review has been submitted!</h4>
+    <div class="col-lg-8">
+      <h4 *ngIf="hasBeenSubmitted" class="mb-3">
+        Thank you, Your review has been submitted!
+      </h4>
       <form #reviewForm="ngForm" class="row g-3">
+<<<<<<< HEAD
+        <div class="col-12">
+          <label for="exampleFormControlInput1" class="form-label"
+            >Write Summary</label
+          >
+          <input
+            required
+            #txtInputSummary="ngModel"
+            [(ngModel)]="addReview.reviewSummary"
+            type="text"
+            class="form-control"
+            name="summary"
+            id="summary"
+          />
+          <p
+            *ngIf="txtInputSummary.invalid && txtInputSummary.touched"
+            style="color: red"
+          >
+            This field is required
+          </p>
+        </div>
+
+        <div class="col-12">
+          <label for="exampleFormControlTextarea1" class="form-label"
+            >Write Review</label
+          >
+          <textarea
+            required
+            #txtInputReview="ngModel"
+            [(ngModel)]="addReview.fullReview"
+            class="form-control"
+            name="review"
+            id="review"
+            rows="3"
+          ></textarea>
+          <p
+            *ngIf="txtInputReview.invalid && txtInputReview.touched"
+            style="color: red"
+          >
+            This field is required
+          </p>
+=======
         <div class="col-12 ">
           <label for="exampleFormControlInput1" class="form-label">Write Summary:</label>
           <input required #txtInputSummary="ngModel" [(ngModel)]="addReview.reviewSummary" type="text"
@@ -59,43 +131,55 @@
           <textarea required #txtInputReview="ngModel" [(ngModel)]="addReview.fullReview" class="form-control"
             name="review" id="review" rows="3"></textarea>
           <p *ngIf="txtInputReview.invalid && txtInputReview.touched" style="color: red;">This field is required</p>
+>>>>>>> 834734c71d8bae7ad95939eb05dc855397de089e
         </div>
 
         <div class="col-12">
-          <label for="exampleFormControlInput1" class="form-label ">Choose Rate Between 0 & 5</label>
-          <select [(ngModel)]="addReview.reviewVote" class="form-control w-25" name="ddl" id="">
-            <option value=0>0</option>
-            <option value=1>1</option>
-            <option value=2>2</option>
-            <option value=3>3</option>
-            <option value=4>4</option>
-            <option value=5>5</option>
+          <label for="exampleFormControlInput1" class="form-label"
+            >Choose Rate Between 0 & 5</label
+          >
+          <select
+            [(ngModel)]="addReview.reviewVote"
+            class="form-control w-25"
+            name="ddl"
+            id=""
+          >
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
           </select>
         </div>
 
         <div class="col-12">
-          <button (click)="onSubmit()" type="submit" class="btn btn-secondary" [disabled]="reviewForm.invalid">Submit
-            Review</button>
+          <button
+            (click)="onSubmit()"
+            type="submit"
+            class="btn btn-secondary"
+            [disabled]="reviewForm.invalid"
+          >
+            Submit Review
+          </button>
         </div>
       </form>
 
-
-      <hr>
+      <hr />
 
       <h4 class="my-3">Latest reviews</h4>
 
-
       <div class="media border p-3 mb-3" *ngFor="let review of reviews">
-        <i class="far fa-user"></i> <span class="ms-2">{{review.reviewerName}}</span>
+        <i class="far fa-user"></i>
+        <span class="ms-2">{{ review.reviewerName }}</span>
         <div class="media-body">
           <i *ngFor="let star of review.stars" [class]="iconClass[star]"></i>
-          <span class="ms-2">{{review.reviewSummary}}</span>
-          <p> Reviewed on {{review.reviewTime}}</p>
-          <p>{{review.fullReview}}</p>
-          <p>{{review.helpful}} people found this helpful</p>
+          <span class="ms-2">{{ review.reviewSummary }}</span>
+          <p>Reviewed on {{ review.reviewTime }}</p>
+          <p>{{ review.fullReview }}</p>
+          <p>{{ review.helpful }} people found this helpful</p>
         </div>
       </div>
-
     </div>
   </div>
 </div>
