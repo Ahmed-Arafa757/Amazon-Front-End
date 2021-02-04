@@ -63,7 +63,7 @@
                     </select>
                   </div>
                   <div
-                    *ngIf="addPaymentMethod.paymentMethod!=='Paypal' && addPaymentMethod.paymentMethod!=='Cash on Delivery'">
+                    *ngIf="addPaymentMethod.paymentMethod==='Debit Card' || addPaymentMethod.paymentMethod==='Credit Card'">
                     <div class="w-50">
                       <label for="" class="form-label">Select Card Company:</label>
                       <select [(ngModel)]="addPaymentMethod.cardCompany" class="form-select"
@@ -105,15 +105,16 @@
                 </div>
 
 
-                <div *ngIf="addPaymentMethod.paymentMethod!=='Cash on Delivery'" class="MM_subTotal">
+                <div *ngIf="addPaymentMethod.paymentMethod && addPaymentMethod.paymentMethod!=='Cash on Delivery'"
+                  class="MM_subTotal">
                   <span class="me-2">Save Payment Method?</span>
                   <button style="vertical-align:baseline" (click)="onAddPaymentMethod()" type="submit"
-                    class="btn bg-gradient p-1 px-3 mb-3" [disabled]="paymentForm.invalid">Yes</button>
+                    class="btn bg-gradient p-1 px-3" [disabled]="paymentForm.invalid">Yes</button>
                 </div>
 
 
               </form>
-              <p class="fw-bold">Saved PaymentMethods:</p>
+              <p class="fw-bold mt-3">Saved Payment Methods:</p>
               <div class="media border p-3 mb-3" *ngFor="let paymentMethod of paymentMethods">
                 <div class="media-body">
                   <span>{{paymentMethod.cardCompany}} ({{paymentMethod.paymentMethod}})
