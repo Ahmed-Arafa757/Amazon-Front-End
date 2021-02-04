@@ -1,7 +1,8 @@
-import { SellersService } from './../../_services/sellers.service';
+
+import { SellerAuthService } from 'src/app/_services/seller-auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Seller } from 'src/app/_model/sellers';
-import { Form } from '@angular/forms';
+
 
 @Component({
   selector: 'app-seller-register',
@@ -10,27 +11,26 @@ import { Form } from '@angular/forms';
 })
 export class SellerRegisterComponent implements OnInit {
   seller:Seller
-  constructor(private sellersService:SellersService) { }
+  body:any={repeatedPassword:""}
+  constructor(private sellerAuthService:SellerAuthService) { }
 
   ngOnInit(): void {
   }
-  onSubmit(form:Form){
-    console.log(form)
-    const newSeller: Seller = {
-     
-      // sellerName: form.sellerName,
+  onSubmit(data){
+    console.log(data)
+   const newSeller: Seller = {
+    sellerName: data.name,
       // address: form.address,
-      
       // shortDesc: form.shortDesc,
       // websiteURL: seller.websiteURL,
-      // email: seller.email,
-      // password: seller.password
+      email: data.email,
+      password: data.password
 
 
 
-  };
-    // console.log(this.sellersService.sellers)
-    // this.sellersService.addSeller(newSeller)
+   };
+    this.sellerAuthService.register(newSeller);
+   
     // this.sellerAuthService.login(this.seller).subscribe(
     //   (response)=>{
     //     localStorage.setItem('token',response['token']);
@@ -42,4 +42,18 @@ export class SellerRegisterComponent implements OnInit {
     //   ()=>{}
     // )
   }  
+
+  
+  showPassword() {
+
+ 
+
+    var x = document.getElementById("password") as HTMLInputElement;
+
+    if (x.type === "password") {
+      x.type = "text";
+    } else {
+      x.type = "password";
+    }
+  }
 }

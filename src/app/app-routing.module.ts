@@ -1,3 +1,4 @@
+import { SellerLoginComponent } from './seller/seller-login/seller-login.component';
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { CartComponent } from './additional/cart/cart.component';
@@ -15,6 +16,7 @@ import { ProductAddComponent } from './product/product-add/product-add.component
 import { ProductDetailsComponent } from './product/product-details/product-details.component';
 import { ProductListingComponent } from './product/product-listing/product-listing.component';
 import { SellerAddComponent } from './seller/seller-add/seller-add.component';
+import { SellerRegisterComponent } from './seller/seller-register/seller-register.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -35,6 +37,8 @@ const routes: Routes = [
   { path: 'product/details/:id', component: ProductDetailsComponent },
   // Seller
   { path: 'seller/add', component: SellerAddComponent },
+  { path: 'seller/login', component: SellerLoginComponent },
+  { path: 'seller/signup', component: SellerRegisterComponent},
   { path: '**', component: ErrorNotFoundComponent },
 ];
 

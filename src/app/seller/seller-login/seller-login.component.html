@@ -1,6 +1,6 @@
 <div class="container">
     <form class="login my-5">
-        <h4 class="fw-bolder">
+        <h4 class="fw-bolder headFont">
             I'M A RETURNING SELLER
         </h4>
         <div class="form-group form-check mb-3" [ngClass]="{'is-invalid':myEmail.invalid && myEmail.touched}">
@@ -25,10 +25,10 @@
             <span>Remember Me</span>
         </div>
         <div class="add-product__actions">
-                <button href="#" class="btn btn-danger">Cancel</button>
+               
                 <button type="submit" (click)="onSubmit()" class="btn btn-primary">Login</button>
             </div>
         </div>
-        <a routerLink="/signup" class="login__register-now">Register Now</a>
+        <a routerLink="/seller/signup" class="login__register-now">Register Now</a>
     </form>
 </div>
