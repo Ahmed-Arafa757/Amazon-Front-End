@@ -55,7 +55,7 @@
         </li>
         <!-- action="searchResult.html"  -->
         <!-- [routerLink]="['/search-results']" -->
-        <form class="d-flex MM_SearchInput ms-2 me-3" >
+        <form class="d-flex MM_SearchInput ms-2 me-3">
           <div class="input-group">
             <select class="form-select" aria-label="Default select example">
               <option selected disabled>All</option>
@@ -177,14 +177,7 @@
               </div>
             </li>
 
-            <li>
-              <div class="mx-2 form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" />
-                <label class="form-check-label" for="flexRadioDefault3">
-                  Japanese
-                </label>
-              </div>
-            </li>
+
           </ul>
         </li>
 
@@ -279,7 +272,8 @@
 <div id="overlay" onclick="AH_closeNav()"></div>
 <div id="AH_Sidenav">
   <div id="AH_sidenav-head">
-    <a [routerLink]="['/login']" class="text-white ps-4 py-3 fs-4 fw-bold AH_Sidenav-header d-block text-decoration-none">
+    <a [routerLink]="['/login']"
+      class="text-white ps-4 py-3 fs-4 fw-bold AH_Sidenav-header d-block text-decoration-none">
       <i class="fas fa-user-circle"></i> Hello, Sign in</a>
     <span style="cursor: pointer;" id="AH_closebtn" onclick="AH_closeNav()">&times;</span>
   </div>
@@ -467,9 +461,21 @@
         <li class="nav-item">
           <a class="nav-link AH_link" aria-current="page" href="">Gift Cards</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link AH_link" aria-current="page" href="">Sell</a>
+
+
+        <li class="nav-item dropdown">
+          <a class="dropdown-toggle nav-link AH_link" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Sell
+          </a>
+
+          <ul class="dropdown-menu seller" aria-labelledby="dropdownMenuLink">
+            <li class="dropdown-item">Become an Amazon seller? <a href="#">Register</a></li>
+            <li class="dropdown-item">Already an Amazon seller? <a href="#">Login</a></li>
+            <li class="dropdown-item text-center"><a href="#">View Items</a></li>
+          </ul>
         </li>
+
         <li class="nav-item">
           <a class="nav-link AH_link" aria-current="page" href="">Registry</a>
         </li>

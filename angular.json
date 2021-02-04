@@ -21,10 +21,16 @@
             "aot": true,
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
-              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "./node_modules/bootstrap/scss/bootstrap.scss",
               "./src/styles.scss"
             ],
+<<<<<<< HEAD
             "scripts": ["./node_modules/bootstrap/dist/js/bootstrap.min.js"]
+=======
+            "scripts": [
+              "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+            ]
+>>>>>>> e95b06aae6dd4d1d290557ab6d260b595edc404f
           },
           "configurations": {
             "production": {

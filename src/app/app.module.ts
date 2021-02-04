@@ -25,7 +25,12 @@ import { ErrorNotFoundComponent } from './error/error-not-found/error-not-found.
 import { CustomAppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { ReviewsService } from './_services/reviews.service';
+<<<<<<< HEAD
 import { ProductInfoComponent } from './product/product-details/product-info/product-info.component';
+=======
+import { CheckoutComponent } from './additional/checkout/checkout.component';
+import { PaymentMethodsService } from './_services/payment-methods.service';
+>>>>>>> e95b06aae6dd4d1d290557ab6d260b595edc404f
 import { SellerLoginComponent } from './seller/seller-login/seller-login.component';
 import { SellerHomeComponent } from './seller/seller-home/seller-home.component';
 import { SellerAddComponent } from './seller/seller-add/seller-add.component';
@@ -48,6 +53,7 @@ import { SellerRegisterComponent } from './seller/seller-register/seller-registe
     DiscoverAmazonComponent,
     CustomerServiceComponent,
     CartComponent,
+    CheckoutComponent,
     HomeComponent,
     TopSellersComponent,
     DepartmentsComponent,
@@ -60,7 +66,7 @@ import { SellerRegisterComponent } from './seller/seller-register/seller-registe
     SellerRegisterComponent,
   ],
   imports: [BrowserModule, NgbModule, FormsModule, CustomAppRoutingModule],
-  providers: [ReviewsService],
+  providers: [ReviewsService, PaymentMethodsService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
