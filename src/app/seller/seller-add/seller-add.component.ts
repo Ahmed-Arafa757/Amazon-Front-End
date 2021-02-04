@@ -100,15 +100,10 @@ export class SellerAddComponent implements OnInit {
   submitAdd(form){
     if(form.value.prodSale == 0)
     {
-
-      
-
       this.product.productPrice.finalPrice = (this.product.productPrice.currentPrice - this.product.productPrice.discount);
     }
     else
     {
-   
-
       this.product.productPrice.finalPrice = this.product.productPrice.currentPrice;
     }
     

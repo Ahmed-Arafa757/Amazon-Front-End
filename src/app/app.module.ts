@@ -25,16 +25,8 @@ import { ErrorNotFoundComponent } from './error/error-not-found/error-not-found.
 import { CustomAppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { ReviewsService } from './_services/reviews.service';
-
-import { ProductInfoComponent } from './product/product-details/product-info/product-info.component';
-
 import { CheckoutComponent } from './additional/checkout/checkout.component';
 import { PaymentMethodsService } from './_services/payment-methods.service';
-
-
-import { CheckoutComponent } from './additional/checkout/checkout.component';
-import { PaymentMethodsService } from './_services/payment-methods.service';
-
 import { SellerLoginComponent } from './seller/seller-login/seller-login.component';
 import { SellerHomeComponent } from './seller/seller-home/seller-home.component';
 import { SellerAddComponent } from './seller/seller-add/seller-add.component';
@@ -63,7 +55,6 @@ import { SellerRegisterComponent } from './seller/seller-register/seller-registe
     DepartmentsComponent,
     SearchResultsComponent,
     ErrorNotFoundComponent,
-    ProductInfoComponent,
     SellerLoginComponent,
     SellerHomeComponent,
     SellerAddComponent,

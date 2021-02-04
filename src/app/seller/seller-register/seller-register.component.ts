@@ -45,11 +45,7 @@ export class SellerRegisterComponent implements OnInit {
 
   
   showPassword() {
-
- 
-
     var x = document.getElementById("password") as HTMLInputElement;
-
     if (x.type === "password") {
       x.type = "text";
     } else {
