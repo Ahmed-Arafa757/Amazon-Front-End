@@ -376,5 +376,14 @@ export class CategoryService {
     category.sub.push(SubCategoryName);
   }
 
-  //removeSubCategory
+  removeSubCategory(categoryName: string, SubCategoryName: string): void {
+    const category = this.category.find((cat) => {
+      cat.name == categoryName;
+    });
+
+    const index = category.sub.findIndex((cat) => {
+      return cat === SubCategoryName;
+    });
+    category.sub.splice(index, 1);
+  }
 }
