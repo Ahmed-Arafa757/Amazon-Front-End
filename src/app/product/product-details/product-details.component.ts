@@ -11,14 +11,15 @@ import { Product } from './../../_model/product';
 })
 export class ProductDetailsComponent implements OnInit {
   product: Product;
+  id: string;
   constructor(
     private productService: ProductService,
     private activatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
-    let id = this.activatedRoute.snapshot.params.id;
-    this.product = this.productService.productById(id);
+    this.id = this.activatedRoute.snapshot.params.id;
+    this.product = this.productService.productById(this.id);
     // console.log(this.product);
   }
 }
