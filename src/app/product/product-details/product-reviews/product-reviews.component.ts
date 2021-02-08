@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Review } from 'src/app/_model/reviews';
 import { ReviewsService } from 'src/app/_services/reviews.service';
 
@@ -8,6 +8,8 @@ import { ReviewsService } from 'src/app/_services/reviews.service';
   styleUrls: ['./product-reviews.component.scss'],
 })
 export class ProductReviewsComponent implements OnInit {
+  @Input() id: string;
+
   reviews: Review[];
 
   addReview: Review = {
@@ -18,6 +20,7 @@ export class ProductReviewsComponent implements OnInit {
     helpful: 0,
     reviewVote: 0,
     stars: [],
+    productID: '',
   };
 
   iconClass = {
@@ -33,7 +36,8 @@ export class ProductReviewsComponent implements OnInit {
   constructor(private reviewsService: ReviewsService) {}
 
   ngOnInit(): void {
-    this.reviews = this.reviewsService.getAllReviews();
+    this.reviews = this.reviewsService.getReviewsByProductId(this.id);
+    console.log(this.reviews);
     this.reviews.reverse();
     this.fillStars();
   }
@@ -56,11 +60,15 @@ export class ProductReviewsComponent implements OnInit {
   }
 
   onSubmit() {
+    this.addReview.productID = this.id;
     this.reviewsService.addReview(this.addReview);
 
-    this.reviews = this.reviewsService.getAllReviews();
+    this.reviews = this.reviewsService.getReviewsByProductId(this.id);
+
     this.fillStars();
     this.reviews.reverse();
+
+    console.log(this.reviews);
 
     this.addReview.fullReview = '';
     this.addReview.reviewSummary = '';
