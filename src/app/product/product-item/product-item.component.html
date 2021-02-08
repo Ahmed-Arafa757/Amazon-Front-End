@@ -1,11 +1,12 @@
 <!--  [style.backgroundImage]="'url('+Advertisement.img[0]+')'" -->
 <div class="card" id="AA_productCard">
-  <img [src]="product.productImages[0]" class="card-img-top" id="AA_productsImgs" />
+  <a [routerLink]="['/product','details',product._id]"><img [src]="product.productImages[0]" class="card-img-top"
+      id="AA_productsImgs" /></a>
 
   <div class="card-body">
-    <h5 class="card-title" id="AA_cardText">
+    <a [routerLink]="['/product','details',product._id]" class="card-title" id="AA_cardText">
       {{ product.productName }}
-    </h5>
+    </a>
     <p class="card-text">
       <span class="AA_byAmazon">by Amazon Basics </span>
       <br />
