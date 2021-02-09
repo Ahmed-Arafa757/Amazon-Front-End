@@ -9,15 +9,12 @@ import { ProductService } from 'src/app/_services/product.service';
 })
 export class ProductInfoComponent implements OnInit {
   @Input() product: Product;
-  // price: number = 39.99;
-  // discount: number = 12.11;
+
   shippingFees: number = 36.3;
   DeliverTo: string = 'Egypt';
   constructor(private productService: ProductService) {}
-  // name = '';
-  ngOnInit(): void {
-    console.log(this.product);
-  }
+
+  ngOnInit(): void {}
 
   addToCart() {
     this.productService.productAdded.emit(this.product);

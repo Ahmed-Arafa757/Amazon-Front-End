@@ -10,24 +10,37 @@ import { ProductService } from 'src/app/_services/product.service';
 export class HeaderComponent implements OnInit {
   langFlag = '../../../assets/images/icons/english.png';
 
-  cartArray: Product[] = [];
-  newCart = [];
-  index = null;
+  cartArray = [];
+  cartQuantity = 0;
 
   constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
     this.productService.productAdded.subscribe(
       (res) => {
-        this.index = this.cartArray.indexOf(res);
+        res.quantity = 1;
+        let inCart = false;
 
-        if (this.index >= 0) {
-          this.newCart[this.index].quantity += 1;
-        } else {
-          this.cartArray.push(res);
-          res.quantity = 1;
-          this.newCart.push(res);
+        for (let index = 0; index < this.cartArray.length; index++) {
+          if (this.cartArray[index]._id === res._id) {
+            if (this.cartArray[index].quantity < 5) {
+              this.cartArray[index].quantity += 1;
+              this.cartQuantity++;
+            }
+            inCart = true;
+            break;
+          }
         }
+
+        if (inCart === false) {
+          let deepCopy = JSON.parse(JSON.stringify(res));
+          this.cartArray.push(deepCopy);
+          this.cartQuantity++;
+        }
+
+        console.log(this.cartArray);
+
+        this.productService.addProductsToCart(this.cartArray);
       },
       (err) => {
         console.error(err);
