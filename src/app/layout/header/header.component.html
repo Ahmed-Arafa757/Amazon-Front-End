@@ -244,7 +244,8 @@
 
         <li class="nav-item">
           <a class="nav-link MM_Cart" [routerLink]="['/cart']" style="white-space: nowrap">
-            <div style="color: #F08804; font-size: 1.3em;">&nbsp;&nbsp;&nbsp;{{ newCart ? newCart.length : 0 }}</div>
+            <div style="color: #F08804; font-size: 1.3em;">&nbsp;&nbsp;&nbsp;{{ cartQuantity }}
+            </div>
             <i class="fas fa-shopping-cart text-white" style="font-size: 25px"> </i>
             <span class="text-white">Cart</span>
           </a>
