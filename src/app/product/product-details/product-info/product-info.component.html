@@ -57,8 +57,8 @@
   <div class="row">
     <div class="col-md-6">
       <div class="col-12 d-flex ps-3 justify-content-center sticky-top">
-        <div>
-          <img [src]='product.productImages[0]'
+        <div style="padding: 20px;">
+          <img [src]="product.productImages[0]"
             onload="if(this.width/this.height > 1.0){this.className += ' a-stretch-horizontal'}else{this.className += ' a-stretch-vertical'};this.onload='';"
             data-a-image-name="landingImage" class="a-dynamic-image a-stretch-vertical row" id="landingImage"
             style="max-width: 550px; max-height: 550px" />
@@ -67,15 +67,15 @@
         </div>
 
         <div class="d-flex flex-column align-items-center position-absolute top-0 start-0 ms-md-4">
-          <img [src]='product.productImages[0]' class="img-thumbnail product-thumbnail" alt="..." />
-          <img [src]='product.productImages[0]' class="img-thumbnail product-thumbnail" alt="..." />
-          <img [src]='product.productImages[0]' class="img-thumbnail product-thumbnail" alt="..." />
+          <img [src]="product.productImages[0]" class="img-thumbnail product-thumbnail" alt="..." />
+          <img [src]="product.productImages[0]" class="img-thumbnail product-thumbnail" alt="..." />
+          <img [src]="product.productImages[0]" class="img-thumbnail product-thumbnail" alt="..." />
         </div>
       </div>
     </div>
     <div class="col-md-4 px-4">
       <span id="productTitle" class="word-break">
-        {{product.productName}}
+        {{ product.productName }}
       </span>
       <a class="AH_card-link d-block" href="">Visit the Store</a>
 
@@ -98,7 +98,7 @@
         </div>
         <hr />
         <!-- price -->
-        <div *ngIf="product.productPrice.discount>0" class="row">
+        <div *ngIf="product.productPrice.discount > 0" class="row">
           <div class="col-3">
             <span class="text-secondary">List Price: </span>
           </div>
@@ -112,20 +112,24 @@
           </div>
           <div class="col-9 ps-0">
             <span class="">
-              <span class="price">EGP {{product.productPrice.finalPrice | number}}</span>
+              <span class="price">EGP {{ product.productPrice.finalPrice | number }}</span>
               <span class="word-break text-secondary">
                 + ${{ shippingFees }} Shipping & Import Fees Deposit to
                 {{ DeliverTo }}</span>
             </span>
           </div>
         </div>
-        <div *ngIf="product.productPrice.discount>0" class="row mb-3">
+        <div *ngIf="product.productPrice.discount > 0" class="row mb-3">
           <div class="col-3 text-secondary">You Save:</div>
           <div class="col-9 p-0">
             <span class="price" style="font-size: 14px">
               EGP {{ product.productPrice.discount }}
               <span class="px-2">
-                ({{ (product.productPrice.discount / product.productPrice.currentPrice) * 100 | number }}%)</span>
+                ({{
+                  (product.productPrice.discount /
+                    product.productPrice.currentPrice) *
+                    100 | number
+                }}%)</span>
             </span>
           </div>
         </div>
@@ -185,7 +189,7 @@
           <a class="AH_card-link">Compare with similar items</a>
           <div class="AH_card-link mt-1">
             New (10) from
-            <span class="price" style="font-size: 14px">EGP {{product.productPrice.finalPrice}}</span>
+            <span class="price" style="font-size: 14px">EGP {{ product.productPrice.finalPrice }}</span>
           </div>
         </div>
         <hr />
@@ -217,7 +221,9 @@
     </div>
     <div class="col-md-2">
       <div class="card p-3">
-        <div class="price">EGP {{product.productPrice.finalPrice | number }}</div>
+        <div class="price">
+          EGP {{ product.productPrice.finalPrice | number }}
+        </div>
         <div class="word-break text-secondary mb-3" style="font-weight: 500">
           + ${{ shippingFees }} Shipping & Import Fees Deposit to
           {{ DeliverTo }}
@@ -228,13 +234,13 @@
           Arrives: <span class="font-weight-bold">Feb 11 -March 8</span>
         </div>
 
-        <h5 class="word-break mb-2" style="color: #a53d01">
-          Only 1 left in stock - order soon.
+        <h5 *ngIf="product.productStock<=20" class="word-break mb-2" style="color: #a53d01">
+          Only {{product.productStock}} left in stock - order soon.
         </h5>
         <!-- buttons -->
         <div class="row p-2">
           <div class="button d-flex justify-content-center position-relative mb-2">
-            <input type="button" value="Add To Cart" />
+            <input type="button" value="Add To Cart" (click)="addToCart()" />
             <div class="position-absolute start-0 d-flex justify-content-center align-items-center square">
               <i class="fas fa-shopping-cart"></i>
             </div>
@@ -278,7 +284,7 @@
       <div class="card p-3 my-4 position-relative">
         <span>
           New (10) from
-          <span class="price" style="font-size: 14px">EGP {{product.productPrice.finalPrice}}</span><i
+          <span class="price" style="font-size: 14px">EGP {{ product.productPrice.finalPrice }}</span><i
             class="mx-3 fas fa-chevron-right position-absolute end-0 top-50 translate-middle-y"></i></span>
       </div>
 

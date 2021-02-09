@@ -9,18 +9,19 @@
             <span class="float-end text-muted">Price</span>
             <div style="clear: both"></div>
             <hr />
-            <div class="row MM_shoppingCart">
-              <div class="col-2">
-                <a href="#">
-                  <img src="https://m.media-amazon.com/images/G/01/appcore/phone/AMZ_FamiyStripe_iPhone_12ProMax.png"
-                    alt="" />
+            <div class="row MM_shoppingCart my-3" *ngFor="let item of cartArray">
+              <div class="col-3">
+                <a class="ms-3" href="#">
+                  <img [src]="item.productImages[0]" alt="" [style.width.px]="250" />
                 </a>
               </div>
-              <div class="col-10">
-                <a href="# " class="fs-5"> Apple iPhone 12 Pro Max </a>
-                <span class="fs-5 fw-bold float-end me-2">$700</span>
-                <div class="text-danger">
-                  Only 3 left in stock - order soon.
+
+              <div class="col-9 p-5">
+                <a href="# " class="fs-5">{{item.productName}}</a>
+                <span class="fs-5 fw-bold float-end me-2">
+                  {{item.productPrice.finalPrice | currency:"EGP ":"symbol"}}</span>
+                <div *ngIf="item.productStock<=20" class="text-danger">
+                  Only {{item.productStock}} left in stock - order soon.
                 </div>
                 <div>Shipped from: <a href="#">Amazon.com</a></div>
                 <div>
@@ -29,35 +30,30 @@
                 </div>
                 <div>
                   <span class="dropdown me-2">
-                    <button class="btn btn-light dropdown-toggle p-1 shadow-sm" type="button" id="dropdownMenuButton"
-                      data-bs-toggle="dropdown" aria-expanded="false">
-                      Qty: 1
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <li>
-                        <a class="dropdown-item" href="#">0 (delete)</a>
-                      </li>
-                      <li>
-                        <a class="dropdown-item" href="#">1</a>
-                      </li>
-                      <li>
-                        <a class="dropdown-item" href="#">2</a>
-                      </li>
-                      <li>
-                        <a class="dropdown-item" href="#">3</a>
-                      </li>
-                    </ul>
+                    <select [(ngModel)]="item.quantity" (change)="updateQuantityPrice()"
+                      class="btn btn-light dropdown-toggle p-1 shadow-sm" id="dropdownMenuButton">
+                      <option [ngValue]='1'>1</option>
+                      <option [ngValue]='2'>2</option>
+                      <option [ngValue]='3'>3</option>
+                      <option [ngValue]='4'>4</option>
+                      <option [ngValue]='5'>5</option>
+                    </select>
                   </span>
                   <span class="MM_itemOptions">
-                    <a href="#">Delete</a>
+                    <a (click)="deleteItem(item)" style="cursor: pointer;">Delete</a>
                     <a href="#">Save for later</a>
                     <a href="#">Compare with similar items</a>
                   </span>
                 </div>
               </div>
+
+            </div>
+            <div class="row">
               <div class="col-12">
                 <hr />
-                <span class="float-end fs-5">Subtotal (1 item): <span class="fw-bold"> $700 </span>
+                <span class="float-end fs-5">Total ({{totalQuantity}} item): <span class="fw-bold">
+                    {{totalPrice | currency:"EGP ":"symbol"}}
+                  </span>
                 </span>
               </div>
             </div>
@@ -84,7 +80,9 @@
           <div class="col-12 MM_subTotal">
             <div class="card my-3">
               <div class="card-body">
-                <span class="fs-5">Subtotal (1 item): <span class="fw-bold"> $700 </span>
+                <span class="fs-5">Total ({{totalQuantity}} item): <span class="fw-bold">
+                    {{totalPrice | currency:"EGP ":"symbol"}}
+                  </span>
                 </span>
                 <button [routerLink]="['/checkout']" class="btn bg-gradient p-1 my-2 col-12">
                   Proceed to checkout
