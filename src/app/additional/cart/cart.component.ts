@@ -14,7 +14,7 @@ export class CartComponent implements OnInit {
   constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
-    this.cartArray = this.productService.cartProducts.slice();
+    this.cartArray = this.productService.cartProducts;
     this.updateQuantityPrice();
   }
 
@@ -27,6 +27,7 @@ export class CartComponent implements OnInit {
         this.cartArray[index].quantity *
         this.cartArray[index].productPrice.finalPrice;
     }
+    this.productService.addProductsToCart(this.cartArray);
   }
 
   deleteItem(item) {

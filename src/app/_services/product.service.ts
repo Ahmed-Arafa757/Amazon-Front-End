@@ -1460,7 +1460,7 @@ export class ProductService {
 
   cartProducts = [];
 
-  productAdded = new EventEmitter<Product>();
+  productAdded = new EventEmitter<Product[]>();
 
   constructor() {}
   getAllProducts() {
@@ -1553,5 +1553,6 @@ export class ProductService {
 
   addProductsToCart(products) {
     this.cartProducts = products.slice();
+    this.productAdded.emit(this.cartProducts);
   }
 }
