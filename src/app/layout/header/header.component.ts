@@ -11,36 +11,17 @@ export class HeaderComponent implements OnInit {
   langFlag = '../../../assets/images/icons/english.png';
 
   cartArray = [];
-  cartQuantity = 0;
+  totalQuantity = 0;
 
   constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
     this.productService.productAdded.subscribe(
       (res) => {
-        res.quantity = 1;
-        let inCart = false;
-
-        for (let index = 0; index < this.cartArray.length; index++) {
-          if (this.cartArray[index]._id === res._id) {
-            if (this.cartArray[index].quantity < 5) {
-              this.cartArray[index].quantity += 1;
-              this.cartQuantity++;
-            }
-            inCart = true;
-            break;
-          }
+        this.totalQuantity = 0;
+        for (let index = 0; index < res.length; index++) {
+          this.totalQuantity += res[index].quantity;
         }
-
-        if (inCart === false) {
-          let deepCopy = JSON.parse(JSON.stringify(res));
-          this.cartArray.push(deepCopy);
-          this.cartQuantity++;
-        }
-
-        console.log(this.cartArray);
-
-        this.productService.addProductsToCart(this.cartArray);
       },
       (err) => {
         console.error(err);
