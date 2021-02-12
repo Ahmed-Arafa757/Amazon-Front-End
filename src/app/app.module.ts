@@ -25,6 +25,7 @@ import { ErrorNotFoundComponent } from './error/error-not-found/error-not-found.
 import { CustomAppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { ReviewsService } from './_services/reviews.service';
+import { ProductService } from './_services/product.service';
 
 import { ProductInfoComponent } from './product/product-details/product-info/product-info.component';
 
@@ -66,7 +67,7 @@ import { SellerRegisterComponent } from './seller/seller-register/seller-registe
     SellerRegisterComponent,
   ],
   imports: [BrowserModule, NgbModule, FormsModule, CustomAppRoutingModule],
-  providers: [ReviewsService, PaymentMethodsService],
+  providers: [ReviewsService, PaymentMethodsService, ProductService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

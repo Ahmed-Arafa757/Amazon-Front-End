@@ -13,7 +13,7 @@ export class ReviewsService {
         'Voluptatum vel asperiores consectetur quia nisi dolores et. Maxime sunt possimus sint et numquam quae. Officia sed velit. Facere non voluptatem repellat nostrum odit. Vel necessitatibus possimus. Quidem vitae molestiae autem autem et quis quam assumenda.',
       helpful: 1,
       reviewVote: 2,
-      productID: 1,
+      productID: '5ff8ba0e73f4d752445318cc',
     },
 
     {
@@ -26,7 +26,7 @@ export class ReviewsService {
         'Accusantium rem modi totam rerum mollitia. Magni aut cupiditate rerum rerum odio aut odio aut. Beatae sed velit ad. Neque recusandae perspiciatis est minus omnis ex quia at. Animi fuga mollitia qui est adipisci laborum fugiat. Voluptatibus iste sequi nesciunt ea sint aut est eaque et.',
       helpful: 5,
       reviewVote: 4,
-      productID: 3,
+      productID: '5ff8ba0e73f4d752445318cd',
     },
 
     {
@@ -39,7 +39,7 @@ export class ReviewsService {
         'Voluptas ex deserunt earum odit. Odit est labore eos. Labore rerum animi nostrum fuga facilis excepturi ducimus quaerat. Blanditiis ab similique omnis sunt odit mollitia. Voluptas voluptas distinctio. Ut dolor velit error harum fuga minima.',
       helpful: 1,
       reviewVote: 4,
-      productID: 9,
+      productID: '5ff8ba0e73f4d752445318ce',
     },
 
     {
@@ -51,7 +51,7 @@ export class ReviewsService {
       fullReview: 'Quia sunt totam est. Distinctio reprehenderit qui.',
       helpful: 1,
       reviewVote: 5,
-      productID: 8,
+      productID: '5ff8ba0e73f4d752445318cf',
     },
 
     {
@@ -63,7 +63,7 @@ export class ReviewsService {
       fullReview: 'Kuia eunt totam est. Distinctio reprehenderit qui.',
       helpful: 1,
       reviewVote: 5,
-      productID: 8,
+      productID: '5ff8ba0e73f4d752445318d0',
     },
 
     {
@@ -76,7 +76,7 @@ export class ReviewsService {
         'Ex minima aspernatur molestias accusamus enim. Placeat repellendus nam quo fugiat.',
       helpful: 2,
       reviewVote: 2,
-      productID: 6,
+      productID: '5ff8ba0e73f4d752445318d1',
     },
 
     {
@@ -89,7 +89,7 @@ export class ReviewsService {
         'Voluptatibus voluptas distinctio omnis deserunt illum ea alias. Possimus quia ut praesentium voluptatum ut saepe temporibus consequatur sed. Esse laboriosam mollitia id expedita distinctio est.',
       helpful: 2,
       reviewVote: 1,
-      productID: 15,
+      productID: '5ff8ba0e73f4d752445318d2',
     },
     {
       id: 12,
@@ -100,7 +100,7 @@ export class ReviewsService {
       fullReview: 'Tempore blanditiis aut. Quia sit non.',
       helpful: 2,
       reviewVote: 5,
-      productID: 11,
+      productID: '5ff8ba0e73f4d752445318d3',
     },
 
     {
@@ -113,7 +113,7 @@ export class ReviewsService {
         'Ea facilis est. Non est veniam voluptates ad ut modi et doloribus. Commodi libero harum optio sit temporibus. Et sit ut incidunt quam non vel.',
       helpful: 5,
       reviewVote: 4,
-      productID: 12,
+      productID: '5ff8ba0e73f4d752445318d4',
     },
 
     {
@@ -126,7 +126,7 @@ export class ReviewsService {
         'Quia porro minus labore perferendis. Qui reiciendis et aut ut dolore inventore ratione aliquam nemo. Porro harum tenetur veritatis eos nemo. Nihil amet ex ea eius neque occaecati. Quibusdam sapiente et et dolor numquam nulla.',
       helpful: 1,
       reviewVote: 2,
-      productID: 16,
+      productID: '5ff8ba0e73f4d752445318d5',
     },
 
     {
@@ -139,7 +139,7 @@ export class ReviewsService {
         'Exercitationem doloribus sit pariatur dicta ut beatae maiores. Aut eum quia incidunt eum ut architecto ipsam. Ea qui eaque delectus veritatis iste. Vel et alias distinctio.',
       helpful: 2,
       reviewVote: 4,
-      productID: 17,
+      productID: '5ff8ba0e73f4d752445318d6',
     },
 
     {
@@ -152,7 +152,7 @@ export class ReviewsService {
         'Loerm doloribus sit pariatur dicta ut beatae maiores. Aut eum quia incidunt eum ut architecto ipsam. Ea qui eaque delectus veritatis iste. Vel et alias distinctio.',
       helpful: 2,
       reviewVote: 4,
-      productID: 17,
+      productID: '5ff8ba0e73f4d752445318d7',
     },
 
     {
@@ -165,7 +165,7 @@ export class ReviewsService {
         'Facilis minima nesciunt voluptatem quae et et omnis perspiciatis dolores. Officiis repudiandae debitis et iure quis corporis. Dolor sit cupiditate.',
       helpful: 5,
       reviewVote: 1,
-      productID: 13,
+      productID: '5ff8ba0e73f4d752445318d8',
     },
 
     {
@@ -178,7 +178,7 @@ export class ReviewsService {
         'Dolor reprehenderit placeat. Numquam non maxime inventore expedita iusto sed magni. Sed qui ut amet facere laudantium ea sed. Velit omnis earum voluptas quo sit autem modi. Velit esse et.',
       helpful: 2,
       reviewVote: 4,
-      productID: 2,
+      productID: '5ff8ba0e73f4d752445318d9',
     },
 
     {
@@ -191,7 +191,7 @@ export class ReviewsService {
         'Culpa sequi sit velit ut repellendus molestiae ipsum excepturi. Laborum rerum deserunt omnis ducimus. Commodi corporis dolores numquam.',
       helpful: 5,
       reviewVote: 3,
-      productID: 14,
+      productID: '5ff8ba0e73f4d752445318da',
     },
 
     {
@@ -204,7 +204,7 @@ export class ReviewsService {
         'Earum vel exercitationem voluptas dolores et accusantium. Soluta non et et blanditiis laboriosam sapiente sapiente. Voluptas consectetur rem omnis voluptas sit in non autem architecto. Facere iure harum nihil dicta quae. Aliquam nostrum quisquam magnam placeat est qui labore. Voluptates ab corporis facilis est et dolorem.',
       helpful: 3,
       reviewVote: 1,
-      productID: 4,
+      productID: '5ff8ba0e73f4d752445318db',
     },
 
     {
@@ -217,7 +217,7 @@ export class ReviewsService {
         'Nisi et nihil aperiam explicabo facere dolorum nostrum quaerat inventore. Ad blanditiis dolores. Sit qui nihil autem qui harum ab. Illo provident ratione aliquam architecto voluptate dolorum. Et voluptatem perferendis nihil dolorum dolorem aut rerum perferendis. Pariatur quisquam natus perferendis ut perspiciatis incidunt tenetur.',
       helpful: 1,
       reviewVote: 3,
-      productID: 10,
+      productID: '5ff8ba0e73f4d752445318dc',
     },
 
     {
@@ -230,7 +230,7 @@ export class ReviewsService {
         'Repudiandae molestias repudiandae. Vitae fugiat qui aliquid quo voluptatem ea voluptatem illum. Explicabo quaerat autem necessitatibus aliquid omnis distinctio. Explicabo reprehenderit consectetur ut et similique vitae. Sed ipsam sed eos cupiditate ipsa. Nisi totam eius porro qui qui.',
       helpful: 4,
       reviewVote: 3,
-      productID: 5,
+      productID: '5ff8ba0e73f4d752445318dd',
     },
 
     {
@@ -243,7 +243,7 @@ export class ReviewsService {
         'Molestias quia id nam esse aut qui. Ipsam qui suscipit accusamus sapiente consequuntur. Autem laborum laboriosam mollitia et quo non cumque fugit sit. Quis eum aut reiciendis quaerat.',
       helpful: 2,
       reviewVote: 4,
-      productID: 18,
+      productID: '5ff8ba0e73f4d752445318de',
     },
 
     {
@@ -256,7 +256,7 @@ export class ReviewsService {
         'Qui ea odit qui quae et. Veniam debitis sunt quibusdam dolor neque mollitia. Voluptatum excepturi facilis fugit. Minima eius veniam aut laboriosam est beatae minima quia quia. Pariatur sunt quis voluptatem rerum.',
       helpful: 4,
       reviewVote: 1,
-      productID: 7,
+      productID: '5ff8ba0e73f4d752445318de',
     },
   ];
 
@@ -264,8 +264,8 @@ export class ReviewsService {
     return this.reviews.slice();
   }
 
-  getReviewByProductId(id: number): Review {
-    return this.reviews.find((r) => r.productID === id);
+  getReviewsByProductId(id: string): Review[] {
+    return this.reviews.filter((r) => r.productID === id);
   }
 
   addReview(review: Review) {

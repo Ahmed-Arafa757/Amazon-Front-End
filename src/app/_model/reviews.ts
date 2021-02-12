@@ -7,6 +7,6 @@ export interface Review {
   fullReview?: string;
   helpful?: number;
   reviewVote?: number;
-  productID?: number;
+  productID?: string;
   stars?: number[];
 }

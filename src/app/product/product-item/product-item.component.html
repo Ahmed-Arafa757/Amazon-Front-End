@@ -1,20 +1,25 @@
 <!--  [style.backgroundImage]="'url('+Advertisement.img[0]+')'" -->
 <div class="card" id="AA_productCard">
-  <img [src]="product.productImages[0]" class="card-img-top" id="AA_productsImgs" />
+  <a [routerLink]="['/product', 'details', product._id]" [ngStyle]="{
+      display: 'flex',
+      alignItems: 'center',
+      height: '300px'
+    }"><img [src]="product.productImages[0]" class="card-img-top" id="AA_productsImgs" /></a>
 
   <div class="card-body">
-    <h5 class="card-title" id="AA_cardText">
+    <a [routerLink]="['/product', 'details', product._id]" class="card-title" id="AA_cardText">
       {{ product.productName }}
-    </h5>
+    </a>
     <p class="card-text">
       <span class="AA_byAmazon">by Amazon Basics </span>
       <br />
 
       <span class="AA_ratingStars">
         <i *ngFor="let star of stars" [class]="iconClass[star]"></i> </span><br />
-      <sup class="AA_sup">EGP </sup><span class="AA_mainPrice">{{ getPrice() }}</span>
+      <sup class="AA_sup">EGP </sup><span class="AA_mainPrice">{{ getPrice() | currency:" ":"symbol"}}</span>
       <span class="AA_restPrice">
-        <del *ngIf="product.productPrice.discount > 0">EGP {{ product.productPrice.currentPrice }}</del>
+        <del *ngIf="product.productPrice.discount > 0">EGP
+          {{ product.productPrice.currentPrice | currency:" ":"symbol"}}</del>
       </span>
     </p>
   </div>
