@@ -28,7 +28,7 @@ const routes: Routes = [
   { path: 'customer-service', component: CustomerServiceComponent },
   { path: 'departments', component: DepartmentsComponent },
   { path: 'discover-amazon', component: DiscoverAmazonComponent },
-  { path: 'search-results', component: SearchResultsComponent },
+  { path: 'search-results/:id', component: SearchResultsComponent },
   { path: 'top-sellers', component: TopSellersComponent },
   // { path: 'product', loadChildren: './product.module' },
   { path: 'product/listing', component: ProductListingComponent },
@@ -38,7 +38,7 @@ const routes: Routes = [
   // Seller
   { path: 'seller/add', component: SellerAddComponent },
   { path: 'seller/login', component: SellerLoginComponent },
-  { path: 'seller/signup', component: SellerRegisterComponent},
+  { path: 'seller/signup', component: SellerRegisterComponent },
   { path: '**', component: ErrorNotFoundComponent },
 ];
 
