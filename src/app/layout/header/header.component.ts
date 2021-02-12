@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit } from '@angular/core';
 import { Product } from 'src/app/_model/product';
 import { ProductService } from 'src/app/_services/product.service';
 
@@ -12,6 +12,8 @@ export class HeaderComponent implements OnInit {
 
   cartArray = [];
   totalQuantity = 0;
+
+  searchString: string;
 
   constructor(private productService: ProductService) {}
 
