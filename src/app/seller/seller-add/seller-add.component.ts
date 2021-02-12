@@ -76,39 +76,35 @@ export class SellerAddComponent implements OnInit {
     return value.length === 0 ? '' :
     value.replace(/\w\S*/g, (txt => txt[0].toUpperCase() + txt.substr(1).toLowerCase() ));  }
 
-  addInfo(){
-    let key = this.transform(prompt('Enter Your Info Key')); 
-    if(key == '' || key == null || key == ' '|| key == '  '){
+  addInfo(type){
+    const input = document.getElementById('infoKey') as HTMLInputElement; 
+    let key = this.transform(input.value);
+    if(key == '' || key == null || key == ' '|| key == '  ')
+    {
       throw 'Please Enter Valid Key';
-      return ;
     }
-    let type = prompt('Enter Your Info Type " text or number" ','text').toLowerCase().trim();
     let keyId = key.replace(/\s/g, "").trim();
     this.keys.push(keyId);
-    if(type != 'text' && type != 'number')
-    {      
-      type='text';
-    }
     let html = `<div class="mb-3">
     <label for="${keyId}" class="form-label" style="font-size: 14px;font-weight: 700;color: black;">${key}</label>
     <input type="${type}" class="form-control" id="${keyId}" name="${keyId}" [(ngModel)]='product.productInfo[${keyId}]' #info${keyId}='ngModel'>
   </div>`;
-  
-    
   document.getElementById('addInfo').innerHTML+=html;
+    
+  }
+  onKeyWordAdded(keyWordInput)
+  {
+    this.product.keywords.push(keyWordInput.value);
+    keyWordInput.value='';
   }
   submitAdd(form){
     if(form.value.prodSale == 0)
     {
 
-      
-
       this.product.productPrice.finalPrice = (this.product.productPrice.currentPrice - this.product.productPrice.discount);
     }
     else
     {
-   
-
       this.product.productPrice.finalPrice = this.product.productPrice.currentPrice;
     }
     

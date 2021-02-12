@@ -62,8 +62,27 @@
                 <input #prodWeight='ngModel' type="text" class="form-control" [(ngModel)]='product.productInfo.weight' id="prodWeight" name="prodWeight">
               </div>
               <div id="addInfo"></div>
-              <button class="uploadImg p-2 mb-3" (click)='addInfo()'><i class="fas fa-plus-circle"></i> Add Info</button>
-
+              <button type="button" class="uploadImg p-2 mb-3" data-bs-toggle="modal" data-bs-target="#Info">
+                <i class="fas fa-plus-circle"></i> Add Info
+              </button>
+              <div class="modal fade" id="Info" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Add Info</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <label >Add Info Key</label>
+                     <input id='infoKey' type="text" class="form-control">
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close" (click)='addInfo("number")'>Number</button>
+                      <button type="button" class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close" (click)='addInfo("text")'>Text</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
               </div>
               <div class="info px-4 py-3 mb-3">
@@ -90,9 +109,30 @@
                     </div>
                   
               </div>
-
               </div>
-              
+              <div class="mb-3" >
+                <label for="prodName" class="form-label ">Product Type</label>
+                <input #prodType='ngModel' type="text" class="form-control " [(ngModel)]='product.productType' id="prodType" name="prodType">
+              </div>
+
+              <!-- Category and subcategory -->
+
+              <div class="info px-4 py-3 mb-3">
+                <h4 class="form-label text-center d-block">Product Keywords</h4>
+                <div class="mb-3" >
+                  <div class="form-group">
+                    <label for="prodPrice">Price</label>
+                </div></div>
+                        <div *ngFor='let key of product.keywords' class="textBox"><span>{{key}}</span><a href="#" class="taged-textbox__remove"><i
+                                    class="fas fa-times"></i></a></div>
+
+                    <div class="taged-textbox__clear">
+                        <a (click)='product.keywords=[]' role="button" style="cursor: pointer;"><i class="fas fa-times"></i></a>
+                    </div>
+
+                <input #keywords (keyup.enter)='onKeyWordAdded(keywords)' class="taged-textbox__textbox form-control" type="text" name="keywords" id="keywords">
+            </div>
+
             </div>
         </div>
         <button class="submit p-2" (click)='submitAdd(addForm)' [disabled]='addForm.invalid'>Add</button>
