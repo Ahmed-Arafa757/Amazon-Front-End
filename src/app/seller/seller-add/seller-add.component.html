@@ -3,15 +3,15 @@
     <hr>
     <form action="" #addForm='ngForm'>
     <div class="row position-relative m-3 ">
-        <div class="col-6 p-1 row">
-            <div class="imgActions col col-12 m-2">
+        <div class="col-6 p-1 ">
+            <div class="imgActions col col-12 m-4">
                 <input (input)='addImg($event)' type="file" name="img" id="img" style="display: none;" accept=".png, .jpg, .jpeg"  />
-                <div><button class="uploadImg m-2 p-2" onclick="document.getElementById('img').click();" > <i class="fas fa-upload"></i> Upload Photo</button>
+                <div><button class="uploadImg m-2 p-2" (click)="fireUplodeImg($event)" > <i class="fas fa-upload"></i> Upload Photo</button>
                   </div>
 
                 <div><button class="uploadImg m-2 p-2" (click)='removeImg()' > Remove Last Image</button></div>
               </div> 
-            <div class="col col-12 m-2">
+            <div class="col col-12 m-2 p-4" >
                 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
                     <div id="imgPresent" class="carousel-inner">
                       <div class="carousel-item active">
@@ -40,9 +40,11 @@
                 <h4 class="form-label text-center d-block">Product Info</h4>
                 <div class="mb-3" >
                 <div class="form-group form-label">
-                  <label class="" for="">Color</label>
-                  <div class="row m-auto">
-                    <div *ngFor='let color of colors; let i = index' class="form-check col-4">
+                  <input #c (click)='isColor = !isColor ; c.checkd;' type="checkbox" value="1" name="isColor" class="form-check-input me-2">
+                  <label class="form-label" for="color">Color</label>
+                  
+                  <div class="row m-auto" *ngIf="isColor">
+                    <div *ngFor='let color of colors; let i = index' class="form-check col-4" >
                       <input ngModel [value]="color" type="checkbox" [name]="color" class="form-check-input">
                       <span class="form-check-label">{{color}}</span>
                       </div>
@@ -93,7 +95,7 @@
                   <input [(ngModel)]='product.productPrice.currentPrice' #prodPrice='ngModel' class="form-control" type="number" name="prodPrice" id="prodPrice">
               </div></div>
               <div class="mb-3" >
-                <label for="prodSale">Satus</label>
+                <label for="prodSale">Status</label>
                     <div class="form-check">
                         <input class="form-check-input" ngModel type="radio" name="prodSale" value="0" id="prodSale" #prodSale='ngModel'>
                         <span>On Sale</span>
@@ -121,10 +123,13 @@
                 <h4 class="form-label text-center d-block">Product Keywords</h4>
                 <div class="mb-3" >
                   <div class="form-group">
-                    <label for="prodPrice">Price</label>
+                    <label for="prodPrice">Keywords</label>
                 </div></div>
-                        <div *ngFor='let key of product.keywords' class="textBox"><span>{{key}}</span><a href="#" class="taged-textbox__remove"><i
-                                    class="fas fa-times"></i></a></div>
+                <div class="d-flex flex-wrap">
+                        <div *ngFor='let key of product.keywords' class="textBox d-flex flex-row border border-dark bg-light rounded p-2 mx-2 my-2">
+                            <span class="mx-1">{{key}}</span>
+                            <a (click)='removeKey(key)' class="taged-textbox__remove"><i class="fas fa-times"></i></a>
+                          </div></div>
 
                     <div class="taged-textbox__clear">
                         <a (click)='product.keywords=[]' role="button" style="cursor: pointer;"><i class="fas fa-times"></i></a>

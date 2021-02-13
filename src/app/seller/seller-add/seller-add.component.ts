@@ -8,8 +8,9 @@ import { ColorService } from 'src/app/_services/color.service';
   styleUrls: ['./seller-add.component.scss']
 })
 export class SellerAddComponent implements OnInit {
-  product:Product={productImages:[],productInfo:{color:[]},productPrice:{}};
+  product:Product={productImages:[],productInfo:{color:[]},productPrice:{},keywords:[]};
   colors;
+  isColor:true;
   keys:string[]=[];
   constructor(private colorService : ColorService) { }
 
@@ -79,6 +80,7 @@ export class SellerAddComponent implements OnInit {
   addInfo(type){
     const input = document.getElementById('infoKey') as HTMLInputElement; 
     let key = this.transform(input.value);
+    let value = [];
     if(key == '' || key == null || key == ' '|| key == '  ')
     {
       throw 'Please Enter Valid Key';
@@ -88,14 +90,29 @@ export class SellerAddComponent implements OnInit {
     let html = `<div class="mb-3">
     <label for="${keyId}" class="form-label" style="font-size: 14px;font-weight: 700;color: black;">${key}</label>
     <input type="${type}" class="form-control" id="${keyId}" name="${keyId}" [(ngModel)]='product.productInfo[${keyId}]' #info${keyId}='ngModel'>
-  </div>`;
-  document.getElementById('addInfo').innerHTML+=html;
+    </div>`;
+    for( let k of this.keys)
+    {
+      value.push(document.getElementById(k).value)
+    }
+    console.log(value);
     
+    document.getElementById('addInfo').innerHTML+=html;
+    input.value = '';
   }
   onKeyWordAdded(keyWordInput)
   {
     this.product.keywords.push(keyWordInput.value);
     keyWordInput.value='';
+  }
+  removeKey(key){
+   /*  let filterd = this.product.keywords.filter((k) => { 
+      return k != key; 
+  });
+  this.product.keywords = filterd ; */
+
+  let index = this.product.keywords.findIndex( k => k == key );
+  this.product.keywords.splice(index,1);
   }
   submitAdd(form){
     if(form.value.prodSale == 0)
@@ -113,14 +130,28 @@ export class SellerAddComponent implements OnInit {
       let input = document.getElementById(key) as HTMLInputElement;
       this.product.productInfo[key]=input.value;
     }
-    for(let color of this.colors)
-    {
-      if(form.value[color])
+    if(this.isColor){
+      for(let color of this.colors)
       {
-        this.product.productInfo.color.push(color);
+        if(form.value[color])
+        {
+          this.product.productInfo.color.push(color);
+        }
       }
     }
+    else{
+      this.product.productInfo.color = [];
+    }
+    
     console.log(this.product);
     
   }
+  fireUplodeImg(e){
+    if(e.screenX !== 0)
+    {
+      document.getElementById('img').click();
+    }
+    
+  }
+  
 }
