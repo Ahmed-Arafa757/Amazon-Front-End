@@ -16,28 +16,57 @@
         <p>33350 global ratings</p>
         5 star
         <div class="progress mb-2">
-          <div class="progress-bar bg-warning" role="progressbar" style="width: 90%" aria-valuenow="90"
-            aria-valuemin="0" aria-valuemax="100"></div>
+          <div
+            class="progress-bar bg-warning"
+            role="progressbar"
+            style="width: 90%"
+            aria-valuenow="90"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          ></div>
         </div>
         4 star
         <div class="progress mb-2">
-          <div class="progress-bar bg-warning" role="progressbar" style="width: 75%" aria-valuenow="75"
-            aria-valuemin="0" aria-valuemax="100"></div>
+          <div
+            class="progress-bar bg-warning"
+            role="progressbar"
+            style="width: 75%"
+            aria-valuenow="75"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          ></div>
         </div>
         3 star
         <div class="progress mb-2">
-          <div class="progress-bar bg-warning" role="progressbar" style="width: 5%" aria-valuenow="5" aria-valuemin="0"
-            aria-valuemax="100"></div>
+          <div
+            class="progress-bar bg-warning"
+            role="progressbar"
+            style="width: 5%"
+            aria-valuenow="5"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          ></div>
         </div>
         2 star
         <div class="progress mb-2">
-          <div class="progress-bar bg-warning" role="progressbar" style="width: 1%" aria-valuenow="1" aria-valuemin="0"
-            aria-valuemax="100"></div>
+          <div
+            class="progress-bar bg-warning"
+            role="progressbar"
+            style="width: 1%"
+            aria-valuenow="1"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          ></div>
         </div>
         1 star
         <div class="progress mb-2">
-          <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0"
-            aria-valuemax="100"></div>
+          <div
+            class="progress-bar bg-warning"
+            role="progressbar"
+            aria-valuenow="0"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          ></div>
         </div>
       </div>
     </div>
@@ -57,19 +86,38 @@
   <div class="row">
     <div class="col-md-6">
       <div class="col-12 d-flex ps-3 justify-content-center sticky-top">
-        <div style="padding: 20px;">
-          <img [src]="product.productImages[0]"
+        <div style="padding: 20px">
+          <img
+            [src]="product.productImages[0]"
             onload="if(this.width/this.height > 1.0){this.className += ' a-stretch-horizontal'}else{this.className += ' a-stretch-vertical'};this.onload='';"
-            data-a-image-name="landingImage" class="a-dynamic-image a-stretch-vertical row" id="landingImage"
-            style="max-width: 550px; max-height: 550px" />
+            data-a-image-name="landingImage"
+            class="a-dynamic-image a-stretch-vertical row"
+            id="landingImage"
+            style="max-width: 550px; max-height: 550px"
+          />
           <span class="row d-flex justify-content-center mt-1">
-            Roll over image to zoom in</span>
+            Roll over image to zoom in</span
+          >
         </div>
 
-        <div class="d-flex flex-column align-items-center position-absolute top-0 start-0 ms-md-4">
-          <img [src]="product.productImages[0]" class="img-thumbnail product-thumbnail" alt="..." />
-          <img [src]="product.productImages[0]" class="img-thumbnail product-thumbnail" alt="..." />
-          <img [src]="product.productImages[0]" class="img-thumbnail product-thumbnail" alt="..." />
+        <div
+          class="d-flex flex-column align-items-center position-absolute top-0 start-0 ms-md-4"
+        >
+          <img
+            [src]="product.productImages[0]"
+            class="img-thumbnail product-thumbnail"
+            alt="..."
+          />
+          <img
+            [src]="product.productImages[0]"
+            class="img-thumbnail product-thumbnail"
+            alt="..."
+          />
+          <img
+            [src]="product.productImages[0]"
+            class="img-thumbnail product-thumbnail"
+            alt="..."
+          />
         </div>
       </div>
     </div>
@@ -80,8 +128,13 @@
       <a class="AH_card-link d-block" href="">Visit the Store</a>
 
       <div class="">
-        <span type="button" triggers="mouseenter:mouseleave" [ngbPopover]="popContent" [openDelay]="300"
-          [closeDelay]="500">
+        <span
+          type="button"
+          triggers="mouseenter:mouseleave"
+          [ngbPopover]="popContent"
+          [openDelay]="300"
+          [closeDelay]="500"
+        >
           <a class="">
             <i class="fas fa-star"></i>
             <i class="fas fa-star"></i>
@@ -112,10 +165,13 @@
           </div>
           <div class="col-9 ps-0">
             <span class="">
-              <span class="price">EGP {{ product.productPrice.finalPrice | number }}</span>
+              <span class="price"
+                >EGP {{ product.productPrice.finalPrice | number }}</span
+              >
               <span class="word-break text-secondary">
                 + ${{ shippingFees }} Shipping & Import Fees Deposit to
-                {{ DeliverTo }}</span>
+                {{ DeliverTo }}</span
+              >
             </span>
           </div>
         </div>
@@ -129,7 +185,8 @@
                   (product.productPrice.discount /
                     product.productPrice.currentPrice) *
                     100 | number
-                }}%)</span>
+                }}%)</span
+              >
             </span>
           </div>
         </div>
@@ -189,7 +246,9 @@
           <a class="AH_card-link">Compare with similar items</a>
           <div class="AH_card-link mt-1">
             New (10) from
-            <span class="price" style="font-size: 14px">EGP {{ product.productPrice.finalPrice }}</span>
+            <span class="price" style="font-size: 14px"
+              >EGP {{ product.productPrice.finalPrice }}</span
+            >
           </div>
         </div>
         <hr />
@@ -198,8 +257,12 @@
           <h5 class="font-weight-bold">Similar item to consider</h5>
           <div class="row">
             <div class="col-lg-3">
-              <img alt="" style="max-width: 100px; max-height: 100px"
-                src="https://m.media-amazon.com/images/I/615JGNZIEPL._SS100_.jpg" id="value-pick-image" />
+              <img
+                alt=""
+                style="max-width: 100px; max-height: 100px"
+                src="https://m.media-amazon.com/images/I/615JGNZIEPL._SS100_.jpg"
+                id="value-pick-image"
+              />
             </div>
             <div class="col-lg-9 ps-0">
               <h6 class="word-break AH_card-link">
@@ -234,20 +297,32 @@
           Arrives: <span class="font-weight-bold">Feb 11 -March 8</span>
         </div>
 
-        <h5 *ngIf="product.productStock<=20" class="word-break mb-2" style="color: #a53d01">
-          Only {{product.productStock}} left in stock - order soon.
+        <h5
+          *ngIf="product.productStock <= 20"
+          class="word-break mb-2"
+          style="color: #a53d01"
+        >
+          Only {{ product.productStock }} left in stock - order soon.
         </h5>
         <!-- buttons -->
         <div class="row p-2">
-          <div class="button d-flex justify-content-center position-relative mb-2">
+          <div
+            class="button d-flex justify-content-center position-relative mb-2"
+          >
             <input type="button" value="Add To Cart" (click)="addToCart()" />
-            <div class="position-absolute start-0 d-flex justify-content-center align-items-center square">
+            <div
+              class="position-absolute start-0 d-flex justify-content-center align-items-center square"
+            >
               <i class="fas fa-shopping-cart"></i>
             </div>
           </div>
-          <div class="button_buy d-flex justify-content-center position-relative mb-2">
+          <div
+            class="button_buy d-flex justify-content-center position-relative mb-2"
+          >
             <input type="button" value="Buy Now" />
-            <div class="position-absolute start-0 d-flex justify-content-center align-items-center square">
+            <div
+              class="position-absolute start-0 d-flex justify-content-center align-items-center square"
+            >
               <i class="fas fa-play"></i>
             </div>
           </div>
@@ -284,8 +359,12 @@
       <div class="card p-3 my-4 position-relative">
         <span>
           New (10) from
-          <span class="price" style="font-size: 14px">EGP {{ product.productPrice.finalPrice }}</span><i
-            class="mx-3 fas fa-chevron-right position-absolute end-0 top-50 translate-middle-y"></i></span>
+          <span class="price" style="font-size: 14px"
+            >EGP {{ product.productPrice.finalPrice }}</span
+          ><i
+            class="mx-3 fas fa-chevron-right position-absolute end-0 top-50 translate-middle-y"
+          ></i
+        ></span>
       </div>
 
       <!-- share -->
@@ -321,5 +400,29 @@
         </div>
       </div>
     </div>
+  </div>
+  <hr class="mt-4" />
+  <div *ngIf="relatedProducts.length > 0" class="row tp-product-slider my-3">
+    <span class="h4 mb-3" style="color: #a53d01">
+      Products related to this item
+    </span>
+
+    <ul class="tp-list-inline py-3 px-0 mt-2">
+      <li
+        *ngFor="let relPro of relatedProducts"
+        class="list-inline-item text-center"
+      >
+        <a [routerLink]="['/product', 'details', relPro._id]">
+          <img
+            alt="{{ relPro.productName }}"
+            src="{{ relPro.productImages[0] }}"
+            class="product-image"
+            height="200px"
+            data-a-hires="{{ relPro.productImages[0] }}"
+          />
+          <div>{{ relPro.productName }}</div>
+        </a>
+      </li>
+    </ul>
   </div>
 </div>

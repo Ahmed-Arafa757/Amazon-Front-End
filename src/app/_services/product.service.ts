@@ -1555,4 +1555,17 @@ export class ProductService {
     this.cartProducts = products.slice();
     this.productAdded.emit(this.cartProducts);
   }
+
+  searchProductsByKeywords(...params) {
+    var result = this.products.filter((p) => {
+      return p.keywords.includes(params[0]);
+    });
+    for (let index = 1; index < params.length; index++) {
+      result = result.filter((p) => {
+        return p.keywords.includes(params[index]);
+      });
+    }
+
+    return result;
+  }
 }
