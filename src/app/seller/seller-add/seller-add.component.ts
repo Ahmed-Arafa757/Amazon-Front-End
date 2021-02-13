@@ -93,8 +93,8 @@ export class SellerAddComponent implements OnInit {
     </div>`;
     for( let k of this.keys)
     {
-      value.push(document.getElementById(k).value)
-    }
+/*       value.push(document.getElementById(k).value)
+ */    }
     console.log(value);
     
     document.getElementById('addInfo').innerHTML+=html;
