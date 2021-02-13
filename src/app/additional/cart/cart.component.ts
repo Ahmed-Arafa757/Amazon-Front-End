@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/_model/product';
 import { ProductService } from 'src/app/_services/product.service';
 
@@ -8,32 +8,31 @@ import { ProductService } from 'src/app/_services/product.service';
   styleUrls: ['./cart.component.scss'],
 })
 export class CartComponent implements OnInit {
-  cartArray: Product[] = [];
-  newCart = [];
-  index = null;
+  cartArray = [];
+  totalQuantity = 0;
+  totalPrice = 0;
   constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
-    this.productService.productAdded.subscribe(
-      (res) => {
-        this.index = this.cartArray.indexOf(res);
-        if (this.index >= 0) {
-          this.newCart[this.index].quantity += 1;
-        } else {
-          this.cartArray.push(res);
-          res.quantity = 1;
-          this.newCart.push(res);
-        }
-        console.log('cart ngOnInit');
-        console.log(this.newCart);
-        console.log('*************************');
-      },
-      (err) => {
-        console.error(err);
-      },
-      (completed) => {
-        alert('Subscribe Operation Compeleted');
-      }
-    );
+    this.cartArray = this.productService.cartProducts;
+    this.updateQuantityPrice();
+  }
+
+  updateQuantityPrice() {
+    this.totalQuantity = 0;
+    this.totalPrice = 0;
+    for (let index = 0; index < this.cartArray.length; index++) {
+      this.totalQuantity += this.cartArray[index].quantity;
+      this.totalPrice +=
+        this.cartArray[index].quantity *
+        this.cartArray[index].productPrice.finalPrice;
+    }
+    this.productService.addProductsToCart(this.cartArray);
+  }
+
+  deleteItem(item) {
+    const index = this.cartArray.indexOf(item);
+    this.cartArray.splice(index, 1);
+    this.updateQuantityPrice();
   }
 }

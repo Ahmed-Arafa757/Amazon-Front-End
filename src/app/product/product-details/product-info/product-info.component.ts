@@ -9,17 +9,40 @@ import { ProductService } from 'src/app/_services/product.service';
 })
 export class ProductInfoComponent implements OnInit {
   @Input() product: Product;
-  // price: number = 39.99;
-  // discount: number = 12.11;
+
+  tempProduct;
+  cartArray = [];
+  cartQuantity = 0;
+
   shippingFees: number = 36.3;
   DeliverTo: string = 'Egypt';
   constructor(private productService: ProductService) {}
-  // name = '';
-  ngOnInit(): void {
-    console.log(this.product);
-  }
+
+  ngOnInit(): void {}
 
   addToCart() {
-    this.productService.productAdded.emit(this.product);
+    this.cartArray = this.productService.cartProducts.slice();
+    this.tempProduct = JSON.parse(JSON.stringify(this.product));
+    this.tempProduct.quantity = 1;
+    let inCart = false;
+
+    for (let index = 0; index < this.cartArray.length; index++) {
+      if (this.cartArray[index]._id === this.product._id) {
+        if (this.cartArray[index].quantity < 5) {
+          this.cartArray[index].quantity += 1;
+          this.cartQuantity++;
+        }
+        inCart = true;
+        break;
+      }
+    }
+
+    if (inCart === false) {
+      let deepCopy = JSON.parse(JSON.stringify(this.tempProduct));
+      this.cartArray.push(deepCopy);
+      this.cartQuantity++;
+    }
+
+    this.productService.addProductsToCart(this.cartArray);
   }
 }
