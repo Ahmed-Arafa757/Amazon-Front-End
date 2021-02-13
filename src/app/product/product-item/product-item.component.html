@@ -1,24 +1,26 @@
- 
- <!--  [style.backgroundImage]="'url('+Advertisement.img[0]+')'" -->
-   <div class="card" id="AA_productCard">
+<!--  [style.backgroundImage]="'url('+Advertisement.img[0]+')'" -->
+<div class="card" id="AA_productCard">
+  <a [routerLink]="['/product', 'details', product._id]" [ngStyle]="{
+      display: 'flex',
+      alignItems: 'center',
+      height: '300px'
+    }"><img [src]="product.productImages[0]" class="card-img-top" id="AA_productsImgs" /></a>
 
-     <img src="../../../assets/images/logo/placeholder.png" class="card-img-top"
-       id="AA_productsImgs">
-     <div class="card-body">
-       <h5 class="card-title" id="AA_cardText">AmazonBasics 48 Pack AA
-         High-Performance Alkaline
-         Batteries,
-         10-Year Shelf Life, Easy to Open Value Pack
+  <div class="card-body">
+    <a [routerLink]="['/product', 'details', product._id]" class="card-title" id="AA_cardText">
+      {{ product.productName }}
+    </a>
+    <p class="card-text">
+      <span class="AA_byAmazon">by Amazon Basics </span>
+      <br />
 
-       </h5>
-       <p class="card-text"> <span class="AA_byAmazon">by Amazon Basics </span>
-         <br>
-
-         <span class="AA_ratingStars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-             class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></span><br>
-         <sup class="AA_sup">$</sup><span class="AA_mainPrice">44</span><sup class="AA_sup">98</sup><span
-           class="AA_restPrice"> <del>$59.99</del> +
-           $105.08shipping </span>
-       </p>
-     </div>
-   </div>
+      <span class="AA_ratingStars">
+        <i *ngFor="let star of stars" [class]="iconClass[star]"></i> </span><br />
+      <sup class="AA_sup">EGP </sup><span class="AA_mainPrice">{{ getPrice() | currency:" ":"symbol"}}</span>
+      <span class="AA_restPrice">
+        <del *ngIf="product.productPrice.discount > 0">EGP
+          {{ product.productPrice.currentPrice | currency:" ":"symbol"}}</del>
+      </span>
+    </p>
+  </div>
+</div>
