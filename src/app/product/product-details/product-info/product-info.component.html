@@ -1,3 +1,405 @@
+<<<<<<< HEAD
+<div class="row">
+  <ng-template class="p-0 m-0" #popContent>
+    <div class="border-0 p-0 m-0">
+      <div class="border-0 p-0">
+        <h5 class="">Customers' reviews</h5>
+        <div>
+          <a href="#">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+          </a>
+          <span class="ms-1 fw-bold">4 out of 5</span>
+        </div>
+        <p>33350 global ratings</p>
+        5 star
+        <div class="progress mb-2">
+          <div
+            class="progress-bar bg-warning"
+            role="progressbar"
+            style="width: 90%"
+            aria-valuenow="90"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          ></div>
+        </div>
+        4 star
+        <div class="progress mb-2">
+          <div
+            class="progress-bar bg-warning"
+            role="progressbar"
+            style="width: 75%"
+            aria-valuenow="75"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          ></div>
+        </div>
+        3 star
+        <div class="progress mb-2">
+          <div
+            class="progress-bar bg-warning"
+            role="progressbar"
+            style="width: 5%"
+            aria-valuenow="5"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          ></div>
+        </div>
+        2 star
+        <div class="progress mb-2">
+          <div
+            class="progress-bar bg-warning"
+            role="progressbar"
+            style="width: 1%"
+            aria-valuenow="1"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          ></div>
+        </div>
+        1 star
+        <div class="progress mb-2">
+          <div
+            class="progress-bar bg-warning"
+            role="progressbar"
+            aria-valuenow="0"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          ></div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</div>
+<div class="container mb-5">
+  <div class="row">
+    <nav aria-label="breadcrumb m-0">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Video Games</a></li>
+        <li class="breadcrumb-item"><a href="#">PC</a></li>
+        <li class="breadcrumb-item"><a href="#">Accessories</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Gaming Mice</li>
+      </ol>
+    </nav>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="col-12 d-flex ps-3 justify-content-center sticky-top">
+        <div>
+          <img
+            [src]="product.productImages[0]"
+            onload="if(this.width/this.height > 1.0){this.className += ' a-stretch-horizontal'}else{this.className += ' a-stretch-vertical'};this.onload='';"
+            data-a-image-name="landingImage"
+            class="a-dynamic-image a-stretch-vertical row"
+            id="landingImage"
+            style="max-width: 550px; max-height: 550px"
+          />
+          <span class="row d-flex justify-content-center mt-1">
+            Roll over image to zoom in</span
+          >
+        </div>
+
+        <div
+          class="d-flex flex-column align-items-center position-absolute top-0 start-0 ms-md-4"
+        >
+          <img
+            [src]="product.productImages[0]"
+            class="img-thumbnail product-thumbnail"
+            alt="..."
+          />
+          <img
+            [src]="product.productImages[0]"
+            class="img-thumbnail product-thumbnail"
+            alt="..."
+          />
+          <img
+            [src]="product.productImages[0]"
+            class="img-thumbnail product-thumbnail"
+            alt="..."
+          />
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 px-4">
+      <span id="productTitle" class="word-break">
+        {{ product.productName }}
+      </span>
+      <a class="AH_card-link d-block" href="">Visit the Store</a>
+
+      <div class="">
+        <span
+          type="button"
+          triggers="mouseenter:mouseleave"
+          [ngbPopover]="popContent"
+          [openDelay]="300"
+          [closeDelay]="500"
+        >
+          <a class="">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+
+            <i class="ms-3 fas fa-chevron-right"></i>
+          </a>
+        </span>
+        <div class="d-flex flex-wrap">
+          <a href="" class="me-3 AH_card-link"> 3,5488 ratings </a> |
+          <a href="" class="ms-3 AH_card-link">135 answered questions</a>
+        </div>
+        <hr />
+        <!-- price -->
+        <div *ngIf="product.productPrice.discount > 0" class="row">
+          <div class="col-3">
+            <span class="text-secondary">List Price: </span>
+          </div>
+          <div class="col-9 p-0">
+            <del>EGP {{ product.productPrice.currentPrice }}</del>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-3">
+            <span class="text-secondary"> Price: </span>
+          </div>
+          <div class="col-9 ps-0">
+            <span class="">
+              <span class="price"
+                >EGP {{ product.productPrice.finalPrice | number }}</span
+              >
+              <span class="word-break text-secondary">
+                + ${{ shippingFees }} Shipping & Import Fees Deposit to
+                {{ DeliverTo }}</span
+              >
+            </span>
+          </div>
+        </div>
+        <div *ngIf="product.productPrice.discount > 0" class="row mb-3">
+          <div class="col-3 text-secondary">You Save:</div>
+          <div class="col-9 p-0">
+            <span class="price" style="font-size: 14px">
+              EGP {{ product.productPrice.discount }}
+              <span class="px-2">
+                ({{
+                  (product.productPrice.discount /
+                    product.productPrice.currentPrice) *
+                    100 | number
+                }}%)</span
+              >
+            </span>
+          </div>
+        </div>
+        <span class="word-break fs-6">
+          Available at a lower price from other sellers that may not offer free
+          Prime shipping.
+        </span>
+
+        <!-- specs -->
+        <div id="specsDiv" class="mt-2">
+          <div class="row gy-2">
+            <div class="col-lg-4">
+              <span class="font-weight-bold">Connections</span>
+            </div>
+            <div class="col-lg-8 ps-lg-0">Wired, USB</div>
+
+            <div class="col-lg-4">
+              <span class="font-weight-bold">Connections</span>
+            </div>
+            <div class="col-lg-8 ps-lg-0">Wired, USB</div>
+
+            <div class="col-lg-4">
+              <span class="font-weight-bold">Connections</span>
+            </div>
+            <div class="col-lg-8 ps-lg-0">Wired, USB</div>
+
+            <div class="col-lg-4">
+              <span class="font-weight-bold">Connections</span>
+            </div>
+            <div class="col-lg-8 ps-lg-0">Wired, USB</div>
+
+            <div class="col-lg-4">
+              <span class="font-weight-bold">Connections</span>
+            </div>
+            <div class="col-lg-8 ps-lg-0">Wired, USB</div>
+          </div>
+        </div>
+        <hr />
+
+        <!--About this item section  -->
+        <div id="aboutProduct" class="mb-2">
+          <h6 class="font-weight-bold">About this item</h6>
+          <ul type="disk " class="ps-2">
+            <li>
+              Nine programmable controls: Move keyboard commands to mouse
+              buttons that are in easy reach
+            </li>
+            <li>
+              Symmetrical compact shape: Feels comfortable in either hand and
+              perfect for gamers who don't want a large mouse
+            </li>
+            <li>
+              Gaming-grade optical sensor: Tracks accurately on a wide variety
+              of surfaces and is tunable to achieve the responsiveness you need
+            </li>
+          </ul>
+          <a class="AH_card-link">Compare with similar items</a>
+          <div class="AH_card-link mt-1">
+            New (10) from
+            <span class="price" style="font-size: 14px"
+              >EGP {{ product.productPrice.finalPrice }}</span
+            >
+          </div>
+        </div>
+        <hr />
+        <!--Similar item to consider -->
+        <div>
+          <h5 class="font-weight-bold">Similar item to consider</h5>
+          <div class="row">
+            <div class="col-lg-3">
+              <img
+                alt=""
+                style="max-width: 100px; max-height: 100px"
+                src="https://m.media-amazon.com/images/I/615JGNZIEPL._SS100_.jpg"
+                id="value-pick-image"
+              />
+            </div>
+            <div class="col-lg-9 ps-0">
+              <h6 class="word-break AH_card-link">
+                FIODIO Wired Gaming Mouse, 4 RGB LED Backlight Modes Computer
+                Gaming Mice, Comfortable Ergonomic Optical PC Laptop Gamer Mouse
+                for Windows 7/8.1/10
+              </h6>
+              <div class="price" style="font-size: 14px">EGP 500</div>
+              <i class="fas fa-star fa-sm"></i>
+              <i class="fas fa-star fa-sm"></i>
+              <i class="fas fa-star fa-sm"></i>
+              <i class="fas fa-star fa-sm"></i>
+              <i class="far fa-star fa-sm"></i>
+              <a class="AH_card-link"> (67) </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="card p-3">
+        <div class="price">
+          EGP {{ product.productPrice.finalPrice | number }}
+        </div>
+        <div class="word-break text-secondary mb-3" style="font-weight: 500">
+          + ${{ shippingFees }} Shipping & Import Fees Deposit to
+          {{ DeliverTo }}
+        </div>
+
+        <!-- estimated Arrive time  -->
+        <div class="mb-4">
+          Arrives: <span class="font-weight-bold">Feb 11 -March 8</span>
+        </div>
+
+        <h5 class="word-break mb-2" style="color: #a53d01">
+          Only 1 left in stock - order soon.
+        </h5>
+        <!-- buttons -->
+        <div class="row p-2">
+          <div
+            class="button d-flex justify-content-center position-relative mb-2"
+          >
+            <input type="button" value="Add To Cart" (click)="addToCart()" />
+            <div
+              class="position-absolute start-0 d-flex justify-content-center align-items-center square"
+            >
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+          </div>
+          <div
+            class="button_buy d-flex justify-content-center position-relative mb-2"
+          >
+            <input type="button" value="Buy Now" />
+            <div
+              class="position-absolute start-0 d-flex justify-content-center align-items-center square"
+            >
+              <i class="fas fa-play"></i>
+            </div>
+          </div>
+        </div>
+        <!-- secure transaction -->
+        <div class="d*flex">
+          <i style="color: lightgrey" class="fas fa-lock me-3"></i>
+          <span class="AH_card-link">Secure Transaction</span>
+        </div>
+        <hr />
+        <!-- sold by & ships from -->
+        <div>
+          <div class="row">
+            <span class="col-5 fs-7"> Ships from </span>
+            <span class="col-7 fs-7">Amazon</span>
+          </div>
+          <div class="row mb-3">
+            <span class="col-5 fs-7"> Sold by </span>
+            <a class="col-7 AH_card-link fs-7">LWOUTLET</a>
+          </div>
+        </div>
+        <hr class="m-0" />
+        <div class="d-flex my-2">
+          <i style="color: lightgray" class="fas fa-map-marker-alt me-2"></i>
+          <a class="AH_card-link fs-7">Deliver To Egypt</a>
+        </div>
+        <hr class="m-0" />
+        <div class="mt-4">
+          <div class="button-list">
+            <input type="button" value="Add To List" />
+          </div>
+        </div>
+      </div>
+      <div class="card p-3 my-4 position-relative">
+        <span>
+          New (10) from
+          <span class="price" style="font-size: 14px"
+            >EGP {{ product.productPrice.finalPrice }}</span
+          ><i
+            class="mx-3 fas fa-chevron-right position-absolute end-0 top-50 translate-middle-y"
+          ></i
+        ></span>
+      </div>
+
+      <!-- share -->
+      <div class="d-flex justify-content-center">
+        <span class="AH_card-link me-2"> share</span>
+        <span class="me-2">
+          <i class="far fa-envelope fa-lg" style="color: lightgrey"></i>
+        </span>
+
+        <span class="me-2">
+          <i class="fab fa-facebook-square fa-lg" style="color: #4267b2"></i>
+        </span>
+        <span class="me-2">
+          <i class="fab fa-twitter fa-lg" style="color: #1da1f2"></i>
+        </span>
+      </div>
+      <!-- Other sellers -->
+
+      <div class="card my-4 position-relative">
+        <div class="card-header bg-transparent fs-7 font-weight-bold">
+          Other Sellers on Amazon
+        </div>
+        <div class="p-2">
+          <div class="d-flex justify-content-between">
+            <div class="price">EGP</div>
+
+            <div class="button p-1">
+              <div class="fw-7">Add To Cart</div>
+            </div>
+          </div>
+          <span class="fs-7">& FREE Shipping on eligible orders. </span>
+          <div class="fs-7 text-secondary">Sold By: <span>PNR Sales</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+=======
 <div class="row">
   <ng-template class="p-0 m-0" #popContent>
     <div class="border-0 p-0 m-0">
@@ -323,3 +725,4 @@
     </div>
   </div>
 </div>
+>>>>>>> edb4afbbd58be650426779fff4c2cf745b5544b9
