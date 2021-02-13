@@ -36,6 +36,30 @@
               <label for="prodName" class="form-label ">Product Name</label>
               <input [ngClass]="{'invalid':prodName.touched && prodName.invalid }" #prodName='ngModel' type="text" class="form-control " [(ngModel)]='product.productName' id="prodName" name="prodName">
             </div>
+            <div class="mb-3" >
+              <label for="prodType" class="form-label ">Product Type</label>
+              <input #prodType='ngModel' type="text" class="form-control " [(ngModel)]='product.productType' id="prodType" name="prodType">
+            </div>
+
+            <div class="mb-3" >
+              <label  class="form-label ">Product Category</label>
+              <select (change)='applySub()' #prodCategory='ngModel' class="form-select " [(ngModel)]='product.productCategory' id="prodCategory" name="prodCategory">
+                <option *ngFor='let cat of categories' [value]="cat._id">{{cat.name}}</option>
+              </select>
+            </div>
+            <div class="mb-3" >
+              <label  class="form-label ">Product Sub Category</label>
+              <select #prodSubCategory='ngModel' class="form-select " [(ngModel)]='product.productSubCategory' id="prodSubCategory" name="prodSubCategory">
+                <option *ngFor='let subCat of subCategories' [value]="subCat">{{subCat}}</option>
+              </select>
+            </div>
+            <div class="mb-3" >
+              <label  class="form-label ">Product Stock</label>
+              <input #prodStock='ngModel' type="number" class="form-control " [(ngModel)]='product.productStock' id="prodStock" name="prodStock">
+            </div>
+
+            <!-- WareHouse -->
+
             <div class="info px-4 py-3 mb-3">
               <h4 class="form-label text-center d-block">Product Info</h4>
               <div class="mb-3" >
@@ -112,12 +136,6 @@
                 
             </div>
             </div>
-            <div class="mb-3" >
-              <label for="prodName" class="form-label ">Product Type</label>
-              <input #prodType='ngModel' type="text" class="form-control " [(ngModel)]='product.productType' id="prodType" name="prodType">
-            </div>
-
-            <!-- Category and subcategory -->
 
             <div class="info px-4 py-3 mb-3">
               <h4 class="form-label text-center d-block">Product Keywords</h4>

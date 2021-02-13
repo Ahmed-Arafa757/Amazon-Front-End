@@ -1532,7 +1532,7 @@ export class ProductService {
     this.products.splice(index, 1);
   }
   addProduct(product: Product) {
-    const productId = this.products.length;
+    const productId = this.products.length+1;
     const newproduct: Product = {
       productId: productId,
       productName: product.productName,
@@ -1549,6 +1549,8 @@ export class ProductService {
       productSales: product.productSales,
     };
     this.products.push(newproduct);
+    console.log(product);
+    console.log(newproduct);
   }
 
   addProductsToCart(products) {
