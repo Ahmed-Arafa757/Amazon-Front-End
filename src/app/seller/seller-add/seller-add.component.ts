@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/_model/product';
+import { CategoryService } from 'src/app/_services/category.service';
 import { ColorService } from 'src/app/_services/color.service';
+import { ProductService } from 'src/app/_services/product.service';
 
 @Component({
   selector: 'app-seller-add',
@@ -10,12 +12,21 @@ import { ColorService } from 'src/app/_services/color.service';
 export class SellerAddComponent implements OnInit {
   product:Product={productImages:[],productInfo:{color:[]},productPrice:{},keywords:[]};
   colors;
+  categories;
+  subCategories;
   isColor:true;
   keys:string[]=[];
-  constructor(private colorService : ColorService) { }
+  constructor(private colorService : ColorService ,
+     private categoryService : CategoryService ,
+      private productService : ProductService) { }
 
   ngOnInit(): void {
     this.colors=this.colorService.allColors();
+    this.categories = this.categoryService.getAllCategories();
+  }
+  applySub()
+  {
+    this.subCategories = this.categoryService.getAllSubCategoriesOfACategryById(this.product.productCategory);
   }
   addImg(e){    
     let firstImg = document.getElementById('0') as HTMLImageElement;
@@ -89,15 +100,9 @@ export class SellerAddComponent implements OnInit {
     this.keys.push(keyId);
     let html = `<div class="mb-3">
     <label for="${keyId}" class="form-label" style="font-size: 14px;font-weight: 700;color: black;">${key}</label>
-    <input type="${type}" class="form-control" id="${keyId}" name="${keyId}" [(ngModel)]='product.productInfo[${keyId}]' #info${keyId}='ngModel'>
+    <input type="${type}" class="form-control" [value]='product.productInfo[${keyId}]' id="${keyId}" name="${keyId}" [(ngModel)]='product.productInfo[${keyId}]' #info${keyId}='ngModel'>
     </div>`;
-    for( let k of this.keys)
-    {
-      /* value.push(document.getElementById(k).value) */
-    }
-    console.log(value);
-    
-    document.getElementById('addInfo').innerHTML+=html;
+    document.getElementById('addInfo').insertAdjacentHTML('beforeend',html);
     input.value = '';
   }
   onKeyWordAdded(keyWordInput)
@@ -142,9 +147,7 @@ export class SellerAddComponent implements OnInit {
     else{
       this.product.productInfo.color = [];
     }
-    
-    console.log(this.product);
-    
+    this.productService.addProduct(this.product);   
   }
   fireUplodeImg(e){
     if(e.screenX !== 0)
