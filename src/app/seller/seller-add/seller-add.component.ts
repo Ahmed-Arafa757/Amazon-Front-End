@@ -5,91 +5,87 @@ import { ColorService } from 'src/app/_services/color.service';
 @Component({
   selector: 'app-seller-add',
   templateUrl: './seller-add.component.html',
-  styleUrls: ['./seller-add.component.scss'],
+  styleUrls: ['./seller-add.component.scss']
 })
 export class SellerAddComponent implements OnInit {
   product:Product={productImages:[],productInfo:{color:[]},productPrice:{},keywords:[]};
   colors;
-  isColor:true;
+  isColor=false;
   keys:string[]=[];
   constructor(private colorService : ColorService) { }
 
   ngOnInit(): void {
-    this.colors = this.colorService.allColors();
+    this.colors=this.colorService.allColors();
   }
-  addImg(e) {
+  addImg(e){    
     let firstImg = document.getElementById('0') as HTMLImageElement;
-    let image = e.target.files[0];
+    let image = e.target.files[0];    
     this.product.productImages.push(image.name);
-    if (this.product.productImages.length == 1) {
-      firstImg.src = `../../../assets/images/test/${image.name}`;
-    } else if (this.product.productImages.length >= 1) {
-      let newImg =
-        document.getElementById('imgPresent').innerHTML +
-        `<div class="carousel-item">
+    if(this.product.productImages.length==1)
+    {
+      firstImg.src = `../../../assets/images/test/${image.name}`
+    }
+    else if(this.product.productImages.length>=1)
+    {
+      let newImg = document.getElementById('imgPresent').innerHTML+`<div class="carousel-item">
           <img src="../../../assets/images/test/${image.name}" class="d-block w-100" alt="...">
         </div>`;
-      document.getElementById('imgPresent').innerHTML = newImg;
-    } else {
-      document.getElementById(
-        'imgPresent'
-      ).innerHTML = `<div class="carousel-item active">
+        document.getElementById('imgPresent').innerHTML=newImg;
+    }
+    else
+    {
+      document.getElementById('imgPresent').innerHTML=`<div class="carousel-item active">
+      <img id="0" src="../../../assets/images/test/featured-image-placeholder.jpg" class="d-block w-100" alt="...">
+      </div>`;
+    }    
+  }
+  removeImg(){
+    let index = 0;
+    if(this.product.productImages.length==0)
+    {
+      alert('No image to remove ');
+    }
+    else{
+    this.product.productImages.pop();    
+    document.getElementById('imgPresent').innerHTML='';
+    if(this.product.productImages.length==0)
+    {
+      document.getElementById('imgPresent').innerHTML=`<div class="carousel-item active">
       <img id="0" src="../../../assets/images/test/featured-image-placeholder.jpg" class="d-block w-100" alt="...">
       </div>`;
     }
-  }
-  removeImg(ref: HTMLInputElement) {
-    ref.value = '';
-    let index = 0;
-    if (this.product.productImages.length == 0) {
-      alert('No image to remove ');
-    } else {
-      this.product.productImages.pop();
-      document.getElementById('imgPresent').innerHTML = '';
-      if (this.product.productImages.length == 0) {
-        document.getElementById(
-          'imgPresent'
-        ).innerHTML = `<div class="carousel-item active">
-      <img id="0" src="../../../assets/images/test/featured-image-placeholder.jpg" class="d-block w-100" alt="...">
-      </div>`;
-      } else {
-        for (let img of this.product.productImages) {
-          if (index == 0) {
-            index++;
-            document.getElementById(
-              'imgPresent'
-            ).innerHTML += `<div class="carousel-item active">
+    else
+    {
+      for(let img of this.product.productImages)
+      {
+        if(index == 0)
+        {
+          index++;
+          document.getElementById('imgPresent').innerHTML+=`<div class="carousel-item active">
           <img src="../../../assets/images/test/${img}" class="d-block w-100" alt="...">
-        </div>`;
-          } else {
-            document.getElementById(
-              'imgPresent'
-            ).innerHTML += `<div class="carousel-item ">
+        </div>`
+        }else{
+          document.getElementById('imgPresent').innerHTML+=`<div class="carousel-item ">
           <img src="../../../assets/images/test/${img}" class="d-block w-100" alt="...">
-        </div>`;
-          }
+        </div>`
         }
       }
     }
   }
-  transform(value: string): string {
-    return value.length === 0
-      ? ''
-      : value.replace(
-          /\w\S*/g,
-          (txt) => txt[0].toUpperCase() + txt.substr(1).toLowerCase()
-        );
   }
+  transform(value: string ): string  {
+    return value.length === 0 ? '' :
+    value.replace(/\w\S*/g, (txt => txt[0].toUpperCase() + txt.substr(1).toLowerCase() ));  }
 
-  addInfo(type) {
-    const input = document.getElementById('infoKey') as HTMLInputElement;
+  addInfo(type){
+    const input = document.getElementById('infoKey') as HTMLInputElement; 
     let key = this.transform(input.value);
     let value = [];
     if(key == '' || key == null || key == ' '|| key == '  ')
     {
       throw 'Please Enter Valid Key';
     }
-    let keyId = key.replace(/\s/g, '').trim();
+    let keyId = key.replace(/\s/g, "").trim();
     this.keys.push(keyId);
     let html = `<div class="mb-3">
     <label for="${keyId}" class="form-label" style="font-size: 14px;font-weight: 700;color: black;">${key}</label>
@@ -104,9 +100,10 @@ export class SellerAddComponent implements OnInit {
     document.getElementById('addInfo').innerHTML+=html;
     input.value = '';
   }
-  onKeyWordAdded(keyWordInput) {
+  onKeyWordAdded(keyWordInput)
+  {
     this.product.keywords.push(keyWordInput.value);
-    keyWordInput.value = '';
+    keyWordInput.value='';
   }
   removeKey(key){
    /*  let filterd = this.product.keywords.filter((k) => { 
@@ -127,10 +124,11 @@ export class SellerAddComponent implements OnInit {
     {
       this.product.productPrice.finalPrice = this.product.productPrice.currentPrice;
     }
-
-    for (let key of this.keys) {
+    
+    for(let key of this.keys)
+    {
       let input = document.getElementById(key) as HTMLInputElement;
-      this.product.productInfo[key] = input.value;
+      this.product.productInfo[key]=input.value;
     }
     if(this.isColor){
       for(let color of this.colors)
@@ -146,6 +144,7 @@ export class SellerAddComponent implements OnInit {
     }
     
     console.log(this.product);
+    
   }
   fireUplodeImg(e){
     if(e.screenX !== 0)
