@@ -1,6 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Injectable, Input, OnInit } from '@angular/core';
 import { Product } from './../../../_model/product';
 import { ProductService } from 'src/app/_services/product.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-product-info',
@@ -16,9 +17,15 @@ export class ProductInfoComponent implements OnInit {
 
   shippingFees: number = 36.3;
   DeliverTo: string = 'Egypt';
+  relatedProducts: Product[];
   constructor(private productService: ProductService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.relatedProducts = this.productService.searchProductsByKeywords(
+      this.product.keywords[0],
+      this.product.keywords[1]
+    );
+  }
 
   addToCart() {
     this.cartArray = this.productService.cartProducts.slice();
