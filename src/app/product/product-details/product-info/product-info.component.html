@@ -407,8 +407,6 @@
       Products related to this item
     </span>
 
-
-    
     <ul class="tp-list-inline py-3 px-0 mt-2">
       <li
         *ngFor="let relPro of relatedProducts"
@@ -418,7 +416,7 @@
           <img
             alt="{{ relPro.productName }}"
             src="{{ relPro.productImages[0] }}"
-            class="product-image "
+            class="product-image"
             height="200px"
             data-a-hires="{{ relPro.productImages[0] }}"
           />
