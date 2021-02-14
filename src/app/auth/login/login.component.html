@@ -12,16 +12,34 @@
       <div class="col-sm-12 col-md-6 col-lg-4 mx-auto MM_signInCard">
         <div class="card">
           <div class="card-body">
-            <form>
+            <form #loginForm='ngForm'>
               <div class="mb-3">
                 <p class="fs-3">Sign-In</p>
-                <label for="exampleInputEmail1" class="form-label">Email or mobile phone number
-                </label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+
+                <div [ngClass]='{"invalid" : UserEmail.invalid && UserEmail.touched}'>
+                  <label for="exampleInputEmail1" class="form-label">Email 
+                  </label>
+                  <input required minlength="10" maxlength="30" [(ngModel)]='person.email' #UserEmail='ngModel' type="email"
+                    class="form-control" name="email" id="inputEmail"/> 
+                    <span *ngIf='UserEmail.invalid && UserEmail.touched'>This Field is Required</span>
+
+                </div>
+                <br>
+                <div>
+                  <label class="form-label">Password
+                  </label>
+                  <input required minlength="6" maxlength="20" [(ngModel)]='person.password' #password='ngModel'
+                    type="password" class="form-control" name="password" />
+                    <span *ngIf='password.invalid && password.touched'>This Field is Required</span>
+                    
+
+                </div>
+                <br>
+
               </div>
 
-              <button type="submit" class="btn bg-gradient col-12 mb-3">
-                Continue
+              <button type="submit" class="btn bg-gradient col-12 mb-3" (click)='onLogin()'>
+                Login
               </button>
             </form>
             <span>

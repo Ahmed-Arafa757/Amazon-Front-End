@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Advertisement } from 'src/app/_model/advertisements';
+import { Person } from 'src/app/_model/person';
 import { Product } from 'src/app/_model/product';
 import { AdvertisementService } from 'src/app/_services/advertisements.service';
+import { PersonService } from 'src/app/_services/person.service';
 import { ProductService } from 'src/app/_services/product.service';
 
 @Component({
@@ -17,9 +19,11 @@ export class ProductListingComponent implements OnInit {
   pageSize = 9;
 
   currentPage = 0;
-  lastPage = 0;
+  lastPage = 0; 
 
-  constructor(private productService: ProductService) {}
+  loggedInPerson: Person;
+  constructor(private productService: ProductService,
+  private personService:PersonService) { }
 
   ngOnInit(): void {
     this.products = this.productService.getAllProducts();
@@ -43,4 +47,22 @@ export class ProductListingComponent implements OnInit {
   // getProducts() {
   //  return this.advertisementsService.getAllAds().slice(0, 12);
   // }
+
+  SignedIn() {
+    // return this.authService.isAuthenticated(); 
+
+    if (localStorage.hasOwnProperty("personId")) {
+
+      this.loggedInPerson = this.personService.getPersonById(localStorage.getItem("personId"));
+      // console.log('this.loggedInPerson from header', this.loggedInPerson);
+      return true;
+
+    }
+    else {
+      return false;
+    }
+
+
+
+  }
 }

@@ -1,0 +1,25 @@
+#AA_signInBtn {
+  display: block;
+  height: 33px;
+  margin: 0 10px 0 11px;
+  cursor: pointer;
+  outline: 0;
+  border: 1px solid;
+  border-color: #c89411 #b0820f #99710d;
+  border-radius: 3px 3px 3px 3px;
+  border-radius: 0\9 ;
+  box-shadow: inset 0 1px 0 0 #fcf3dc;
+  background: #f3cf72;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#FFF8E3AD", endColorstr="#FFEEBA37", GradientType=0);
+  background: linear-gradient(to bottom, #f8e3ad, #EEBA37);
+  background: -ms-linear-gradient(top, #f8e3ad, #EEBA37);
+  text-align: center;
+  line-height: 20px;
+  vertical-align: middle;
+  color: #111;
+  font-family: inherit;
+  text-decoration: none;
+  font-size: 13px;
+  padding-bottom: 10px;
+}
+/*# sourceMappingURL=top-sellers.component.css.map */
