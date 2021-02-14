@@ -1532,7 +1532,7 @@ export class ProductService {
     this.products.splice(index, 1);
   }
   addProduct(product: Product) {
-    const productId = this.products.length;
+    const productId = this.products.length+1;
     const newproduct: Product = {
       productId,
       productName: product.productName,
@@ -1549,10 +1549,25 @@ export class ProductService {
       productSales: product.productSales,
     };
     this.products.push(newproduct);
+    console.log(product);
+    console.log(newproduct);
   }
 
   addProductsToCart(products) {
     this.cartProducts = products.slice();
     this.productAdded.emit(this.cartProducts);
+  }
+
+  searchProductsByKeywords(...params) {
+    var result = this.products.filter((p) => {
+      return p.keywords.includes(params[0]);
+    });
+    for (let index = 1; index < params.length; index++) {
+      result = result.filter((p) => {
+        return p.keywords.includes(params[index]);
+      });
+    }
+
+    return result;
   }
 }

@@ -1,4 +1,4 @@
-<div style="background-color: white">
+<div style="background-color: white;">
   <div class="container MM_signInContainer">
     <div class="row">
       <div class="col-sm-12 col-md-6 col-lg-4 mx-auto text-center mt-3 mb-3">
@@ -15,6 +15,7 @@
             <form #regForm='ngForm'>
               <div class="mb-3">
                 <p class="fs-3">Create account</p>
+
 
                 <div>
 
@@ -41,10 +42,12 @@
                 </div>
 
 
+
                 <div class="form-text mb-3">
                   <i class="fas fa-info" style="color: rgb(0, 152, 212)"></i>
                   Passwords must be at least 6 characters.
                 </div>
+
 
                 <div [ngClass]='{"invalid" : re.invalid && re.touched}'>
 
@@ -55,6 +58,7 @@
                     class="form-control"
                     id="confirm-password" />
                 </div>
+
 
 
               </div>
@@ -90,4 +94,5 @@
       </div>
     </div>
   </div>
-</div>
+
+ 

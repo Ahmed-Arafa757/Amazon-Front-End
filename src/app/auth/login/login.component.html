@@ -1,4 +1,4 @@
-<div style="background-color: white">
+<div style="background-color: white;">
   <div class="container MM_signInContainer">
     <div class="row">
       <div class="col-sm-12 col-md-6 col-lg-4 mx-auto text-center mt-3 mb-3">
@@ -15,6 +15,7 @@
             <form #loginForm='ngForm'>
               <div class="mb-3">
                 <p class="fs-3">Sign-In</p>
+
                 <div [ngClass]='{"invalid" : UserEmail.invalid && UserEmail.touched}'>
                   <label for="exampleInputEmail1" class="form-label">Email 
                   </label>
@@ -34,6 +35,7 @@
 
                 </div>
                 <br>
+
               </div>
 
               <button type="submit" class="btn bg-gradient col-12 mb-3" (click)='onLogin()'>
@@ -86,4 +88,4 @@
       </div>
     </div>
   </div>
-</div>
+  
