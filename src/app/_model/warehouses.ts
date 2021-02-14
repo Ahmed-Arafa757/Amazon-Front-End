@@ -1,8 +1,8 @@
 export interface warehouse {
-  _id: string;
+  _id?: string;
   name: string;
   location: string;
   totalOrders: number;
   totalProducts: number;
-  isFull: true;
+  isFull: boolean;
 }
