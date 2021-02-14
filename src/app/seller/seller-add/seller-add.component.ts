@@ -12,6 +12,7 @@ import { ProductService } from 'src/app/_services/product.service';
 export class SellerAddComponent implements OnInit {
   product:Product={productImages:[],productInfo:{color:[]},productPrice:{},keywords:[]};
   colors;
+
   categories;
   subCategories;
   isColor:true;
@@ -28,6 +29,7 @@ export class SellerAddComponent implements OnInit {
   {
     this.subCategories = this.categoryService.getAllSubCategoriesOfACategryById(this.product.productCategory);
   }
+
   addImg(e){    
     let firstImg = document.getElementById('0') as HTMLImageElement;
     let image = e.target.files[0];    
@@ -100,15 +102,18 @@ export class SellerAddComponent implements OnInit {
     this.keys.push(keyId);
     let html = `<div class="mb-3">
     <label for="${keyId}" class="form-label" style="font-size: 14px;font-weight: 700;color: black;">${key}</label>
+
     <input type="${type}" class="form-control" [value]='product.productInfo[${keyId}]' id="${keyId}" name="${keyId}" [(ngModel)]='product.productInfo[${keyId}]' #info${keyId}='ngModel'>
     </div>`;
     document.getElementById('addInfo').insertAdjacentHTML('beforeend',html);
+
     input.value = '';
   }
   onKeyWordAdded(keyWordInput)
   {
     this.product.keywords.push(keyWordInput.value);
     keyWordInput.value='';
+
   }
   removeKey(key){
    /*  let filterd = this.product.keywords.filter((k) => { 
@@ -119,6 +124,7 @@ export class SellerAddComponent implements OnInit {
   let index = this.product.keywords.findIndex( k => k == key );
   this.product.keywords.splice(index,1);
   }
+
   submitAdd(form){
     if(form.value.prodSale == 0)
     {
@@ -147,7 +153,13 @@ export class SellerAddComponent implements OnInit {
     else{
       this.product.productInfo.color = [];
     }
+
+    
+    console.log(this.product);
+    
+
     this.productService.addProduct(this.product);   
+
   }
   fireUplodeImg(e){
     if(e.screenX !== 0)
