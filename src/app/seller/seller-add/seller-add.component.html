@@ -36,7 +36,6 @@
               <label for="prodName" class="form-label ">Product Name</label>
               <input [ngClass]="{'invalid':prodName.touched && prodName.invalid }" #prodName='ngModel' type="text" class="form-control " [(ngModel)]='product.productName' id="prodName" name="prodName">
             </div>
-
             <div class="mb-3" >
               <label for="prodType" class="form-label ">Product Type</label>
               <input #prodType='ngModel' type="text" class="form-control " [(ngModel)]='product.productType' id="prodType" name="prodType">
@@ -59,8 +58,12 @@
               <input #prodStock='ngModel' type="number" class="form-control " [(ngModel)]='product.productStock' id="prodStock" name="prodStock">
             </div>
 
-            <!-- WareHouse -->
-
+            <div class="mb-3" >
+              <label  class="form-label ">Warehouse</label>
+              <select #warehouse='ngModel' class="form-select " [(ngModel)]='product.warehouseId' id="warehouse" name="warehouse">
+                <option *ngFor='let warehouse of warehouses' [value]="warehouse._id">{{warehouse.name}}</option>
+              </select>
+            </div>
 
             <div class="info px-4 py-3 mb-3">
               <h4 class="form-label text-center d-block">Product Info</h4>
@@ -110,39 +113,6 @@
                   </div>
                 </div>
               </div>
-
-            </div>
-
-            </div>
-            <div class="info px-4 py-3 mb-3">
-              <h4 class="form-label text-center d-block">Product Price</h4>
-              <div class="mb-3" >
-              <div class="form-group">
-                <label for="prodPrice">Price</label>
-                <input [(ngModel)]='product.productPrice.currentPrice' #prodPrice='ngModel' class="form-control" type="number" name="prodPrice" id="prodPrice">
-            </div></div>
-            <div class="mb-3" >
-              <label for="prodSale">Status</label>
-                  <div class="form-check">
-                      <input class="form-check-input" ngModel type="radio" name="prodSale" value="0" id="prodSale" #prodSale='ngModel'>
-                      <span>On Sale</span>
-                  </div>
-                  <div class="form-check">
-                      <input ngModel='1' class="form-check-input" #prodSale='ngModel' type="radio" name="prodSale" value="1" id="prodNotSale" >
-                      <span>Not On Sale</span>
-                  </div>
-                <div class="form-group">
-                    <label for="">Discount</label>
-                    <input #prodDiscunt='ngModel' [disabled]='prodSale.value==1 || prodSale.untouched' [(ngModel)]='product.productPrice.discount' class="form-control" type="number" name="prodDiscunt" id="prodDiscunt">
-                  
-                  </div>
-                
-            </div>
-            </div>
-            <div class="mb-3" >
-              <label for="prodName" class="form-label ">Product Type</label>
-              <input #prodType='ngModel' type="text" class="form-control " [(ngModel)]='product.productType' id="prodType" name="prodType">
-
             </div>
 
             </div>
