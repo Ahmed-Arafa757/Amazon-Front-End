@@ -149,8 +149,8 @@
                           <a (click)='removeKey(key)' class="taged-textbox__remove"><i class="fas fa-times"></i></a>
                         </div></div>
 
-                  <div class="taged-textbox__clear">
-                      <a (click)='product.keywords=[]' role="button" style="cursor: pointer;"><i class="fas fa-times"></i></a>
+                  <div *ngIf='product.keywords.length !== 0' class="taged-textbox__clear">
+                      <a  (click)='product.keywords=[]' role="button" style="cursor: pointer;"><i class="fas fa-times"></i></a>
                   </div>
 
               <input #keywords (keyup.enter)='onKeyWordAdded(keywords)' class="taged-textbox__textbox form-control" type="text" name="keywords" id="keywords">
