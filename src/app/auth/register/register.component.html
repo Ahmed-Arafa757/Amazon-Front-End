@@ -3,12 +3,7 @@
     <div class="row">
       <div class="col-sm-12 col-md-6 col-lg-4 mx-auto text-center mt-3 mb-3">
         <a [routerLink]="['']">
-          <img
-            src="../../../assets/images/logo/Amazon_logo.png"
-            alt=""
-            width="30%"
-            height="auto"
-          />
+          <img src="../../../assets/images/logo/Amazon_logo.png" alt="" width="30%" height="auto" />
         </a>
       </div>
     </div>
@@ -17,68 +12,74 @@
       <div class="col-sm-12 col-md-6 col-lg-4 mx-auto MM_signInCard">
         <div class="card">
           <div class="card-body">
-            <form>
+            <form #regForm='ngForm'>
               <div class="mb-3">
                 <p class="fs-3">Create account</p>
-                <label for="name" class="form-label fw-bold">Your name </label>
-                <input type="text" class="form-control mb-3" id="name" />
-                <label for="email" class="form-label fw-bold">Email </label>
-                <input
-                  type="email"
-                  class="form-control mb-3"
-                  id="email"
-                  aria-describedby="emailHelp"
-                />
-                <label for="password" class="form-label fw-bold"
-                  >Password
-                </label>
-                <input
-                  type="password"
-                  class="form-control"
-                  id="password"
-                  placeholder="At least 6 characters"
-                />
+
+                <div>
+
+                  <label for="name" class="form-label fw-bold">Your name </label>
+                  <input type="text" class="form-control mb-3" id="name" />
+                </div>
+
+                <div [ngClass]='{"invalid" : email.invalid && email.touched}'>
+
+                  <label for="email" class="form-label fw-bold">Email </label>
+                  <input required minlength="10" maxlength="30" [(ngModel)]='person.email' #email='ngModel' required
+                    type="email" class="form-control mb-3"
+                    id="email" name="email" />
+                </div>
+
+                <div [ngClass]='{"invalid" : password.invalid && password.touched}'>
+
+                  <label for="password" class="form-label fw-bold">Password
+                  </label>
+                  <input required minlength="6" maxlength="20" [(ngModel)]='person.password' #password='ngModel'
+                    type="password" class="form-control" id="password"
+                    name="password"
+                    placeholder="At least 6 characters" />
+                </div>
+
+
                 <div class="form-text mb-3">
                   <i class="fas fa-info" style="color: rgb(0, 152, 212)"></i>
                   Passwords must be at least 6 characters.
                 </div>
-                <label for="confirm-password" class="form-label fw-bold"
-                  >Re-enter password
-                </label>
-                <input
-                  type="password"
-                  class="form-control"
-                  id="confirm-password"
-                />
+
+                <div [ngClass]='{"invalid" : re.invalid && re.touched}'>
+
+                  <label for="confirm-password" class="form-label fw-bold">Re-enter password
+                  </label>
+                  <input required minlength="6" maxlength="20" [(ngModel)]='person.repeatedPassword' #re='ngModel'
+                    type="password" name='confirm-password'
+                    class="form-control"
+                    id="confirm-password" />
+                </div>
+
+
               </div>
 
-              <button type="submit" class="btn bg-gradient col-12 mb-3">
+              <button type="submit" class="btn bg-gradient col-12 mb-3" (click)='onRegister()'>
                 Create your Amazon account
               </button>
             </form>
             <span>
               By continuing, you agree to Amazon's
               <a href="#">Conditions of Use</a> and
-              <a href="#">Privacy Notice</a>.</span
-            >
+              <a href="#">Privacy Notice</a>.</span>
 
             <hr class="my-4" />
 
-            <span
-              >Already have an account?
-              <a [routerLink]="['/login']"
-                >Sign-In
-                <i class="fas fa-caret-right" style="font-size: 0.7rem"></i></a
-            ></span>
+            <span>Already have an account?
+              <a [routerLink]="['/login']">Sign-In
+                <i class="fas fa-caret-right" style="font-size: 0.7rem"></i></a></span>
           </div>
         </div>
       </div>
     </div>
 
     <div class="row">
-      <div
-        class="col-sm-12 col-md-8 col-lg-6 mx-auto text-center MM_buttomRights"
-      >
+      <div class="col-sm-12 col-md-8 col-lg-6 mx-auto text-center MM_buttomRights">
         <hr />
         <a href="#">Conditions</a>
         <a href="#">Privacy Notice</a>

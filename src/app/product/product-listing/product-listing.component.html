@@ -84,7 +84,7 @@
     </div>
   </div>
 
-  <div class="row">
+  <div *ngIf='SignedIn() === false' class="row">
     <div class="col-12" id="AA_lastRow">
 
 
@@ -92,7 +92,7 @@
       <p class="h6" id="AA_startHere">See personalized recommendations</p>
       <a [routerLink]="['/login']">
         <div class="d-grid gap-2 col-2 mx-auto">
-          <button class="btn btn-warning" type="button"><span id="AA_startHere">Sign in</span> </button>
+          <button class="btn" type="button" id="AA_signInBtn">Sign in </button>
         </div>
       </a>
       <p class="h6" id="AA_startHere">New customer? <a [routerLink]="['/register']"> start here</a></p>
