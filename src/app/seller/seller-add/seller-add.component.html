@@ -134,7 +134,23 @@
             />
           </div>
 
-          <!-- WareHouse -->
+          <div class="mb-3">
+            <label class="form-label">Warehouse</label>
+            <select
+              #warehouse="ngModel"
+              class="form-select"
+              [(ngModel)]="product.warehouseId"
+              id="warehouse"
+              name="warehouse"
+            >
+              <option
+                *ngFor="let warehouse of warehouses"
+                [value]="warehouse._id"
+              >
+                {{ warehouse.name }}
+              </option>
+            </select>
+          </div>
 
           <div class="info px-4 py-3 mb-3">
             <h4 class="form-label text-center d-block">Product Info</h4>
@@ -325,7 +341,10 @@
               </div>
             </div>
 
-            <div class="taged-textbox__clear">
+            <div
+              *ngIf="product.keywords.length !== 0"
+              class="taged-textbox__clear"
+            >
               <a
                 (click)="product.keywords = []"
                 role="button"

@@ -10,6 +10,13 @@ export class FooterComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    document.getElementById('toTopBtn').addEventListener('click', () => {
+      document.documentElement.scrollTop = 0;
+    });
   }
-
 }
+
+
+
+
+

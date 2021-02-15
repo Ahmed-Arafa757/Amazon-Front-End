@@ -1,3 +1,4 @@
+import { SellerHomeComponent } from './seller/seller-home/seller-home.component';
 import { SellerLoginComponent } from './seller/seller-login/seller-login.component';
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
@@ -17,6 +18,7 @@ import { ProductDetailsComponent } from './product/product-details/product-detai
 import { ProductListingComponent } from './product/product-listing/product-listing.component';
 import { SellerAddComponent } from './seller/seller-add/seller-add.component';
 import { SellerRegisterComponent } from './seller/seller-register/seller-register.component';
+import { AuthGuardService } from './_services/auth-guard.service';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -25,20 +27,21 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'cart', component: CartComponent },
   { path: 'checkout', component: CheckoutComponent },
-  { path: 'customer-service', component: CustomerServiceComponent },
+  { path: 'customer-service', component: CustomerServiceComponent, canActivate: [AuthGuardService]},
   { path: 'departments', component: DepartmentsComponent },
   { path: 'discover-amazon', component: DiscoverAmazonComponent },
   { path: 'search-results/:id', component: SearchResultsComponent },
   { path: 'top-sellers', component: TopSellersComponent },
   // { path: 'product', loadChildren: './product.module' },
-  { path: 'product/listing', component: ProductListingComponent },
-  { path: 'product/add', component: ProductAddComponent },
-  { path: 'product/edit/:id', component: ProductAddComponent },
+  { path: 'product/listing', component: ProductListingComponent},
+  { path: 'product/add', component: ProductAddComponent, canActivate: [AuthGuardService]},
+  { path: 'product/edit/:id', component: ProductAddComponent, canActivate: [AuthGuardService]},
   { path: 'product/details/:id', component: ProductDetailsComponent },
   // Seller
-  { path: 'seller/add', component: SellerAddComponent },
-  { path: 'seller/login', component: SellerLoginComponent },
-  { path: 'seller/signup', component: SellerRegisterComponent },
+  { path: 'seller/add', component: SellerAddComponent},
+  { path: 'seller/login', component: SellerLoginComponent},
+  { path: 'seller/signup', component: SellerRegisterComponent},
+  { path: 'seller/home', component: SellerHomeComponent},
   { path: '**', component: ErrorNotFoundComponent },
 ];
 

@@ -36,6 +36,7 @@ import { SellerLoginComponent } from './seller/seller-login/seller-login.compone
 import { SellerHomeComponent } from './seller/seller-home/seller-home.component';
 import { SellerAddComponent } from './seller/seller-add/seller-add.component';
 import { SellerRegisterComponent } from './seller/seller-register/seller-register.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -65,8 +66,9 @@ import { SellerRegisterComponent } from './seller/seller-register/seller-registe
     SellerHomeComponent,
     SellerAddComponent,
     SellerRegisterComponent,
+    
   ],
-  imports: [BrowserModule, NgbModule, FormsModule, CustomAppRoutingModule],
+  imports: [BrowserModule, NgbModule, FormsModule, CustomAppRoutingModule, HttpClientModule],
   providers: [ReviewsService, PaymentMethodsService, ProductService],
   bootstrap: [AppComponent],
 })

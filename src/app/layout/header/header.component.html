@@ -2,61 +2,30 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark MM_navOne" id="top">
   <div class="container-fluid">
     <a class="navbar-brand m-0 text-center" [routerLink]="['']">
-      <img
-        src="../../../assets/images/logo/Amazon_white_logo.png"
-        alt=""
-        style="width: 100px"
-      />
+      <img src="../../../assets/images/logo/Amazon_white_logo.png" alt="" style="width: 100px" />
     </a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 MM_NavbarItems">
         <li class="nav-item">
-          <a
-            class="nav-link active mx-2"
-            data-bs-toggle="modal"
-            data-bs-target="#exampleModal"
-            aria-current="page"
-            href=""
-          >
-            <span class="text-white-50" style="white-space: nowrap"
-              >Deliver to</span
-            >
+          <a class="nav-link active mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal" aria-current="page"
+            href="">
+            <span class="text-white-50" style="white-space: nowrap">Deliver to</span>
             <i class="fas fa-map-marker-alt"></i> Egypt
           </a>
           <!-- Modal -->
-          <div
-            class="modal fade"
-            id="exampleModal"
-            tabindex="-1"
-            aria-labelledby="exampleModalLabel"
-            aria-hidden="true"
-          >
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
             <div class="modal-dialog w-25">
               <div class="modal-content">
-                <div
-                  class="modal-header bg-gradient"
-                  style="background-color: #f0f0f0"
-                >
+                <div class="modal-header bg-gradient" style="background-color: #f0f0f0">
                   <h5 class="modal-title" id="exampleModalLabel">
                     Choose your location
                   </h5>
-                  <button
-                    type="button"
-                    class="btn-close"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                  ></button>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                   <div class="row">
@@ -66,24 +35,17 @@
                         different locations
                       </div>
                       <div class="text-center">
-                        <button
-                          type="button"
-                          class="btn bg-gradient mt-3 p-1 w-75"
-                          style="background-color: #ffd04f; font-size: 1em"
-                        >
-                          Sign in to see your addresses
+                        <button *ngIf='SignedIn() === false' type="button" class="btn bg-gradient mt-3 p-1 w-75"
+                          style="background-color: #ffd04f; font-size: 1em">
+                          Sign in to see your addresses 
                         </button>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="modal-footer">
-                  <button
-                    type="button"
-                    class="btn bg-gradient"
-                    data-bs-dismiss="modal"
-                    style="background-color: #ffd04f"
-                  >
+                  <button type="button" class="btn bg-gradient" data-bs-dismiss="modal"
+                    style="background-color: #ffd04f">
                     Done
                   </button>
                 </div>
@@ -164,14 +126,8 @@
             </select>
 
             <!-- #searchInput -->
-            <input
-              [(ngModel)]="searchString"
-              class="form-control w-50"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-              name="searchInput"
-            />
+            <input [(ngModel)]="searchString" class="form-control w-50" type="search" placeholder="Search"
+              aria-label="Search" name="searchInput" />
             <span class="input-group-text MM_bg-search" id="basic-addon1">
               <a [routerLink]="['/search-results', searchString]">
                 <i class="fas fa-search" style="color: #000"></i>
@@ -181,29 +137,16 @@
         </form>
 
         <li class="nav-item dropdown">
-          <a
-            class="nav-link dropdown-toggle"
-            href=""
-            id="navbarDropdown"
-            role="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
+          <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
             <img [src]="langFlag" alt="" srcset="" width="30px" />
           </a>
 
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li>
               <div class="mx-2 form-check">
-                <input
-                  #inputEnglish
-                  class="form-check-input"
-                  type="radio"
-                  (change)="toggle(inputEnglish)"
-                  name="lang"
-                  id="english-lang"
-                  checked
-                />
+                <input #inputEnglish class="form-check-input" type="radio" (change)="toggle(inputEnglish)" name="lang"
+                  id="english-lang" checked />
                 <label class="form-check-label" for="english-lang">
                   English
                 </label>
@@ -214,14 +157,8 @@
             </li>
             <li>
               <div class="mx-2 form-check">
-                <input
-                  #inputArabic
-                  class="form-check-input"
-                  type="radio"
-                  (change)="toggle(inputArabic)"
-                  name="lang"
-                  id="arabic-lang"
-                />
+                <input #inputArabic class="form-check-input" type="radio" (change)="toggle(inputArabic)" name="lang"
+                  id="arabic-lang" />
                 <label class="form-check-label" for="arabic-lang">
                   Arabic
                 </label>
@@ -231,28 +168,19 @@
         </li>
 
         <li class="nav-item dropdown">
-          <a
-            class="nav-link dropdown-toggle text-white"
-            href=""
-            id="navbarDropdown"
-            role="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            <span>Hello, Sign in</span>
+          <a class="nav-link dropdown-toggle text-white" href="" id="navbarDropdown" role="button"
+            data-bs-toggle="dropdown" aria-expanded="false">
+           <span>{{SignedIn()? 'Hello, ' + loggedInPerson.name : 'Hello, Sign in'}}</span>
             Account & Lists
           </a>
 
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li class="text-center MM_SignIn">
-              <a [routerLink]="['/login']"
-                ><button type="button" class="btn bg-gradient">
+            <li *ngIf='SignedIn() === false' class="text-center MM_SignIn">
+              <a  [routerLink]="['/login']"><button type="button" class="btn bg-gradient">
                   Sign In
-                </button></a
-              >
+                </button></a>
               <br />
-              <span class="my-1"
-                >New customer? <a [routerLink]="['/register']"> Start here. </a>
+              <span  class="my-1">New customer? <a [routerLink]="['/register']"> Start here. </a>
               </span>
             </li>
             <li>
@@ -313,16 +241,11 @@
 
         <li class="nav-item">
           <a class="nav-link text-white" href="" style="white-space: nowrap">
-            <span>Returns</span>& Orders</a
-          >
+            <span>Returns</span>& Orders</a>
         </li>
 
         <li class="nav-item">
-          <a
-            class="nav-link MM_Cart"
-            [routerLink]="['/cart']"
-            style="white-space: nowrap"
-          >
+          <a class="nav-link MM_Cart" [routerLink]="['/cart']" style="white-space: nowrap">
             <div style="color: #f08804; font-size: 1.3em">
               &nbsp;&nbsp;&nbsp;{{ totalQuantity }}
             </div>
@@ -336,18 +259,14 @@
   </div>
 </nav>
 <!-- Amr -->
-<div id="overlay" onclick="AH_closeNav()"></div>
+<div id="overlay" onclick="AH_closeNav()" ></div>
 <div id="AH_Sidenav">
   <div id="AH_sidenav-head">
-    <a
-      [routerLink]="['/login']"
-      class="text-white ps-4 py-3 fs-4 fw-bold AH_Sidenav-header d-block text-decoration-none"
-    >
-      <i class="fas fa-user-circle"></i> Hello, Sign in</a
-    >
-    <span style="cursor: pointer" id="AH_closebtn" onclick="AH_closeNav()"
-      >&times;</span
-    >
+    <a [routerLink]="['/login']"
+      class="text-white ps-4 py-3 fs-4 fw-bold AH_Sidenav-header d-block text-decoration-none">
+      <i class="fas fa-user-circle"></i> Hello, <span>{{SignedIn()? loggedInPerson.name : 'Sign in'}}</span> </a>
+
+    <span style="cursor: pointer" id="AH_closebtn" onclick="AH_closeNav()">&times;</span>
   </div>
   <div class="position-relative">
     <div class="AH_sidenav-body pt-3 row">
@@ -462,11 +381,7 @@
           </div>
         </div>
       </div>
-      <div
-        id="shopSeeMoreBtn"
-        class="AH_sidenav-link row"
-        onclick="shopSeeMore()"
-      >
+      <div id="shopSeeMoreBtn" class="AH_sidenav-link row" onclick="shopSeeMore()">
         <div class="col-12 shopSeeMore">
           See All <i class="fas fa-chevron-down"></i>
         </div>
@@ -509,11 +424,7 @@
       </div>
       <div class="AH_sidenav-link row">
         <div class="col-1">
-          <img
-            class="AH_icon-img"
-            src="../../../assets/images/icons/english.png"
-            alt="US"
-          />
+          <img class="AH_icon-img" src="../../../assets/images/icons/english.png" alt="US" />
         </div>
         <div class="col-11">United States</div>
       </div>
@@ -521,7 +432,7 @@
         <div class="col-12">Help</div>
       </div>
       <div class="AH_sidenav-link row">
-        <div class="col-12"><a [routerLink]="['/login']"> Sign In</a></div>
+        <div *ngIf='SignedIn() === false' class="col-12"><a [routerLink]="['/login']"> Sign In</a></div>
       </div>
     </div>
   </div>
@@ -531,39 +442,22 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a
-            onclick="AH_openNav()"
-            style="cursor: pointer"
-            class="nav-link AH_link"
-            aria-current="page"
-            ><i class="fas fa-bars"></i> All</a
-          >
+          <a onclick="AH_openNav()" style="cursor: pointer" class="nav-link AH_link" aria-current="page"><i
+              class="fas fa-bars"></i> All</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link AH_link" aria-current="page" href=""
-            >Today's Deals</a
-          >
+          <a class="nav-link AH_link" aria-current="page" href="">Today's Deals</a>
         </li>
         <li class="nav-item">
-          <a
-            class="nav-link AH_link"
-            aria-current="page"
-            [routerLink]="['/customer-service']"
-            >Customer Service</a
-          >
+          <a class="nav-link AH_link" aria-current="page" [routerLink]="['/customer-service']">Customer Service</a>
         </li>
         <li class="nav-item">
           <a class="nav-link AH_link" aria-current="page" href="">Gift Cards</a>
         </li>
 
         <li class="nav-item dropdown">
-          <a
-            class="dropdown-toggle nav-link AH_link"
-            href="#"
-            id="dropdownMenuLink"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
+          <a class="dropdown-toggle nav-link AH_link" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown"
+            aria-expanded="false">
             Sell
           </a>
 
@@ -575,7 +469,7 @@
               Already an Amazon seller? <a [routerLink]="['/seller','login']">Login</a>
             </li>
             <li class="dropdown-item text-center">
-              <a href="#">View Items</a>
+              seller central<a [routerLink]="['/seller','home']">View Items</a>
             </li>
           </ul>
         </li>

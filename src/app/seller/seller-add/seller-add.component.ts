@@ -3,6 +3,7 @@ import { Product } from 'src/app/_model/product';
 import { CategoryService } from 'src/app/_services/category.service';
 import { ColorService } from 'src/app/_services/color.service';
 import { ProductService } from 'src/app/_services/product.service';
+import { WarehouseService } from 'src/app/_services/warehouse.service';
 
 @Component({
   selector: 'app-seller-add',
@@ -19,17 +20,20 @@ export class SellerAddComponent implements OnInit {
   colors;
   categories;
   subCategories;
-  isColor: true;
+  isColor = false;
   keys: string[] = [];
+  warehouses;
   constructor(
     private colorService: ColorService,
     private categoryService: CategoryService,
-    private productService: ProductService
+    private productService: ProductService,
+    private warehouseService: WarehouseService
   ) {}
 
   ngOnInit(): void {
     this.colors = this.colorService.allColors();
     this.categories = this.categoryService.getAllCategories();
+    this.warehouses = this.warehouseService.getAllWareHouses();
   }
   applySub() {
     this.subCategories = this.categoryService.getAllSubCategoriesOfACategryById(
@@ -148,7 +152,7 @@ export class SellerAddComponent implements OnInit {
         }
       }
     } else {
-      this.product.productInfo.color = [];
+      delete this.product.productInfo.color;
     }
     this.productService.addProduct(this.product);
   }

@@ -1467,9 +1467,9 @@ export class ProductService {
     return this.products.slice();
   }
   productById(id: string) {
-    let product = this.products.find((p) => p._id === id);
+    const product = this.products.find((p) => p._id === id);
     if (product !== undefined) {
-      let prod: Product = {
+      const prod: Product = {
         _id: product._id,
         productName: product.productName,
         productInfo: product.productInfo,
@@ -1488,9 +1488,9 @@ export class ProductService {
     }
   }
   productByName(name: string) {
-    let product = this.products.find((p) => p.productName === name);
+    const product = this.products.find((p) => p.productName === name);
     if (product !== undefined) {
-      let prod: Product = {
+      const prod: Product = {
         _id: product._id,
         productName: product.productName,
         productInfo: product.productInfo,
@@ -1532,9 +1532,9 @@ export class ProductService {
     this.products.splice(index, 1);
   }
   addProduct(product: Product) {
-    const productId = this.products.length+1;
+    const productId = this.products.length + 1;
     const newproduct: Product = {
-      productId: productId,
+      productId,
       productName: product.productName,
       productInfo: product.productInfo,
       productPrice: product.productPrice,
