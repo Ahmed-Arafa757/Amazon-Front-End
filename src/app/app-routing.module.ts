@@ -1,3 +1,4 @@
+import { SellerHomeComponent } from './seller/seller-home/seller-home.component';
 import { SellerLoginComponent } from './seller/seller-login/seller-login.component';
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
@@ -40,6 +41,7 @@ const routes: Routes = [
   { path: 'seller/add', component: SellerAddComponent},
   { path: 'seller/login', component: SellerLoginComponent},
   { path: 'seller/signup', component: SellerRegisterComponent},
+  { path: 'seller/home', component: SellerHomeComponent},
   { path: '**', component: ErrorNotFoundComponent },
 ];
 

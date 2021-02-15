@@ -12,7 +12,7 @@ export interface Seller{
     websiteURL?: string; 
     email?: string;
     password?: string;
-
+    repeatedPassword?:string
 }
 
 /*
