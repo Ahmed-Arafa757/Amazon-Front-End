@@ -2,7 +2,7 @@
 import { SellerAuthService } from 'src/app/_services/seller-auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Seller } from 'src/app/_model/sellers';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-seller-register',
@@ -10,43 +10,27 @@ import { Seller } from 'src/app/_model/sellers';
   styleUrls: ['./seller-register.component.scss']
 })
 export class SellerRegisterComponent implements OnInit {
-  seller:Seller
-  body:any={repeatedPassword:""}
-  constructor(private sellerAuthService:SellerAuthService) { }
+  seller:Seller={sellerName:'' ,email: '', password: '', repeatedPassword: '' };
+  constructor(private sellerAuthService:SellerAuthService, private router: Router) { }
 
   ngOnInit(): void {
   }
-  onSubmit(data){
-    console.log(data)
-   const newSeller: Seller = {
-    sellerName: data.name,
-      // address: form.address,
-      // shortDesc: form.shortDesc,
-      // websiteURL: seller.websiteURL,
-      email: data.email,
-      password: data.password
+
+  onRegister() {
+    this.sellerAuthService.register(this.seller).subscribe(
+      (res) => {
+        console.log(res); 
+        this.router.navigate(['seller/home']);
+      },
+      (err) => {
+        console.log(err);
+      },
+      () => { },
+    );
+  }
 
 
-
-   };
-    this.sellerAuthService.register(newSeller);
-   
-    // this.sellerAuthService.login(this.seller).subscribe(
-    //   (response)=>{
-    //     localStorage.setItem('token',response['token']);
-    //    console.log(response);
-    //    this.router.navigate(['/product']);
-    //   },
-    //   (err)=>{console.log(err);
-    //   },
-    //   ()=>{}
-    // )
-  }  
-
-  
   showPassword() {
-
- 
 
     var x = document.getElementById("password") as HTMLInputElement;
 
