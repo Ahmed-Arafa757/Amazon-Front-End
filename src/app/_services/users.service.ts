@@ -422,6 +422,10 @@ export class UsersService {
     return this.users.find((p) => p._id === id);
   }
 
+  getUserByEmail(myEmail: string): Users {
+    return this.users.find((p) => p.email === myEmail);
+  }
+
   addUser(user: Users) {
     const newUser: Users = {
       _id: user._id,

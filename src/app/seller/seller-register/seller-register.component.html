@@ -28,7 +28,7 @@
                     <div [ngClass]='{"invalid" : email.invalid && email.touched}'>
     
                       <label for="email" class="form-label fw-bold">Email </label>
-                      <input required minlength="10" maxlength="30" [(ngModel)]='seller.email' #email='ngModel' required
+                      <input required minlength="10" maxlength="30" email=true [(ngModel)]='seller.email' #email='ngModel' required
                         type="email" class="form-control mb-3"
                         id="email" name="email" />
                     </div>

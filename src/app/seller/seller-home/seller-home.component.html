@@ -1,7 +1,7 @@
 <div class="sellerHeader">
     <div class=" container d-flex justify-content-center align-items-center">
     
-        <div class="row">
+        <div class="row my-4">
           <div class="col-md-6 d-flex flex-column justify-content-center align-items-center">
             <div>
               <h1 id="heading">Become an Amazon seller</h1>
@@ -11,8 +11,8 @@
               </h6>
             </div>
       
-            <div>
-              <button type="submit" class="btn btn-primary">signup</button>
+            <div class="bg-black d-flex justify-content-center align-items-center">
+              <button [routerLink]="['/seller/signup']" class="btn btn-warning mx-2">signup</button>
               <button type="submit" class="btn btn-warning">learn more</button>
             </div>
           </div>
