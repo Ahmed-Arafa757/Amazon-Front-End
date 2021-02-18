@@ -21,7 +21,7 @@
             aria-hidden="true">
             <div class="modal-dialog w-25">
               <div class="modal-content">
-                <div class="modal-header bg-gradient" style="background-color: #f0f0f0">
+                <div class="modal-header " style="background-color: #f0f0f0">
                   <h5 class="modal-title" id="exampleModalLabel">
                     Choose your location
                   </h5>
@@ -35,7 +35,7 @@
                         different locations
                       </div>
                       <div class="text-center">
-                        <button *ngIf='SignedIn() === false' type="button" class="btn bg-gradient mt-3 p-1 w-75"
+                        <button *ngIf='SignedIn() === false' type="button" class="btn  mt-3 p-1 w-75"
                           style="background-color: #ffd04f; font-size: 1em">
                           Sign in to see your addresses 
                         </button>
@@ -44,7 +44,7 @@
                   </div>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn bg-gradient" data-bs-dismiss="modal"
+                  <button type="button" class="btn " data-bs-dismiss="modal"
                     style="background-color: #ffd04f">
                     Done
                   </button>
@@ -176,7 +176,7 @@
 
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li *ngIf='SignedIn() === false' class="text-center MM_SignIn">
-              <a  [routerLink]="['/login']"><button type="button" class="btn bg-gradient">
+              <a  [routerLink]="['/login']"><button type="button" class="btn ">
                   Sign In
                 </button></a>
               <br />

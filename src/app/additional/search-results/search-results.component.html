@@ -120,7 +120,7 @@
                   placeholder="Max"
                 />
               </div>
-              <button class="btn bg-gradient">Go</button>
+              <button class="btn ">Go</button>
             </form>
           </li>
         </ul>
@@ -153,7 +153,7 @@
 
                 <li
                   *ngFor="let page of numOfPages; let i = index"
-                  class="page-link bg-gradient"
+                  class="page-link "
                   (click)="currentPage = i"
                   [ngClass]="{ active: i == currentPage }"
                   style="cursor: pointer"

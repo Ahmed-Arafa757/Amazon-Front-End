@@ -515,6 +515,7 @@ body {
 // Main button color
 @mixin mainBtnColor {
   button {
+    
     background: linear-gradient(to bottom, #f7dfa5, #f0c14b);
     border: 1px solid rgba(128, 128, 128, 0.397);
 
@@ -1015,14 +1016,7 @@ body {
     }
   }
 }
-.gradiant-bg {
-  background: linear-gradient(
-    to top,
-    rgba(126, 125, 125, 0.14),
-    rgba(0, 0, 0, 0.03),
-    transparent
-  );
-}
+
 .help-links {
   background-color: transparent;
   color: #004ba3;

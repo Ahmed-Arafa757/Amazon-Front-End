@@ -61,7 +61,7 @@
                 <i class="fas fa-long-arrow-alt-left"></i> Previous
               </li>
 
-              <li *ngFor="let page of numOfPages; let i = index" class="page-link bg-gradient" (click)="currentPage = i"
+              <li *ngFor="let page of numOfPages; let i = index" class="page-link " (click)="currentPage = i"
                 [ngClass]="{ active: i == currentPage }" style="cursor: pointer;">
                 {{ page }}
               </li>
