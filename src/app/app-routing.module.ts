@@ -39,6 +39,7 @@ const routes: Routes = [
   { path: 'product/details/:id', component: ProductDetailsComponent },
   // Seller
   { path: 'seller/add', component: SellerAddComponent},
+  { path: 'seller/edit/:id', component: SellerAddComponent},
   { path: 'seller/login', component: SellerLoginComponent},
   { path: 'seller/signup', component: SellerRegisterComponent},
   { path: 'seller/home', component: SellerHomeComponent},
