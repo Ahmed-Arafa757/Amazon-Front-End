@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
@@ -20,17 +21,9 @@ export class ProductDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((res) => {
       this.id = res.id;
-      /* this.product = this.productService.productById(this.id); */
-      this.productService.productById(this.id).subscribe(
-        (res)=>{
-          this.product = res;
-        },
-        (err)=>{
-          console.error(err);
-        },
-        ()=>{}
-      );
+      this.product = this.productService.productById(this.id);
     });
     // console.log(this.product);
   }
 }
+

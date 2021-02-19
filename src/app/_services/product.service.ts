@@ -74,7 +74,7 @@ export class ProductService {
         material: 'glass',
         weight: '440 g',
         description:
-          'The S6 and S6 Edge features a 5.1-inch 1440p Super AMOLED display; similarly to the Galaxy Note Edge while the S6 Edge+ features a 5.7-inch 1440p Super AMOLED display, the S6 Edge and S6 Edge+\'s display is slightly curved around the two lengthwise edges of the device, although not as aggressively as the Note Edge.',
+          "The S6 and S6 Edge features a 5.1-inch 1440p Super AMOLED display; similarly to the Galaxy Note Edge while the S6 Edge+ features a 5.7-inch 1440p Super AMOLED display, the S6 Edge and S6 Edge+'s display is slightly curved around the two lengthwise edges of the device, although not as aggressively as the Note Edge.",
       },
       productPrice: {
         currentPrice: 2200,
@@ -132,7 +132,7 @@ export class ProductService {
         material: 'glass',
         weight: '440 g',
         description:
-          'The S7, S7 Edge & S7 Active feature a 1440p Quad HD Super AMOLED display; the S7 & S7 Active both have a 5.1-inch panel, while the S7 Edge uses a larger 5.5-inch panel. As with the prior model, the S7 Edge\'s screen is curved along the side bezels of the device.',
+          "The S7, S7 Edge & S7 Active feature a 1440p Quad HD Super AMOLED display; the S7 & S7 Active both have a 5.1-inch panel, while the S7 Edge uses a larger 5.5-inch panel. As with the prior model, the S7 Edge's screen is curved along the side bezels of the device.",
       },
       productPrice: {
         currentPrice: 3200,
@@ -219,7 +219,7 @@ export class ProductService {
         material: 'glass',
         weight: '440 g',
         description:
-          'Samsung Galaxy S8 Edge smartphone has a Super AMOLED display. The screen has a resolution of 2160 x 3840 pixels and 773 ppi pixel density. On camera front, the buyers get a 8 MP Front Camera and on the rear, there\'s an 16 MP camera with features like Digital Zoom, Auto Flash, Face detection, Touch to focus.',
+          "Samsung Galaxy S8 Edge smartphone has a Super AMOLED display. The screen has a resolution of 2160 x 3840 pixels and 773 ppi pixel density. On camera front, the buyers get a 8 MP Front Camera and on the rear, there's an 16 MP camera with features like Digital Zoom, Auto Flash, Face detection, Touch to focus.",
       },
       productPrice: {
         currentPrice: 4200,
@@ -741,7 +741,7 @@ export class ProductService {
         material: 'textured matte glass',
         weight: '310 g',
         description:
-          ' iPhone 12 Pro Max has a 6.7-inch1 all-screen Super Retina XDR display. The back is textured matte glass, and there\'s a flat-edge stainless steel band around the frame. The side button is on the right side of the device. There are three 12 MP cameras on the back: Ultra Wide, Wide, and Telephoto. There\'s a LiDAR Scanner on the back. There\'s a Dual-LED True Tone flash on the back and a SIM tray on the left side that holds a \'fourth form factor\' (4FF) nano-SIM card. The IMEI is etched on the SIM tray.',
+          " iPhone 12 Pro Max has a 6.7-inch1 all-screen Super Retina XDR display. The back is textured matte glass, and there's a flat-edge stainless steel band around the frame. The side button is on the right side of the device. There are three 12 MP cameras on the back: Ultra Wide, Wide, and Telephoto. There's a LiDAR Scanner on the back. There's a Dual-LED True Tone flash on the back and a SIM tray on the left side that holds a 'fourth form factor' (4FF) nano-SIM card. The IMEI is etched on the SIM tray.",
       },
       productPrice: {
         currentPrice: 30000,
@@ -770,7 +770,7 @@ export class ProductService {
         material: 'textured matte glass',
         weight: '250 g',
         description:
-          ' iPhone 12 Pro has a 6.1-inch1 all-screen Super Retina XDR display. The back is textured matte glass, and there\'s a flat-edge stainless steel band around the frame. The side button is on the right side of the device. There are three 12 MP cameras on the back: Ultra Wide, Wide, and Telephoto. There\'s a LiDAR Scanner on the back. There\'s a Dual-LED True Tone flash on the back and a SIM tray on the left side that holds a \'fourth form factor\' (4FF) nano-SIM card. The IMEI is etched on the SIM tray.',
+          " iPhone 12 Pro has a 6.1-inch1 all-screen Super Retina XDR display. The back is textured matte glass, and there's a flat-edge stainless steel band around the frame. The side button is on the right side of the device. There are three 12 MP cameras on the back: Ultra Wide, Wide, and Telephoto. There's a LiDAR Scanner on the back. There's a Dual-LED True Tone flash on the back and a SIM tray on the left side that holds a 'fourth form factor' (4FF) nano-SIM card. The IMEI is etched on the SIM tray.",
       },
       productPrice: {
         currentPrice: 25000,
@@ -799,7 +799,7 @@ export class ProductService {
         material: 'glass',
         weight: '220 g',
         description:
-          'iPhone 12 has a 6.1-inch1 Liquid Retina display. The back is glass, and there\'s a flat-edged anodized aluminum band around the frame. The side button is on the right side of the device. There are two 12 MP cameras on the back: Ultra Wide and Wide. There\'s a Dual-LED True Tone flash on the back and a SIM tray on the left side that holds a \'fourth form factor\' (4FF) nano-SIM card. The IMEI is etched on the SIM tray.',
+          "iPhone 12 has a 6.1-inch1 Liquid Retina display. The back is glass, and there's a flat-edged anodized aluminum band around the frame. The side button is on the right side of the device. There are two 12 MP cameras on the back: Ultra Wide and Wide. There's a Dual-LED True Tone flash on the back and a SIM tray on the left side that holds a 'fourth form factor' (4FF) nano-SIM card. The IMEI is etched on the SIM tray.",
       },
       productPrice: {
         currentPrice: 22300,
@@ -828,7 +828,7 @@ export class ProductService {
         material: 'glass',
         weight: '190 g',
         description:
-          ' iPhone 12 mini has a 5.4-inch1 Liquid Retina display. The back is glass, and there\'s a flat-edged anodized aluminum band around the frame. The side button is on the right side of the device. There are two 12 MP cameras on the back: Ultra Wide and Wide. There\'s a Dual-LED True Tone flash on the back and a SIM tray on the left side that holds a \'fourth form factor\' (4FF) nano-SIM card. The IMEI is etched on the SIM tray.',
+          " iPhone 12 mini has a 5.4-inch1 Liquid Retina display. The back is glass, and there's a flat-edged anodized aluminum band around the frame. The side button is on the right side of the device. There are two 12 MP cameras on the back: Ultra Wide and Wide. There's a Dual-LED True Tone flash on the back and a SIM tray on the left side that holds a 'fourth form factor' (4FF) nano-SIM card. The IMEI is etched on the SIM tray.",
       },
       productPrice: {
         currentPrice: 16000,
@@ -857,7 +857,7 @@ export class ProductService {
         material: 'glass',
         weight: '170 g',
         description:
-          'The display is 4.7 inches (diagonal). The glass front is flat with curved edges. The back is glass, and there\'s an anodized aluminum band around the frame. The side button is on the right side of the device. The device has a solid-state Home button with Touch ID. There\'s a Quad-LED True Tone flash on the back and a SIM tray on the right side that holds a \'fourth form factor\' (4FF) nano-SIM card. The IMEI is etched on the SIM tray.',
+          "The display is 4.7 inches (diagonal). The glass front is flat with curved edges. The back is glass, and there's an anodized aluminum band around the frame. The side button is on the right side of the device. The device has a solid-state Home button with Touch ID. There's a Quad-LED True Tone flash on the back and a SIM tray on the right side that holds a 'fourth form factor' (4FF) nano-SIM card. The IMEI is etched on the SIM tray.",
       },
       productPrice: {
         currentPrice: 10500,
@@ -886,7 +886,7 @@ export class ProductService {
         material: 'textured matte glass',
         weight: '150 g',
         description:
-          ' iPhone 11 Pro has a 5.8-inch1 all-screen Super Retina XDR display. The back is textured matte glass, and there\'s a stainless steel band around the frame. The side button is on the right side of the device. There are three 12 MP cameras on the back: Ultra Wide, Wide, and Telephoto. There\'s a Dual-LED True Tone flash on the back and a SIM tray on the right side that holds a \'fourth form factor\' (4FF) nano-SIM card. The IMEI is etched on the SIM tray.',
+          " iPhone 11 Pro has a 5.8-inch1 all-screen Super Retina XDR display. The back is textured matte glass, and there's a stainless steel band around the frame. The side button is on the right side of the device. There are three 12 MP cameras on the back: Ultra Wide, Wide, and Telephoto. There's a Dual-LED True Tone flash on the back and a SIM tray on the right side that holds a 'fourth form factor' (4FF) nano-SIM card. The IMEI is etched on the SIM tray.",
       },
       productPrice: {
         currentPrice: 18000,
@@ -915,7 +915,7 @@ export class ProductService {
         material: 'textured matte glass',
         weight: '265 g',
         description:
-          'iPhone 11 Pro Max has a 6.5-inch1 all-screen Super Retina XDR display. The back is textured matte glass, and there\'s a stainless steel band around the frame. The side button is on the right side of the device. There are three 12 MP cameras on the back: Ultra Wide, Wide, and Telephoto. There\'s a Dual-LED True Tone flash on the back and a SIM tray on the right side that holds a \'fourth form factor\' (4FF) nano-SIM card. The IMEI is etched on the SIM tray.',
+          "iPhone 11 Pro Max has a 6.5-inch1 all-screen Super Retina XDR display. The back is textured matte glass, and there's a stainless steel band around the frame. The side button is on the right side of the device. There are three 12 MP cameras on the back: Ultra Wide, Wide, and Telephoto. There's a Dual-LED True Tone flash on the back and a SIM tray on the right side that holds a 'fourth form factor' (4FF) nano-SIM card. The IMEI is etched on the SIM tray.",
       },
       productPrice: {
         currentPrice: 19000,
@@ -944,7 +944,7 @@ export class ProductService {
         material: 'glass',
         weight: '195 g',
         description:
-          'iPhone 11 has a 6.1-inch1 Liquid Retina display. The back is glass, and there\'s an anodized aluminum band around the frame. The side button is on the right side of the device. There are two 12 MP cameras on the back: Ultra Wide and Wide. There\'s a Dual-LED True Tone flash on the back and a SIM tray on the right side that holds a \'fourth form factor\' (4FF) nano-SIM card. The IMEI is etched on the SIM tray.',
+          "iPhone 11 has a 6.1-inch1 Liquid Retina display. The back is glass, and there's an anodized aluminum band around the frame. The side button is on the right side of the device. There are two 12 MP cameras on the back: Ultra Wide and Wide. There's a Dual-LED True Tone flash on the back and a SIM tray on the right side that holds a 'fourth form factor' (4FF) nano-SIM card. The IMEI is etched on the SIM tray.",
       },
       productPrice: {
         currentPrice: 13000,
@@ -973,7 +973,7 @@ export class ProductService {
         material: 'glass',
         weight: '182 g',
         description:
-          'iPhone XS has a 5.8-inch1 all-screen Super Retina display. The back is glass, and there\'s a stainless steel band around the frame. The side button is on the right side of the device. There are 12 MP wide-angle and telephoto cameras on the back. There\'s a Quad-LED True Tone flash on the back and a SIM tray on the right side that holds a \'fourth form factor\' (4FF) nano-SIM card. The IMEI is etched on the SIM tray.',
+          "iPhone XS has a 5.8-inch1 all-screen Super Retina display. The back is glass, and there's a stainless steel band around the frame. The side button is on the right side of the device. There are 12 MP wide-angle and telephoto cameras on the back. There's a Quad-LED True Tone flash on the back and a SIM tray on the right side that holds a 'fourth form factor' (4FF) nano-SIM card. The IMEI is etched on the SIM tray.",
       },
       productPrice: {
         currentPrice: 10000,
@@ -1002,7 +1002,7 @@ export class ProductService {
         material: 'glass',
         weight: '241 g',
         description:
-          ' iPhone XS Max has a 6.5-inch1 all-screen Super Retina display. The back is glass, and there\'s a stainless steel band around the frame. The side button is on the right side of the device. There are 12 MP wide-angle and telephoto cameras on the back. There\'s a Quad-LED True Tone flash on the back and a SIM tray on the right side that holds a \'fourth form factor\' (4FF) nano-SIM card.3 The IMEI is etched on the SIM tray. ',
+          " iPhone XS Max has a 6.5-inch1 all-screen Super Retina display. The back is glass, and there's a stainless steel band around the frame. The side button is on the right side of the device. There are 12 MP wide-angle and telephoto cameras on the back. There's a Quad-LED True Tone flash on the back and a SIM tray on the right side that holds a 'fourth form factor' (4FF) nano-SIM card.3 The IMEI is etched on the SIM tray. ",
       },
       productPrice: {
         currentPrice: 9000,
@@ -1031,7 +1031,7 @@ export class ProductService {
         material: 'glass',
         weight: '210 g',
         description:
-          ' iPhone XR has a 6.1-inch1 Liquid Retina display. The back is glass, and there\'s an anodized aluminum band around the frame. The side button is on the right side of the device. There is a 12 MP wide-angle camera on the back. There\'s a Quad-LED True Tone flash on the back and a SIM tray on the right side that holds a \'fourth form factor\' (4FF) nano-SIM card. The IMEI is etched on the SIM tray.',
+          " iPhone XR has a 6.1-inch1 Liquid Retina display. The back is glass, and there's an anodized aluminum band around the frame. The side button is on the right side of the device. There is a 12 MP wide-angle camera on the back. There's a Quad-LED True Tone flash on the back and a SIM tray on the right side that holds a 'fourth form factor' (4FF) nano-SIM card. The IMEI is etched on the SIM tray.",
       },
       productPrice: {
         currentPrice: 9000,
@@ -1060,7 +1060,7 @@ export class ProductService {
         material: 'glass',
         weight: '240 g',
         description:
-          'iPhone X has a 5.8-inch1 all-screen Super Retina display. The back is glass, and there\'s a stainless steel band around the frame. The side button is on the right side of the device. There are 12 MP wide-angle and telephoto cameras on the back. There\'s a Quad-LED True Tone flash on the back and a SIM tray on the right side that holds a \'fourth form factor\' (4FF) nano-SIM card. The IMEI is etched on the SIM tray. ',
+          "iPhone X has a 5.8-inch1 all-screen Super Retina display. The back is glass, and there's a stainless steel band around the frame. The side button is on the right side of the device. There are 12 MP wide-angle and telephoto cameras on the back. There's a Quad-LED True Tone flash on the back and a SIM tray on the right side that holds a 'fourth form factor' (4FF) nano-SIM card. The IMEI is etched on the SIM tray. ",
       },
       productPrice: {
         currentPrice: 10500,
@@ -1089,7 +1089,7 @@ export class ProductService {
         material: 'glass',
         weight: '220 g',
         description:
-          ' The display is 4.7 inches (diagonal). The glass front is flat with curved edges. The back is glass, and there\'s an anodized aluminum band around the frame. The side button is on the right side of the device. The device has a solid-state Home button with Touch ID. There\'s a Quad-LED True Tone flash on the back and a SIM tray on the right side that holds a \'fourth form factor\' (4FF) nano-SIM card. The IMEI is etched on the SIM tray.',
+          " The display is 4.7 inches (diagonal). The glass front is flat with curved edges. The back is glass, and there's an anodized aluminum band around the frame. The side button is on the right side of the device. The device has a solid-state Home button with Touch ID. There's a Quad-LED True Tone flash on the back and a SIM tray on the right side that holds a 'fourth form factor' (4FF) nano-SIM card. The IMEI is etched on the SIM tray.",
       },
       productPrice: {
         currentPrice: 9000,
@@ -1118,7 +1118,7 @@ export class ProductService {
         material: 'glass',
         weight: '195 g',
         description:
-          'The display is 5.5 inches (diagonal). The glass front is flat with curved edges. The back is glass, and there\'s an anodized aluminum band around the frame. The side button is on the right side of the device. The device has a solid-state Home button with Touch ID. There are 12 MP wide-angle and telephoto cameras on the back. There\'s a Quad-LED True Tone flash on the back and a SIM tray on the right side that holds a \'fourth form factor\' (4FF) nano-SIM card. The IMEI is etched on the SIM tray.',
+          "The display is 5.5 inches (diagonal). The glass front is flat with curved edges. The back is glass, and there's an anodized aluminum band around the frame. The side button is on the right side of the device. The device has a solid-state Home button with Touch ID. There are 12 MP wide-angle and telephoto cameras on the back. There's a Quad-LED True Tone flash on the back and a SIM tray on the right side that holds a 'fourth form factor' (4FF) nano-SIM card. The IMEI is etched on the SIM tray.",
       },
       productPrice: {
         currentPrice: 9999,
@@ -1147,7 +1147,7 @@ export class ProductService {
         material: 'aluminum',
         weight: '190 g',
         description:
-          'The display is 4.7 inches (diagonal). The glass front is flat with curved edges. The back is anodized aluminum. The Sleep/Wake button is on the right side of the device. The device has a solid-state Home button with Touch ID. There\'s a Quad-LED True Tone flash on the back and a SIM tray on the right side that holds a \'fourth form factor\' (4FF) nano-SIM card. The IMEI is etched on the SIM tray.',
+          "The display is 4.7 inches (diagonal). The glass front is flat with curved edges. The back is anodized aluminum. The Sleep/Wake button is on the right side of the device. The device has a solid-state Home button with Touch ID. There's a Quad-LED True Tone flash on the back and a SIM tray on the right side that holds a 'fourth form factor' (4FF) nano-SIM card. The IMEI is etched on the SIM tray.",
       },
       productPrice: {
         currentPrice: 7000,
@@ -1234,7 +1234,7 @@ export class ProductService {
         material: 'glass',
         weight: '198 g',
         description:
-          '8\' Foldable FullView Display,Revolutionary Multitasking Interactive Experience , Kirin 990 5G SoC',
+          "8' Foldable FullView Display,Revolutionary Multitasking Interactive Experience , Kirin 990 5G SoC",
       },
       productPrice: {
         currentPrice: 13999,
@@ -1379,7 +1379,7 @@ export class ProductService {
         material: 'glass',
         weight: '294 g',
         description:
-          '5.45\' HUAWEI FullView Display , 32 GB Large storage , 3,020 mAh Big Battery.',
+          "5.45' HUAWEI FullView Display , 32 GB Large storage , 3,020 mAh Big Battery.",
       },
       productPrice: {
         currentPrice: 4650,
