@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
@@ -25,3 +26,4 @@ export class ProductDetailsComponent implements OnInit {
     // console.log(this.product);
   }
 }
+
