@@ -1458,7 +1458,7 @@ export class ProductService {
       productSales: 'bgm48bv8_ardx4womj',
     },
   ]; */
-    products:Product[];
+  products:Product[];
   cartProducts = [];
   baseUrl = 'http://localhost:3000/';
   productAdded = new EventEmitter<Product[]>();
