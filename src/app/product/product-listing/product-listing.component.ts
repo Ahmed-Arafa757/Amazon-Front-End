@@ -26,7 +26,11 @@ export class ProductListingComponent implements OnInit {
   private personService:PersonService) { }
 
   ngOnInit(): void {
-    this.products = this.productService.getAllProducts();
+    this.productService.getAllProducts().subscribe(
+      (res:any)=>{this.products = res},
+      (err)=>{console.error(err)},
+      ()=>{}
+    );
     this.lastPage = this.products.length / this.pageSize;
     this.calculateNumOfPages();
   }
