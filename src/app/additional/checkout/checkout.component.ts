@@ -1,11 +1,12 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Address } from 'src/app/_model/address';
-import { UserPaymentMethods } from 'src/app/_model/user-payment-methods';
+import { PaymentMethods } from 'src/app/_model/payment-methods';
 import { Users } from 'src/app/_model/users';
-import { UserPaymentMethodsService } from 'src/app/_services/user-payment-methods.service';
 import { ProductService } from 'src/app/_services/product.service';
 import { UsersService } from 'src/app/_services/users.service';
-import { FormsModule, NgForm } from '@angular/forms';
+import { NgForm } from '@angular/forms';
+import { OrderService } from 'src/app/_services/order.service';
+import { PaymentMethodsService } from 'src/app/_services/payment-methods.service';
 
 @Component({
   selector: 'app-cart',
@@ -27,15 +28,13 @@ export class CheckoutComponent implements OnInit {
   selectedAddress: Address = {};
   isSelectedAddress: boolean = false;
   addNewShipping: boolean = false;
-  paymentMethods: UserPaymentMethods[] = [];
-  addPaymentMethod: UserPaymentMethods = {
-    userID: 'nan2_7127_5562',
-  };
+  paymentMethods: PaymentMethods[] = [];
 
   constructor(
-    private userPaymentMethodService: UserPaymentMethodsService,
+    private orderService: OrderService,
     private usersService: UsersService,
-    private productService: ProductService
+    private productService: ProductService,
+    private paymentMethodsService: PaymentMethodsService
   ) {}
 
   ngOnInit(): void {
@@ -48,10 +47,22 @@ export class CheckoutComponent implements OnInit {
     this.cartArray = this.productService.cartProducts;
     this.updateQuantityPrice();
     console.log(this.cartArray);
+
+    this.paymentMethodsService.getAllPaymentMethods();
+    this.paymentMethodsService.latestPaymentMethods.subscribe(
+      (res) => {
+        this.paymentMethods = res;
+        console.log(this.paymentMethods);
+      },
+      (err) => {
+        console.log(err);
+      },
+      () => {}
+    );
   }
 
   updateQuantityPrice() {
-    this.userPaymentMethodService.placedOrder = {};
+    this.orderService.placedOrder = {};
     this.buy = [];
     this.totalQuantity = 0;
     this.totalPrice = 0;
@@ -114,7 +125,7 @@ export class CheckoutComponent implements OnInit {
   }
 
   onConfirm() {
-    this.userPaymentMethodService.placedOrder = {
+    this.orderService.placedOrder = {
       order: this.buy,
       totalAmount: this.total_amount,
       totalPrice: this.totalPrice,

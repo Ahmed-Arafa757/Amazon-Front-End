@@ -30,7 +30,7 @@ import { ProductService } from './_services/product.service';
 import { ProductInfoComponent } from './product/product-details/product-info/product-info.component';
 
 import { CheckoutComponent } from './additional/checkout/checkout.component';
-import { UserPaymentMethodsService } from './_services/user-payment-methods.service';
+import { PaymentMethodsService } from './_services/payment-methods.service';
 
 import { SellerLoginComponent } from './seller/seller-login/seller-login.component';
 import { SellerHomeComponent } from './seller/seller-home/seller-home.component';
@@ -76,7 +76,7 @@ import { PlaceOrderComponent } from './additional/place-order/place-order.compon
     CustomAppRoutingModule,
     HttpClientModule,
   ],
-  providers: [ReviewsService, UserPaymentMethodsService, ProductService],
+  providers: [ReviewsService, PaymentMethodsService, ProductService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
