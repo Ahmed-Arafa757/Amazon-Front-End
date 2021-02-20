@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OrderService } from 'src/app/_services/order.service';
+import { ProductService } from 'src/app/_services/product.service';
 
 declare var paypal;
 
@@ -12,7 +13,10 @@ export class PlaceOrderComponent implements OnInit {
   totalToPay = 0;
   paidFor = false;
   orderID: string = '';
-  constructor(private orderService: OrderService) {}
+  constructor(
+    private orderService: OrderService,
+    private productService: ProductService
+  ) {}
 
   ngOnInit(): void {
     const placedOrder = { ...this.orderService.placedOrder };
@@ -61,6 +65,8 @@ export class PlaceOrderComponent implements OnInit {
             console.log(data);
             this.paidFor = true;
             this.orderID = data.orderID;
+            this.productService.addProductsToCart([]);
+
             const orderFullDetails = {
               orderData: data,
               orderDetails: details,
