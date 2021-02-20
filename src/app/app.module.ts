@@ -30,13 +30,14 @@ import { ProductService } from './_services/product.service';
 import { ProductInfoComponent } from './product/product-details/product-info/product-info.component';
 
 import { CheckoutComponent } from './additional/checkout/checkout.component';
-import { PaymentMethodsService } from './_services/payment-methods.service';
+import { UserPaymentMethodsService } from './_services/user-payment-methods.service';
 
 import { SellerLoginComponent } from './seller/seller-login/seller-login.component';
 import { SellerHomeComponent } from './seller/seller-home/seller-home.component';
 import { SellerAddComponent } from './seller/seller-add/seller-add.component';
 import { SellerRegisterComponent } from './seller/seller-register/seller-register.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PlaceOrderComponent } from './additional/place-order/place-order.component';
 
 @NgModule({
   declarations: [
@@ -66,10 +67,16 @@ import { HttpClientModule } from '@angular/common/http';
     SellerHomeComponent,
     SellerAddComponent,
     SellerRegisterComponent,
-    
+    PlaceOrderComponent,
   ],
-  imports: [BrowserModule, NgbModule, FormsModule, CustomAppRoutingModule, HttpClientModule],
-  providers: [ReviewsService, PaymentMethodsService, ProductService],
+  imports: [
+    BrowserModule,
+    NgbModule,
+    FormsModule,
+    CustomAppRoutingModule,
+    HttpClientModule,
+  ],
+  providers: [ReviewsService, UserPaymentMethodsService, ProductService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

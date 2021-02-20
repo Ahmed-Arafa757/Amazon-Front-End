@@ -1,7 +1,9 @@
-import { PaymentMethod } from '../_model/payment-methods';
+import { UserPaymentMethods } from '../_model/user-payment-methods';
 
-export class PaymentMethodsService {
-  paymentMethods: PaymentMethod[] = [
+export class UserPaymentMethodsService {
+  placedOrder = {};
+
+  paymentMethods: UserPaymentMethods[] = [
     {
       id: 1,
       paymentMethod: 'Debit Card',
@@ -207,12 +209,12 @@ export class PaymentMethodsService {
     },
   ];
 
-  getAllPaymentMethods(): PaymentMethod[] {
+  getAllPaymentMethods(): UserPaymentMethods[] {
     return this.paymentMethods.slice();
   }
 
-  getPaymentMethodByUserId(id: string): PaymentMethod[] {
-    let userPaymentMethods: PaymentMethod[] = [];
+  getPaymentMethodByUserId(id: string): UserPaymentMethods[] {
+    let userPaymentMethods: UserPaymentMethods[] = [];
     for (let index = 0; index < this.paymentMethods.length; index++) {
       if (this.paymentMethods[index].userID === id) {
         userPaymentMethods.push(this.paymentMethods[index]);
@@ -222,8 +224,8 @@ export class PaymentMethodsService {
     return userPaymentMethods;
   }
 
-  addPaymentMethod(paymentMethod: PaymentMethod) {
-    const newPaymentMethod: PaymentMethod = {
+  addPaymentMethod(paymentMethod: UserPaymentMethods) {
+    const newPaymentMethod: UserPaymentMethods = {
       id: paymentMethod.id,
       paymentMethod: paymentMethod.paymentMethod,
       paypalAccountName: paymentMethod.paypalAccountName,
@@ -238,7 +240,7 @@ export class PaymentMethodsService {
     this.paymentMethods.push(newPaymentMethod);
   }
 
-  updateReview(paymentMethod: PaymentMethod) {
+  updateReview(paymentMethod: UserPaymentMethods) {
     const index = this.paymentMethods.findIndex(
       (p) => p.id === paymentMethod.id
     );

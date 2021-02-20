@@ -109,6 +109,7 @@
                 <button
                   [routerLink]="['/checkout']"
                   class="btn bg-gradient p-1 my-2 col-12"
+                  [disabled]="totalQuantity === 0"
                 >
                   Proceed to checkout
                 </button>

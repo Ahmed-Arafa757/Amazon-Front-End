@@ -1,4 +1,4 @@
-export interface PaymentMethod {
+export interface UserPaymentMethods {
   id?: number;
   paymentMethod?: string;
   paypalAccountName?: string;

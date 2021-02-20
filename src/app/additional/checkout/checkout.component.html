@@ -3,59 +3,169 @@
     <div class="col-md-9">
       <div class="card my-3 border-0">
         <div class="card-body">
-          <h3 class="card-title mb-5 text-center">Checkout ({{totalQuantity}} items)</h3>
+          <h3 class="card-title mb-5 text-center">
+            Checkout ({{ totalQuantity }} items)
+          </h3>
 
-          <div class="row ">
+          <div class="row">
             <div class="col-12">
-              <span class="fw-bold">1 Shipping address</span>
-              <form #addressForm="ngForm" class="row g-3 mt-1">
+              <span class="fw-bold">1 - Shipping address</span>
+              <div class="form-check form-switch my-3">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="flexSwitchCheckDefault"
+                  (click)="onAddNewAddress()"
+                />
+                <label class="form-check-label" for="flexSwitchCheckDefault"
+                  >Add new shipping address?</label
+                >
+              </div>
+              <form
+                *ngIf="addNewShipping"
+                #addressForm="ngForm"
+                class="row g-3 mt-1"
+              >
                 <div class="w-50">
                   <label for="" class="form-label">Country:</label>
-                  <input required #txtInputCountry="ngModel" [(ngModel)]="addNewUserAddress.country" type="text"
-                    class="form-control" name="country" id="country">
+                  <input
+                    required
+                    #txtInputCountry="ngModel"
+                    [(ngModel)]="addNewUserAddress.country"
+                    type="text"
+                    class="form-control"
+                    name="country"
+                    id="country"
+                  />
                 </div>
                 <div class="w-50">
                   <label for="" class="form-label">City:</label>
-                  <input required #txtInputCity="ngModel" [(ngModel)]="addNewUserAddress.city" type="text"
-                    class="form-control" name="city" id="city">
+                  <input
+                    required
+                    #txtInputCity="ngModel"
+                    [(ngModel)]="addNewUserAddress.city"
+                    type="text"
+                    class="form-control"
+                    name="city"
+                    id="city"
+                  />
                 </div>
                 <div class="w-50">
                   <label for="" class="form-label">State:</label>
-                  <input #txtInputState="ngModel" [(ngModel)]="addNewUserAddress.state" type="text" class="form-control"
-                    name="state" id="state">
+                  <input
+                    #txtInputState="ngModel"
+                    [(ngModel)]="addNewUserAddress.state"
+                    type="text"
+                    class="form-control"
+                    name="state"
+                    id="state"
+                  />
+                </div>
+                <div class="w-50">
+                  <label for="" class="form-label">Postal Code:</label>
+                  <input
+                    #txtInputPostalCode="ngModel"
+                    [(ngModel)]="addNewUserAddress.postalCode"
+                    type="number"
+                    class="form-control"
+                    name="postalCode"
+                    id="postalCode"
+                  />
                 </div>
                 <div class="col-12">
-                  <label for="" class="form-label">Street:</label>
-                  <input required #txtInputStreet="ngModel" [(ngModel)]="addNewUserAddress.street" type="text"
-                    class="form-control" name="street" id="street">
+                  <label for="" class="form-label">Street Details:</label>
+                  <input
+                    required
+                    #txtInputStreet="ngModel"
+                    [(ngModel)]="addNewUserAddress.street"
+                    type="text"
+                    class="form-control"
+                    name="street"
+                    id="street"
+                  />
                 </div>
                 <div class="MM_subTotal">
                   <span class="me-2">Save Address?</span>
-                  <button style="vertical-align:baseline" (click)="onAddUserAddress()" type="submit"
-                    class="btn bg-gradient p-1 px-3 mb-3" [disabled]="addressForm.invalid">Yes</button>
+                  <button
+                    style="vertical-align: baseline"
+                    (click)="onAddUserAddress(addressForm)"
+                    type="submit"
+                    class="btn bg-gradient p-1 px-3 mb-3"
+                    [disabled]="addressForm.invalid"
+                  >
+                    Yes
+                  </button>
                 </div>
               </form>
-              <p class="fw-bold mt-3">Saved Addresses:</p>
-              <div class="media border p-3 mb-3" *ngFor="let address of addresses">
-                <div class="media-body">
-                  <div><span class="fw-bold" style="font-size: 0.8rem;">Country:</span> {{address.country}}</div>
-                  <div><span class="fw-bold" style="font-size: 0.8rem;">City:</span> {{address.city}}</div>
-                  <div *ngIf="address.state"><span class="fw-bold" style="font-size: 0.8rem;">State:</span>
-                    {{address.state}}</div>
-                  <div><span class="fw-bold" style="font-size: 0.8rem;">Street:</span> {{address.street}}</div>
+              <p class="fw-bold mt-3">Select shipping address:</p>
+              <div class="form-check w-75">
+                <div
+                  class="media border p-5 mb-3"
+                  *ngFor="let address of addresses"
+                >
+                  <input
+                    class="form-check-input"
+                    (change)="onCheckAddress()"
+                    [(ngModel)]="selectedAddress"
+                    [value]="address"
+                    type="radio"
+                    id="address"
+                  />
+                  <label class="form-check-label" for="">
+                    <div class="media-body">
+                      <div>
+                        <span class="fw-bold" style="font-size: 0.8rem"
+                          >Country:</span
+                        >
+                        {{ address.country }}
+                      </div>
+                      <div>
+                        <span class="fw-bold" style="font-size: 0.8rem"
+                          >City:</span
+                        >
+                        {{ address.city }}
+                      </div>
+                      <div *ngIf="address.state">
+                        <span class="fw-bold" style="font-size: 0.8rem"
+                          >State:</span
+                        >
+                        {{ address.state }}
+                      </div>
+                      <div *ngIf="address.state">
+                        <span class="fw-bold" style="font-size: 0.8rem"
+                          >Postal Code:</span
+                        >
+                        {{ address.postalCode }}
+                      </div>
+                      <div>
+                        <span class="fw-bold" style="font-size: 0.8rem"
+                          >Street Details:</span
+                        >
+                        {{ address.street }}
+                      </div>
+                    </div>
+                  </label>
                 </div>
               </div>
-              <hr>
+
+              <hr />
             </div>
 
-            <div class="col-12">
+            <!-- <div class="col-12">
               <span class="fw-bold">2 Payment method</span>
               <form #paymentForm="ngForm" class="row g-3 mt-1">
                 <div class="col-12">
                   <div>
-                    <label for="exampleFormControlInput1" class="form-label ">Select Payment Method:</label>
-                    <select [(ngModel)]="addPaymentMethod.paymentMethod" class="form-select w-50"
-                      aria-label="Default select example" name="ddl" id="">
+                    <label for="exampleFormControlInput1" class="form-label"
+                      >Select Payment Method:</label
+                    >
+                    <select
+                      [(ngModel)]="addPaymentMethod.paymentMethod"
+                      class="form-select w-50"
+                      aria-label="Default select example"
+                      name="ddl"
+                      id=""
+                    >
                       <option value="Paypal">Paypal</option>
                       <option value="Debit Card">Debit Card</option>
                       <option value="Credit Card">Credit Card</option>
@@ -63,94 +173,172 @@
                     </select>
                   </div>
                   <div
-                    *ngIf="addPaymentMethod.paymentMethod==='Debit Card' || addPaymentMethod.paymentMethod==='Credit Card'">
+                    *ngIf="
+                      addPaymentMethod.paymentMethod === 'Debit Card' ||
+                      addPaymentMethod.paymentMethod === 'Credit Card'
+                    "
+                  >
                     <div class="w-50">
-                      <label for="" class="form-label">Select Card Company:</label>
-                      <select [(ngModel)]="addPaymentMethod.cardCompany" class="form-select"
-                        aria-label="Default select example" name="cardcompany" id="cardcompany">
+                      <label for="" class="form-label"
+                        >Select Card Company:</label
+                      >
+                      <select
+                        [(ngModel)]="addPaymentMethod.cardCompany"
+                        class="form-select"
+                        aria-label="Default select example"
+                        name="cardcompany"
+                        id="cardcompany"
+                      >
                         <option value="MasterCard">MasterCard</option>
                         <option value="Visa">Visa</option>
-
                       </select>
                     </div>
 
                     <div class="w-50">
                       <label for="" class="form-label">Card Owner Name:</label>
-                      <input required #txtInputCardOwner="ngModel" [(ngModel)]="addPaymentMethod.cardOwnerName"
-                        type="text" class="form-control" name="cardowner" id="cardowner">
+                      <input
+                        required
+                        #txtInputCardOwner="ngModel"
+                        [(ngModel)]="addPaymentMethod.cardOwnerName"
+                        type="text"
+                        class="form-control"
+                        name="cardowner"
+                        id="cardowner"
+                      />
                     </div>
 
                     <div class="w-50">
-                      <label for="" class="form-label">Card Ending Number:</label>
-                      <input required #txtInputCardEndingNum="ngModel" [(ngModel)]="addPaymentMethod.cardEndingNum"
-                        type="text" class="form-control" name="cardendingnum" id="cardendingnum">
+                      <label for="" class="form-label"
+                        >Card Ending Number:</label
+                      >
+                      <input
+                        required
+                        #txtInputCardEndingNum="ngModel"
+                        [(ngModel)]="addPaymentMethod.cardEndingNum"
+                        type="text"
+                        class="form-control"
+                        name="cardendingnum"
+                        id="cardendingnum"
+                      />
                     </div>
 
                     <div class="w-50">
-                      <label for="" class="form-label">Card Expiration Date (MM/YYYY):</label>
-                      <input required #txtInputCardExpire="ngModel" [(ngModel)]="addPaymentMethod.cardExpires"
-                        type="text" class="form-control" name="cardexpire" id="cardexpire">
+                      <label for="" class="form-label"
+                        >Card Expiration Date (MM/YYYY):</label
+                      >
+                      <input
+                        required
+                        #txtInputCardExpire="ngModel"
+                        [(ngModel)]="addPaymentMethod.cardExpires"
+                        type="text"
+                        class="form-control"
+                        name="cardexpire"
+                        id="cardexpire"
+                      />
                     </div>
                   </div>
 
-                  <div *ngIf="addPaymentMethod.paymentMethod==='Paypal'">
+                  <div *ngIf="addPaymentMethod.paymentMethod === 'Paypal'">
                     <div class="w-50">
-                      <label for="" class="form-label">Paypal Account Name:</label>
-                      <input required #txtInputPaypalAccount="ngModel" [(ngModel)]="addPaymentMethod.paypalAccountName"
-                        type="text" class="form-control" name="paypalaccount" id="paypalaccount">
+                      <label for="" class="form-label"
+                        >Paypal Account Name:</label
+                      >
+                      <input
+                        required
+                        #txtInputPaypalAccount="ngModel"
+                        [(ngModel)]="addPaymentMethod.paypalAccountName"
+                        type="text"
+                        class="form-control"
+                        name="paypalaccount"
+                        id="paypalaccount"
+                      />
                     </div>
                   </div>
-
-
                 </div>
 
-
-                <div *ngIf="addPaymentMethod.paymentMethod && addPaymentMethod.paymentMethod!=='Cash on Delivery'"
-                  class="MM_subTotal">
+                <div
+                  *ngIf="
+                    addPaymentMethod.paymentMethod &&
+                    addPaymentMethod.paymentMethod !== 'Cash on Delivery'
+                  "
+                  class="MM_subTotal"
+                >
                   <span class="me-2">Save Payment Method?</span>
-                  <button style="vertical-align:baseline" (click)="onAddPaymentMethod()" type="submit"
-                    class="btn bg-gradient p-1 px-3" [disabled]="paymentForm.invalid">Yes</button>
+                  <button
+                    style="vertical-align: baseline"
+                    (click)="onAddPaymentMethod()"
+                    type="submit"
+                    class="btn bg-gradient p-1 px-3"
+                    [disabled]="paymentForm.invalid"
+                  >
+                    Yes
+                  </button>
                 </div>
-
-
               </form>
               <p class="fw-bold mt-3">Saved Payment Methods:</p>
-              <div class="media border p-3 mb-3" *ngFor="let paymentMethod of paymentMethods">
+              <div
+                class="media border p-3 mb-3"
+                *ngFor="let paymentMethod of paymentMethods"
+              >
                 <div class="media-body">
-                  <span>{{paymentMethod.cardCompany}} ({{paymentMethod.paymentMethod}})
+                  <span
+                    >{{ paymentMethod.cardCompany }} ({{
+                      paymentMethod.paymentMethod
+                    }})
                   </span>
-                  <span *ngIf="paymentMethod.cardEndingNum"> - Ending in {{paymentMethod.cardEndingNum}}</span>
-                  <p class="fw-bold text-muted" *ngIf="paymentMethod.cardOwnerName"> Card owner:
-                    {{paymentMethod.cardOwnerName}}
+                  <span *ngIf="paymentMethod.cardEndingNum">
+                    - Ending in {{ paymentMethod.cardEndingNum }}</span
+                  >
+                  <p
+                    class="fw-bold text-muted"
+                    *ngIf="paymentMethod.cardOwnerName"
+                  >
+                    Card owner:
+                    {{ paymentMethod.cardOwnerName }}
                   </p>
-                  <p class="fw-bold text-muted" *ngIf="paymentMethod.paypalAccountName"> Paypal Account:
-                    {{paymentMethod.paypalAccountName}}
+                  <p
+                    class="fw-bold text-muted"
+                    *ngIf="paymentMethod.paypalAccountName"
+                  >
+                    Paypal Account:
+                    {{ paymentMethod.paypalAccountName }}
                   </p>
                 </div>
               </div>
-              <hr>
-            </div>
+              <hr />
+            </div> -->
             <div class="col-12">
-              <span class="fw-bold">3 Review items</span>
+              <span class="fw-bold">2 - Review items</span>
               <div class="card my-3">
                 <div class="card-body">
                   <!-- <h3 class="card-title m-0">Shopping Cart</h3> -->
                   <span class="float-end text-muted">Price</span>
                   <div style="clear: both"></div>
                   <hr />
-                  <div class="row MM_shoppingCart my-3" *ngFor="let item of cartArray">
+                  <div
+                    class="row MM_shoppingCart my-3"
+                    *ngFor="let item of cartArray"
+                  >
                     <div class="col-3">
                       <a class="ms-3" href="#">
-                        <img [src]="item.productImages[0]" alt="" [style.width.px]="250" />
+                        <img
+                          [src]="item.productImages[0]"
+                          alt=""
+                          [style.width.px]="250"
+                        />
                       </a>
                     </div>
 
                     <div class="col-9 p-5">
-                      <a href="# " class="fs-5">{{item.productName}}</a>
+                      <a href="# " class="fs-5">{{ item.productName }}</a>
                       <span class="fs-5 fw-bold float-end me-2">
-                        {{item.productPrice.finalPrice | currency:"EGP ":"symbol"}}</span>
-                      <div *ngIf="item.productStock<=20" class="text-danger">
-                        Only {{item.productStock}} left in stock - order soon.
+                        {{
+                          item.productPrice.finalPrice
+                            | currency: "EGP ":"symbol"
+                        }}</span
+                      >
+                      <div *ngIf="item.productStock <= 20" class="text-danger">
+                        Only {{ item.productStock }} left in stock - order soon.
                       </div>
                       <div>Shipped from: <a href="#">Amazon.com</a></div>
                       <div>
@@ -159,29 +347,36 @@
                       </div>
                       <div>
                         <span class="dropdown me-2">
-                          <select [(ngModel)]="item.quantity" (change)="updateQuantityPrice()"
-                            class="btn btn-light dropdown-toggle p-1 shadow-sm" id="dropdownMenuButton">
-                            <option [ngValue]='1'>1</option>
-                            <option [ngValue]='2'>2</option>
-                            <option [ngValue]='3'>3</option>
-                            <option [ngValue]='4'>4</option>
-                            <option [ngValue]='5'>5</option>
+                          <select
+                            [(ngModel)]="item.quantity"
+                            (change)="updateQuantityPrice()"
+                            class="btn btn-light dropdown-toggle p-1 shadow-sm"
+                            id="dropdownMenuButton"
+                          >
+                            <option [ngValue]="1">1</option>
+                            <option [ngValue]="2">2</option>
+                            <option [ngValue]="3">3</option>
+                            <option [ngValue]="4">4</option>
+                            <option [ngValue]="5">5</option>
                           </select>
                         </span>
                         <span class="MM_itemOptions">
-                          <a (click)="deleteItem(item)" style="cursor: pointer;">Delete</a>
+                          <a (click)="deleteItem(item)" style="cursor: pointer"
+                            >Delete</a
+                          >
                           <a href="#">Save for later</a>
                           <a href="#">Compare with similar items</a>
                         </span>
                       </div>
                     </div>
-
                   </div>
                   <div class="row">
                     <div class="col-12">
                       <hr />
-                      <span class="float-end fs-5">Total ({{totalQuantity}} item): <span class="fw-bold">
-                          {{totalPrice | currency:"EGP ":"symbol"}}
+                      <span class="float-end fs-5"
+                        >Total ({{ totalQuantity }} item):
+                        <span class="fw-bold">
+                          {{ totalPrice | currency: "EGP ":"symbol" }}
                         </span>
                       </span>
                     </div>
@@ -192,10 +387,6 @@
           </div>
         </div>
       </div>
-
-
-
-
     </div>
 
     <div class="col-md-3">
@@ -203,48 +394,61 @@
         <div class="col-12 MM_subTotal">
           <div class="card my-3">
             <div class="card-body">
-              <button class="btn bg-gradient p-1 my-2 col-12">
-                Place your order
+              <button
+                (click)="onConfirm()"
+                [routerLink]="['/place-order']"
+                class="btn bg-gradient p-1 my-2 col-12 place-order"
+                [disabled]="totalQuantity === 0 || isSelectedAddress === false"
+              >
+                Continue to payment
               </button>
-              <p class="privacy text-center">By placing your order, you agree to Amazon.com's <a href="#">privacy
-                  notice</a> and
-                <a href="#">conditions of
-                  use.</a>
+
+              <p class="privacy text-center">
+                By placing your order, you agree to Amazon.com's
+                <a href="#">privacy notice</a> and
+                <a href="#">conditions of use.</a>
               </p>
-              <hr>
+              <hr />
               <div class="order-summary">
-                <span class="fs-5 ">Order Summary</span>
+                <span class="fs-5">Order Summary</span>
                 <p class="mt-3">
-                  <span>Items ({{totalQuantity}}):</span>
-                  <span class="float-end"> {{totalPrice | currency:"EGP ":"symbol"}}
+                  <span>Items ({{ totalQuantity }}):</span>
+                  <span class="float-end" *ngIf="totalPrice > 0">
+                    {{ totalPrice | currency: "EGP ":"symbol" }}
                   </span>
                 </p>
                 <p>
                   <span>Shipping & handling:</span>
-                  <span class="float-end">0</span>
+                  <span class="float-end" *ngIf="totalPrice > 0">{{
+                    shipping + handling | currency: "EGP ":"symbol"
+                  }}</span>
                 </p>
                 <p>
                   <span>Total before tax:</span>
-                  <span class="float-end">0</span>
+                  <span class="float-end" *ngIf="totalPrice > 0">{{
+                    totalPrice + shipping + handling | currency: "EGP ":"symbol"
+                  }}</span>
                 </p>
                 <p>
-                  <span>Estimated tax to be collected:</span>
-                  <span class="float-end">0</span>
+                  <span>14% tax to be collected:</span>
+                  <span class="float-end" *ngIf="totalPrice > 0">{{
+                    tax_total | currency: "EGP ":"symbol"
+                  }}</span>
                 </p>
-                <hr>
+                <hr />
                 <p class="text-danger fs-5">
                   <span>Order total:</span>
-                  <span class="float-end"> {{totalPrice | currency:"EGP ":"symbol"}}
+                  <span class="float-end" *ngIf="totalPrice > 0">
+                    {{ total_amount | currency: "EGP ":"symbol" }}
                   </span>
                 </p>
               </div>
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </div>
 
-
+  ]
 </div>
