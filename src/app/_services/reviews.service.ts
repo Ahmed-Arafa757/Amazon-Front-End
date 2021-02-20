@@ -18,7 +18,7 @@ export class ReviewsService {
       .subscribe(
         (reviewsData) => {
           this.reviews = reviewsData.reviews;
-          this.latestReviews.emit(this.reviews);
+          this.latestReviews.emit(this.reviews); 
         },
         () => {},
         () => {}
