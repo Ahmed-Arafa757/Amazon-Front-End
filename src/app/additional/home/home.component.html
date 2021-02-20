@@ -120,12 +120,13 @@
         <div class="col">
           <div class="row row-cols-1 g-3">
             <div class="col">
-              <div id="AH_home-signin" class="card">
-                <div class="card-body">
+              <div  id="AH_home-signin" class="card">
+                <div  class="card-body">
                   <h5 class="card-title AH_card-title">
-                    Sign in for the best experience
+                   
+                   {{SignedIn()? 'Hello, ' + loggedInPerson.name : ' Sign in for the best experience'}} 
                   </h5>
-                  <a [routerLink]="['/login']">Sign in securely</a>
+                  <a *ngIf='SignedIn() === false' [routerLink]="['/login']">Sign in securely</a>
                 </div>
               </div>
             </div>
@@ -1384,7 +1385,7 @@
       >
         <hr class="mt-5 mb-3 bg-secondary w-100" />
         <h5 class="mx-3">Best sellers in Kindle eBooks</h5>
-        <button class="a-button mb-4">
+        <button *ngIf='SignedIn() === false' class="a-button mb-4">
           <a [routerLink]="['/login']" class="text-decoration-none">
             Sign in to see personalized recommendations</a
           >

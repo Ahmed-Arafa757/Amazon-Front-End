@@ -1,10 +1,10 @@
 <!-- Body -->
 <div class="container-fluid">
-  <div class="row" id="AA_upperRow"> 
-    
+  <div class="row" id="AA_upperRow">
+
     <div class="col-2" id="AA_sideNavCol">
 
-    <app-side-nav> </app-side-nav>
+      <app-side-nav> </app-side-nav>
 
     </div>
 
@@ -349,20 +349,22 @@
     </div>
   </div>
 
-  <div class="row">
+  <div *ngIf='SignedIn() === false' class="row">
     <div class="col-12" id="AA_lastRow">
 
-
       <hr>
-      <p class="h6" id="AA_startHere">See personalized recommendations</p>
-      <a [routerLink]="['/login']">
-        <div class="d-grid gap-2 col-2 mx-auto">
-          <button class="btn btn-warning" type="button"><span id="AA_startHere">Sign in</span> </button>
-        </div>
-      </a>
-      <p class="h6" id="AA_startHere">New customer? <a [routerLink]="['/register']"> start here</a></p>
+      <div >
+        <p class="h6" id="AA_startHere">See personalized recommendations</p>
+        <a [routerLink]="['/login']">
+          <div class="d-grid gap-2 col-2 mx-auto">
+            <button  class="btn " type="button"><span id="AA_signInBtn">Sign in</span>
+            </button>
+          </div>
+        </a>
+        <p class="h6" id="AA_startHere">New customer? <a [routerLink]="['/register']"> start here</a></p>
 
-      <hr>
+        <hr>
+      </div>
 
     </div>
   </div>

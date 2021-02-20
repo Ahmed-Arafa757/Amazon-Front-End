@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-// import { Router } from '@angular/router';
+ import { Router } from '@angular/router';
 import { Seller } from 'src/app/_model/sellers';
-// import { SellerAuthService } from 'src/app/_services/seller-auth.service';
+ import { SellerAuthService } from 'src/app/_services/seller-auth.service';
 
 @Component({
   selector: 'app-seller-login',
@@ -9,25 +9,44 @@ import { Seller } from 'src/app/_model/sellers';
   styleUrls: ['./seller-login.component.scss']
 })
 export class SellerLoginComponent implements OnInit {
- seller:Seller={email:'',password:''};
-  constructor() { }
+ seller:Seller={sellerName:'' ,email: '', password: '', repeatedPassword: '' };
+ loggedInSeller: Seller;
+  constructor(private sellerAuthService:SellerAuthService,private router: Router) { }
 
   ngOnInit(): void {
   }
-  onSubmit(){
-    console.log(this.seller)
+
+  onLogin() {
+    console.log('this.person', this.seller);
+    this.loggedInSeller= this.sellerAuthService.getSellerByEmail(this.seller.email);
+    console.log('this.loggedInUser',this.loggedInSeller);
     
-    // this.sellerAuthService.login(this.seller).subscribe(
-    //   (response)=>{
-    //     localStorage.setItem('token',response['token']);
-    //    console.log(response);
-    //    this.router.navigate(['/product']);
-    //   },
-    //   (err)=>{console.log(err);
-    //   },
-    //   ()=>{}
-    // )
-  }  
+   
+    localStorage.setItem('sellerId', this.loggedInSeller.sellerId);
+    
+    this.sellerAuthService.login(this.seller).subscribe(
+      (res) => {
+        // console.log(res['person']['id']);
+        localStorage.setItem('token', res['token']);
+        console.log(res);
+        this.router.navigate(['seller/home']);
+      },
+      (err) => {
+        console.log(err);
+      },
+      () => { },
+    );
+  }
+  showPassword() {
+
+    var x = document.getElementById("password") as HTMLInputElement;
+    if (x.type === "password") {
+      x.type = "text";
+    } else {
+      x.type = "password";
+    }
+  }
+
 }
 
 

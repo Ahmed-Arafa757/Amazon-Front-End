@@ -5,7 +5,7 @@
   <div class="row position-relative m-3 ">
       <div class="col-6 p-1 ">
           <div class="imgActions col col-12 m-4">
-              <input (input)='addImg($event)' type="file" name="img" id="img" style="display: none;" accept=".png, .jpg, .jpeg"  />
+              <input (input)='addImg($event.target.files[0].name,"add")' type="file" name="img" id="img" style="display: none;" accept=".png, .jpg, .jpeg"  />
               <div><button class="uploadImg m-2 p-2" (click)="fireUplodeImg($event)" > <i class="fas fa-upload"></i> Upload Photo</button>
                 </div>
 
@@ -36,7 +36,6 @@
               <label for="prodName" class="form-label ">Product Name</label>
               <input [ngClass]="{'invalid':prodName.touched && prodName.invalid }" #prodName='ngModel' type="text" class="form-control " [(ngModel)]='product.productName' id="prodName" name="prodName">
             </div>
-
             <div class="mb-3" >
               <label for="prodType" class="form-label ">Product Type</label>
               <input #prodType='ngModel' type="text" class="form-control " [(ngModel)]='product.productType' id="prodType" name="prodType">
@@ -59,19 +58,23 @@
               <input #prodStock='ngModel' type="number" class="form-control " [(ngModel)]='product.productStock' id="prodStock" name="prodStock">
             </div>
 
-            <!-- WareHouse -->
-
+            <div class="mb-3" >
+              <label  class="form-label ">Warehouse</label>
+              <select #warehouse='ngModel' class="form-select " [(ngModel)]='product.warehouseId' id="warehouse" name="warehouse">
+                <option *ngFor='let warehouse of warehouses' [value]="warehouse._id">{{warehouse.name}}</option>
+              </select>
+            </div>
 
             <div class="info px-4 py-3 mb-3">
               <h4 class="form-label text-center d-block">Product Info</h4>
               <div class="mb-3" >
               <div class="form-group form-label">
-                <input #c (click)='isColor = !isColor ; c.checkd;' type="checkbox" value="1" name="isColor" class="form-check-input me-2">
+                <input #c (click)='isColor = !isColor ; c.checkd;' [(ngModel)]='isColor' type="checkbox" value="true" name="isColor" class="form-check-input me-2">
                 <label class="form-label" for="color">Color</label>
                 
                 <div class="row m-auto" *ngIf="isColor">
                   <div *ngFor='let color of colors; let i = index' class="form-check col-4" >
-                    <input ngModel [value]="color" type="checkbox" [name]="color" class="form-check-input">
+                    <input [(ngModel)]='product.productInfo[0].color[i]' [value]="color" type="checkbox" [name]="color" class="form-check-input">
                     <span class="form-check-label">{{color}}</span>
                     </div>
                 </div>
@@ -79,15 +82,15 @@
           </div>
             <div class="mb-3">
               <label for="prodDesc" class="form-label ">Description</label>
-              <textarea #prodDesc='ngModel' rows="4" style="resize: none;" class="form-control " [(ngModel)]='product.productInfo.description' id="prodDesc" name="prodDesc" ></textarea>
+              <textarea #prodDesc='ngModel' rows="4" style="resize: none;" class="form-control " [(ngModel)]='product.productInfo[0].description' id="prodDesc" name="prodDesc" ></textarea>
             </div>
             <div class="mb-3">
               <label for="prodMat" class="form-label ">Material</label>
-              <input #prodMat='ngModel' type="text" class="form-control" [(ngModel)]='product.productInfo.material' id="prodMat" name="prodMat">
+              <input #prodMat='ngModel' type="text" class="form-control" [(ngModel)]='product.productInfo[0].material' id="prodMat" name="prodMat">
             </div>
             <div class="mb-3">
               <label for="prodWeight" class="form-label ">Weight</label>
-              <input #prodWeight='ngModel' type="text" class="form-control" [(ngModel)]='product.productInfo.weight' id="prodWeight" name="prodWeight">
+              <input #prodWeight='ngModel' type="text" class="form-control" [(ngModel)]='product.productInfo[0].weight' id="prodWeight" name="prodWeight">
             </div>
             <div id="addInfo"></div>
             <button type="button" class="uploadImg p-2 mb-3" data-bs-toggle="modal" data-bs-target="#Info">
@@ -110,7 +113,6 @@
                   </div>
                 </div>
               </div>
-
             </div>
 
             </div>
@@ -123,52 +125,21 @@
             </div></div>
             <div class="mb-3" >
               <label for="prodSale">Status</label>
-                  <div class="form-check">
-                      <input class="form-check-input" ngModel type="radio" name="prodSale" value="0" id="prodSale" #prodSale='ngModel'>
-                      <span>On Sale</span>
-                  </div>
-                  <div class="form-check">
-                      <input ngModel='1' class="form-check-input" #prodSale='ngModel' type="radio" name="prodSale" value="1" id="prodNotSale" >
-                      <span>Not On Sale</span>
-                  </div>
-                <div class="form-group">
-                    <label for="">Discount</label>
-                    <input #prodDiscunt='ngModel' [disabled]='prodSale.value==1 || prodSale.untouched' [(ngModel)]='product.productPrice.discount' class="form-control" type="number" name="prodDiscunt" id="prodDiscunt">
-                  
-                  </div>
-                
-            </div>
-            </div>
-            <div class="mb-3" >
-              <label for="prodName" class="form-label ">Product Type</label>
-              <input #prodType='ngModel' type="text" class="form-control " [(ngModel)]='product.productType' id="prodType" name="prodType">
 
-            </div>
+                <div class="form-check">
+                  <input class="form-check-input" [(ngModel)]='product.productPrice.onSale' value='0' type="radio" name="prodSale" id="prodSale">
+                  <span>On Sale</span>
+              </div>
+              <div class="form-check">
+                  <input [(ngModel)]='product.productPrice.onSale' class="form-check-input" type="radio" name="prodSale" value="1" id="prodNotSale" >
+                  <span>Not On Sale</span>
+              </div>
+            <div class="form-group">
+                <label for="">Discount</label>
+                <input #prodDiscunt='ngModel' [disabled]='product.productPrice.onSale === "1" ' [(ngModel)]='product.productPrice.discount' class="form-control" type="number" name="prodDiscunt" id="prodDiscunt">
 
-            </div>
-            <div class="info px-4 py-3 mb-3">
-              <h4 class="form-label text-center d-block">Product Price</h4>
-              <div class="mb-3" >
-              <div class="form-group">
-                <label for="prodPrice">Price</label>
-                <input [(ngModel)]='product.productPrice.currentPrice' #prodPrice='ngModel' class="form-control" type="number" name="prodPrice" id="prodPrice">
-            </div></div>
-            <div class="mb-3" >
-              <label for="prodSale">Status</label>
-                  <div class="form-check">
-                      <input class="form-check-input" ngModel type="radio" name="prodSale" value="0" id="prodSale" #prodSale='ngModel'>
-                      <span>On Sale</span>
-                  </div>
-                  <div class="form-check">
-                      <input ngModel='1' class="form-check-input" #prodSale='ngModel' type="radio" name="prodSale" value="1" id="prodNotSale" >
-                      <span>Not On Sale</span>
-                  </div>
-                <div class="form-group">
-                    <label for="">Discount</label>
-                    <input #prodDiscunt='ngModel' [disabled]='prodSale.value==1 || prodSale.untouched' [(ngModel)]='product.productPrice.discount' class="form-control" type="number" name="prodDiscunt" id="prodDiscunt">
-                  
-                  </div>
-                
+              </div>
+             
             </div>
             </div>
 
@@ -184,8 +155,8 @@
                           <a (click)='removeKey(key)' class="taged-textbox__remove"><i class="fas fa-times"></i></a>
                         </div></div>
 
-                  <div class="taged-textbox__clear">
-                      <a (click)='product.keywords=[]' role="button" style="cursor: pointer;"><i class="fas fa-times"></i></a>
+                  <div *ngIf='product.keywords.length !== 0' class="taged-textbox__clear">
+                      <a  (click)='product.keywords=[]' role="button" style="cursor: pointer;"><i class="fas fa-times"></i></a>
                   </div>
 
               <input #keywords (keyup.enter)='onKeyWordAdded(keywords)' class="taged-textbox__textbox form-control" type="text" name="keywords" id="keywords">
@@ -193,7 +164,7 @@
 
           </div>
       </div>
-      <button class="submit p-2" (click)='submitAdd(addForm)' [disabled]='addForm.invalid'>Add</button>
+      <button  class="submit p-2" (click)='submitAdd(addForm)' [disabled]='addForm.invalid'>{{editMode? 'Update':'Add'}}</button>
   </div>
 </form>
 </div>

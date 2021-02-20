@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { Review } from 'src/app/_model/reviews';
 import { ReviewsService } from 'src/app/_services/reviews.service';
 
@@ -8,19 +10,18 @@ import { ReviewsService } from 'src/app/_services/reviews.service';
   styleUrls: ['./product-reviews.component.scss'],
 })
 export class ProductReviewsComponent implements OnInit {
-  @Input() id: string;
-
-  reviews: Review[];
-
+  reviews: Review[] = [];
+  productID: string = '';
   addReview: Review = {
+    _id: '',
+    reviewerID: 'sdf531sd3f6',
+    reviewerName: 'Mohammed Mounir',
+    reviewTime: new Date().toUTCString(),
     reviewSummary: '',
     fullReview: '',
-    reviewerName: 'Mohammed',
-    reviewTime: new Date().toUTCString(),
-    helpful: 0,
-    reviewVote: 0,
-    stars: [],
+    reviewVote: null,
     productID: '',
+    stars: [],
   };
 
   iconClass = {
@@ -31,15 +32,46 @@ export class ProductReviewsComponent implements OnInit {
 
   globalRatings: number = 0;
 
-  hasBeenSubmitted = false;
+  hasBeenSubmitted: boolean = false;
 
-  constructor(private reviewsService: ReviewsService) {}
+  editMode: boolean = false;
+
+  constructor(
+    private reviewsService: ReviewsService,
+    private activatedRoute: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
-    this.reviews = this.reviewsService.getReviewsByProductId(this.id);
-    console.log(this.reviews);
-    this.reviews.reverse();
-    this.fillStars();
+    this.activatedRoute.params.subscribe(
+      (params) => {
+        this.productID = params.id;
+        console.log(params.id);
+        this.reviewsService.getReviewsByProductId(params.id);
+        this.getReviews();
+      },
+      (err) => {
+        console.log(err);
+      },
+      () => {}
+    );
+
+    // this.reviewsService.getReviewsByProductId(this.id);
+    // this.getReviews();
+  }
+
+  getReviews() {
+    this.reviewsService.latestReviews.subscribe(
+      (res) => {
+        console.log(res);
+        this.reviews = res;
+        this.reviews.reverse();
+        this.fillStars();
+      },
+      (err) => {
+        console.log(err);
+      },
+      () => {}
+    );
   }
 
   fillStars() {
@@ -59,19 +91,30 @@ export class ProductReviewsComponent implements OnInit {
     }
   }
 
-  onSubmit() {
-    this.addReview.productID = this.id;
-    this.reviewsService.addReview(this.addReview);
+  onSubmit(reviewForm: NgForm) {
+    if (this.editMode === false) {
+      this.addReview.productID = this.productID;
+      const review = { ...this.addReview };
+      this.reviewsService.addReview(review);
+    } else {
+      const review = { ...this.addReview };
+      this.reviewsService.updateReview(this.addReview._id, review);
+      this.editMode = false;
+    }
 
-    this.reviews = this.reviewsService.getReviewsByProductId(this.id);
-
-    this.fillStars();
-    this.reviews.reverse();
-
-    console.log(this.reviews);
-
-    this.addReview.fullReview = '';
-    this.addReview.reviewSummary = '';
+    this.getReviews();
+    reviewForm.reset();
     this.hasBeenSubmitted = true;
+  }
+
+  onDelete(reviewID: string) {
+    this.reviewsService.deleteReview(reviewID);
+    this.getReviews();
+  }
+
+  onEdit(reviewID: string) {
+    const toEdit = this.reviews.find((review) => review._id === reviewID);
+    this.addReview = { ...toEdit };
+    this.editMode = true;
   }
 }
