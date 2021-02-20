@@ -8,8 +8,9 @@
         </h3>
       </div>
       <div [hidden]="paidFor" id="paypal"></div>
-      <div *ngIf="paidFor">
-        <h1>Thank you for your purchase</h1>
+      <div *ngIf="paidFor" class="my-5">
+        <h1 class="mb-3">Thank you for your purchase!</h1>
+        <h3>Your Order Number is #{{ orderID }}</h3>
       </div>
     </div>
   </div>

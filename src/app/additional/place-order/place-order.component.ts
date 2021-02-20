@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { OrderService } from 'src/app/_services/order.service';
 import { UserPaymentMethodsService } from 'src/app/_services/user-payment-methods.service';
 
 declare var paypal;
@@ -11,12 +12,16 @@ declare var paypal;
 export class PlaceOrderComponent implements OnInit {
   totalToPay = 0;
   paidFor = false;
-
-  constructor(private userPaymentMethodsService: UserPaymentMethodsService) {}
+  // userAddress = [];
+  orderID: string = '';
+  constructor(
+    private userPaymentMethodsService: UserPaymentMethodsService,
+    private orderService: OrderService
+  ) {}
 
   ngOnInit(): void {
     const placedOrder = { ...this.userPaymentMethodsService.placedOrder };
-
+    console.log(placedOrder);
     this.totalToPay = placedOrder['totalAmount'];
 
     paypal
@@ -51,44 +56,23 @@ export class PlaceOrderComponent implements OnInit {
                   },
                 },
                 items: [...placedOrder['order']],
-                shipping: {
-                  method: 'United States Postal Service',
-                  address: {
-                    name: {
-                      full_name: 'John',
-                      surname: 'Doe',
-                    },
-                    address_line_1: '123 Townsend St',
-                    address_line_2: 'Floor 6',
-                    admin_area_2: 'San Francisco',
-                    admin_area_1: 'CA',
-                    postal_code: '94107',
-                    country_code: 'US',
-                  },
-                },
               },
             ],
           });
         },
         onApprove: (data, actions) => {
           return actions.order.capture().then((details) => {
-            console.log(
-              'Transaction completed by ' + details.payer.name.given_name
-            );
             console.log(details);
             console.log(data);
             this.paidFor = true;
-
-            // Call your server to save the transaction
-            return fetch('/api/paypal-transaction-complete', {
-              method: 'post',
-              headers: {
-                'content-type': 'application/json',
-              },
-              body: JSON.stringify({
-                orderID: data.orderID,
-              }),
-            });
+            this.orderID = data.orderID;
+            const orderFullDetails = {
+              orderData: data,
+              orderDetails: details,
+              userAddress: placedOrder['userAddress'],
+            };
+            console.log(orderFullDetails);
+            this.orderService.addOrder(orderFullDetails);
           });
         },
       })

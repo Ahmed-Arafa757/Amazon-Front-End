@@ -5,6 +5,7 @@ import { Users } from 'src/app/_model/users';
 import { UserPaymentMethodsService } from 'src/app/_services/user-payment-methods.service';
 import { ProductService } from 'src/app/_services/product.service';
 import { UsersService } from 'src/app/_services/users.service';
+import { FormsModule, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-cart',
@@ -23,6 +24,9 @@ export class CheckoutComponent implements OnInit {
   user: Users;
   addresses: Address[] = [];
   addNewUserAddress: Address = {};
+  selectedAddress: Address = {};
+  isSelectedAddress: boolean = false;
+  addNewShipping: boolean = false;
   paymentMethods: UserPaymentMethods[] = [];
   addPaymentMethod: UserPaymentMethods = {
     userID: 'nan2_7127_5562',
@@ -35,12 +39,11 @@ export class CheckoutComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.user = this.usersService.getUserById('5ff8c51fa4c6cf417005fd5e');
-    this.addresses = this.user.address.slice();
-
-    this.paymentMethods = this.userPaymentMethodService.getPaymentMethodByUserId(
-      'nan2_7127_5562'
+    this.user = JSON.parse(
+      JSON.stringify(this.usersService.getUserById('5ff8c51fa4c6cf417005fd5e'))
     );
+    this.addresses = this.user.address;
+    console.log(this.user);
 
     this.cartArray = this.productService.cartProducts;
     this.updateQuantityPrice();
@@ -78,6 +81,39 @@ export class CheckoutComponent implements OnInit {
       });
     }
 
+    this.onConfirm();
+  }
+
+  onAddUserAddress(addressForm: NgForm) {
+    let newAddress = Object.assign({}, this.addNewUserAddress);
+    this.addresses.push(newAddress);
+    this.user.address = this.addresses;
+
+    this.usersService.updateUser(this.user);
+    this.user = JSON.parse(
+      JSON.stringify(this.usersService.getUserById('5ff8c51fa4c6cf417005fd5e'))
+    );
+    this.addresses = this.user.address;
+
+    addressForm.reset();
+  }
+
+  deleteItem(item) {
+    const index = this.cartArray.indexOf(item);
+    this.cartArray.splice(index, 1);
+    this.updateQuantityPrice();
+  }
+
+  onCheckAddress() {
+    this.isSelectedAddress = true;
+    console.log(this.selectedAddress);
+  }
+
+  onAddNewAddress() {
+    this.addNewShipping = !this.addNewShipping;
+  }
+
+  onConfirm() {
     this.userPaymentMethodService.placedOrder = {
       order: this.buy,
       totalAmount: this.total_amount,
@@ -85,28 +121,8 @@ export class CheckoutComponent implements OnInit {
       shipping: this.shipping,
       handling: this.handling,
       tax: this.tax_total,
+      userID: this.user.userID,
+      userAddress: this.selectedAddress,
     };
-  }
-
-  onAddUserAddress() {
-    let newAddress = Object.assign({}, this.addNewUserAddress);
-    this.addresses.push(newAddress);
-    this.user.address = this.addresses.slice();
-
-    this.usersService.updateUser(this.user);
-    this.user = this.usersService.getUserById('5ff8c51fa4c6cf417005fd5e');
-
-    this.addresses = this.user.address.slice();
-
-    this.addNewUserAddress.country = null;
-    this.addNewUserAddress.city = null;
-    this.addNewUserAddress.state = null;
-    this.addNewUserAddress.street = null;
-  }
-
-  deleteItem(item) {
-    const index = this.cartArray.indexOf(item);
-    this.cartArray.splice(index, 1);
-    this.updateQuantityPrice();
   }
 }

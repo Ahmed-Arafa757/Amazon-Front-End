@@ -9,8 +9,23 @@
 
           <div class="row">
             <div class="col-12">
-              <span class="fw-bold">1 Shipping address</span>
-              <form #addressForm="ngForm" class="row g-3 mt-1">
+              <span class="fw-bold">1 - Shipping address</span>
+              <div class="form-check form-switch my-3">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="flexSwitchCheckDefault"
+                  (click)="onAddNewAddress()"
+                />
+                <label class="form-check-label" for="flexSwitchCheckDefault"
+                  >Add new shipping address?</label
+                >
+              </div>
+              <form
+                *ngIf="addNewShipping"
+                #addressForm="ngForm"
+                class="row g-3 mt-1"
+              >
                 <div class="w-50">
                   <label for="" class="form-label">Country:</label>
                   <input
@@ -46,8 +61,19 @@
                     id="state"
                   />
                 </div>
+                <div class="w-50">
+                  <label for="" class="form-label">Postal Code:</label>
+                  <input
+                    #txtInputPostalCode="ngModel"
+                    [(ngModel)]="addNewUserAddress.postalCode"
+                    type="number"
+                    class="form-control"
+                    name="postalCode"
+                    id="postalCode"
+                  />
+                </div>
                 <div class="col-12">
-                  <label for="" class="form-label">Street:</label>
+                  <label for="" class="form-label">Street Details:</label>
                   <input
                     required
                     #txtInputStreet="ngModel"
@@ -62,7 +88,7 @@
                   <span class="me-2">Save Address?</span>
                   <button
                     style="vertical-align: baseline"
-                    (click)="onAddUserAddress()"
+                    (click)="onAddUserAddress(addressForm)"
                     type="submit"
                     class="btn bg-gradient p-1 px-3 mb-3"
                     [disabled]="addressForm.invalid"
@@ -71,36 +97,57 @@
                   </button>
                 </div>
               </form>
-              <p class="fw-bold mt-3">Saved Addresses:</p>
-              <div
-                class="media border p-3 mb-3"
-                *ngFor="let address of addresses"
-              >
-                <div class="media-body">
-                  <div>
-                    <span class="fw-bold" style="font-size: 0.8rem"
-                      >Country:</span
-                    >
-                    {{ address.country }}
-                  </div>
-                  <div>
-                    <span class="fw-bold" style="font-size: 0.8rem">City:</span>
-                    {{ address.city }}
-                  </div>
-                  <div *ngIf="address.state">
-                    <span class="fw-bold" style="font-size: 0.8rem"
-                      >State:</span
-                    >
-                    {{ address.state }}
-                  </div>
-                  <div>
-                    <span class="fw-bold" style="font-size: 0.8rem"
-                      >Street:</span
-                    >
-                    {{ address.street }}
-                  </div>
+              <p class="fw-bold mt-3">Select shipping address:</p>
+              <div class="form-check w-75">
+                <div
+                  class="media border p-5 mb-3"
+                  *ngFor="let address of addresses"
+                >
+                  <input
+                    class="form-check-input"
+                    (change)="onCheckAddress()"
+                    [(ngModel)]="selectedAddress"
+                    [value]="address"
+                    type="radio"
+                    id="address"
+                  />
+                  <label class="form-check-label" for="">
+                    <div class="media-body">
+                      <div>
+                        <span class="fw-bold" style="font-size: 0.8rem"
+                          >Country:</span
+                        >
+                        {{ address.country }}
+                      </div>
+                      <div>
+                        <span class="fw-bold" style="font-size: 0.8rem"
+                          >City:</span
+                        >
+                        {{ address.city }}
+                      </div>
+                      <div *ngIf="address.state">
+                        <span class="fw-bold" style="font-size: 0.8rem"
+                          >State:</span
+                        >
+                        {{ address.state }}
+                      </div>
+                      <div *ngIf="address.state">
+                        <span class="fw-bold" style="font-size: 0.8rem"
+                          >Postal Code:</span
+                        >
+                        {{ address.postalCode }}
+                      </div>
+                      <div>
+                        <span class="fw-bold" style="font-size: 0.8rem"
+                          >Street Details:</span
+                        >
+                        {{ address.street }}
+                      </div>
+                    </div>
+                  </label>
                 </div>
               </div>
+
               <hr />
             </div>
 
@@ -261,7 +308,7 @@
               <hr />
             </div> -->
             <div class="col-12">
-              <span class="fw-bold">2 Review items</span>
+              <span class="fw-bold">2 - Review items</span>
               <div class="card my-3">
                 <div class="card-body">
                   <!-- <h3 class="card-title m-0">Shopping Cart</h3> -->
@@ -348,11 +395,12 @@
           <div class="card my-3">
             <div class="card-body">
               <button
+                (click)="onConfirm()"
                 [routerLink]="['/place-order']"
                 class="btn bg-gradient p-1 my-2 col-12 place-order"
-                [disabled]="totalQuantity === 0"
+                [disabled]="totalQuantity === 0 || isSelectedAddress === false"
               >
-                Place your order
+                Continue to payment
               </button>
 
               <p class="privacy text-center">
