@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { OrderService } from 'src/app/_services/order.service';
-import { UserPaymentMethodsService } from 'src/app/_services/user-payment-methods.service';
 
 declare var paypal;
 
@@ -12,15 +11,11 @@ declare var paypal;
 export class PlaceOrderComponent implements OnInit {
   totalToPay = 0;
   paidFor = false;
-  // userAddress = [];
   orderID: string = '';
-  constructor(
-    private userPaymentMethodsService: UserPaymentMethodsService,
-    private orderService: OrderService
-  ) {}
+  constructor(private orderService: OrderService) {}
 
   ngOnInit(): void {
-    const placedOrder = { ...this.userPaymentMethodsService.placedOrder };
+    const placedOrder = { ...this.orderService.placedOrder };
     console.log(placedOrder);
     this.totalToPay = placedOrder['totalAmount'];
 

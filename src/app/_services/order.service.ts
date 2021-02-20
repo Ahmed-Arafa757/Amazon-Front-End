@@ -8,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
 export class OrderService {
   orderFullDetails;
   orders: Order[];
+  placedOrder = {};
 
   constructor(private http: HttpClient) {}
 
