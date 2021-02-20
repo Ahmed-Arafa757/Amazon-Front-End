@@ -19,6 +19,7 @@ import { ProductListingComponent } from './product/product-listing/product-listi
 import { SellerAddComponent } from './seller/seller-add/seller-add.component';
 import { SellerRegisterComponent } from './seller/seller-register/seller-register.component';
 import { AuthGuardService } from './_services/auth-guard.service';
+import { PlaceOrderComponent } from './additional/place-order/place-order.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -39,9 +40,11 @@ const routes: Routes = [
   { path: 'product/details/:id', component: ProductDetailsComponent },
   // Seller
   { path: 'seller/add', component: SellerAddComponent},
+  { path: 'seller/edit/:id', component: SellerAddComponent},
   { path: 'seller/login', component: SellerLoginComponent},
   { path: 'seller/signup', component: SellerRegisterComponent},
   { path: 'seller/home', component: SellerHomeComponent},
+  { path: 'place-order', component: PlaceOrderComponent },
   { path: '**', component: ErrorNotFoundComponent },
 ];
 

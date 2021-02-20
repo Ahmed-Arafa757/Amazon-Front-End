@@ -1,12 +1,5 @@
-export interface PaymentMethod {
-  id?: number;
-  paymentMethod?: string;
-  paypalAccountName?: string;
-  cardCompany?: string;
-  cardEndingNum?: string;
-  cardExpires?: string;
-  cardOwnerName?: string;
-  currentCurrency?: string;
-  convertedCurrency?: string;
-  userID?: string;
+export interface PaymentMethods {
+  _id?: string;
+  paymentMethodType?: string;
+  img?: string;
 }

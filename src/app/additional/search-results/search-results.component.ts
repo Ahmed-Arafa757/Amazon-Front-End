@@ -24,7 +24,11 @@ export class SearchResultsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.products = this.productService.getAllProducts();
+    this.productService.getAllProducts().subscribe(
+      (res:any)=>{this.products = res},
+      (err)=>{console.error(err)},
+      ()=>{}
+    );
     this.activatedRoute.params.subscribe(
       (params) => {
         this.productsResult = JSON.parse(JSON.stringify(this.products));

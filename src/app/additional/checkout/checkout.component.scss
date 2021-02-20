@@ -8,3 +8,10 @@
 .order-summary {
   font-size: 0.9rem;
 }
+
+.place-order {
+  background-color: #fac745;
+  &:hover {
+    background-color: #ffd95d;
+  }
+}
