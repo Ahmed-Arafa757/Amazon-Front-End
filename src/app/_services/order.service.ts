@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Order } from '../_model/order';
 
@@ -5,7 +6,7 @@ import { Order } from '../_model/order';
   providedIn: 'root'
 })
 export class OrderService {
-  orders:Order[]=[{
+  /* orders:Order[]=[{
     _id: "5ff8c4ac73f4d7524453190c",
     orderItems: [
       {
@@ -687,31 +688,24 @@ export class OrderService {
     },
     orderStatus: "refused",
     customerId: "jj06_4009_5484"
-  }];
-  constructor() { }
+  }]; */
+  baseUrl = 'http://localhost:3000/';
+  constructor(private httpClinet : HttpClient) { }
   getAllOrders(){
-    return this.orders.slice();
+    return this.httpClinet.get(this.baseUrl+'api/orders');
   }
   orderById(id:string){
-    let order = this.orders.find(p=>p._id===id);
-    if(order!==undefined)
-    {
-      let prod:Order={_id:order._id,orderItems:order.orderItems,orderPrice:order.orderPrice,orderDate:order.orderDate,shippingAddress:order.shippingAddress,orderStatus:order.orderStatus,customerId:order.customerId};
-      return prod;
-    }
+    return this.httpClinet.get(this.baseUrl+'api/order/id/'+id);
   }
   updateOrder(order:Order){
-    const index = this.orders.findIndex(p=>p._id===order._id);
-    this.orders[index]={_id:order._id,orderItems:order.orderItems,orderPrice:order.orderPrice,orderDate:order.orderDate,shippingAddress:order.shippingAddress,orderStatus:order.orderStatus,customerId:order.customerId};
-    return 'Order Updated'
+    return this.httpClinet.put(this.baseUrl+'api/order/'+order._id,order);
   }
   deleteOrder(id:string){
-    const index = this.orders.findIndex(p=>p._id===id);
-    this.orders.splice(index,1)
+    return this.httpClinet.delete(this.baseUrl+'api/order/'+id);
   }
   addOrder(order:Order){
-    const orderId = this.orders.length;
-    const newOrder:Order = {_id:`${orderId}`,orderItems:order.orderItems,orderPrice:order.orderPrice,orderDate:order.orderDate,shippingAddress:order.shippingAddress,orderStatus:order.orderStatus,customerId:order.customerId};
-    this.orders.push(newOrder);
+    console.log(order);
+
+    return this.httpClinet.post(this.baseUrl+'api/order/add',order);
   }
 }
