@@ -12,27 +12,33 @@ import { ProductService } from 'src/app/_services/product.service';
   styleUrls: ['./product-listing.component.scss'],
 })
 export class ProductListingComponent implements OnInit {
-  products: Product[];
+  products: Product[] = [];
 
   numOfPages: number[] = [];
 
   pageSize = 9;
 
   currentPage = 0;
-  lastPage = 0; 
+  lastPage = 0;
 
   loggedInPerson: Person;
-  constructor(private productService: ProductService,
-  private personService:PersonService) { }
+  constructor(
+    private productService: ProductService,
+    private personService: PersonService
+  ) {}
 
   ngOnInit(): void {
     this.productService.getAllProducts().subscribe(
-      (res:any)=>{this.products = res},
-      (err)=>{console.error(err)},
-      ()=>{}
+      (res: Product[]) => {
+        this.products = res;
+        this.lastPage = this.products.length / this.pageSize;
+        this.calculateNumOfPages();
+      },
+      (err) => {
+        console.error(err);
+      },
+      () => {}
     );
-    this.lastPage = this.products.length / this.pageSize;
-    this.calculateNumOfPages();
   }
 
   calculateNumOfPages() {
@@ -53,20 +59,16 @@ export class ProductListingComponent implements OnInit {
   // }
 
   SignedIn() {
-    // return this.authService.isAuthenticated(); 
+    // return this.authService.isAuthenticated();
 
-    if (localStorage.hasOwnProperty("personId")) {
-
-      this.loggedInPerson = this.personService.getPersonById(localStorage.getItem("personId"));
+    if (localStorage.hasOwnProperty('personId')) {
+      this.loggedInPerson = this.personService.getPersonById(
+        localStorage.getItem('personId')
+      );
       // console.log('this.loggedInPerson from header', this.loggedInPerson);
       return true;
-
-    }
-    else {
+    } else {
       return false;
     }
-
-
-
   }
 }

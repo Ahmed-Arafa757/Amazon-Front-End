@@ -5,7 +5,6 @@ import { Person } from '../../_model/person';
 import { AuthService } from '../../_services/auth.service';
 import { PersonService } from '../../_services/person.service';
 
-
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -18,14 +17,14 @@ export class HeaderComponent implements OnInit {
   cartArray = [];
   totalQuantity = 0;
 
-  searchString: string;
+  searchString: string = '';
   loggedInPerson: Person;
 
-
-  constructor(private productService: ProductService,
+  constructor(
+    private productService: ProductService,
     private authService: AuthService,
     private personService: PersonService
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.productService.productAdded.subscribe(
@@ -43,7 +42,6 @@ export class HeaderComponent implements OnInit {
       }
     );
     // console.log(this.person);
-    
   }
 
   toggle(input) {
@@ -55,20 +53,16 @@ export class HeaderComponent implements OnInit {
   }
 
   SignedIn() {
-    // return this.authService.isAuthenticated(); 
+    // return this.authService.isAuthenticated();
 
-    if (localStorage.hasOwnProperty("personId")) {
-      
-      this.loggedInPerson = this.personService.getPersonById(localStorage.getItem("personId"));
+    if (localStorage.hasOwnProperty('personId')) {
+      this.loggedInPerson = this.personService.getPersonById(
+        localStorage.getItem('personId')
+      );
       // console.log('this.loggedInPerson from header', this.loggedInPerson);
       return true;
-      
-    }
-    else {
+    } else {
       return false;
     }
-
-      
-
   }
 }

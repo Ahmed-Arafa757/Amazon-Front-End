@@ -37,6 +37,7 @@ import { SellerHomeComponent } from './seller/seller-home/seller-home.component'
 import { SellerAddComponent } from './seller/seller-add/seller-add.component';
 import { SellerRegisterComponent } from './seller/seller-register/seller-register.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PlaceOrderComponent } from './additional/place-order/place-order.component';
 
 @NgModule({
   declarations: [
@@ -66,9 +67,15 @@ import { HttpClientModule } from '@angular/common/http';
     SellerHomeComponent,
     SellerAddComponent,
     SellerRegisterComponent,
-    
+    PlaceOrderComponent,
   ],
-  imports: [BrowserModule, NgbModule, FormsModule, CustomAppRoutingModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    NgbModule,
+    FormsModule,
+    CustomAppRoutingModule,
+    HttpClientModule,
+  ],
   providers: [ReviewsService, PaymentMethodsService, ProductService],
   bootstrap: [AppComponent],
 })
