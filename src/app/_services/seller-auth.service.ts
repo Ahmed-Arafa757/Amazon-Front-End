@@ -39,7 +39,7 @@ getSellerByEmail(email): Seller {
 
 getSellerById(myid): Seller{
 
-  return this.sellers.find(p => p.sellerId === myid); 
+  // return this.sellers.find(p => p.sellerId === myid); 
 
 }
 
