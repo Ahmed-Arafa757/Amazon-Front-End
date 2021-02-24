@@ -31,17 +31,17 @@ export class SellerAuthService {
 //    return x
 // }
 
-getSellerByEmail(email): Seller {
+// getSellerByEmail(email): Seller {
 
-  return this.sellers.find(p => p.email === email);
+//   return this.sellers.find(p => p.email === email);
 
-}
+// }
 
-getSellerById(myid): Seller{
+// getSellerById(myid): Seller{
 
-  // return this.sellers.find(p => p.sellerId === myid); 
+//   // return this.sellers.find(p => p.sellerId === myid); 
 
-}
+// }
 
 isAuthenticated():boolean{
   if(localStorage.getItem('token')){
