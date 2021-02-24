@@ -74,8 +74,8 @@
                 
                 <div class="row m-auto" *ngIf="isColor">
                   <div *ngFor='let color of colors; let i = index' class="form-check col-4" >
-                    <input [(ngModel)]='product.productInfo[0].color[i]' [value]="color" type="checkbox" [name]="color" class="form-check-input">
-                    <span class="form-check-label">{{color}}</span>
+                    <input [(ngModel)]='product.productInfo[0].color[i]' [value]="color.id" type="checkbox" [name]="'color-'+i" class="form-check-input">
+                    <span class="form-check-label">{{color.name}}</span>
                     </div>
                 </div>
             </div>
