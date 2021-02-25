@@ -4,3 +4,29 @@
    right: 0;
    
 }
+.loginBtns
+{
+  display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.loginBtn
+{
+  background-color: white;
+  text-decoration: none;
+  color: black; 
+  padding: 20px;
+  box-shadow: 0px 0px 5px black;
+  border-radius: 0.25rem;
+  display: inline-block;
+  justify-content: center;
+  margin: 20px auto;
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 1rem;
+}
+#faceBook 
+{
+  background-color: #4267B2;
+  color: white;
+}
