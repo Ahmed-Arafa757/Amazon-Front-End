@@ -9,12 +9,20 @@ export class SellerAuthService {
     
 
 
-  baseUrl = 'https://mearn-stack-backend-test.herokuapp.com/';
+  /* baseUrl = 'https://mearn-stack-backend-test.herokuapp.com/'; */
+  baseUrl = 'http://localhost:3000/';
   constructor(private httpClient: HttpClient) { }
 
 
 
-
+  signInWithGoogle(socialUser){
+    console.log(socialUser);
+    return this.httpClient.post(`${this.baseUrl}api/seller/google`,socialUser)
+  }
+  signInWithFB(socialUser){
+    console.log(socialUser);
+    return this.httpClient.post(`${this.baseUrl}api/seller/facebook`,socialUser)
+  }
   register(seller:Seller){
     console.log(seller);
    return this.httpClient.post(`${this.baseUrl}seller/register`,seller)

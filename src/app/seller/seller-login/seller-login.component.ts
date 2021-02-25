@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Seller } from 'src/app/_model/sellers';
 import { SellerAuthService } from 'src/app/_services/seller-auth.service';
 
@@ -23,18 +23,62 @@ loggedIn: boolean;
     private authService: SocialAuthService
     ) { }
     ngOnInit(): void {
-      this.authService.authState.subscribe((user) => {
-        this.user = user;
-        console.log(user)
-        this.loggedIn = (user != null);
-      });
+      
     }
   signInWithGoogle(): void {
     this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
+    this.authService.authState.subscribe((user) => {
+      this.user = user;
+      if(user && user.provider === 'GOOGLE')
+      {
+        this.sellerAuthService.signInWithGoogle(user).subscribe
+        (
+          (res:any)=>{
+            if(res.length === 0)
+            {
+              this.router.navigate(['seller/signup'],{ queryParams: { name: user.name , email: user.email} });
+              console.log('Email Not Found');
+              this.signOut();
+            }
+            else
+            {
+              console.log(res);
+            }
+        },
+        (err)=>{console.error(err)},
+        ()=>{}
+        )
+      }
+      this.loggedIn = (user != null);
+    });
   }
 
   signInWithFB(): void {
     this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
+    this.authService.authState.subscribe((user) => {
+      this.user = user;
+      if(user && user.provider==='FACEBOOK')
+      {
+        this.sellerAuthService.signInWithFB(user).subscribe
+        (
+          (res:any)=>{
+            if(res.length === 0)
+            {
+              this.router.navigate(['seller/signup']);
+              console.log('Email Not Found');
+              this.signOut();
+            }
+            else
+            {
+              console.log(res);
+            }
+        },
+        (err)=>{console.error(err)},
+        ()=>{}
+        )
+      }
+      this.loggedIn = (user != null);
+    });
   }
 
   signOut(): void {
