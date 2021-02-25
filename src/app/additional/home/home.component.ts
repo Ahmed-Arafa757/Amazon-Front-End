@@ -38,14 +38,14 @@ export class HomeComponent implements OnInit {
     if (localStorage.hasOwnProperty("token")) {
 
 
-      this.usersService.getUserById(localStorage.getItem("user id")).subscribe(
-        (res) => {
-          console.log('returned user found by id', res);
-          this.loggedInUser = res['email'].split('@')[0];
-        },
-        (err) => { console.log(err)},
-        () => { },
-      )
+  //    this.usersService.getUserById(localStorage.getItem("user id")).subscribe(
+   //     (res) => {
+    //      console.log('returned user found by id', res);
+    //      this.loggedInUser = res['email'].split('@')[0];
+     //   },
+     //   (err) => { console.log(err)},
+    //    () => { },
+    //  )
 
 
 
