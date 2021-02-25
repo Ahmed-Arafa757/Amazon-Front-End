@@ -65,7 +65,9 @@ export class SellerLoginComponent implements OnInit {
         this.sellerAuthService.signInWithFB(user).subscribe(
           (res: any) => {
             if (res.length === 0) {
-              this.router.navigate(['seller/signup']);
+              this.router.navigate(['seller/signup'], {
+                queryParams: { name: user.name, email: user.email },
+              });
               console.log('Email Not Found');
               this.signOut();
             } else {
