@@ -18,7 +18,7 @@ export class ProductReviewsComponent implements OnInit {
     reviewerName: 'Mohammed Mounir',
     reviewTime: new Date().toUTCString(),
     reviewSummary: '',
-    fullReview: '',
+    fullReview: '', 
     reviewVote: null,
     productID: '',
     stars: [],

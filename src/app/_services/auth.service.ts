@@ -1,24 +1,26 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Person } from '../_model/person';
+import { User } from '../_model/users';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  baseUrl = 'https://mearn-stack-backend-test.herokuapp.com/';
+  baseUrl = 'http://localhost:3000/';
+
+  userLoggedIn = new EventEmitter<User>();
+
   constructor(private httpClient: HttpClient) { }
 
-  register(person: Person) {
-    return this.httpClient.post(`${this.baseUrl}user/register`, person);
+  register(user: User) {
+    return this.httpClient.post(`${this.baseUrl}user/register`, user);
 
   }
 
-  login(person: Person) {
-    return this.httpClient.post(`${this.baseUrl}user/login`, {
-      email: person.email,
-      password: person.password
-    });
+  login(user:User) {
+    
+    return this.httpClient.post(`${this.baseUrl}user/login`, user);
   }
 
   isAuthenticated(): boolean {
@@ -27,7 +29,7 @@ export class AuthService {
       return true;
     }
     else {
-      return false;  
+      return false;
     }
   }
 }
