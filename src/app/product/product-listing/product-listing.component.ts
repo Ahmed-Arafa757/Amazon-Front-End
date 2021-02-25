@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Advertisement } from 'src/app/_model/advertisements';
 import { Person } from 'src/app/_model/person';
 import { Product } from 'src/app/_model/product';
-import { AdvertisementService } from 'src/app/_services/advertisements.service';
+import { AdvertisementsService } from 'src/app/_services/advertisements.service';
 import { PersonService } from 'src/app/_services/person.service';
 import { ProductService } from 'src/app/_services/product.service';
 

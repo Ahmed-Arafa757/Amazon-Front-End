@@ -124,7 +124,7 @@
                 <div  class="card-body">
                   <h5 class="card-title AH_card-title">
                    
-                   {{SignedIn()? 'Hello, ' + loggedInPerson.name : ' Sign in for the best experience'}} 
+                   {{SignedIn()? 'Hello, ' + loggedInUser : ' Sign in for the best experience'}}
                   </h5>
                   <a *ngIf='SignedIn() === false' [routerLink]="['/login']">Sign in securely</a>
                 </div>

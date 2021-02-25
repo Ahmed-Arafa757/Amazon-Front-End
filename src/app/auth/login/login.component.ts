@@ -1,39 +1,49 @@
-import { localizedString } from '@angular/compiler/src/output/output_ast';
-import { Component, OnInit } from '@angular/core';
+// import { localizedString } from '@angular/compiler/src/output/output_ast';
+import { Injectable,Component, OnInit, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
-import { Person } from 'src/app/_model/person';
+// import { Person } from 'src/app/_model/person';
+import { User } from 'src/app/_model/users';
 import { AuthService } from 'src/app/_services/auth.service';
-import { PersonService } from 'src/app/_services/person.service';
+// import { PersonService } from 'src/app/_services/person.service';
+import { UsersService } from 'src/app/_services/users.service';
+
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
+@Injectable({
+  providedIn: 'root'
+})
 export class LoginComponent implements OnInit {
-  person: Person = {name: '' , email: '', password: '', repeatedPassword: '' };
+  user: User = { email: '', password: ''};
 
-   loggedInUser: Person;
+  // loggedInUser;
+  userLoggedIn = new EventEmitter<User>(); 
+
   constructor(private authService: AuthService,
     private router: Router,
-    private personService:PersonService) { }
+    private usersService: UsersService) { }
 
   ngOnInit(): void {
   }
 
-  onLogin() {
-    console.log('this.person', this.person);
-    this.loggedInUser = this.personService.getPersonByEmail(this.person.email);
-    console.log('this.loggedInUser',this.loggedInUser);
-    
-   
-    localStorage.setItem('personId', this.loggedInUser.id);
-    
-    this.authService.login(this.person).subscribe(
+  onLogin(useR) {
+    console.log('this.user', useR);
+    // this.loggedInUser = this.usersService.getUserByEmail(this.user.email);
+    // console.log('this.loggedInUser',this.loggedInUser);
+
+
+    // localStorage.setItem('userId', this.loggedInUser.id);
+
+    this.authService.login(useR).subscribe(
       (res) => {
         // console.log(res['person']['id']);
-        localStorage.setItem('token', res['token']);
-        console.log(res);
+        localStorage.setItem('token', res['accessToken']);
+        localStorage.setItem('user id', res['userId']);
+        console.log('res on login',res);
+       
         this.router.navigate(['/home']);
       },
       (err) => {
