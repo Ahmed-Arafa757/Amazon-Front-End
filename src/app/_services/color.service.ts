@@ -5,11 +5,11 @@ import { Injectable } from '@angular/core';
 })
 export class ColorService {
 colors = [
-  "red",
-  "black",
-  "silver",
-  "gold",
-  "blue",
+    {id:1,name:"red"},
+    {id:2,name:"black"},
+    {id:3,name:"silver"},
+    {id:4,name:"gold"},
+    {id:5,name:"blue"}
 ]
   constructor() { }
   allColors(){
