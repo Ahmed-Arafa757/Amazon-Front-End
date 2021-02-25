@@ -2,6 +2,7 @@ import { Component, Injectable, Input, OnInit } from '@angular/core';
 import { Product } from './../../../_model/product';
 import { ProductService } from 'src/app/_services/product.service';
 import { HttpClient } from '@angular/common/http';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-info',
@@ -9,22 +10,78 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./product-info.component.css'],
 })
 export class ProductInfoComponent implements OnInit {
-  @Input() product: Product;
-
+  product: Product = {
+    productId: 0,
+    productName: '',
+    productInfo: null,
+    productPrice: {
+      currentPrice: 0,
+      discount: 0,
+      finalPrice: 0,
+      currency: '',
+      onSale: '',
+    },
+    productImages: [''],
+    productType: '',
+    productCategory: '', //CategoryID
+    productSubCategory: 0, //Category -> Sub array[]
+    keywords: [''],
+    warehouseId: '', //warehouseId
+    productStock: 0,
+    productSales: '', //salesId
+  };
   tempProduct;
   cartArray = [];
   cartQuantity = 0;
 
   shippingFees: number = 36.3;
   DeliverTo: string = 'Egypt';
-  relatedProducts: Product[];
-  constructor(private productService: ProductService) {}
+  relatedProducts = [];
+
+  searchProductsByKeywords(...params) {
+    console.log(params);
+
+    this.productService.getAllProducts().subscribe(
+      (res) => {
+        var results = res as Product[];
+
+        var related = results.filter((p) => {
+          return p.keywords.includes(params[0]);
+        });
+        for (let index = 1; index < params.length; index++) {
+          related = related.filter((p) => {
+            return p.keywords.includes(params[index]);
+          });
+        }
+
+        this.relatedProducts = related.slice(0, 10);
+      },
+      () => {},
+      () => {}
+    );
+  }
+  constructor(
+    private productService: ProductService,
+    private activeRoute: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
-    this.relatedProducts = this.productService.searchProductsByKeywords(
-      this.product.keywords[0],
-      this.product.keywords[1]
+    console.log(this.product);
+    this.activeRoute.url.subscribe(
+      (res) => {
+        this.productService.productById(res[2].path).subscribe((res) => {
+          this.product = res;
+
+          this.searchProductsByKeywords(
+            this.product.keywords[0],
+            this.product.keywords[1]
+          );
+        });
+      },
+      () => {},
+      () => {}
     );
+    // this.productService.productById( )
   }
 
   addToCart() {

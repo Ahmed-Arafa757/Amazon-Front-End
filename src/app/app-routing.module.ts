@@ -20,30 +20,48 @@ import { SellerAddComponent } from './seller/seller-add/seller-add.component';
 import { SellerRegisterComponent } from './seller/seller-register/seller-register.component';
 import { AuthGuardService } from './_services/auth-guard.service';
 import { PlaceOrderComponent } from './additional/place-order/place-order.component';
+import { ResetpasswordComponent } from './auth/resetpassword/resetpassword.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', redirectTo: '', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
+  { path: 'resetpassword', component: ResetpasswordComponent },
+  {
+    path: 'outh/password/:resetToken/:id',
+    component: ResetpasswordComponent,
+  },
   { path: 'register', component: RegisterComponent },
   { path: 'cart', component: CartComponent },
   { path: 'checkout', component: CheckoutComponent },
-  { path: 'customer-service', component: CustomerServiceComponent, canActivate: [AuthGuardService]},
+  {
+    path: 'customer-service',
+    component: CustomerServiceComponent,
+    canActivate: [AuthGuardService],
+  },
   { path: 'departments', component: DepartmentsComponent },
   { path: 'discover-amazon', component: DiscoverAmazonComponent },
   { path: 'search-results/:id', component: SearchResultsComponent },
   { path: 'top-sellers', component: TopSellersComponent },
   // { path: 'product', loadChildren: './product.module' },
-  { path: 'product/listing', component: ProductListingComponent},
-  { path: 'product/add', component: ProductAddComponent, canActivate: [AuthGuardService]},
-  { path: 'product/edit/:id', component: ProductAddComponent, canActivate: [AuthGuardService]},
+  { path: 'product/listing', component: ProductListingComponent },
+  {
+    path: 'product/add',
+    component: ProductAddComponent,
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: 'product/edit/:id',
+    component: ProductAddComponent,
+    canActivate: [AuthGuardService],
+  },
   { path: 'product/details/:id', component: ProductDetailsComponent },
   // Seller
-  { path: 'seller/add', component: SellerAddComponent},
-  { path: 'seller/edit/:id', component: SellerAddComponent},
-  { path: 'seller/login', component: SellerLoginComponent},
-  { path: 'seller/signup', component: SellerRegisterComponent},
-  { path: 'seller/home', component: SellerHomeComponent},
+  { path: 'seller/add', component: SellerAddComponent },
+  { path: 'seller/edit/:id', component: SellerAddComponent },
+  { path: 'seller/login', component: SellerLoginComponent },
+  { path: 'seller/signup', component: SellerRegisterComponent },
+  { path: 'seller/home', component: SellerHomeComponent },
   { path: 'place-order', component: PlaceOrderComponent },
   { path: '**', component: ErrorNotFoundComponent },
 ];

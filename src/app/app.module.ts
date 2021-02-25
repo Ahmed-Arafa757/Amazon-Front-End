@@ -38,6 +38,7 @@ import { SellerAddComponent } from './seller/seller-add/seller-add.component';
 import { SellerRegisterComponent } from './seller/seller-register/seller-register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PlaceOrderComponent } from './additional/place-order/place-order.component';
+import { ResetpasswordComponent } from './auth/resetpassword/resetpassword.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import { PlaceOrderComponent } from './additional/place-order/place-order.compon
     SellerAddComponent,
     SellerRegisterComponent,
     PlaceOrderComponent,
+    ResetpasswordComponent,
   ],
   imports: [
     BrowserModule,

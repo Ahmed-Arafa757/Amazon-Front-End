@@ -1,10 +1,13 @@
 import { Users } from './../_model/users';
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UsersService {
+  // baseUrl = 'https://iti-amzon-backend.herokuapp.com/';
+  baseUrl = 'http://localhost:3000/';
   users: Users[] = [
     {
       _id: '5ff8c51fa4c6cf417005fd5e',
@@ -412,7 +415,7 @@ export class UsersService {
       dateOfRegister: 'Monday, April 20, 2020 5:30 AM',
     },
   ];
-  constructor() {}
+  constructor(private httpClinet: HttpClient) {}
 
   getAllUsers(): Users[] {
     return this.users.slice();
@@ -420,6 +423,30 @@ export class UsersService {
 
   getUserById(id: string): Users {
     return this.users.find((p) => p._id === id);
+  }
+
+  getUserByEmail(email: string) {
+    return this.httpClinet.get(this.baseUrl + 'user/email/' + email);
+  }
+
+  resetPassword(id: string) {
+    console.log(this.baseUrl + 'resetpassword/sendEmail/' + id);
+    return this.httpClinet.get(this.baseUrl + 'resetpassword/sendEmail/' + id);
+  }
+
+  saveNewPassword(token: string, id: string, password, repeatedPassword) {
+    var body = {
+      token,
+      id,
+      date: Date.now(),
+      password,
+      repeatedPassword,
+    };
+    return this.httpClinet.put(
+      this.baseUrl + 'resetpassword/changePassword/',
+      body,
+      { responseType: 'json' }
+    );
   }
 
   addUser(user: Users) {
