@@ -57,25 +57,25 @@ export class SellerLoginComponent implements OnInit {
   }
   
   onLogin() {
-    console.log('this.person', this.seller);
-    this.loggedInSeller= this.sellerAuthService.getSellerByEmail(this.seller.email);
-    console.log('this.loggedInUser',this.loggedInSeller);
+    // console.log('this.person', this.seller);
+    // this.loggedInSeller= this.sellerAuthService.getSellerByEmail(this.seller.email);
+    // console.log('this.loggedInUser',this.loggedInSeller);
     
    
-    localStorage.setItem('sellerId', this.loggedInSeller.sellerId);
+    // localStorage.setItem('_Id', this.loggedInSeller._Id);
     
-    this.sellerAuthService.login(this.seller).subscribe(
-      (res) => {
-        // console.log(res['person']['id']);
-        localStorage.setItem('token', res['token']);
-        console.log(res);
-        this.router.navigate(['seller/home']);
-      },
-      (err) => {
-        console.log(err);
-      },
-      () => { },
-    );
+    // this.sellerAuthService.login(this.seller).subscribe(
+    //   (res) => {
+    //     // console.log(res['person']['id']);
+    //     localStorage.setItem('token', res['token']);
+    //     console.log(res);
+    //     this.router.navigate(['seller/home']);
+    //   },
+    //   (err) => {
+    //     console.log(err);
+    //   },
+    //   () => { },
+    // );
   }
   showPassword() {
 
