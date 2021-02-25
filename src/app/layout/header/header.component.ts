@@ -71,17 +71,17 @@ export class HeaderComponent implements OnInit {
         
         
   
-        this.usersService.getUserById(localStorage.getItem("user id")).subscribe(
-          (res) => {
+       // this.usersService.getUserById(localStorage.getItem("user id")).subscribe(
+        //  (res) => {
             // console.log('returned user found by id', res);
-            this.loggedInUser = res['email'].split('@')[0];
-          },
-          (err) => { console.log(err)},
-          () => { },
-        )
+          //  this.loggedInUser = res['email'].split('@')[0];
+         // },
+        //  (err) => { console.log(err)},
+         // () => { },
+       // )
         // .split('@')[0];
         // console.log('this.loggedInPerson from header', this.loggedInPerson);
-      }
+    //  }
 
 
 
