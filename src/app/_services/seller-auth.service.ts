@@ -5,29 +5,8 @@ import { Seller } from '../_model/sellers';
   providedIn: 'root'
 })
 export class SellerAuthService {
-  sellers: Seller[] = [
-    {
-      sellerId: '5ff888aaa3f4d75244531911',
-      sellerName: 'Serety95',
-      email: 'serety@test.com',
-      password: 'seretytest',
-      repeatedPassword: 'seretytest'
-    },
-    {
-      sellerId: '5ff888aaa3f4d75244532211',
-      sellerName: 'tobshy',
-      email: 'tobshy@test.com',
-      password: 'tobshytest',
-      repeatedPassword: 'tobshytest'
-    },
-    {
-      sellerId: '5ff888aaae85d929b7aa01c0',
-      sellerName: 'AmrHossam',
-      email: 'AmrHossam@test.com',
-      password: 'AmrHossamtest',
-      repeatedPassword: 'AmrHossamtest'
-    }
-  ];
+  sellers: Seller[] = []
+    
 
 
   baseUrl = 'https://mearn-stack-backend-test.herokuapp.com/';
@@ -52,17 +31,17 @@ export class SellerAuthService {
 //    return x
 // }
 
-getSellerByEmail(email): Seller {
+// getSellerByEmail(email): Seller {
 
-  return this.sellers.find(p => p.email === email);
+//   return this.sellers.find(p => p.email === email);
 
-}
+// }
 
-getSellerById(myid): Seller{
+// getSellerById(myid): Seller{
 
-  return this.sellers.find(p => p.sellerId === myid); 
+//   // return this.sellers.find(p => p.sellerId === myid); 
 
-}
+// }
 
 isAuthenticated():boolean{
   if(localStorage.getItem('token')){

@@ -7,7 +7,6 @@ import { AuthService } from '../../_services/auth.service';
 import { UsersService } from '../../_services/users.service';
 import { LoginComponent } from '../../auth/login/login.component'
 
-
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -20,15 +19,19 @@ export class HeaderComponent implements OnInit{
   cartArray = [];
   totalQuantity = 0;
 
+
   searchString: string;
   loggedInUser;
 
 
-  constructor(private productService: ProductService,
+  constructor(
+    private productService: ProductService,
     private authService: AuthService,
+
     private usersService: UsersService,
     private loginService: LoginComponent
   ) { }
+
 
   ngOnInit(): void {
     this.productService.productAdded.subscribe(
@@ -46,8 +49,9 @@ export class HeaderComponent implements OnInit{
         alert('Subscribe Operation Compeleted');
       }
     );
+
     console.log('header on init');
-    
+
 
   }
   
@@ -62,6 +66,7 @@ export class HeaderComponent implements OnInit{
 
   SignedIn() {
     // return this.authService.isAuthenticated();
+
 
     if (localStorage.hasOwnProperty("token")) {
       if (localStorage.hasOwnProperty("user email")) {
@@ -91,6 +96,7 @@ export class HeaderComponent implements OnInit{
     else {
       return false;
     }
+
 
 
 

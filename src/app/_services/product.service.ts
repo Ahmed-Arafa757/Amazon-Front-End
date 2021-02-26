@@ -1460,7 +1460,7 @@ export class ProductService {
   ]; */
   products:Product[];
   cartProducts = [];
-  baseUrl = 'http://localhost:3000/';
+  baseUrl = 'https://iti-amzon-backend.herokuapp.com/';
   productAdded = new EventEmitter<Product[]>();
 
   constructor(private httpClinet : HttpClient) {}
