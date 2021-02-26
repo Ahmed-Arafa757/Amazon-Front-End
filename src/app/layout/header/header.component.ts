@@ -59,7 +59,6 @@ export class HeaderComponent implements OnInit {
 
   SignedIn() {
     // return this.authService.isAuthenticated();
-
     if (localStorage.hasOwnProperty('token')) {
       if (localStorage.hasOwnProperty('user id')) {
         // this.usersService.getUserById(localStorage.getItem("user id")).subscribe(
@@ -69,7 +68,7 @@ export class HeaderComponent implements OnInit {
         // },
         //  (err) => { console.log(err)},
         // () => { },
-        // )
+
         // .split('@')[0];
         // console.log('this.loggedInPerson from header', this.loggedInPerson);
         //  }
