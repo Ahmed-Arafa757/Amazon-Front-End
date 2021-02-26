@@ -42,6 +42,9 @@ import { PlaceOrderComponent } from './additional/place-order/place-order.compon
 //social login
 import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
 import {GoogleLoginProvider,FacebookLoginProvider} from 'angularx-social-login';
+import { UserAccountComponent } from './user/user-account/user-account.component';
+import { UserOrdersComponent } from './user/user-account/user-orders/user-orders.component';
+import { UserLoginSecurityComponent } from './user/user-account/user-login-security/user-login-security.component';
 
 
 @NgModule({
@@ -73,6 +76,9 @@ import {GoogleLoginProvider,FacebookLoginProvider} from 'angularx-social-login';
     SellerAddComponent,
     SellerRegisterComponent,
     PlaceOrderComponent,
+    UserAccountComponent,
+    UserOrdersComponent,
+    UserLoginSecurityComponent,
   ],
   imports: [
     BrowserModule,

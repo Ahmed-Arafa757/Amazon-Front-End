@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row my-5">
+    <div
+      *ngFor="let order of orders"
+      class="col-md-12 d-flex justify-content-center mb-3"
+    >
+      <div class="card" style="width: 600px">
+        <div class="card-header">
+          <div class="row">
+            <div class="col-md-4">
+              <p>Order Placed</p>
+              <p>{{ order.orderDate }}</p>
+            </div>
+            <div class="col-md-4">
+              <p>Total</p>
+              <p>EGP {{ order.orderPrice }}</p>
+            </div>
+            <div class="col-md-4">
+              <p>Order# {{ order._id }}</p>
+              <p>Order Status: {{ order.orderStatus }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div *ngFor="let item of order.orderItems">
+            <h5 class="card-title">
+              {{ item.quantity }} x {{ item.name }} - Price: EGP
+              {{ item.unit_amount.value }}
+            </h5>
+            <p class="card-text">
+              {{ item.description }}
+            </p>
+          </div>
+          <hr />
+          <p>Total Price: EGP {{ order.orderPrice }}</p>
+          <button
+            *ngIf="order.orderStatus === 'Pending'"
+            class="btn btn-danger"
+          >
+            Cancel Order
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

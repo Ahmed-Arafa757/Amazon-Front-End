@@ -5,7 +5,7 @@ import { ProductService } from 'src/app/_services/product.service';
 import { User } from '../../_model/users';
 import { AuthService } from '../../_services/auth.service';
 import { UsersService } from '../../_services/users.service';
-import { LoginComponent } from '../../auth/login/login.component'
+import { LoginComponent } from '../../auth/login/login.component';
 
 @Component({
   selector: 'app-header',
@@ -19,10 +19,8 @@ export class HeaderComponent implements OnInit {
   cartArray = [];
   totalQuantity = 0;
 
-
-  searchString: string;
+  searchString: string = '';
   loggedInUser;
-
 
   constructor(
     private productService: ProductService,
@@ -30,13 +28,11 @@ export class HeaderComponent implements OnInit {
 
     private usersService: UsersService,
     private loginService: LoginComponent
-  ) { }
-
+  ) {}
 
   ngOnInit(): void {
     this.productService.productAdded.subscribe(
       (res) => {
-
         this.totalQuantity = 0;
         for (let index = 0; index < res.length; index++) {
           this.totalQuantity += res[index].quantity;
@@ -51,7 +47,6 @@ export class HeaderComponent implements OnInit {
     );
 
     console.log('header on init');
-
   }
 
   toggle(input) {
@@ -65,35 +60,24 @@ export class HeaderComponent implements OnInit {
   SignedIn() {
     // return this.authService.isAuthenticated();
 
-
-    if (localStorage.hasOwnProperty("token")) {
-      if (localStorage.hasOwnProperty("user id")) {
-        
-        
-  
-       // this.usersService.getUserById(localStorage.getItem("user id")).subscribe(
+    if (localStorage.hasOwnProperty('token')) {
+      if (localStorage.hasOwnProperty('user id')) {
+        // this.usersService.getUserById(localStorage.getItem("user id")).subscribe(
         //  (res) => {
-            // console.log('returned user found by id', res);
-          //  this.loggedInUser = res['email'].split('@')[0];
-         // },
+        // console.log('returned user found by id', res);
+        //  this.loggedInUser = res['email'].split('@')[0];
+        // },
         //  (err) => { console.log(err)},
-         // () => { },
-       // )
+        // () => { },
+        // )
         // .split('@')[0];
         // console.log('this.loggedInPerson from header', this.loggedInPerson);
-    //  }
+        //  }
 
-
-
-      return true;
-
+        return true;
+      } else {
+        return false;
+      }
     }
-    else {
-      return false;
-    }
-
-
-
-
   }
 }

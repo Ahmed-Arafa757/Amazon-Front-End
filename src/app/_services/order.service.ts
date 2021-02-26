@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Order } from '../_model/order';
 
 @Injectable({
@@ -47,5 +48,16 @@ export class OrderService {
       .subscribe((responseOrder) => {
         console.log(responseOrder);
       });
+  }
+
+  getUserOrders(
+    id: string
+  ): Observable<{
+    message: string;
+    orders: Order[];
+  }> {
+    return this.http.get<{ message: string; orders: Order[] }>(
+      `http://localhost:3000/api/user-orders/${id}`
+    );
   }
 }
