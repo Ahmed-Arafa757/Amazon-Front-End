@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, DoCheck } from '@angular/core';
 import { Product } from 'src/app/_model/product';
 import { ProductService } from 'src/app/_services/product.service';
 // import { Person } from '../../_model/person';
@@ -13,8 +13,8 @@ import { LoginComponent } from '../../auth/login/login.component'
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit {
-  // person: Person = { name: 'a', email: '', password: '', repeatedPassword: '' };
+export class HeaderComponent implements OnInit{
+  // person: Person = { name: '', email: '', password: '', repeatedPassword: '' };
   langFlag = '../../../assets/images/icons/english.png';
 
   cartArray = [];
@@ -47,19 +47,10 @@ export class HeaderComponent implements OnInit {
       }
     );
     console.log('header on init');
-
-    // this.loginService.userLoggedIn.subscribe(
-    //   (res) => {
-    //     console.log('res inside onInit ', res);
-    //     this.loggedInPerson = res;
-    //   },
-    //   (err) => {
-    //     console.log(err);
-    //   },
-    //   () => { }
-    // )
+    
 
   }
+  
 
   toggle(input) {
     if (input.id === 'english-lang') {
@@ -73,22 +64,25 @@ export class HeaderComponent implements OnInit {
     // return this.authService.isAuthenticated();
 
     if (localStorage.hasOwnProperty("token")) {
-      if (localStorage.hasOwnProperty("user id")) {
+      if (localStorage.hasOwnProperty("user email")) {
+
+        this.loggedInUser = localStorage.getItem('user email').split('@')[0];
+        console.log(this.loggedInUser);
         
-        
-  
-        this.usersService.getUserById(localStorage.getItem("user id")).subscribe(
-          (res) => {
-            // console.log('returned user found by id', res);
-            this.loggedInUser = res['email'].split('@')[0];
-          },
-          (err) => { console.log(err)},
-          () => { },
-        )
+
+
+
+        // this.usersService.getUserById(localStorage.getItem("user id")).subscribe(
+        //   (res) => {
+        //     // console.log('returned user found by id', res);
+        //     this.loggedInUser = res['email'].split('@')[0];
+        //   },
+        //   (err) => { console.log(err)},
+        //   () => { },
+        // )
         // .split('@')[0];
         // console.log('this.loggedInPerson from header', this.loggedInPerson);
       }
-
 
 
       return true;
