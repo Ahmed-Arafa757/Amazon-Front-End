@@ -13,4 +13,5 @@ export interface User {
   address?: Address[];
   password: string;
   repeatedPassword?: string;
+  provider?: String;
 }

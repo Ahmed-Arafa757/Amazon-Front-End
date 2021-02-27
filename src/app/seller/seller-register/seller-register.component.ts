@@ -27,7 +27,7 @@ export class SellerRegisterComponent implements OnInit {
     {
       this.seller.provider = '';
     }
-  console.log(this.seller);
+  /* console.log(this.seller); */
   
   }
 

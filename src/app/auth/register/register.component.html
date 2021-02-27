@@ -20,13 +20,13 @@
                 <div>
 
                   <label for="name" class="form-label fw-bold">Your name </label>
-                  <input type="text" class="form-control mb-3" id="name" />
+                  <input type="text" class="form-control mb-3" id="name" [(ngModel)]='user.userName' #name='ngModel' name="name" />
                 </div>
 
                 <div [ngClass]='{"invalid" : email.invalid && email.touched}'>
 
                   <label for="email" class="form-label fw-bold">Email </label>
-                  <input required minlength="10" maxlength="30" [(ngModel)]='user.email' #email='ngModel' required
+                  <input required minlength="10" maxlength="30" [(ngModel)]='user.email' #email='ngModel' 
                     type="email" class="form-control mb-3"
                     id="email" name="email" />
                 </div>

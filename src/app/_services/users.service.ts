@@ -463,4 +463,12 @@ export class UsersService {
     this.httpClient.delete(`${this.baseUrl}user/${id}`);
 
   }
+  signInWithGoogle(socialUser){
+    console.log(socialUser);
+    return this.httpClient.post(`${this.baseUrl}user/login/google`,socialUser)
+  }
+  signInWithFB(socialUser){
+    console.log(socialUser);
+    return this.httpClient.post(`${this.baseUrl}user/login/facebook`,socialUser)
+  }
 }

@@ -94,7 +94,7 @@ export class SellerLoginComponent implements OnInit {
     });
   }
 
-  async signOut(){    
+  signOut(){    
     this.authService.signOut();
   }
 
