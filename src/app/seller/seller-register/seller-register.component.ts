@@ -21,11 +21,18 @@ export class SellerRegisterComponent implements OnInit {
     this.activatedRoute.queryParams.subscribe((params: Params) => {
       this.seller.sellerName = params.name;
       this.seller.email = params.email;
+      this.seller.provider = params.provider;
     });
+    if(this.seller.provider === undefined)
+    {
+      this.seller.provider = '';
+    }
+  console.log(this.seller);
   
   }
 
   onRegister() {
+    
     this.sellerAuthService.register(this.seller).subscribe(
       (res) => {
         console.log(res); 

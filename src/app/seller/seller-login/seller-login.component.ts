@@ -31,35 +31,41 @@ export class SellerLoginComponent implements OnInit {
 
 
   signInWithGoogle(): void {
-    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
-    
-    this.authService.authState.subscribe((user) => {
-      this.user = user;
-      if (user && user.provider === 'GOOGLE') {
-        this.sellerAuthService.signInWithGoogle(user).subscribe(
-          (res: any) => {
-            console.log(res)
-            
-          },
-          (err) => {
-            if (err.error === "Email Not Found") {
-              this.signOut();
-              this.router.navigate(['seller/signup'], {
-                queryParams: { name: user.name, email: user.email },
-              });
-             
-            } else if(err.error === "G provider Email Not Found") {
-              console.log(err);
-              this.signOut();
-            }
-          },
-          () => {}
-        );
+    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID)
+    .then(
+      (user)=>{
+        this.user = user;
+        if (this.user && this.user.provider === 'GOOGLE') {
+          this.sellerAuthService.signInWithGoogle(this.user).subscribe(
+            (res: any) => {
+              if(res.provider==="GOOGLE"){
+                console.log(res)
+              }else{
+                console.error("provider no match");
+              }
+              // this.loggedIn = (user != null);
+            },
+            (err) => {
+              if (err.error === "Email Not Found") {
+                console.error("Email Not Found");
+                this.router.navigate(['seller/signup'], {
+                  queryParams: { name: this.user.name, email: this.user.email, provider: this.user.provider},
+                });
+               
+              } else {
+                console.error(err);
+              }
+            },
+            () => {}
+          );}
       }
-      
-      // this.loggedIn = (user != null);
-    });
-  }
+      )
+      .catch((err)=>{console.error(err);})
+    
+    }
+    
+    
+
 
   signInWithFB(): void {
     this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
@@ -88,9 +94,7 @@ export class SellerLoginComponent implements OnInit {
     });
   }
 
-  async signOut(){
-    console.log(this.authService.authState)
-    
+  async signOut(){    
     this.authService.signOut();
   }
 
