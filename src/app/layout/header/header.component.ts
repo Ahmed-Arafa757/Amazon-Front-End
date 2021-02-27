@@ -63,7 +63,7 @@ export class HeaderComponent implements OnInit {
     if (localStorage.hasOwnProperty('token')) {
       if (localStorage.hasOwnProperty('user email')) {
         this.loggedInUser = localStorage.getItem('user email').split('@')[0];
-        console.log(this.loggedInUser);
+        // console.log(this.loggedInUser);
 
         // this.usersService.getUserById(localStorage.getItem("user id")).subscribe(
         //   (res) => {
