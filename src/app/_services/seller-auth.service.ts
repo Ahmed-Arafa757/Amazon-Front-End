@@ -25,7 +25,7 @@ export class SellerAuthService {
   }
   register(seller:Seller){
     console.log(seller);
-   return this.httpClient.post(`${this.baseUrl}seller/register`,seller)
+   return this.httpClient.post(`${this.baseUrl}api/sellers`,seller)
   }
   login(seller:Seller){
     console.log(seller);
