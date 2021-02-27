@@ -58,7 +58,7 @@ console.log(seller)
 // }
 
 isAuthenticated():boolean{
-  if(localStorage.getItem('token')){
+  if(localStorage.getItem('sellerLoginStorage')){
     return true;
   }else{
     return false;
