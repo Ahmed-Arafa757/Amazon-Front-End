@@ -416,7 +416,8 @@ export class UsersService {
   // ];
 
   constructor(private httpClient: HttpClient) {}
-  baseUrl = 'http://localhost:3000/';
+  //baseUrl = 'http://localhost:3000/';
+  baseUrl = 'https://iti-amzon-backend.herokuapp.com/';
 
   getAllUsers() {
     return this.httpClient.get(`${this.baseUrl}users`);
