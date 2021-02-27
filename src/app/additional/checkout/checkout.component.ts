@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Address } from 'src/app/_model/address';
 import { PaymentMethods } from 'src/app/_model/payment-methods';
-import { Users } from 'src/app/_model/users';
+import { User } from 'src/app/_model/users';
 import { ProductService } from 'src/app/_services/product.service';
 import { UsersService } from 'src/app/_services/users.service';
 import { NgForm } from '@angular/forms';
@@ -22,7 +22,7 @@ export class CheckoutComponent implements OnInit {
   handling: number = 10.0;
   tax_total: number = 0.0;
   buy = [];
-  user: Users;
+  user: User;
   addresses: Address[] = [];
   addNewUserAddress: Address = {};
   selectedAddress: Address = {};

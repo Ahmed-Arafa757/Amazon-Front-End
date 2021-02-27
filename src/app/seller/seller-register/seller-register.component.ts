@@ -2,7 +2,7 @@
 import { SellerAuthService } from 'src/app/_services/seller-auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Seller } from 'src/app/_model/sellers';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
   selector: 'app-seller-register',
@@ -11,9 +11,18 @@ import { Router } from '@angular/router';
 })
 export class SellerRegisterComponent implements OnInit {
   seller:Seller={sellerName:'' ,email: '', password: '', repeatedPassword: '' };
-  constructor(private sellerAuthService:SellerAuthService, private router: Router) { }
+  constructor(
+    private sellerAuthService:SellerAuthService, 
+    private router: Router,
+    private activatedRoute:ActivatedRoute,
+    ) { }
 
   ngOnInit(): void {
+    this.activatedRoute.queryParams.subscribe((params: Params) => {
+      this.seller.sellerName = params.name;
+      this.seller.email = params.email;
+    });
+  
   }
 
   onRegister() {

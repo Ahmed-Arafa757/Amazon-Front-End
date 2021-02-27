@@ -170,7 +170,7 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle text-white" href="" id="navbarDropdown" role="button"
             data-bs-toggle="dropdown" aria-expanded="false">
-           <span>{{SignedIn()? 'Hello, ' + loggedInPerson.name : 'Hello, Sign in'}}</span>
+           <span>{{SignedIn()? 'Hello, ' + loggedInUser : 'Hello, Sign in'}}</span>
             Account & Lists
           </a>
 
@@ -264,7 +264,7 @@
   <div id="AH_sidenav-head">
     <a [routerLink]="['/login']"
       class="text-white ps-4 py-3 fs-4 fw-bold AH_Sidenav-header d-block text-decoration-none">
-      <i class="fas fa-user-circle"></i> Hello, <span>{{SignedIn()? loggedInPerson.name : 'Sign in'}}</span> </a>
+      <i class="fas fa-user-circle"></i> Hello, <span>{{SignedIn()? loggedInUser: 'Sign in'}}</span> </a>
 
     <span style="cursor: pointer" id="AH_closebtn" onclick="AH_closeNav()">&times;</span>
   </div>
@@ -469,7 +469,10 @@
               Already an Amazon seller? <a [routerLink]="['/seller','login']">Login</a>
             </li>
             <li class="dropdown-item text-center">
-              seller central<a [routerLink]="['/seller','home']">View Items</a>
+              seller central <a [routerLink]="['/seller','home']"> View Items</a>
+            </li>
+            <li class="dropdown-item text-center">
+              Add Product <a [routerLink]="['/seller','add']"> Add</a>
             </li>
           </ul>
         </li>

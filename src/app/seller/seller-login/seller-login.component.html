@@ -41,9 +41,14 @@
     
                   </div>
     
-                  <button type="submit" class="btn bg-gradient col-12 mb-3" (click)='onLogin()'>
+                  <button type="submit" class="btn bg-gradient col-12 mb-3" (click)='onLogin(seller)'>
                     Login
                   </button>
+                  <div class="loginBtns">
+                    <div id="google" class="loginBtn" (click)='signInWithGoogle()'> <img src="../../../assets/images/logo/kisspng-google-logo-google-search-search-engine-optimizati-5be4b4e65a01a8.7135521715417151743687.png" style="width: 25px;"> Google</div>
+                    <div id="faceBook" class="loginBtn" (click)='signInWithFB()'> <i class="fab fa-facebook-square"></i> FaceBook</div>
+                  </div>
+                  
                 </form>
                 <span>
                   By continuing, you agree to Amazon's
@@ -85,7 +90,7 @@
             <a href="#">Conditions</a>
             <a href="#">Privacy Notice</a>
             <a href="#">Help</a>
-            <p class="mt-3 text-muted">
+            <p class="mt-3 text-muted"> 
               © 1996-2020, Amazon.com, Inc. or its affiliates
             </p>
           </div>

@@ -5,45 +5,36 @@ import { Seller } from '../_model/sellers';
   providedIn: 'root'
 })
 export class SellerAuthService {
-  sellers: Seller[] = [
-    {
-      sellerId: '5ff888aaa3f4d75244531911',
-      sellerName: 'Serety95',
-      email: 'serety@test.com',
-      password: 'seretytest',
-      repeatedPassword: 'seretytest'
-    },
-    {
-      sellerId: '5ff888aaa3f4d75244532211',
-      sellerName: 'tobshy',
-      email: 'tobshy@test.com',
-      password: 'tobshytest',
-      repeatedPassword: 'tobshytest'
-    },
-    {
-      sellerId: '5ff888aaae85d929b7aa01c0',
-      sellerName: 'AmrHossam',
-      email: 'AmrHossam@test.com',
-      password: 'AmrHossamtest',
-      repeatedPassword: 'AmrHossamtest'
-    }
-  ];
+  seller: Seller[] = []
+    
 
 
-  baseUrl = 'https://mearn-stack-backend-test.herokuapp.com/';
+  /* baseUrl = 'https://mearn-stack-backend-test.herokuapp.com/'; */
+  baseUrl = 'http://localhost:3000/';
   constructor(private httpClient: HttpClient) { }
 
 
 
-
+  signInWithGoogle(socialUser){
+    console.log(socialUser);
+    return this.httpClient.post(`${this.baseUrl}api/seller/google`,socialUser)
+  }
+  signInWithFB(socialUser){
+    console.log(socialUser);
+    return this.httpClient.post(`${this.baseUrl}api/seller/facebook`,socialUser)
+  }
   register(seller:Seller){
     console.log(seller);
    return this.httpClient.post(`${this.baseUrl}seller/register`,seller)
   }
   login(seller:Seller){
     console.log(seller);
-    
-    return this.httpClient.post(`${this.baseUrl}seller/login`,{email:seller.email,password:seller.password})
+    return this.httpClient.get(`${this.baseUrl}api/sellers/email/${seller.email}`)
+    // .subscribe(
+    //   (seller)=>{console.log(seller)},
+    //   ()=>{},
+    //   ()=>{},
+    //      )
   }
 //   checkPassword(seller:Seller):Boolean{
      
@@ -52,20 +43,22 @@ export class SellerAuthService {
 //    return x
 // }
 
-getSellerByEmail(email): Seller {
-
-  return this.sellers.find(p => p.email === email);
-
+getSellerByEmail(seller:Seller){
+console.log(seller)
+   return this.httpClient.post(`${this.baseUrl}api/sellers/login`,seller)
 }
 
-getSellerById(myid): Seller{
 
-  return this.sellers.find(p => p.sellerId === myid); 
 
-}
+
+// getSellerById(myid): Seller{
+
+//   // return this.sellers.find(p => p.sellerId === myid); 
+
+// }
 
 isAuthenticated():boolean{
-  if(localStorage.getItem('token')){
+  if(localStorage.getItem('sellerLoginStorage')){
     return true;
   }else{
     return false;

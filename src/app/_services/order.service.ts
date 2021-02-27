@@ -1,6 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Order } from '../_model/order';
-import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
@@ -35,7 +35,7 @@ export class OrderService {
       orderPrice: order.orderDetails.purchase_units[0].amount.value,
       orderDate: order.orderDetails.create_time,
       shippingAddress: order.userAddress,
-      orderStatus: 'Compeleted',
+      orderStatus: 'Pending',
       customerId: '5ff8c51fa4c6cf417005fd48',
     };
 

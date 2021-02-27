@@ -51,9 +51,11 @@ export class SellerAddComponent implements OnInit {
           }
           //product Info
           //color
-          if(this.product.productInfo[0].color.length != 0)
-          {
-            this.isColor = true;
+          if(this.product.productInfo[0].color){
+            if(this.product.productInfo[0].color.length != 0)
+            {
+              this.isColor = true;
+            }
           }
           for(let info of Object.keys(this.product.productInfo[0]))
           {
@@ -172,27 +174,76 @@ export class SellerAddComponent implements OnInit {
   this.product.keywords.splice(index,1);
   }
   submitAdd(form){
+    if(this.editMode){
+      this.product.productInfo[0].color = [];
+      if(this.isColor){
+        this.product.productInfo[0].color = [];
+        if(form.value.prodSale == 0)
+       {
+         this.product.productPrice.finalPrice = (this.product.productPrice.currentPrice - this.product.productPrice.discount);
+       }
+       else
+       {
+         this.product.productPrice.finalPrice = this.product.productPrice.currentPrice;
+       }
+       for(let key of this.keys)
+       {
+         let input = document.getElementById(key) as HTMLInputElement;
+         this.product.productInfo[0][key]=input.value;
+       }
+       if(this.isColor){
+         for (let index = 0; index < this.colors.length; index++) {
+           if (form.value['color-'+index]) {
+             this.product.productInfo[0].color.push(true);
+           }
+           else
+           {
+             this.product.productInfo[0].color.push(false);
+           }
+         }
+       }
+       else{
+         delete this.product.productInfo[0].color ;
+       }
+       /* this.productService.addProduct(this.product).subscribe(
+         (res)=>{console.log(res);},
+         (err)=>{console.error(err)},
+         ()=>{}
+       )   */ 
+       this.productService.updateProduct(this.product).subscribe(
+        (res)=>{
+          console.log(res);
+          alert('Product Updated');
+        },
+        (err)=>{console.error(err)},
+        ()=>{}
+       )
+       
+    }}
+    else
+    {
+    this.product.productInfo[0].color = [];
      if(form.value.prodSale == 0)
     {
-
       this.product.productPrice.finalPrice = (this.product.productPrice.currentPrice - this.product.productPrice.discount);
     }
     else
     {
       this.product.productPrice.finalPrice = this.product.productPrice.currentPrice;
     }
-    
     for(let key of this.keys)
     {
       let input = document.getElementById(key) as HTMLInputElement;
-      this.product.productInfo[key]=input.value;
+      this.product.productInfo[0][key]=input.value;
     }
     if(this.isColor){
-      for(let color of this.colors)
-      {
-        if(form.value[color] && !this.product.productInfo[0].color.includes(color))
+      for (let index = 0; index < this.colors.length; index++) {
+        if (form.value['color-'+index]) {
+          this.product.productInfo[0].color.push(true);
+        }
+        else
         {
-          this.product.productInfo[0].color.push(color);
+          this.product.productInfo[0].color.push(false);
         }
       }
     }
@@ -200,10 +251,15 @@ export class SellerAddComponent implements OnInit {
       delete this.product.productInfo[0].color ;
     }
     this.productService.addProduct(this.product).subscribe(
-      (res)=>{console.log(res);},
+      (res)=>{
+        console.log(res);
+        alert('Product Added');
+      },
       (err)=>{console.error(err)},
       ()=>{}
     )   
+    
+  }
   }
   fireUplodeImg(e){
     if(e.screenX !== 0)

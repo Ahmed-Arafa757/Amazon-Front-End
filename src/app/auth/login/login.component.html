@@ -33,7 +33,7 @@
                     required
                     minlength="10"
                     maxlength="30"
-                    [(ngModel)]="person.email"
+                    [(ngModel)]="user.email"
                     #UserEmail="ngModel"
                     type="email"
                     class="form-control"
@@ -51,7 +51,7 @@
                     required
                     minlength="6"
                     maxlength="20"
-                    [(ngModel)]="person.password"
+                    [(ngModel)]="user.password"
                     #password="ngModel"
                     type="password"
                     class="form-control"
@@ -67,7 +67,7 @@
               <button
                 type="submit"
                 class="btn bg-gradient col-12 mb-3"
-                (click)="onLogin()"
+                (click)="onLogin(user)"
               >
                 Login
               </button>
