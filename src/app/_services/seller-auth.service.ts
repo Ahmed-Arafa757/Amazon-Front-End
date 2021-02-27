@@ -5,7 +5,7 @@ import { Seller } from '../_model/sellers';
   providedIn: 'root'
 })
 export class SellerAuthService {
-  sellers: Seller[] = []
+  seller: Seller[] = []
     
 
 
@@ -29,8 +29,12 @@ export class SellerAuthService {
   }
   login(seller:Seller){
     console.log(seller);
-    
-    return this.httpClient.post(`${this.baseUrl}seller/login`,{email:seller.email,password:seller.password})
+    return this.httpClient.get(`${this.baseUrl}api/sellers/email/${seller.email}`)
+    // .subscribe(
+    //   (seller)=>{console.log(seller)},
+    //   ()=>{},
+    //   ()=>{},
+    //      )
   }
 //   checkPassword(seller:Seller):Boolean{
      
@@ -39,11 +43,13 @@ export class SellerAuthService {
 //    return x
 // }
 
-// getSellerByEmail(email): Seller {
+getSellerByEmail(seller:Seller){
+console.log(seller)
+   return this.httpClient.post(`${this.baseUrl}api/sellers/login`,seller)
+}
 
-//   return this.sellers.find(p => p.email === email);
 
-// }
+
 
 // getSellerById(myid): Seller{
 
@@ -52,7 +58,7 @@ export class SellerAuthService {
 // }
 
 isAuthenticated():boolean{
-  if(localStorage.getItem('token')){
+  if(localStorage.getItem('sellerLoginStorage')){
     return true;
   }else{
     return false;

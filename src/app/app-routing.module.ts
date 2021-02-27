@@ -1,3 +1,4 @@
+import { SellerAuthGuardService } from './_services/seller-auth-guard.service';
 import { SellerHomeComponent } from './seller/seller-home/seller-home.component';
 import { SellerLoginComponent } from './seller/seller-login/seller-login.component';
 import { NgModule } from '@angular/core';
@@ -39,11 +40,11 @@ const routes: Routes = [
   { path: 'product/edit/:id', component: ProductAddComponent, canActivate: [AuthGuardService]},
   { path: 'product/details/:id', component: ProductDetailsComponent },
   // Seller
-  { path: 'seller/add', component: SellerAddComponent},
-  { path: 'seller/edit/:id', component: SellerAddComponent},
+  { path: 'seller/add', component: SellerAddComponent,canActivate: [SellerAuthGuardService]},
+  { path: 'seller/edit/:id', component: SellerAddComponent,canActivate: [SellerAuthGuardService]},
   { path: 'seller/login', component: SellerLoginComponent},
   { path: 'seller/signup', component: SellerRegisterComponent},
-  { path: 'seller/home', component: SellerHomeComponent},
+  { path: 'seller/home', component: SellerHomeComponent,canActivate: [SellerAuthGuardService]},
   { path: 'place-order', component: PlaceOrderComponent },
   { path: '**', component: ErrorNotFoundComponent },
 ];
