@@ -22,7 +22,7 @@ export class CheckoutComponent implements OnInit {
   handling: number = 10.0;
   tax_total: number = 0.0;
   buy = [];
-  user: User;
+  user: User = { email: '', password: '' };
   addresses: Address[] = [];
   addNewUserAddress: Address = {};
   selectedAddress: Address = {};
@@ -38,11 +38,19 @@ export class CheckoutComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.user = JSON.parse(
-      JSON.stringify(this.usersService.getUserById('5ff8c51fa4c6cf417005fd5e'))
-    );
-    this.addresses = this.user.address;
-    console.log(this.user);
+    const userEmail = localStorage.getItem('user email');
+    this.usersService.getUserByEmail(userEmail).subscribe({
+      next: (user: any) => {
+        this.user = user[0];
+        console.log(this.user);
+
+        this.addresses = this.user.address;
+        console.log(this.addresses);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
 
     this.cartArray = this.productService.cartProducts;
     this.updateQuantityPrice();
@@ -89,6 +97,12 @@ export class CheckoutComponent implements OnInit {
         },
 
         quantity: `${this.cartArray[index].quantity}`,
+        tax: {
+          currency_code: 'USD',
+          value: `${
+            (this.cartArray[index].productPrice.finalPrice / 100) * 14
+          }`,
+        },
       });
     }
 
@@ -100,11 +114,11 @@ export class CheckoutComponent implements OnInit {
     this.addresses.push(newAddress);
     this.user.address = this.addresses;
 
-    this.usersService.updateUser(this.user);
-    this.user = JSON.parse(
-      JSON.stringify(this.usersService.getUserById('5ff8c51fa4c6cf417005fd5e'))
-    );
-    this.addresses = this.user.address;
+    // this.usersService.updateUser(this.user);
+    // this.user = JSON.parse(
+    //   JSON.stringify(this.usersService.getUserById('5ff8c51fa4c6cf417005fd48'))
+    // );
+    // this.addresses = this.user.address;
 
     addressForm.reset();
   }
@@ -132,7 +146,7 @@ export class CheckoutComponent implements OnInit {
       shipping: this.shipping,
       handling: this.handling,
       tax: this.tax_total,
-      userID: this.user.userID,
+      userID: this.user._id,
       userAddress: this.selectedAddress,
     };
   }

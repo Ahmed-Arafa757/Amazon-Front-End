@@ -5,24 +5,22 @@ import { ProductService } from 'src/app/_services/product.service';
 import { User } from '../../_model/users';
 import { AuthService } from '../../_services/auth.service';
 import { UsersService } from '../../_services/users.service';
-import { LoginComponent } from '../../auth/login/login.component'
+import { LoginComponent } from '../../auth/login/login.component';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit{
+export class HeaderComponent implements OnInit {
   // person: Person = { name: '', email: '', password: '', repeatedPassword: '' };
   langFlag = '../../../assets/images/icons/english.png';
 
   cartArray = [];
   totalQuantity = 0;
 
-
-  searchString: string;
+  searchString: string = '';
   loggedInUser;
-
 
   constructor(
     private productService: ProductService,
@@ -30,13 +28,11 @@ export class HeaderComponent implements OnInit{
 
     private usersService: UsersService,
     private loginService: LoginComponent
-  ) { }
-
+  ) {}
 
   ngOnInit(): void {
     this.productService.productAdded.subscribe(
       (res) => {
-
         this.totalQuantity = 0;
         for (let index = 0; index < res.length; index++) {
           this.totalQuantity += res[index].quantity;
@@ -51,10 +47,7 @@ export class HeaderComponent implements OnInit{
     );
 
     console.log('header on init');
-
-
   }
-  
 
   toggle(input) {
     if (input.id === 'english-lang') {
@@ -65,21 +58,16 @@ export class HeaderComponent implements OnInit{
   }
 
   SignedIn() {
-
-    if (localStorage.hasOwnProperty("token") && localStorage.hasOwnProperty("user email")) {
-
-
+    if (
+      localStorage.hasOwnProperty('token') &&
+      localStorage.hasOwnProperty('user email')
+    ) {
       this.loggedInUser = localStorage.getItem('user email').split('@')[0];
-      console.log(this.loggedInUser);
-
+      // console.log(this.loggedInUser);
 
       return true;
-
-    }
-    else {
+    } else {
       return false;
     }
-
-
   }
 }

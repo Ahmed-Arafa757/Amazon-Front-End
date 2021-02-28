@@ -1,0 +1,9 @@
+.card-header p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #565959;
+}
+
+.card-header .col-md-4 {
+  margin-bottom: 10px;
+}
