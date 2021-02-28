@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
 import { Product } from '../_model/product';
 
@@ -5,7 +6,7 @@ import { Product } from '../_model/product';
   providedIn: 'root',
 })
 export class ProductService {
-  products: Product[] = [
+  /* products: Product[] = [
     {
       _id: '5ff8ba0e73f4d752445318cc',
       productId: 1,
@@ -1456,118 +1457,41 @@ export class ProductService {
       productStock: 0,
       productSales: 'bgm48bv8_ardx4womj',
     },
-  ];
+  ]; */
+  products: Product[];
 
   cartProducts = [];
-
+ /*  baseUrl = 'https://iti-amzon-backend.herokuapp.com/'; */
+ baseUrl = 'http://localhost:3000/';
   productAdded = new EventEmitter<Product[]>();
 
-  constructor() {}
+  constructor(private httpClinet: HttpClient) {}
   getAllProducts() {
-    return this.products.slice();
+    return this.httpClinet.get(this.baseUrl + 'api/products');
   }
   productById(id: string) {
-    const product = this.products.find((p) => p._id === id);
-    if (product !== undefined) {
-      const prod: Product = {
-        _id: product._id,
-        productName: product.productName,
-        productInfo: product.productInfo,
-        productPrice: product.productPrice,
-        productRate: product.productRate,
-        productImages: product.productImages,
-        productType: product.productType,
-        productCategory: product.productCategory,
-        productSubCategory: product.productSubCategory,
-        keywords: product.keywords,
-        warehouseId: product.warehouseId,
-        productStock: product.productStock,
-        productSales: product.productSales,
-      };
-      return prod;
-    }
+    return this.httpClinet.get(this.baseUrl + 'api/product/id/' + id);
   }
   productByName(name: string) {
-    const product = this.products.find((p) => p.productName === name);
-    if (product !== undefined) {
-      const prod: Product = {
-        _id: product._id,
-        productName: product.productName,
-        productInfo: product.productInfo,
-        productPrice: product.productPrice,
-        productRate: product.productRate,
-        productImages: product.productImages,
-        productType: product.productType,
-        productCategory: product.productCategory,
-        productSubCategory: product.productSubCategory,
-        keywords: product.keywords,
-        warehouseId: product.warehouseId,
-        productStock: product.productStock,
-        productSales: product.productSales,
-      };
-      return prod;
-    }
+    return this.httpClinet.get(this.baseUrl + 'api/product/name/' + name);
   }
   updateProduct(product: Product) {
-    const index = this.products.findIndex((p) => p._id === product._id);
-    this.products[index] = {
-      _id: product._id,
-      productName: product.productName,
-      productInfo: product.productInfo,
-      productPrice: product.productPrice,
-      productRate: product.productRate,
-      productImages: product.productImages,
-      productType: product.productType,
-      productCategory: product.productCategory,
-      productSubCategory: product.productSubCategory,
-      keywords: product.keywords,
-      warehouseId: product.warehouseId,
-      productStock: product.productStock,
-      productSales: product.productSales,
-    };
-    return 'Product Updated';
+    return this.httpClinet.put(
+      this.baseUrl + 'api/product/' + product._id,
+      product
+    );
   }
   deleteProduct(id: string) {
-    const index = this.products.findIndex((p) => p._id === id);
-    this.products.splice(index, 1);
+    return this.httpClinet.delete(this.baseUrl + 'api/product/' + id);
   }
   addProduct(product: Product) {
-    const productId = this.products.length + 1;
-    const newproduct: Product = {
-      productId,
-      productName: product.productName,
-      productInfo: product.productInfo,
-      productPrice: product.productPrice,
-      productRate: product.productRate,
-      productImages: product.productImages,
-      productType: product.productType,
-      productCategory: product.productCategory,
-      productSubCategory: product.productSubCategory,
-      keywords: product.keywords,
-      warehouseId: product.warehouseId,
-      productStock: product.productStock,
-      productSales: product.productSales,
-    };
-    this.products.push(newproduct);
     console.log(product);
-    console.log(newproduct);
+
+    return this.httpClinet.post(this.baseUrl + 'api/product/add', product);
   }
 
   addProductsToCart(products) {
     this.cartProducts = products.slice();
     this.productAdded.emit(this.cartProducts);
-  }
-
-  searchProductsByKeywords(...params) {
-    var result = this.products.filter((p) => {
-      return p.keywords.includes(params[0]);
-    });
-    for (let index = 1; index < params.length; index++) {
-      result = result.filter((p) => {
-        return p.keywords.includes(params[index]);
-      });
-    }
-
-    return result;
   }
 }

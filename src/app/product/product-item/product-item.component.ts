@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 
 import { Advertisement } from 'src/app/_model/advertisements';
 import { Product } from 'src/app/_model/product';
-import { AdvertisementService } from 'src/app/_services/advertisements.service';
+import { AdvertisementsService } from 'src/app/_services/advertisements.service';
 
 @Component({
   selector: 'app-product-item',

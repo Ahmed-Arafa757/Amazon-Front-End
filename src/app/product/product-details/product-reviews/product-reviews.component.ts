@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { Review } from 'src/app/_model/reviews';
 import { ReviewsService } from 'src/app/_services/reviews.service';
 
@@ -9,17 +10,15 @@ import { ReviewsService } from 'src/app/_services/reviews.service';
   styleUrls: ['./product-reviews.component.scss'],
 })
 export class ProductReviewsComponent implements OnInit {
-  @Input() id: string;
-
   reviews: Review[] = [];
-
+  productID: string = '';
   addReview: Review = {
     _id: '',
     reviewerID: 'sdf531sd3f6',
     reviewerName: 'Mohammed Mounir',
     reviewTime: new Date().toUTCString(),
     reviewSummary: '',
-    fullReview: '',
+    fullReview: '', 
     reviewVote: null,
     productID: '',
     stars: [],
@@ -37,16 +36,33 @@ export class ProductReviewsComponent implements OnInit {
 
   editMode: boolean = false;
 
-  constructor(private reviewsService: ReviewsService) {}
+  constructor(
+    private reviewsService: ReviewsService,
+    private activatedRoute: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
-    this.reviewsService.getReviewsByProductId(this.id);
-    this.getReviews();
+    this.activatedRoute.params.subscribe(
+      (params) => {
+        this.productID = params.id;
+        console.log(params.id);
+        this.reviewsService.getReviewsByProductId(params.id);
+        this.getReviews();
+      },
+      (err) => {
+        console.log(err);
+      },
+      () => {}
+    );
+
+    // this.reviewsService.getReviewsByProductId(this.id);
+    // this.getReviews();
   }
 
   getReviews() {
     this.reviewsService.latestReviews.subscribe(
       (res) => {
+        console.log(res);
         this.reviews = res;
         this.reviews.reverse();
         this.fillStars();
@@ -77,7 +93,7 @@ export class ProductReviewsComponent implements OnInit {
 
   onSubmit(reviewForm: NgForm) {
     if (this.editMode === false) {
-      this.addReview.productID = this.id;
+      this.addReview.productID = this.productID;
       const review = { ...this.addReview };
       this.reviewsService.addReview(review);
     } else {

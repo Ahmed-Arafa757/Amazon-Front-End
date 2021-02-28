@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Advertisement } from 'src/app/_model/advertisements';
 import { Person } from 'src/app/_model/person';
 import { Product } from 'src/app/_model/product';
-import { AdvertisementService } from 'src/app/_services/advertisements.service';
+import { AdvertisementsService } from 'src/app/_services/advertisements.service';
 import { PersonService } from 'src/app/_services/person.service';
 import { ProductService } from 'src/app/_services/product.service';
 
@@ -12,23 +12,33 @@ import { ProductService } from 'src/app/_services/product.service';
   styleUrls: ['./product-listing.component.scss'],
 })
 export class ProductListingComponent implements OnInit {
-  products: Product[];
+  products: Product[] = [];
 
   numOfPages: number[] = [];
 
   pageSize = 9;
 
   currentPage = 0;
-  lastPage = 0; 
+  lastPage = 0;
 
   loggedInPerson: Person;
-  constructor(private productService: ProductService,
-  private personService:PersonService) { }
+  constructor(
+    private productService: ProductService,
+    private personService: PersonService
+  ) {}
 
   ngOnInit(): void {
-    this.products = this.productService.getAllProducts();
-    this.lastPage = this.products.length / this.pageSize;
-    this.calculateNumOfPages();
+    this.productService.getAllProducts().subscribe(
+      (res: Product[]) => {
+        this.products = res;
+        this.lastPage = this.products.length / this.pageSize;
+        this.calculateNumOfPages();
+      },
+      (err) => {
+        console.error(err);
+      },
+      () => {}
+    );
   }
 
   calculateNumOfPages() {
@@ -49,20 +59,16 @@ export class ProductListingComponent implements OnInit {
   // }
 
   SignedIn() {
-    // return this.authService.isAuthenticated(); 
+    // return this.authService.isAuthenticated();
 
-    if (localStorage.hasOwnProperty("personId")) {
-
-      this.loggedInPerson = this.personService.getPersonById(localStorage.getItem("personId"));
+    if (localStorage.hasOwnProperty('personId')) {
+      this.loggedInPerson = this.personService.getPersonById(
+        localStorage.getItem('personId')
+      );
       // console.log('this.loggedInPerson from header', this.loggedInPerson);
       return true;
-
-    }
-    else {
+    } else {
       return false;
     }
-
-
-
   }
 }

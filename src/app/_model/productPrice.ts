@@ -3,4 +3,5 @@ export interface ProductPrice{
     discount?:number;
     finalPrice?:number;
     currency?:string;
+    onSale?:string;
 }

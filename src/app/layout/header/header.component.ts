@@ -1,10 +1,11 @@
-import { Component, EventEmitter, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, DoCheck } from '@angular/core';
 import { Product } from 'src/app/_model/product';
 import { ProductService } from 'src/app/_services/product.service';
-import { Person } from '../../_model/person';
+// import { Person } from '../../_model/person';
+import { User } from '../../_model/users';
 import { AuthService } from '../../_services/auth.service';
-import { PersonService } from '../../_services/person.service';
-
+import { UsersService } from '../../_services/users.service';
+import { LoginComponent } from '../../auth/login/login.component';
 
 @Component({
   selector: 'app-header',
@@ -12,20 +13,22 @@ import { PersonService } from '../../_services/person.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  person: Person = { name: 'a', email: '', password: '', repeatedPassword: '' };
+  // person: Person = { name: '', email: '', password: '', repeatedPassword: '' };
   langFlag = '../../../assets/images/icons/english.png';
 
   cartArray = [];
   totalQuantity = 0;
 
-  searchString: string;
-  loggedInPerson: Person;
+  searchString: string = '';
+  loggedInUser;
 
-
-  constructor(private productService: ProductService,
+  constructor(
+    private productService: ProductService,
     private authService: AuthService,
-    private personService: PersonService
-  ) { }
+
+    private usersService: UsersService,
+    private loginService: LoginComponent
+  ) {}
 
   ngOnInit(): void {
     this.productService.productAdded.subscribe(
@@ -42,8 +45,8 @@ export class HeaderComponent implements OnInit {
         alert('Subscribe Operation Compeleted');
       }
     );
-    // console.log(this.person);
-    
+
+    console.log('header on init');
   }
 
   toggle(input) {
@@ -55,20 +58,16 @@ export class HeaderComponent implements OnInit {
   }
 
   SignedIn() {
-    // return this.authService.isAuthenticated(); 
+    if (
+      localStorage.hasOwnProperty('token') &&
+      localStorage.hasOwnProperty('user email')
+    ) {
+      this.loggedInUser = localStorage.getItem('user email').split('@')[0];
+      // console.log(this.loggedInUser);
 
-    if (localStorage.hasOwnProperty("personId")) {
-      
-      this.loggedInPerson = this.personService.getPersonById(localStorage.getItem("personId"));
-      // console.log('this.loggedInPerson from header', this.loggedInPerson);
       return true;
-      
-    }
-    else {
+    } else {
       return false;
     }
-
-      
-
   }
 }

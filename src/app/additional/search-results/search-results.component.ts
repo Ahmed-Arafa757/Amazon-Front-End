@@ -9,7 +9,7 @@ import { ProductService } from 'src/app/_services/product.service';
   styleUrls: ['./search-results.component.scss'],
 })
 export class SearchResultsComponent implements OnInit {
-  products: Product[];
+  products: Product[] = [];
   productsResult = [];
   searchInput: string = '';
 
@@ -24,21 +24,34 @@ export class SearchResultsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.products = this.productService.getAllProducts();
-    this.activatedRoute.params.subscribe(
-      (params) => {
-        this.productsResult = JSON.parse(JSON.stringify(this.products));
-        this.searchInput = params.id.toLowerCase();
-        this.productsResult = this.productsResult.filter((p) =>
-          p.productName.toLowerCase().includes(this.searchInput)
-        );
+    this.productService.getAllProducts().subscribe(
+      (res: any) => {
+        this.products = res;
 
-        this.currentPage = 0;
-        this.lastPage = this.productsResult.length / this.pageSize;
-        this.calculateNumOfPages();
+        this.activatedRoute.params.subscribe(
+          (params) => {
+            this.productsResult = JSON.parse(JSON.stringify(this.products));
+
+            this.searchInput = params.id.toLowerCase();
+
+            this.productsResult = this.productsResult.filter(
+              (p) =>
+                p.productName &&
+                p.productName.toLowerCase().includes(this.searchInput)
+            );
+
+            this.currentPage = 0;
+            this.lastPage = this.productsResult.length / this.pageSize;
+            this.calculateNumOfPages();
+          },
+          (err) => {
+            console.log(err);
+          },
+          () => {}
+        );
       },
       (err) => {
-        console.log(err);
+        console.error(err);
       },
       () => {}
     );

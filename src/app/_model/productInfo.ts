@@ -1,5 +1,5 @@
 export interface ProductInfo{
-    color?:string[];
+    color?:boolean[];
     material?:string;
     weight?:string;
     description?:string;
