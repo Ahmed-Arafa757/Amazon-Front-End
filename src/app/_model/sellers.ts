@@ -2,18 +2,18 @@ import { Address } from './address';
 
 
 export interface Seller{
-    // _id?: string;
-    sellerName?: string;
+    // _id?: String;
+    sellerName?: String;
     name?: { first: String, last: String };
-    email?: string;
+    email?: String;
     phone?: String;
-    category?: string;
+    category?: String;
     address?: Address;
     logoImg?: String;
-    shortDesc?: string;
-    password?: string;
-    repeatedPassword?:string;
+    shortDesc?: String;
+    password?: String;
+    repeatedPassword?:String;
     dateOfRegister?: String;
-     
+    provider?: String;
 }
 
