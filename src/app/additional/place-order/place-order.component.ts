@@ -70,7 +70,11 @@ export class PlaceOrderComponent implements OnInit {
             const orderFullDetails = {
               orderData: data,
               orderDetails: details,
+              shipping: placedOrder['shipping'],
+              handling: placedOrder['handling'],
+              tax: placedOrder['tax'],
               userAddress: placedOrder['userAddress'],
+              userID: placedOrder['userID'],
             };
             console.log(orderFullDetails);
             this.orderService.addOrder(orderFullDetails);

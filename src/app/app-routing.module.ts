@@ -21,7 +21,13 @@ import { SellerAddComponent } from './seller/seller-add/seller-add.component';
 import { SellerRegisterComponent } from './seller/seller-register/seller-register.component';
 import { AuthGuardService } from './_services/auth-guard.service';
 import { PlaceOrderComponent } from './additional/place-order/place-order.component';
+<<<<<<< HEAD
 import { ResetpasswordComponent } from './auth/resetpassword/resetpassword.component';
+=======
+import { UserAccountComponent } from './user/user-account/user-account.component';
+import { UserOrdersComponent } from './user/user-account/user-orders/user-orders.component';
+import { UserLoginSecurityComponent } from './user/user-account/user-login-security/user-login-security.component';
+>>>>>>> 6be0b784c1bdab310bffdafd03a8da00f36a55d4
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -75,6 +81,10 @@ const routes: Routes = [
     component: SellerHomeComponent,
     canActivate: [SellerAuthGuardService],
   },
+  // User
+  { path: 'account', component: UserAccountComponent },
+  { path: 'account/orders', component: UserOrdersComponent },
+  { path: 'account/login-security', component: UserLoginSecurityComponent },
   { path: 'place-order', component: PlaceOrderComponent },
   { path: '**', component: ErrorNotFoundComponent },
 ];

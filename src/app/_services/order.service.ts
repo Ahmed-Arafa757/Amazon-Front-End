@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Order } from '../_model/order';
 
 @Injectable({
@@ -19,6 +20,9 @@ export class OrderService {
         _id: order._id,
         orderItems: order.orderItems,
         orderPrice: order.orderPrice,
+        orderHandling: order.orderHandling,
+        orderShipping: order.orderShipping,
+        orderTax: order.orderTax,
         orderDate: order.orderDate,
         shippingAddress: order.shippingAddress,
         orderStatus: order.orderStatus,
@@ -29,14 +33,18 @@ export class OrderService {
   }
 
   addOrder(order) {
+    const orderDate = new Date(order.orderDetails.create_time).toUTCString();
     const newOrder: Order = {
       _id: order.orderData.orderID,
       orderItems: order.orderDetails.purchase_units[0].items,
       orderPrice: order.orderDetails.purchase_units[0].amount.value,
-      orderDate: order.orderDetails.create_time,
+      orderHandling: order.handling,
+      orderShipping: order.shipping,
+      orderTax: order.tax,
+      orderDate: orderDate,
       shippingAddress: order.userAddress,
       orderStatus: 'Pending',
-      customerId: '5ff8c51fa4c6cf417005fd48',
+      customerId: order.userID,
     };
 
     this.http
@@ -47,5 +55,16 @@ export class OrderService {
       .subscribe((responseOrder) => {
         console.log(responseOrder);
       });
+  }
+
+  getUserOrders(
+    id: string
+  ): Observable<{
+    message: string;
+    orders: Order[];
+  }> {
+    return this.http.get<{ message: string; orders: Order[] }>(
+      `http://localhost:3000/api/user-orders/${id}`
+    );
   }
 }
