@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UsersService {
   // users: Users[] = [
-  
+
   //   {
   //     _id: '5ff8c51fa4c6cf417005fd5e',
   //     userID: 'pclg_6759_7581',
@@ -414,23 +414,41 @@ export class UsersService {
   //     dateOfRegister: 'Monday, April 20, 2020 5:30 AM',
   //   },
   // ];
-  
-  constructor(private httpClient: HttpClient) { }
-  baseUrl = 'http://localhost:3000/';
 
-  getAllUsers(){
+  constructor(private httpClient: HttpClient) {}
+  //baseUrl = 'http://localhost:3000/';
+  baseUrl = 'https://iti-amzon-backend.herokuapp.com/';
+
+  getAllUsers() {
     return this.httpClient.get(`${this.baseUrl}users`);
-
   }
 
-  getUserById(id: string){
+  getUserById(id: string) {
     return this.httpClient.get(`${this.baseUrl}user/id/${id}`);
-
   }
 
-  getUserByEmail(email: string){
-    return this.httpClient.get(`${this.baseUrl}user/email/${email}`);
+  getUserByEmail(email: string) {
+    return this.httpClient.get(this.baseUrl + 'user/email/' + email);
+  }
 
+  resetPassword(id: string) {
+    console.log(this.baseUrl + 'resetpassword/sendEmail/' + id);
+    return this.httpClient.get(this.baseUrl + 'resetpassword/sendEmail/' + id);
+  }
+
+  saveNewPassword(token: string, id: string, password, repeatedPassword) {
+    var body = {
+      token,
+      id,
+      date: Date.now(),
+      password,
+      repeatedPassword,
+    };
+    return this.httpClient.put(
+      this.baseUrl + 'resetpassword/changePassword/',
+      body,
+      { responseType: 'json' }
+    );
   }
 
   addUser(user: User) {
@@ -438,29 +456,24 @@ export class UsersService {
       userName: user.userName,
       email: user.email,
       password: user.password,
-      repeatedPassword: user.repeatedPassword
+      repeatedPassword: user.repeatedPassword,
     };
 
     this.httpClient.post(`${this.baseUrl}user/register`, newUser);
-
-
   }
 
-  updateUser(user: User){
-
-   const updatedUser = {
+  updateUser(user: User) {
+    const updatedUser = {
       _id: user._id,
       userName: user.userName,
       email: user.email,
       password: user.password,
       repeatedPassword: user.repeatedPassword,
-
     };
-   this.httpClient.put(`${this.baseUrl}user`, updatedUser);
+    this.httpClient.put(`${this.baseUrl}user`, updatedUser);
   }
 
   deleteUser(id: string) {
     this.httpClient.delete(`${this.baseUrl}user/${id}`);
-
   }
 }

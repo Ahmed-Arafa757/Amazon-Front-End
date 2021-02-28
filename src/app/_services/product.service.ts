@@ -1458,49 +1458,40 @@ export class ProductService {
       productSales: 'bgm48bv8_ardx4womj',
     },
   ]; */
-  products:Product[];
+  products: Product[];
+
   cartProducts = [];
  /*  baseUrl = 'https://iti-amzon-backend.herokuapp.com/'; */
  baseUrl = 'http://localhost:3000/';
   productAdded = new EventEmitter<Product[]>();
 
-  constructor(private httpClinet : HttpClient) {}
+  constructor(private httpClinet: HttpClient) {}
   getAllProducts() {
-    return this.httpClinet.get(this.baseUrl+'api/products');
+    return this.httpClinet.get(this.baseUrl + 'api/products');
   }
   productById(id: string) {
-    return this.httpClinet.get(this.baseUrl+'api/product/id/'+id);
+    return this.httpClinet.get(this.baseUrl + 'api/product/id/' + id);
   }
   productByName(name: string) {
-    return this.httpClinet.get(this.baseUrl+'api/product/name/'+name);
+    return this.httpClinet.get(this.baseUrl + 'api/product/name/' + name);
   }
   updateProduct(product: Product) {
-    return this.httpClinet.put(this.baseUrl+'api/product/'+product._id,product);
+    return this.httpClinet.put(
+      this.baseUrl + 'api/product/' + product._id,
+      product
+    );
   }
   deleteProduct(id: string) {
-    return this.httpClinet.delete(this.baseUrl+'api/product/'+id);
+    return this.httpClinet.delete(this.baseUrl + 'api/product/' + id);
   }
   addProduct(product: Product) {
     console.log(product);
 
-    return this.httpClinet.post(this.baseUrl+'api/product/add',product);
+    return this.httpClinet.post(this.baseUrl + 'api/product/add', product);
   }
 
   addProductsToCart(products) {
     this.cartProducts = products.slice();
     this.productAdded.emit(this.cartProducts);
-  }
-
-  searchProductsByKeywords(...params) {
-    var result = this.products.filter((p) => {
-      return p.keywords.includes(params[0]);
-    });
-    for (let index = 1; index < params.length; index++) {
-      result = result.filter((p) => {
-        return p.keywords.includes(params[index]);
-      });
-    }
-
-    return result;
   }
 }
