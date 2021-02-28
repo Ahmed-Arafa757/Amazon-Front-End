@@ -1,3 +1,4 @@
+import { ResetpasswordComponent } from './auth/resetpassword/resetpassword.component';
 import { SellerAuthGuardService } from './_services/seller-auth-guard.service';
 import { SellerHomeComponent } from './seller/seller-home/seller-home.component';
 import { SellerLoginComponent } from './seller/seller-login/seller-login.component';
@@ -21,13 +22,9 @@ import { SellerAddComponent } from './seller/seller-add/seller-add.component';
 import { SellerRegisterComponent } from './seller/seller-register/seller-register.component';
 import { AuthGuardService } from './_services/auth-guard.service';
 import { PlaceOrderComponent } from './additional/place-order/place-order.component';
-<<<<<<< HEAD
-import { ResetpasswordComponent } from './auth/resetpassword/resetpassword.component';
-=======
 import { UserAccountComponent } from './user/user-account/user-account.component';
 import { UserOrdersComponent } from './user/user-account/user-orders/user-orders.component';
 import { UserLoginSecurityComponent } from './user/user-account/user-login-security/user-login-security.component';
->>>>>>> 6be0b784c1bdab310bffdafd03a8da00f36a55d4
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
