@@ -97,6 +97,12 @@ export class CheckoutComponent implements OnInit {
         },
 
         quantity: `${this.cartArray[index].quantity}`,
+        tax: {
+          currency_code: 'USD',
+          value: `${
+            (this.cartArray[index].productPrice.finalPrice / 100) * 14
+          }`,
+        },
       });
     }
 
