@@ -261,12 +261,12 @@
             <li>
               <hr class="dropdown-divider" />
             </li>
-            <ul class="MM_ulDropDown">
+            <ul *ngIf="isLogged" class="MM_ulDropDown">
               <li>
                 <a class="dropdown-item" [routerLink]="['/account']">Account</a>
               </li>
             </ul>
-            <li>
+            <li *ngIf="isLogged">
               <hr class="dropdown-divider" />
             </li>
 
@@ -274,36 +274,27 @@
               <li>
                 <a class="dropdown-item" href="">Recommendations</a>
               </li>
-              <li>
-                <a class="dropdown-item" href="">Browsing History</a>
-              </li>
+
               <li>
                 <a class="dropdown-item" href="">Watchlist</a>
               </li>
-              <li>
-                <a class="dropdown-item" href="">Video Purchases & Rentals</a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="">Kindle Unlimited</a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="">Content & Devices</a>
-              </li>
+
               <li>
                 <a class="dropdown-item" href="">Subscribe & Save Items</a>
               </li>
               <li>
                 <a class="dropdown-item" href="">Memberships & Subscriptions</a>
               </li>
-              <li>
-                <a class="dropdown-item" href="">Music Library</a>
-              </li>
             </ul>
           </ul>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link text-white" href="" style="white-space: nowrap">
+          <a
+            [routerLink]="['/account', 'orders']"
+            class="nav-link text-white"
+            style="white-space: nowrap"
+          >
             <span>Returns</span>& Orders</a
           >
         </li>

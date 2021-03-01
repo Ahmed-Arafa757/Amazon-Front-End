@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Order } from 'src/app/_model/order';
 import { OrderService } from 'src/app/_services/order.service';
+import { UsersService } from 'src/app/_services/users.service';
 
 @Component({
   selector: 'app-user-orders',
@@ -14,29 +15,59 @@ export class UserOrdersComponent implements OnInit {
   cancelledOrders: Order[] = [];
   displayedOrders: Order[] = [];
 
-  constructor(private orderService: OrderService) {}
+  constructor(
+    private usersService: UsersService,
+    private orderService: OrderService
+  ) {}
 
   ngOnInit(): void {
-    this.orderService.getUserOrders('5ff8c51fa4c6cf417005fd48').subscribe({
-      next: (responseData: any) => {
-        this.allOrders = responseData.orders;
-        this.displayedOrders = this.allOrders;
+    const userEmail = localStorage.getItem('user email');
+    this.usersService.getUserByEmail(userEmail).subscribe({
+      next: (user: any) => {
+        this.orderService.getUserOrders(user[0]._id).subscribe({
+          next: (responseData: any) => {
+            this.allOrders = responseData.orders;
+            this.displayedOrders = this.allOrders;
 
-        for (let index = 0; index < this.allOrders.length; index++) {
-          if (this.allOrders[index].orderStatus === 'Pending') {
-            this.currentOrders.push(
-              JSON.parse(JSON.stringify(this.allOrders[index]))
-            );
-          } else if (this.allOrders[index].orderStatus === 'Completed') {
-            this.previousOrders.push(
-              JSON.parse(JSON.stringify(this.allOrders[index]))
-            );
-          } else if (this.allOrders[index].orderStatus === 'Cancelled') {
-            this.cancelledOrders.push(
-              JSON.parse(JSON.stringify(this.allOrders[index]))
-            );
-          }
-        }
+            for (let index = 0; index < this.allOrders.length; index++) {
+              if (this.allOrders[index].orderStatus === 'Pending') {
+                this.currentOrders.push(
+                  JSON.parse(JSON.stringify(this.allOrders[index]))
+                );
+              } else if (this.allOrders[index].orderStatus === 'Completed') {
+                this.previousOrders.push(
+                  JSON.parse(JSON.stringify(this.allOrders[index]))
+                );
+              } else if (this.allOrders[index].orderStatus === 'Cancelled') {
+                this.cancelledOrders.push(
+                  JSON.parse(JSON.stringify(this.allOrders[index]))
+                );
+              }
+            }
+          },
+          error: (err) => {
+            console.log(err);
+          },
+        });
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+  }
+
+  cancelUserOrder(order) {
+    console.log(order);
+    console.log(order._id);
+    console.log(order.orderStatus);
+    order.orderStatus = 'Cancelled';
+    this.orderService.cancelUserOrder(order._id, order).subscribe({
+      next: (responseDate: any) => {
+        this.currentOrders.splice(this.currentOrders.indexOf(order), 1);
+        this.allOrders.splice(this.allOrders.indexOf(order), 1);
+
+        this.cancelledOrders.push(JSON.parse(JSON.stringify(responseDate)));
+        this.allOrders.push(JSON.parse(JSON.stringify(responseDate)));
       },
       error: (err) => {
         console.log(err);

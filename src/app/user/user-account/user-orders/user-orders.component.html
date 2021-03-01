@@ -119,14 +119,12 @@
                   Quantity: {{ item.quantity }}
                 </p>
               </div>
-              <hr />
-              <p>Total Price: EGP {{ order.orderPrice }}</p>
-              <button
-                *ngIf="order.orderStatus === 'Pending'"
-                class="btn btn-danger"
-              >
-                Cancel Order
-              </button>
+              <div *ngIf="order.orderStatus === 'Pending'">
+                <hr />
+                <button (click)="cancelUserOrder(order)" class="btn btn-danger">
+                  Cancel Order
+                </button>
+              </div>
             </div>
           </div>
         </div>

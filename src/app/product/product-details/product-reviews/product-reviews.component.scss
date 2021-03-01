@@ -1,3 +1,13 @@
 i {
   color: #ff9900;
 }
+
+button {
+  background: linear-gradient(to bottom, #f7dfa5, #f0c14b);
+  &:hover {
+    background: linear-gradient(to bottom, #f6c88f, #ed9220);
+  }
+  i {
+    color: #000;
+  }
+}

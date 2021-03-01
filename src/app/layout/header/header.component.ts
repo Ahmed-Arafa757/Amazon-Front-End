@@ -21,6 +21,7 @@ export class HeaderComponent implements OnInit {
 
   searchString: string = '';
   loggedInUser;
+  isLogged: boolean = false;
 
   constructor(
     private productService: ProductService,
@@ -64,9 +65,10 @@ export class HeaderComponent implements OnInit {
     ) {
       this.loggedInUser = localStorage.getItem('user email').split('@')[0];
       // console.log(this.loggedInUser);
-
+      this.isLogged = true;
       return true;
     } else {
+      this.isLogged = false;
       return false;
     }
   }
