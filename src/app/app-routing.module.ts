@@ -25,6 +25,7 @@ import { PlaceOrderComponent } from './additional/place-order/place-order.compon
 import { UserAccountComponent } from './user/user-account/user-account.component';
 import { UserOrdersComponent } from './user/user-account/user-orders/user-orders.component';
 import { UserLoginSecurityComponent } from './user/user-account/user-login-security/user-login-security.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -92,7 +93,8 @@ const routes: Routes = [
       preloadingStrategy: PreloadAllModules,
       scrollPositionRestoration: 'top',
     }),
+    TranslateModule,
   ],
-  exports: [RouterModule],
+  exports: [RouterModule, TranslateModule],
 })
 export class CustomAppRoutingModule {}

@@ -36,7 +36,7 @@ import { SellerLoginComponent } from './seller/seller-login/seller-login.compone
 import { SellerHomeComponent } from './seller/seller-home/seller-home.component';
 import { SellerAddComponent } from './seller/seller-add/seller-add.component';
 import { SellerRegisterComponent } from './seller/seller-register/seller-register.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { PlaceOrderComponent } from './additional/place-order/place-order.component';
 import { ResetpasswordComponent } from './auth/resetpassword/resetpassword.component';
 
@@ -52,7 +52,12 @@ import {
 import { UserAccountComponent } from './user/user-account/user-account.component';
 import { UserOrdersComponent } from './user/user-account/user-orders/user-orders.component';
 import { UserLoginSecurityComponent } from './user/user-account/user-login-security/user-login-security.component';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, '../assets/i18n/', '.json');
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -94,6 +99,14 @@ import { UserLoginSecurityComponent } from './user/user-account/user-login-secur
     CustomAppRoutingModule,
     HttpClientModule,
     SocialLoginModule,
+    TranslateModule.forRoot({
+      defaultLanguage: 'en',
+      loader: {
+        provide: TranslateLoader,
+        useFactory: createTranslateLoader,
+        deps: [HttpClient],
+      },
+    }),
   ],
   providers: [
     ReviewsService,

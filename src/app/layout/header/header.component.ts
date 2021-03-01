@@ -6,6 +6,7 @@ import { User } from '../../_model/users';
 import { AuthService } from '../../_services/auth.service';
 import { UsersService } from '../../_services/users.service';
 import { LoginComponent } from '../../auth/login/login.component';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-header',
@@ -15,7 +16,7 @@ import { LoginComponent } from '../../auth/login/login.component';
 export class HeaderComponent implements OnInit {
   // person: Person = { name: '', email: '', password: '', repeatedPassword: '' };
   langFlag = '../../../assets/images/icons/english.png';
-
+  currentLang: string;
   cartArray = [];
   totalQuantity = 0;
 
@@ -28,8 +29,17 @@ export class HeaderComponent implements OnInit {
     private authService: AuthService,
 
     private usersService: UsersService,
-    private loginService: LoginComponent
-  ) {}
+    private loginService: LoginComponent,
+    private translate: TranslateService
+  ) {
+    this.currentLang = localStorage.getItem('currentLang') || 'en';
+    this.translate.use(this.currentLang);
+    if (this.currentLang === 'en') {
+      this.langFlag = '../../../assets/images/icons/english.png';
+    } else {
+      this.langFlag = '../../../assets/images/icons/arabic.png';
+    }
+  }
 
   ngOnInit(): void {
     this.productService.productAdded.subscribe(
@@ -50,12 +60,22 @@ export class HeaderComponent implements OnInit {
     console.log('header on init');
   }
 
-  toggle(input) {
-    if (input.id === 'english-lang') {
+  changeCurrentLanguage(lang: string) {
+    this.translate.use(lang);
+    localStorage.setItem('currentLang', lang);
+    if (lang === 'en') {
       this.langFlag = '../../../assets/images/icons/english.png';
     } else {
       this.langFlag = '../../../assets/images/icons/arabic.png';
     }
+    // if (input.id === 'english-lang') {
+    //   this.translate.use('en');
+    //   localStorage.set
+    //   this.langFlag = '../../../assets/images/icons/english.png';
+    // } else {
+    //   this.translate.use('ar');
+    //   this.langFlag = '../../../assets/images/icons/arabic.png';
+    // }
   }
 
   SignedIn() {

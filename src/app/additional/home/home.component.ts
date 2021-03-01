@@ -11,10 +11,10 @@ import { UsersService } from 'src/app/_services/users.service';
 })
 export class HomeComponent implements OnInit {
   loggedInUser;
-  constructor(private personService: PersonService,
-    private usersService: UsersService) { }
-
-
+  constructor(
+    private personService: PersonService,
+    private usersService: UsersService
+  ) {}
 
   ngOnInit(): void {
     let elms: any = document.getElementsByClassName('splide');
@@ -32,22 +32,17 @@ export class HomeComponent implements OnInit {
     }
   }
 
-   SignedIn() {
-
-    if (localStorage.hasOwnProperty("token") && localStorage.hasOwnProperty("user email")) {
-
-
+  SignedIn() {
+    if (
+      localStorage.hasOwnProperty('token') &&
+      localStorage.hasOwnProperty('user email')
+    ) {
       this.loggedInUser = localStorage.getItem('user email').split('@')[0];
       console.log(this.loggedInUser);
 
-
       return true;
-
-    }
-    else {
+    } else {
       return false;
     }
-
-
   }
 }
