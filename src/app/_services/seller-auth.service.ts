@@ -24,18 +24,21 @@ export class SellerAuthService {
     return this.httpClient.post(`${this.baseUrl}api/seller/facebook`,socialUser)
   }
   register(seller:Seller){
-    console.log(seller);
-   return this.httpClient.post(`${this.baseUrl}api/sellers`,seller)
+    console.log("register"+ seller);
+   return this.httpClient.post(`${this.baseUrl}api/sellers/register`,seller)
   }
   login(seller:Seller){
     console.log(seller);
-    return this.httpClient.get(`${this.baseUrl}api/sellers/email/${seller.email}`)
+    return this.httpClient.post(`${this.baseUrl}api/sellers/login`,seller)
     // .subscribe(
     //   (seller)=>{console.log(seller)},
     //   ()=>{},
     //   ()=>{},
     //      )
   }
+
+  
+
 //   checkPassword(seller:Seller):Boolean{
      
 //    let x= Boolean(seller.password !== seller.repeatedPassword) 
@@ -43,10 +46,7 @@ export class SellerAuthService {
 //    return x
 // }
 
-getSellerByEmail(seller:Seller){
-console.log(seller)
-   return this.httpClient.post(`${this.baseUrl}api/sellers/login`,seller)
-}
+
 
 
 

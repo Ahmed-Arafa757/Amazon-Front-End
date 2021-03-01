@@ -10,7 +10,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
   styleUrls: ['./seller-register.component.scss']
 })
 export class SellerRegisterComponent implements OnInit {
-  seller:Seller={sellerName:'' ,email: '', password: '', repeatedPassword: '' };
+  seller:Seller={sellerName:'' , email: '', password: '', repeatedPassword: '', phone:'' };
   constructor(
     private sellerAuthService:SellerAuthService, 
     private router: Router,
@@ -27,7 +27,6 @@ export class SellerRegisterComponent implements OnInit {
     {
       this.seller.provider = '';
     }
-  console.log(this.seller);
   
   }
 
@@ -36,7 +35,10 @@ export class SellerRegisterComponent implements OnInit {
     this.sellerAuthService.register(this.seller).subscribe(
       (res) => {
         console.log(res); 
-        this.router.navigate(['seller/home']);
+        
+        this.router.navigate(['seller/home'], {
+          queryParams: { sellerName: this.seller.sellerName, email: this.seller.email },
+        });
       },
       (err) => {
         console.log(err);
