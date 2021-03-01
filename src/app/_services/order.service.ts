@@ -67,4 +67,23 @@ export class OrderService {
       `http://localhost:3000/api/user-orders/${id}`
     );
   }
+
+  cancelUserOrder(id: string, order: Order): Observable<Order> {
+    return this.http.put<Order>(`http://localhost:3000/api/order/${id}`, order);
+  }
+
+  // updateReview(reviewID: string, review: Review) {
+  //   this.http
+  //     .put(`http://localhost:3000/api/reviews/${reviewID}`, review)
+  //     .subscribe(() => {
+  //       const updatedReviews = [...this.reviews];
+  //       const oldReviewIndex = updatedReviews.findIndex(
+  //         (r) => r._id === review._id
+  //       );
+
+  //       updatedReviews[oldReviewIndex] = review;
+  //       this.reviews = updatedReviews;
+  //       this.latestReviews.emit(this.reviews);
+  //     });
+  // }
 }
