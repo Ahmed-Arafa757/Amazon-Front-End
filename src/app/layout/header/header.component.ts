@@ -30,7 +30,7 @@ export class HeaderComponent implements OnInit {
 
     private usersService: UsersService,
     private loginService: LoginComponent,
-    private translate: TranslateService
+    public translate: TranslateService
   ) {
     this.currentLang = localStorage.getItem('currentLang') || 'en';
     this.translate.use(this.currentLang);
