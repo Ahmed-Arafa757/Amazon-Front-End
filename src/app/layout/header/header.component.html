@@ -1,5 +1,9 @@
 <!-- Mounir -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark MM_navOne" id="top">
+<nav
+  dir="auto"
+  class="navbar navbar-expand-lg navbar-dark bg-dark MM_navOne"
+  id="top"
+>
   <div class="container-fluid">
     <a class="navbar-brand m-0 text-center" [routerLink]="['']">
       <img
@@ -29,10 +33,11 @@
             aria-current="page"
             href=""
           >
-            <span class="text-white-50" style="white-space: nowrap"
-              >Deliver to</span
-            >
-            <i class="fas fa-map-marker-alt"></i> Egypt
+            <span class="text-white-50" style="white-space: nowrap">{{
+              "HEADER.DELIVER_TO" | translate
+            }}</span>
+            <i class="fas fa-map-marker-alt"></i>
+            {{ "HEADER.COUNTRY" | translate }}
           </a>
           <!-- Modal -->
           <div
@@ -97,7 +102,7 @@
         <form class="d-flex MM_SearchInput ms-2 me-3">
           <div class="input-group">
             <select class="form-select" aria-label="Default select example">
-              <option selected disabled>All</option>
+              <option selected disabled>{{ "HEADER.ALL" | translate }}</option>
               <option value="search-alias=aps">All Departments</option>
               <option value="search-alias=arts-crafts-intl-ship">
                 Arts & Crafts
@@ -169,7 +174,7 @@
               [(ngModel)]="searchString"
               class="form-control w-50"
               type="search"
-              placeholder="Search"
+              [placeholder]="'HEADER.SEARCH' | translate"
               aria-label="Search"
               name="searchInput"
             />
@@ -200,10 +205,10 @@
                   #inputEnglish
                   class="form-check-input"
                   type="radio"
-                  (change)="toggle(inputEnglish)"
+                  (click)="changeCurrentLanguage('en')"
                   name="lang"
                   id="english-lang"
-                  checked
+                  [checked]="currentLang === 'en'"
                 />
                 <label class="form-check-label" for="english-lang">
                   English
@@ -219,13 +224,12 @@
                   #inputArabic
                   class="form-check-input"
                   type="radio"
-                  (change)="toggle(inputArabic)"
+                  (click)="changeCurrentLanguage('ar')"
                   name="lang"
                   id="arabic-lang"
+                  [checked]="currentLang === 'ar'"
                 />
-                <label class="form-check-label" for="arabic-lang">
-                  Arabic
-                </label>
+                <label class="form-check-label" for="arabic-lang"> عربي </label>
               </div>
             </li>
           </ul>
@@ -241,36 +245,41 @@
             aria-expanded="false"
           >
             <span>{{
-              SignedIn() ? "Hello, " + loggedInUser : "Hello, Sign in"
+              SignedIn()
+                ? ("HEADER.HELLO" | translate) + loggedInUser
+                : ("HEADER.HELLO" | translate) + ("HEADER.SIGNIN" | translate)
             }}</span>
-            Account & Lists
+            {{ "HEADER.ACCOUNT" | translate }}
           </a>
 
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li *ngIf="SignedIn() === false" class="text-center MM_SignIn">
               <a [routerLink]="['/login']"
                 ><button type="button" class="btn bg-gradient">
-                  Sign In
+                  {{ "HEADER.SIGNIN" | translate }}
                 </button></a
               >
               <br />
               <span class="my-1"
-                >New customer? <a [routerLink]="['/register']"> Start here. </a>
+                >{{ "HEADER.NEW_CUSTOMER" | translate
+                }}<a [routerLink]="['/register']">
+                  {{ "HEADER.START_HERE" | translate }}
+                </a>
               </span>
             </li>
-            <li>
+            <!-- <li>
               <hr class="dropdown-divider" />
-            </li>
+            </li> -->
             <ul *ngIf="isLogged" class="MM_ulDropDown">
               <li>
                 <a class="dropdown-item" [routerLink]="['/account']">Account</a>
               </li>
             </ul>
-            <li *ngIf="isLogged">
+            <!-- <li *ngIf="isLogged">
               <hr class="dropdown-divider" />
             </li>
 
-            <ul class="MM_ulDropDown">
+             <ul class="MM_ulDropDown">
               <li>
                 <a class="dropdown-item" href="">Recommendations</a>
               </li>
@@ -285,7 +294,7 @@
               <li>
                 <a class="dropdown-item" href="">Memberships & Subscriptions</a>
               </li>
-            </ul>
+            </ul> -->
           </ul>
         </li>
 
@@ -295,7 +304,8 @@
             class="nav-link text-white"
             style="white-space: nowrap"
           >
-            <span>Returns</span>& Orders</a
+            <span>{{ "HEADER.RETURNS" | translate }}</span
+            >{{ "HEADER.ORDERS" | translate }}</a
           >
         </li>
 
@@ -310,7 +320,9 @@
             </div>
             <i class="fas fa-shopping-cart text-white" style="font-size: 25px">
             </i>
-            <span class="text-white">Cart</span>
+            <span class="text-white">
+              {{ "HEADER.CART" | translate }}
+            </span>
           </a>
         </li>
       </ul>
@@ -506,13 +518,13 @@
       </div>
       <div class="AH_sidenav-link row">
         <div *ngIf="SignedIn() === false" class="col-12">
-          <a [routerLink]="['/login']"> Sign In</a>
+          <a [routerLink]="['/login']">{{ "HEADER.SIGNIN" | translate }}</a>
         </div>
       </div>
     </div>
   </div>
 </div>
-<nav class="navbar navbar-expand-sm" id="AH_nav">
+<nav dir="auto" class="navbar navbar-expand-sm" id="AH_nav">
   <div class="container-fluid">
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
@@ -522,24 +534,26 @@
             style="cursor: pointer"
             class="nav-link AH_link"
             aria-current="page"
-            ><i class="fas fa-bars"></i> All</a
+            ><i class="fas fa-bars"></i> {{ "HEADER.ALL" | translate }}</a
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link AH_link" aria-current="page" href=""
-            >Today's Deals</a
-          >
+          <a class="nav-link AH_link" aria-current="page" href="">{{
+            "HEADER.TODAYS_DEALS" | translate
+          }}</a>
         </li>
         <li class="nav-item">
           <a
             class="nav-link AH_link"
             aria-current="page"
             [routerLink]="['/customer-service']"
-            >Customer Service</a
+            >{{ "HEADER.CUSTOMER_SERVICE" | translate }}</a
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link AH_link" aria-current="page" href="">Gift Cards</a>
+          <a class="nav-link AH_link" aria-current="page" href="">{{
+            "HEADER.GITFT_CARDS" | translate
+          }}</a>
         </li>
 
         <li class="nav-item dropdown">
@@ -550,7 +564,7 @@
             data-bs-toggle="dropdown"
             aria-expanded="false"
           >
-            Sell
+            {{ "HEADER.SELL" | translate }}
           </a>
 
           <ul class="dropdown-menu seller" aria-labelledby="dropdownMenuLink">
@@ -573,7 +587,9 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link AH_link" aria-current="page" href="">Registry</a>
+          <a class="nav-link AH_link" aria-current="page" href="">{{
+            "HEADER.REGISTRY" | translate
+          }}</a>
         </li>
       </ul>
     </div>
