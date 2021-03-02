@@ -16,7 +16,8 @@
     "CUSTOMER_SERVICE": "Customer Service",
     "GITFT_CARDS": "Gift Cards",
     "SELL": "Sell",
-    "REGISTRY": "Registry"
+    "REGISTRY": "Registry",
+    "LOGOUT": "Logout"
   },
   "HOME": {
     "GAMING_ACCESSORIES": "Gaming Accessories",

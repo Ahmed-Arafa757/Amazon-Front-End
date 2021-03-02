@@ -84,7 +84,7 @@ export class HeaderComponent implements OnInit {
       //     ) {
       //       this.loggedInUser = localStorage.getItem('user email').split('@')[0];
       //       // console.log(this.loggedInUser);
-      //       this.isLogged = true;
+      this.isLogged = true;
 
       return true;
     } else {

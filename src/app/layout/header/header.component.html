@@ -77,13 +77,6 @@
                           class="btn bg-gradient mt-3 p-1 w-75"
                           style="background-color: #ffd04f; font-size: 1em"
                         >
-                          <!--                         <button
-                          *ngIf="SignedIn() === false"
-                          type="button"
-                          class="btn bg-gradient mt-3 p-1 w-75"
-                          style="background-color: #ffd04f; font-size: 1em"
-                        > -->
-
                           Sign in to see your addresses
                         </button>
                       </div>
@@ -243,24 +236,6 @@
         </li>
 
         <li class="nav-item dropdown">
-                    <!-- <a class="nav-link dropdown-toggle text-white" href="" id="navbarDropdown" role="button"
-            data-bs-toggle="dropdown" aria-expanded="false">
-            <span>{{SignedIn()? 'Hello, ' + loggedInUser : 'Hello, Sign in'}}</span>
-            Account & Lists
-          </a>
-
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li *ngIf='SignedIn() === false' class="text-center MM_SignIn">
-              <a [routerLink]="['/login']"><button type="button" class="btn bg-gradient">
-                  Sign In
-                </button>
-              </a>
-              <br />
-              <span class="my-1">New customer? <a [routerLink]="['/register']"> Start here. </a>
-              </span>
-            </li> -->
-           
-
           <a
             class="nav-link dropdown-toggle text-white"
             href=""
@@ -292,24 +267,26 @@
                 </a>
               </span>
             </li>
-             <li *ngIf='SignedIn() === true' class="text-center MM_SignIn">
-               <a [routerLink]="['/home']" (click)='logout()'><button type="button" class="btn bg-gradient">
-                   {{ "HEADER.LOGOUT" | translate }}
-                 </button>
-               </a>
-             </li>
-             <li>
-
-            <!-- <li>
+            <li *ngIf="SignedIn() === true" class="text-center MM_SignIn">
+              <a [routerLink]="['/home']" (click)="logout()"
+                ><button type="button" class="btn bg-gradient">
+                  {{ "HEADER.LOGOUT" | translate }}
+                </button>
+              </a>
+            </li>
+            <li>
+              <!-- <li>
 
               <hr class="dropdown-divider" />
             </li> -->
-            <ul *ngIf="isLogged" class="MM_ulDropDown">
-              <li>
-                <a class="dropdown-item" [routerLink]="['/account']">Account</a>
-              </li>
-            </ul>
-            <!-- <li *ngIf="isLogged">
+              <ul *ngIf="isLogged" class="MM_ulDropDown">
+                <li>
+                  <a class="dropdown-item" [routerLink]="['/account']"
+                    >Account</a
+                  >
+                </li>
+              </ul>
+              <!-- <li *ngIf="isLogged">
               <hr class="dropdown-divider" />
             </li>
 
@@ -329,6 +306,7 @@
                 <a class="dropdown-item" href="">Memberships & Subscriptions</a>
               </li>
             </ul> -->
+            </li>
           </ul>
         </li>
 
@@ -377,18 +355,6 @@
     <span style="cursor: pointer" id="AH_closebtn" onclick="AH_closeNav()"
       >&times;</span
     >
-
-    <!--     <a
-      [routerLink]="['/login']"
-      class="text-white ps-4 py-3 fs-4 fw-bold AH_Sidenav-header d-block text-decoration-none"
-    >
-      <i class="fas fa-user-circle"></i> Hello,
-      <span>{{ SignedIn() ? loggedInUser : "Sign in" }}</span>
-    </a>
-
-    <span style="cursor: pointer" id="AH_closebtn" onclick="AH_closeNav()"
-      >&times;</span
-    > -->
   </div>
   <div class="position-relative">
     <div class="AH_sidenav-body pt-3 row">
@@ -601,17 +567,11 @@
           }}</a>
         </li>
 
-        <!-- <!--         <li *ngIf='SignedIn()===false' class="nav-item dropdown">
-          <a class="dropdown-toggle nav-link AH_link" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown"
-            aria-expanded="false">
-            Sell -->
-        -->
-
         <li class="nav-item dropdown">
           <a
             class="dropdown-toggle nav-link AH_link"
             href="#"
-            *ngIf='SignedIn()===false'
+            *ngIf="SignedIn() === false"
             id="dropdownMenuLink"
             data-bs-toggle="dropdown"
             aria-expanded="false"
