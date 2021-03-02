@@ -10,7 +10,8 @@ export class SellersService {
         return this.sellers.slice();
 
     }
-    getSellerById(id): Seller {
+    
+    /* getSellerById(id): Seller {
 
         return this.sellers.find(p => p._id === id);
 
@@ -29,8 +30,6 @@ export class SellersService {
             websiteURL: seller.websiteURL,
             email: seller.email,
             password: seller.password
-
-
 
         };
         this.sellers.push(newSeller);
@@ -56,5 +55,5 @@ export class SellersService {
     deleteSeller(id: string) {
         const index = this.sellers.findIndex((p) => p._id === id);
         this.sellers.splice(index, 1);
-    }
+    } */
 }
