@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Product } from 'src/app/_model/product';
 import { CategoryService } from 'src/app/_services/category.service';
 import { ColorService } from 'src/app/_services/color.service';
+import { ImageService } from 'src/app/_services/image.service';
 import { ProductService } from 'src/app/_services/product.service';
 import { WarehouseService } from 'src/app/_services/warehouse.service';
 
@@ -27,6 +28,7 @@ export class SellerAddComponent implements OnInit {
     private productService : ProductService ,
     private warehouseService : WarehouseService,
     private activatedRoute:ActivatedRoute,
+    private imageService:ImageService,
     ) { }
 
   ngOnInit(): void {
@@ -75,6 +77,16 @@ export class SellerAddComponent implements OnInit {
         ()=>{}
       );
     }
+  }
+  imageInputChange(imageInput:any){
+    
+    /* this.link = this.imageService.uploadImage(imageInput.files[0]); */
+    this.imageService.upload(imageInput.files[0],'amr2').subscribe(
+      (res)=>{console.log(res)},
+      (err)=>{console.error(err)},
+      ()=>{}
+    )
+    
   }
   applySub()
   {
