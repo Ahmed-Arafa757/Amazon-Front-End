@@ -5,7 +5,7 @@ import { Seller } from '../_model/sellers';
   providedIn: 'root'
 })
 export class SellerAuthService {
-  sellers: Seller[] = []
+  seller: Seller[] = []
     
 
 
@@ -24,14 +24,21 @@ export class SellerAuthService {
     return this.httpClient.post(`${this.baseUrl}api/seller/facebook`,socialUser)
   }
   register(seller:Seller){
-    console.log(seller);
-   return this.httpClient.post(`${this.baseUrl}seller/register`,seller)
+    console.log("register"+ seller);
+   return this.httpClient.post(`${this.baseUrl}api/sellers/register`,seller)
   }
   login(seller:Seller){
     console.log(seller);
-    
-    return this.httpClient.post(`${this.baseUrl}seller/login`,{email:seller.email,password:seller.password})
+    return this.httpClient.post(`${this.baseUrl}api/sellers/login`,seller)
+    // .subscribe(
+    //   (seller)=>{console.log(seller)},
+    //   ()=>{},
+    //   ()=>{},
+    //      )
   }
+
+  
+
 //   checkPassword(seller:Seller):Boolean{
      
 //    let x= Boolean(seller.password !== seller.repeatedPassword) 
@@ -39,11 +46,10 @@ export class SellerAuthService {
 //    return x
 // }
 
-// getSellerByEmail(email): Seller {
 
-//   return this.sellers.find(p => p.email === email);
 
-// }
+
+
 
 // getSellerById(myid): Seller{
 
@@ -52,7 +58,7 @@ export class SellerAuthService {
 // }
 
 isAuthenticated():boolean{
-  if(localStorage.getItem('token')){
+  if(localStorage.getItem('sellerLoginStorage')){
     return true;
   }else{
     return false;

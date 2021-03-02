@@ -16,10 +16,9 @@ import { SocialUser } from 'angularx-social-login';
 })
 export class SellerLoginComponent implements OnInit {
   seller: Seller = {
-    sellerName: '',
+    sellerName:'',
     email: '',
     password: '',
-    repeatedPassword: '',
   };
   loggedInSeller: Seller;
   user: SocialUser;
@@ -29,33 +28,42 @@ export class SellerLoginComponent implements OnInit {
     private router: Router,
     private authService: SocialAuthService
   ) {}
-  ngOnInit(): void {}
+  ngOnInit(): void { }
+
+
   signInWithGoogle(): void {
-    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
-    this.authService.authState.subscribe((user) => {
-      this.user = user;
-      if (user && user.provider === 'GOOGLE') {
-        this.sellerAuthService.signInWithGoogle(user).subscribe(
-          (res: any) => {
-            if (res.length === 0) {
+    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID)
+    .then(
+      (user)=>{
+        this.user = user;
+        if (this.user && this.user.provider === 'GOOGLE') {
+          this.sellerAuthService.signInWithGoogle(this.user).subscribe(
+            (res: any) => {
+                    let mySellerName=res.seller.sellerName
+                    let myId=res.seller._id
+                    let myToken=res.token
+                    
+                    var sellerLoginStorage = {'_id': myId,'token':myToken};
+                     localStorage.setItem('sellerLoginStorage', JSON.stringify(sellerLoginStorage));
+                     this.router.navigate(['seller/home'], {
+                      queryParams: { sellerName:  mySellerName},
+                    });
+            },
+            (err) => {
               this.router.navigate(['seller/signup'], {
-                queryParams: { name: user.name, email: user.email },
-              });
-              console.log('Email Not Found');
-              this.signOut();
-            } else {
-              console.log(res);
-            }
-          },
-          (err) => {
-            console.error(err);
-          },
-          () => {}
-        );
+              queryParams: { name: user.name, email: user.email }})
+              }
+          )}else{
+            
+          }
       }
-      this.loggedIn = user != null;
-    });
-  }
+      )
+      .catch((err)=>{console.error(err);})
+    
+    }
+    
+    
+
 
   signInWithFB(): void {
     this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
@@ -84,27 +92,30 @@ export class SellerLoginComponent implements OnInit {
     });
   }
 
-  signOut(): void {
+  async signOut(){    
     this.authService.signOut();
   }
 
-  onLogin() {
-    // console.log('this.person', this.seller);
-    // this.loggedInSeller= this.sellerAuthService.getSellerByEmail(this.seller.email);
-    // console.log('this.loggedInUser',this.loggedInSeller);
-    // localStorage.setItem('_Id', this.loggedInSeller._Id);
-    // this.sellerAuthService.login(this.seller).subscribe(
-    //   (res) => {
-    //     // console.log(res['person']['id']);
-    //     localStorage.setItem('token', res['token']);
-    //     console.log(res);
-    //     this.router.navigate(['seller/home']);
-    //   },
-    //   (err) => {
-    //     console.log(err);
-    //   },
-    //   () => { },
-    // );
+   onLogin(mySeller) {
+   
+this.sellerAuthService.login(mySeller).subscribe(
+      (res:any)=>{
+        let mySellerName=res.seller.sellerName
+        let myId=res.seller._id
+        let myToken=res.token
+
+        var sellerLoginStorage = {'_id': myId, 'token':myToken};
+         localStorage.setItem('sellerLoginStorage', JSON.stringify(sellerLoginStorage));
+         this.router.navigate(['seller/home'], {
+          queryParams: { sellerName:  mySellerName},
+        });
+       
+         
+      },
+      (err)=>{console.log(err)},
+      () => {console.log() },
+      )
+    
   }
   showPassword() {
     var x = document.getElementById('password') as HTMLInputElement;

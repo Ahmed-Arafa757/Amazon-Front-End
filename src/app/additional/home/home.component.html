@@ -1,5 +1,5 @@
 <!-- Amr -->
-<div style="background-color: #eaeded">
+<div dir="auto" style="background-color: #eaeded">
   <section id="AH_home" class="position-relative container">
     <div id="AH_slider" class="position-absolute">
       <div id="AH_carousel" class="carousel slide" data-bs-ride="carousel">
@@ -73,60 +73,77 @@
       </div>
     </div>
     <div class="AH_layout"></div>
-    <div class="container">
+    <div dir="auto" class="container">
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3 p-3">
         <div class="col">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title AH_card-title">Gaming Accessories</h5>
+              <h5 class="card-title AH_card-title">
+                {{ "HOME.GAMING_ACCESSORIES" | translate }}
+              </h5>
               <a href=""
                 ><img
                   src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/May/Dashboard/Fuji_Dash_Gaming_1x._SY304_CB432517394_.jpg"
                   class="AH_card-img"
                   alt="Gaming Accessories"
               /></a>
-              <a class="AH_card-link" href="">Shop our full selection</a>
+              <a class="AH_card-link" href="">{{
+                "HOME.SHOP_OUR_FULL_SECETION" | translate
+              }}</a>
             </div>
           </div>
         </div>
         <div class="col">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title AH_card-title">Find your ideal TV</h5>
+              <h5 class="card-title AH_card-title">
+                {{ "HOME.FIND_YOUR_IDEAL_TV" | translate }}
+              </h5>
               <a href=""
                 ><img
                   src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/May/Dashboard/Fuji_Dash_TV_2X._SY304_CB432517900_.jpg"
                   class="AH_card-img"
                   alt="Find your ideal TV"
               /></a>
-              <a class="AH_card-link" href="">See more</a>
+              <a class="AH_card-link" href="">{{
+                "HOME.SEE_MORE" | translate
+              }}</a>
             </div>
           </div>
         </div>
         <div class="col">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title AH_card-title">Deals & Promotions</h5>
+              <h5 class="card-title AH_card-title">
+                {{ "HOME.DEALS_&_PROMOTIONS" | translate }}
+              </h5>
               <a href=""
                 ><img
                   src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/May/Dashboard/Fuji_Dash_Deals_1x._SY304_CB430401028_.jpg"
                   class="AH_card-img"
                   alt="Deals & Promotions"
               /></a>
-              <a class="AH_card-link" href="">Shop now</a>
+              <a class="AH_card-link" href="">{{
+                "HOME.SHOP_NOW" | translate
+              }}</a>
             </div>
           </div>
         </div>
         <div class="col">
           <div class="row row-cols-1 g-3">
             <div class="col">
-              <div  id="AH_home-signin" class="card">
-                <div  class="card-body">
+              <div id="AH_home-signin" class="card">
+                <div class="card-body">
                   <h5 class="card-title AH_card-title">
-                   
-                   {{SignedIn()? 'Hello, ' + loggedInUser : ' Sign in for the best experience'}}
+                    {{
+                      SignedIn()
+                        ? ("HEADER.HELLO" | translate) + loggedInUser
+                        : ("HOME.SIGN_IN_EXPRERIENCE" | translate)
+                    }}
                   </h5>
-                  <a *ngIf='SignedIn() === false' [routerLink]="['/login']">Sign in securely</a>
+                  <a *ngIf="SignedIn() === false" [routerLink]="['/login']">{{
+                    "HOME.SIGN_IN_SECURELY" | translate
+                  }}</a>
                 </div>
               </div>
             </div>
@@ -142,71 +159,85 @@
         <div class="col">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title AH_card-title">Shop top categories</h5>
+              <h5 class="card-title AH_card-title">
+                {{ "HOME.SHOP_TOP_CATEGORIES" | translate }}
+              </h5>
               <a [routerLink]="['/departments']"
                 ><img
                   src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2020/PrimeDay/Fuji_Dash_PD_Nonprime__1x._SY304_CB403084762_.jpg"
                   class="AH_card-img"
                   alt="Shop top categories"
               /></a>
-              <a class="AH_card-link" [routerLink]="['/departments']"
-                >See more</a
-              >
+              <a class="AH_card-link" [routerLink]="['/departments']">{{
+                "HOME.SEE_MORE" | translate
+              }}</a>
             </div>
           </div>
         </div>
         <div class="col">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title AH_card-title">Electronics</h5>
+              <h5 class="card-title AH_card-title">
+                {{ "HOME.ELECTRONICS" | translate }}
+              </h5>
               <a href=""
                 ><img
                   src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/May/Dashboard/Fuji_Dash_Electronics_1x._SY304_CB432774322_.jpg"
                   class="AH_card-img"
                   alt="Find your ideal TV"
               /></a>
-              <a class="AH_card-link" href="">See more</a>
+              <a class="AH_card-link" href="">{{
+                "HOME.SEE_MORE" | translate
+              }}</a>
             </div>
           </div>
         </div>
         <div class="col">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title AH_card-title">AmazonBasics</h5>
+              <h5 class="card-title AH_card-title">
+                {{ "HOME.AMAZON_BASICS" | translate }}
+              </h5>
               <a href=""
                 ><img
                   src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2019/July/amazonbasics_520x520._SY304_CB442725065_.jpg"
                   class="AH_card-img"
                   alt="AmazonBasics"
               /></a>
-              <a class="AH_card-link" href="">See more</a>
+              <a class="AH_card-link" href="">{{
+                "HOME.SEE_MORE" | translate
+              }}</a>
             </div>
           </div>
         </div>
         <div class="col">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title AH_card-title">Computers & Accessories</h5>
+              <h5 class="card-title AH_card-title">
+                {{ "HOME.COMPUTERS_&_ACCESSORIES" | translate }}
+              </h5>
               <a href=""
                 ><img
                   src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/May/Dashboard/Fuji_Dash_PC_1x._SY304_CB431800965_.jpg"
                   class="AH_card-img"
                   alt="Computers & Accessories"
               /></a>
-              <a class="AH_card-link" href="">Shop now</a>
+              <a class="AH_card-link" href="">{{
+                "HOME.SHOP_NOW" | translate
+              }}</a>
             </div>
           </div>
         </div>
       </div>
     </div>
     <!-- Arafa -->
-    <div>
+    <div dir="auto">
       <div class="row AA_productSlider m-4">
         <span id="AA_title"
-          >Discover Amazon
-          <a [routerLink]="['/discover-amazon']" id="AA_link"
-            >Click to learn more</a
-          >
+          >{{ "HOME.DISCOVER_AMAZON" | translate }}
+          <a [routerLink]="['/discover-amazon']" id="AA_link">{{
+            "HOME.CLICK_TO_LEARN_MORE" | translate
+          }}</a>
         </span>
 
         <ul class="AA_listInline px-0 mt-2" id="AA_discoverAmazonSpaces">
@@ -262,10 +293,10 @@
       </div>
       <div class="row AA_productSlider m-4">
         <span id="AA_title"
-          >Amazon Top Sellers
-          <a [routerLink]="['/product', 'listing']" id="AA_link"
-            >Shop now</a
-          ></span
+          >{{ "HOME.AMAZON_TOP_SELLERS" | translate }}
+          <a [routerLink]="['/product', 'listing']" id="AA_link">{{
+            "HOME.SHOP_NOW" | translate
+          }}</a></span
         >
 
         <ul class="AA_listInline px-0 mt-2">
@@ -434,8 +465,8 @@
       </div>
       <div class="row AA_productSlider m-4">
         <span id="AA_title"
-          >Top Beauty & Personal Care products
-          <a href="" id="AA_link">Shop now</a></span
+          >{{ "HOME.TOP_BEAUTY_&_PERSONAL_CARE_PRODUCTS" | translate }}
+          <a href="" id="AA_link">{{ "HOME.SHOP_NOW" | translate }}</a></span
         >
 
         <ul class="AA_listInline px-0 mt-2">
@@ -549,10 +580,12 @@
       </div>
     </div>
     <!-- Eltobshi -->
-    <div>
+    <div dir="auto">
       <div class="row m-4 tp-cards-group g-2">
         <div class="col-12 col-sm-3 tp-cards mt-2">
-          <span class="h5 my-2 fw-bold">Comfy styles for her</span>
+          <span class="h5 my-2 fw-bold">{{
+            "HOME.COMFY_STYLES_FOR_HER" | translate
+          }}</span>
           <div class="row mt-3">
             <div class="col-6">
               <img
@@ -561,7 +594,7 @@
                 class="tp-landscape-image"
                 data-a-hires="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/May/Dashboard/Fuji_Dash_WomenFashion_Sweatshirt_Quad_Cat_2x._SY232_CB418609084_.jpg"
               />
-              <div class="mt-2">Sweatshirts</div>
+              <div class="mt-2">{{ "HOME.SWEAT_SHIRTS" | translate }}</div>
             </div>
             <div class="col-6">
               <img
@@ -570,7 +603,7 @@
                 class="tp-landscape-image"
                 data-a-hires="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/May/Dashboard/Fuji_Dash_WomenFashion_Joggers_Quad_Cat_2x._SY232_CB418608748_.jpg"
               />
-              <div class="mt-2">Joggers</div>
+              <div class="mt-2">{{ "HOME.JOGGERS" | translate }}</div>
             </div>
           </div>
           <div class="row mt-3">
@@ -581,7 +614,7 @@
                 class="tp-landscape-image"
                 data-a-hires="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/May/Dashboard/Fuji_Dash_WomenFashion_Cardigans_Quad_Cat_2x._SY232_CB418608722_.jpg"
               />
-              <div class="mt-2">Cardigans</div>
+              <div class="mt-2">{{ "HOME.CARDIGANS" | translate }}</div>
             </div>
             <div class="col-6">
               <img
@@ -590,7 +623,7 @@
                 class="tp-landscape-image"
                 data-a-hires="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/May/Dashboard/Fuji_Dash_WomenFashion_Tees_Quad_Cat_2x._SY232_CB418608878_.jpg"
               />
-              <div class="mt-2">Easy tees</div>
+              <div class="mt-2">{{ "HOME.EASY_TEES" | translate }}</div>
             </div>
           </div>
           <div class="row">
@@ -599,12 +632,14 @@
               class="text-reset mt-2"
               style="width: initial"
               id="AA_link"
-              >See more</a
+              >{{ "HOME.SEE_MORE" | translate }}</a
             >
           </div>
         </div>
         <div class="col-12 col-sm-3 tp-cards mt-2">
-          <span class="h5 my-2 fw-bold">Shop Laptops & Tablets</span>
+          <span class="h5 my-2 fw-bold">{{
+            "HOME.SHOP_LAPTOPS_&_TABLETS" | translate
+          }}</span>
 
           <img
             alt="Shop Laptops &amp; Tablets"
@@ -618,12 +653,14 @@
               class="text-reset mt-2"
               style="width: initial"
               id="AA_link"
-              >See more</a
+              >{{ "HOME.SEE_MORE" | translate }}</a
             >
           </div>
         </div>
         <div class="col-12 col-sm-3 tp-cards mt-2">
-          <span class="h5 my-2 fw-bold">Explore home bedding</span>
+          <span class="h5 my-2 fw-bold">{{
+            "HOME.EXPLORE_HOME_BEDDING" | translate
+          }}</span>
 
           <img
             alt="Explore home bedding"
@@ -637,12 +674,14 @@
               class="text-reset mt-2"
               style="width: initial"
               id="AA_link"
-              >See more</a
+              >{{ "HOME.SEE_MORE" | translate }}</a
             >
           </div>
         </div>
         <div class="col-12 col-sm-3 tp-cards mt-2">
-          <span class="h5 my-2 fw-bold">Create with strip lights</span>
+          <span class="h5 my-2 fw-bold">{{
+            "HOME.CREATE_WITH_STRIP_LIGHTS" | translate
+          }}</span>
 
           <img
             alt="Create with strip lights"
@@ -656,7 +695,7 @@
               class="text-reset mt-2"
               style="width: initial"
               id="AA_link"
-              >See more</a
+              >{{ "HOME.SEE_MORE" | translate }}</a
             >
           </div>
         </div>
@@ -664,8 +703,8 @@
 
       <div class="row tp-product-slider m-4">
         <span id="AA_title"
-          >Gifts in Video Games under $30
-          <a href="" id="AA_link">Shop now</a></span
+          >{{ "HOME.GIFTS_IN_VIDEO_GAMES_UNDER" | translate }}
+          <a href="" id="AA_link">{{ "HOME.SHOP_NOW" | translate }}</a></span
         >
 
         <ul class="tp-list-inline px-0 mt-2">
@@ -790,8 +829,8 @@
       </div>
       <div class="row tp-product-slider m-4">
         <span id="AA_title"
-          >Stuffed Animals & Toys under $10
-          <a href="" id="AA_link">Shop now</a></span
+          >{{ "HOME.STUFFED_ANIMALS_&_TOYS_UNDER" | translate }}
+          <a href="" id="AA_link">{{ "HOME.SHOP_NOW" | translate }}</a></span
         >
 
         <ul class="tp-list-inline px-0 mt-2">
@@ -935,8 +974,8 @@
       </div>
       <div class="row tp-product-slider m-4">
         <span id="AA_title"
-          >Must have Wireless products
-          <a href="" id="AA_link">Shop now</a></span
+          >{{ "HOME.MUST_HAVE_WIRELESS_PRODUCTS" | translate }}
+          <a href="" id="AA_link">{{ "HOME.SHOP_NOW" | translate }}</a></span
         >
 
         <ul class="tp-list-inline px-0 mt-2">
@@ -1083,11 +1122,12 @@
 
   <!--  serety -->
 
-  <section>
+  <section dir="auto">
     <div class="container">
       <div class="row tp-product-slider m-4">
         <span id="AA_title"
-          >Best Sellers in Baby<a href="" id="AA_link">Shop now</a></span
+          >{{ "HOME.BEST_SELLERS_IN_BABY" | translate
+          }}<a href="" id="AA_link">{{ "HOME.SHOP_NOW" | translate }}</a></span
         >
 
         <ul class="tp-list-inline px-0 mt-2">
@@ -1233,7 +1273,8 @@
       </div>
       <div class="row tp-product-slider m-4">
         <span id="AA_title"
-          >Our favorite Toys<a href="" id="AA_link">Shop now</a></span
+          >{{ "HOME.OUR_FAVORITE_TOYS" | translate
+          }}<a href="" id="AA_link">{{ "HOME.SHOP_NOW" | translate }}</a></span
         >
 
         <ul class="tp-list-inline px-0 mt-2">
@@ -1381,13 +1422,16 @@
   <section class="container-fluid py-5 px-0">
     <div class="splide bg-white">
       <div
+        dir="auto"
         class="m-0 p-0 d-flex flex-column justify-content-center align-items-center"
       >
         <hr class="mt-5 mb-3 bg-secondary w-100" />
-        <h5 class="mx-3">Best sellers in Kindle eBooks</h5>
-        <button *ngIf='SignedIn() === false' class="a-button mb-4">
+        <h5 class="mx-3">
+          {{ "HOME.BEST_SELLERS_IN_KINDLE_EBOOKS" | translate }}
+        </h5>
+        <button *ngIf="SignedIn() === false" class="a-button mb-4">
           <a [routerLink]="['/login']" class="text-decoration-none">
-            Sign in to see personalized recommendations</a
+            {{ "HOME.SIGN_IN_PERSONALIZED" | translate }}</a
           >
         </button>
       </div>
