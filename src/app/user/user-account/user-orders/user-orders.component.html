@@ -1,0 +1,134 @@
+<div class="container my-4" style="max-width: 700px">
+  <h3>Your Orders</h3>
+  <ul class="nav nav-tabs mt-3" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button
+        (click)="switchOrders(allOrder)"
+        #allOrder
+        name="allOrders"
+        class="nav-link active"
+        id="allOrders-tab"
+        data-bs-toggle="tab"
+        data-bs-target="#allOrders"
+        type="button"
+        role="tab"
+        aria-controls="allOrders"
+        aria-selected="true"
+      >
+        All orders
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button
+        (click)="switchOrders(currentOrder)"
+        #currentOrder
+        name="currentOrders"
+        class="nav-link"
+        id="currentOrders-tab"
+        data-bs-toggle="tab"
+        data-bs-target="#currentOrders"
+        type="button"
+        role="tab"
+        aria-controls="currentOrders"
+        aria-selected="false"
+      >
+        Current Orders
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button
+        (click)="switchOrders(previousOrder)"
+        #previousOrder
+        name="previousOrders"
+        class="nav-link"
+        id="previousOrders-tab"
+        data-bs-toggle="tab"
+        data-bs-target="#previousOrders"
+        type="button"
+        role="tab"
+        aria-controls="previousOrders"
+        aria-selected="false"
+      >
+        Previous Orders
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button
+        (click)="switchOrders(cancelledOrder)"
+        #cancelledOrder
+        name="cancelledOrders"
+        class="nav-link"
+        id="cancelledOrders-tab"
+        data-bs-toggle="tab"
+        data-bs-target="#cancelledOrders"
+        type="button"
+        role="tab"
+        aria-controls="cancelledOrders"
+        aria-selected="false"
+      >
+        Cancelled Orders
+      </button>
+    </li>
+  </ul>
+
+  <div class="tab-content" id="myTabContent">
+    <div *ngIf="allOrders.length <= 0" class="d-flex align-items-center mt-5">
+      <strong>Loading...</strong>
+      <div
+        class="spinner-border ms-auto"
+        role="status"
+        aria-hidden="true"
+      ></div>
+    </div>
+
+    <div
+      class="tab-pane fade show active"
+      id="allOrders"
+      role="tabpanel"
+      aria-labelledby="allOrders-tab"
+    >
+      <div class="row my-5">
+        <div
+          *ngFor="let order of displayedOrders"
+          class="col-md-12 d-flex justify-content-center mb-3"
+        >
+          <div class="card" style="width: 650px">
+            <div class="card-header">
+              <div class="row">
+                <div class="col-md-4">
+                  <p>Order Placed</p>
+                  <p>{{ order.orderDate }}</p>
+                </div>
+                <div class="col-md-4">
+                  <p>Total</p>
+                  <p>EGP {{ order.orderPrice }}</p>
+                </div>
+                <div class="col-md-4">
+                  <p>Order# {{ order._id }}</p>
+                  <p>Order Status: {{ order.orderStatus }}</p>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <div *ngFor="let item of order.orderItems">
+                <h5 class="card-title">
+                  {{ item.name }}
+                </h5>
+                <p class="card-text">
+                  Unit Price: EGP {{ item.unit_amount.value }} <br />
+                  Quantity: {{ item.quantity }}
+                </p>
+              </div>
+              <div *ngIf="order.orderStatus === 'Pending'">
+                <hr />
+                <button (click)="cancelUserOrder(order)" class="btn btn-danger">
+                  Cancel Order
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

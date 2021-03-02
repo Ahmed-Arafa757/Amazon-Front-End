@@ -144,19 +144,27 @@
             *ngIf="editMode === false"
             (click)="onSubmit(reviewForm)"
             type="submit"
-            class="btn btn-secondary"
+            class="btn"
             [disabled]="reviewForm.invalid"
           >
-            Submit Review
+            <i class="fas fa-pen"></i> Submit Review
           </button>
           <button
             *ngIf="editMode === true"
             (click)="onSubmit(reviewForm)"
             type="submit"
-            class="btn btn-secondary"
+            class="btn me-2"
             [disabled]="reviewForm.invalid"
           >
-            Edit Review
+            <i class="fas fa-edit"></i> Edit & Submit Review
+          </button>
+          <button
+            *ngIf="editMode === true"
+            (click)="onCancelEdit(reviewForm)"
+            type="submit"
+            class="btn"
+          >
+            <i class="fas fa-window-close"></i> Cancel Edit
           </button>
         </div>
       </form>
@@ -174,15 +182,12 @@
             <span class="ms-2">{{ review.reviewSummary }}</span>
             <p>Reviewed on {{ review.reviewTime }}</p>
             <p>{{ review.fullReview }}</p>
-            <div *ngIf="review.reviewerID === 'sdf531sd3f6'">
-              <button
-                class="btn btn-secondary me-2"
-                (click)="onEdit(review._id)"
-              >
-                Edit
+            <div *ngIf="review.reviewerID === user._id">
+              <button class="btn me-2" (click)="onEdit(review._id)">
+                <i class="fas fa-unlock-alt"></i> Edit
               </button>
-              <button class="btn btn-danger" (click)="onDelete(review._id)">
-                Delete
+              <button class="btn" (click)="onDelete(review._id)">
+                <i class="fas fa-eraser"></i> Delete
               </button>
             </div>
             <!-- <p>{{ review.helpful }} people found this helpful</p> -->

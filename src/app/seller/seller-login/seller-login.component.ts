@@ -16,6 +16,7 @@ import { SocialUser } from 'angularx-social-login';
 })
 export class SellerLoginComponent implements OnInit {
   seller: Seller = {
+    sellerName:'',
     email: '',
     password: '',
   };
@@ -38,26 +39,23 @@ export class SellerLoginComponent implements OnInit {
         if (this.user && this.user.provider === 'GOOGLE') {
           this.sellerAuthService.signInWithGoogle(this.user).subscribe(
             (res: any) => {
-              if(res.provider==="GOOGLE"){
-                console.log(res)
-              }else{
-                console.error("provider no match");
-              }
-              // this.loggedIn = (user != null);
+                    let mySellerName=res.seller.sellerName
+                    let myId=res.seller._id
+                    let myToken=res.token
+                    
+                    var sellerLoginStorage = {'_id': myId,'token':myToken};
+                     localStorage.setItem('sellerLoginStorage', JSON.stringify(sellerLoginStorage));
+                     this.router.navigate(['seller/home'], {
+                      queryParams: { sellerName:  mySellerName},
+                    });
             },
             (err) => {
-              if (err.error === "Email Not Found") {
-                console.error("Email Not Found");
-                this.router.navigate(['seller/signup'], {
-                  queryParams: { name: this.user.name, email: this.user.email, provider: this.user.provider},
-                });
-               
-              } else {
-                console.error(err);
+              this.router.navigate(['seller/signup'], {
+              queryParams: { name: user.name, email: user.email }})
               }
-            },
-            () => {}
-          );}
+          )}else{
+            
+          }
       }
       )
       .catch((err)=>{console.error(err);})
@@ -100,16 +98,17 @@ export class SellerLoginComponent implements OnInit {
 
    onLogin(mySeller) {
    
-this.sellerAuthService.getSellerByEmail(mySeller).subscribe(
+this.sellerAuthService.login(mySeller).subscribe(
       (res:any)=>{
-        let exp=new Date().getTime()+36000 
-        let myEmail=res.seller.email
+        let mySellerName=res.seller.sellerName
         let myId=res.seller._id
         let myToken=res.token
-        console.log(myEmail,exp,myId)
-        var sellerLoginStorage = { 'email': myEmail, '_id': myId, 'timeExpiry': exp,'token':myToken};
+
+        var sellerLoginStorage = {'_id': myId, 'token':myToken};
          localStorage.setItem('sellerLoginStorage', JSON.stringify(sellerLoginStorage));
-         this.router.navigate(['seller/home']);
+         this.router.navigate(['seller/home'], {
+          queryParams: { sellerName:  mySellerName},
+        });
        
          
       },

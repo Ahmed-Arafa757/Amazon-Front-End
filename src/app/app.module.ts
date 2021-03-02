@@ -36,14 +36,28 @@ import { SellerLoginComponent } from './seller/seller-login/seller-login.compone
 import { SellerHomeComponent } from './seller/seller-home/seller-home.component';
 import { SellerAddComponent } from './seller/seller-add/seller-add.component';
 import { SellerRegisterComponent } from './seller/seller-register/seller-register.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { PlaceOrderComponent } from './additional/place-order/place-order.component';
+import { ResetpasswordComponent } from './auth/resetpassword/resetpassword.component';
 
 //social login
-import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
-import {GoogleLoginProvider,FacebookLoginProvider} from 'angularx-social-login';
+import {
+  SocialLoginModule,
+  SocialAuthServiceConfig,
+} from 'angularx-social-login';
+import {
+  GoogleLoginProvider,
+  FacebookLoginProvider,
+} from 'angularx-social-login';
+import { UserAccountComponent } from './user/user-account/user-account.component';
+import { UserOrdersComponent } from './user/user-account/user-orders/user-orders.component';
+import { UserLoginSecurityComponent } from './user/user-account/user-login-security/user-login-security.component';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
-
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, '../assets/i18n/', '.json');
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,6 +87,10 @@ import {GoogleLoginProvider,FacebookLoginProvider} from 'angularx-social-login';
     SellerAddComponent,
     SellerRegisterComponent,
     PlaceOrderComponent,
+    ResetpasswordComponent,
+    UserAccountComponent,
+    UserOrdersComponent,
+    UserLoginSecurityComponent,
   ],
   imports: [
     BrowserModule,
@@ -80,33 +98,45 @@ import {GoogleLoginProvider,FacebookLoginProvider} from 'angularx-social-login';
     FormsModule,
     CustomAppRoutingModule,
     HttpClientModule,
-    SocialLoginModule
+    SocialLoginModule,
+    TranslateModule.forRoot({
+      defaultLanguage: 'en',
+      loader: {
+        provide: TranslateLoader,
+        useFactory: createTranslateLoader,
+        deps: [HttpClient],
+      },
+    }),
   ],
   providers: [
     ReviewsService,
-     PaymentMethodsService, 
-     ProductService,
+    PaymentMethodsService,
+    ProductService,
     {
-    provide: 'SocialAuthServiceConfig',
-    useValue: {
-      autoLogin: false,
-      providers: [
-        {
-          id: GoogleLoginProvider.PROVIDER_ID,
-          provider: new GoogleLoginProvider('743289630383-4umh6dlkrkutrllclka0c3gopfjj4jft.apps.googleusercontent.com')
-        },
-        {
-          id: FacebookLoginProvider.PROVIDER_ID,
-          provider: new FacebookLoginProvider('76756941c5bbe9a9bc952b4264fa41ea')
-        },
-        {
-          id: FacebookLoginProvider.PROVIDER_ID,
-          provider: new FacebookLoginProvider('762163237736895')
-        }
-      ]
-    } as SocialAuthServiceConfig,
-  }
-],
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              '743289630383-4umh6dlkrkutrllclka0c3gopfjj4jft.apps.googleusercontent.com'
+            ),
+          },
+          {
+            id: FacebookLoginProvider.PROVIDER_ID,
+            provider: new FacebookLoginProvider(
+              '76756941c5bbe9a9bc952b4264fa41ea'
+            ),
+          },
+          {
+            id: FacebookLoginProvider.PROVIDER_ID,
+            provider: new FacebookLoginProvider('762163237736895'),
+          },
+        ],
+      } as SocialAuthServiceConfig,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

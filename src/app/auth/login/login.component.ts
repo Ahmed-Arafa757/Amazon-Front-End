@@ -22,9 +22,10 @@ import { SocialUser } from 'angularx-social-login';
   providedIn: 'root'
 })
 export class LoginComponent implements OnInit {
+
   user: User = { email: '', password: ''};
   // loggedInUser;
-  userLoggedIn = new EventEmitter<User>(); 
+  errorText='' ;
 
   constructor(private authService: AuthService,
     private router: Router,
@@ -117,10 +118,13 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('user email', res['userEmail']);
         console.log('res on login',res);
        
+       
         this.router.navigate(['/home']);
       },
       (err) => {
-        console.log(err);
+        
+        console.log('err', err['error']);
+        this.errorText = err['error'];
       },
       () => { },
     );
