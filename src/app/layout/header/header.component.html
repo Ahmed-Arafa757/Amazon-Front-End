@@ -243,7 +243,7 @@
         </li>
 
         <li class="nav-item dropdown">
-          <!--           <a class="nav-link dropdown-toggle text-white" href="" id="navbarDropdown" role="button"
+                    <!-- <a class="nav-link dropdown-toggle text-white" href="" id="navbarDropdown" role="button"
             data-bs-toggle="dropdown" aria-expanded="false">
             <span>{{SignedIn()? 'Hello, ' + loggedInUser : 'Hello, Sign in'}}</span>
             Account & Lists
@@ -258,14 +258,8 @@
               <br />
               <span class="my-1">New customer? <a [routerLink]="['/register']"> Start here. </a>
               </span>
-            </li>
-            <li *ngIf='SignedIn() === true' class="text-center MM_SignIn">
-              <a [routerLink]="['/home']" (click)='logout()'><button type="button" class="btn bg-gradient">
-                  Logout
-                </button>
-              </a>
-            </li>
-            <li> -->
+            </li> -->
+           
 
           <a
             class="nav-link dropdown-toggle text-white"
@@ -298,6 +292,14 @@
                 </a>
               </span>
             </li>
+             <li *ngIf='SignedIn() === true' class="text-center MM_SignIn">
+               <a [routerLink]="['/home']" (click)='logout()'><button type="button" class="btn bg-gradient">
+                   {{ "HEADER.LOGOUT" | translate }}
+                 </button>
+               </a>
+             </li>
+             <li>
+
             <!-- <li>
 
               <hr class="dropdown-divider" />
@@ -609,6 +611,7 @@
           <a
             class="dropdown-toggle nav-link AH_link"
             href="#"
+            *ngIf='SignedIn()===false'
             id="dropdownMenuLink"
             data-bs-toggle="dropdown"
             aria-expanded="false"

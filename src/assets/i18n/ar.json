@@ -16,7 +16,8 @@
     "CUSTOMER_SERVICE": "خدمة العملاء",
     "GITFT_CARDS": "بطاقات الهدايا",
     "SELL": "باع",
-    "REGISTRY": "التسجيل"
+    "REGISTRY": "التسجيل",
+    "LOGOUT" : "تسجيل الخروج"
   },
   "HOME": {
     "GAMING_ACCESSORIES": "اكسسوارات الألعاب",
