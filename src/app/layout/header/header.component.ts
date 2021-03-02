@@ -58,12 +58,19 @@ export class HeaderComponent implements OnInit {
     );
 
     console.log('header on init');
+
   }
+
+
+
+  toggle(input) {
+    if (input.id === 'english-lang') {
 
   changeCurrentLanguage(lang: string) {
     this.translate.use(lang);
     localStorage.setItem('currentLang', lang);
     if (lang === 'en') {
+
       this.langFlag = '../../../assets/images/icons/english.png';
     } else {
       this.langFlag = '../../../assets/images/icons/arabic.png';
@@ -71,17 +78,36 @@ export class HeaderComponent implements OnInit {
   }
 
   SignedIn() {
-    if (
-      localStorage.hasOwnProperty('token') &&
-      localStorage.hasOwnProperty('user email')
-    ) {
-      this.loggedInUser = localStorage.getItem('user email').split('@')[0];
-      // console.log(this.loggedInUser);
-      this.isLogged = true;
+
+
+    if (localStorage.hasOwnProperty("token") && localStorage.hasOwnProperty("user email")) {
+     
+
+        this.loggedInUser = localStorage.getItem('user email').split('@')[0];
+        // console.log(this.loggedInUser);
+
+
+//     if (
+//       localStorage.hasOwnProperty('token') &&
+//       localStorage.hasOwnProperty('user email')
+//     ) {
+//       this.loggedInUser = localStorage.getItem('user email').split('@')[0];
+//       // console.log(this.loggedInUser);
+//       this.isLogged = true;
+
       return true;
     } else {
       this.isLogged = false;
       return false;
     }
+
+
+
+  }
+  logout() {
+    localStorage.removeItem('user email');
+    localStorage.removeItem('token');
+
+
   }
 }

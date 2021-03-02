@@ -33,16 +33,20 @@ export class HomeComponent implements OnInit {
   }
 
   SignedIn() {
-    if (
-      localStorage.hasOwnProperty('token') &&
-      localStorage.hasOwnProperty('user email')
-    ) {
+
+
+    if (localStorage.hasOwnProperty("token") && localStorage.hasOwnProperty("user email")) {
+
+
       this.loggedInUser = localStorage.getItem('user email').split('@')[0];
-      console.log(this.loggedInUser);
+      // console.log(this.loggedInUser);
+
+
 
       return true;
     } else {
       return false;
     }
+
   }
 }

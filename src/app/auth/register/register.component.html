@@ -20,13 +20,17 @@
                 <div>
 
                   <label for="name" class="form-label fw-bold">Your name </label>
-                  <input type="text" class="form-control mb-3" id="name" />
+                   <input required minlength="5" type="text" class="form-control mb-3" id="name"
+                     [(ngModel)]='user.userName'
+                     #name='ngModel'
+                     name="name" />
                 </div>
 
                 <div [ngClass]='{"invalid" : email.invalid && email.touched}'>
 
                   <label for="email" class="form-label fw-bold">Email </label>
-                  <input required minlength="10" maxlength="30" [(ngModel)]='user.email' #email='ngModel' required
+                  <input required minlength="10" maxlength="30" [(ngModel)]='user.email' #email='ngModel' 
+                  pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
                     type="email" class="form-control mb-3"
                     id="email" name="email" />
                 </div>
@@ -63,10 +67,16 @@
 
               </div>
 
-              <button type="submit" class="btn bg-gradient col-12 mb-3" (click)='onRegister()'>
+              <button type="submit" [ngClass]="{'disabled': password.invalid || email.invalid || name.invalid || re.invalid 
+            || re.value !== password.value}"
+               class="btn bg-gradient col-12 mb-3" (click)='onRegister()' >
                 Create your Amazon account
               </button>
             </form>
+         
+              <div *ngIf='errorText !== "" ' class="alert alert-danger" role="alert">
+                {{errorText}}
+              </div>
             <span>
               By continuing, you agree to Amazon's
               <a href="#">Conditions of Use</a> and
