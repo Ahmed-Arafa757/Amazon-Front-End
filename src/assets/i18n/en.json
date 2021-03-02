@@ -16,9 +16,16 @@
     "CUSTOMER_SERVICE": "Customer Service",
     "GITFT_CARDS": "Gift Cards",
     "SELL": "Sell",
-    "REGISTRY": "Registry",
+    "REGISTER": "Register",
     "LOGOUT": "Logout",
     "ACCOUNT": "Account",
+    "BECOME_SELLER": "Become an Amazon seller?",
+    "ALREADY_SELLER": "Already an Amazon seller?",
+    "LOGIN": "Login",
+    "SELLER_CENTRAL": "Seller central",
+    "VIEW_ITEMS": "View Items",
+    "ADD_PRODUCT": "Add Product",
+    "ADD": "Add",
     "ALL_DEPARTMENTS": "All Departments",
     "ARTS_&_CRAFTS": "Arts & Crafts",
     "AUTOMOTIVE": "Automotive",
@@ -49,7 +56,7 @@
     "VIDEO_GAMES": "Video Games"
   },
   "HOME": {
-    "GAMING_ACCESSORIES": "Gaming Accessories",
+    "ALL_PRODUCTS": "All Products",
     "FIND_YOUR_IDEAL_TV": "Find your ideal TV",
     "DEALS_&_PROMOTIONS": "Deals & Promotions",
     "SHOP_OUR_FULL_SECETION": "Shop our full selection",
@@ -83,5 +90,23 @@
   },
   "SELLER": {
     "GET_STARTED_SELLING": "Get started selling on Amazon"
+  },
+  "REVIEWS": {
+    "CUSTOMER_REVIEWS": "Customer reviews",
+    "OUT_OF": "out of",
+    "OVERALL_RATINGS": "Overall ratings",
+    "STAR": "star",
+    "WRITE_SUMMARY": "Write Summary",
+    "WRITE_REVIEW": "Write Review",
+    "FIELD_REQUIRED": "This field is required",
+    "SUBMIT_REVIEW": "Submit Review",
+    "CHOOSE_RATE": "Choose Rate Between 0 & 5",
+    "REVIEW_SUBMITTED": "Thank you, Your review has been submitted!",
+    "EDIT_SUBMIT_REVIEW": "Edit & Submit Review",
+    "CANCEL_EDIT": "Cancel Edit",
+    "LATEST_REVIEWS": "Latest reviews",
+    "REVIEWED_ON": "Reviewed on",
+    "EDIT": "Edit",
+    "DELETE": "Delete"
   }
 }

@@ -1,9 +1,11 @@
-<div class="container my-5">
+<div dir="auto" class="container my-5">
   <div class="row">
     <div class="col-lg-4">
       <div class="card border-0">
         <div class="card-body">
-          <h5 class="card-title">Customer reviews</h5>
+          <h5 class="card-title">
+            {{ "REVIEWS.CUSTOMER_REVIEWS" | translate }}
+          </h5>
           <div>
             <a href="#">
               <i class="fas fa-star"></i>
@@ -12,10 +14,14 @@
               <i class="fas fa-star"></i>
               <i class="far fa-star"></i>
             </a>
-            <span class="ms-1 fw-bold">4 out of 5</span>
+            <span class="ms-1 fw-bold"
+              >4 {{ "REVIEWS.OUT_OF" | translate }} 5</span
+            >
           </div>
-          <p *ngIf="reviews?.length > 0">{{ reviews.length }} global ratings</p>
-          5 star
+          <p *ngIf="reviews?.length > 0">
+            {{ reviews.length }} {{ "REVIEWS.OVERALL_RATINGS" | translate }}
+          </p>
+          5 {{ "REVIEWS.STAR" | translate }}
           <div class="progress mb-2">
             <div
               class="progress-bar bg-warning"
@@ -26,7 +32,7 @@
               aria-valuemax="100"
             ></div>
           </div>
-          4 star
+          4 {{ "REVIEWS.STAR" | translate }}
           <div class="progress mb-2">
             <div
               class="progress-bar bg-warning"
@@ -37,7 +43,7 @@
               aria-valuemax="100"
             ></div>
           </div>
-          3 star
+          3 {{ "REVIEWS.STAR" | translate }}
           <div class="progress mb-2">
             <div
               class="progress-bar bg-warning"
@@ -48,7 +54,7 @@
               aria-valuemax="100"
             ></div>
           </div>
-          2 star
+          2 {{ "REVIEWS.STAR" | translate }}
           <div class="progress mb-2">
             <div
               class="progress-bar bg-warning"
@@ -59,7 +65,7 @@
               aria-valuemax="100"
             ></div>
           </div>
-          1 star
+          1 {{ "REVIEWS.STAR" | translate }}
           <div class="progress mb-2">
             <div
               class="progress-bar bg-warning"
@@ -74,13 +80,13 @@
     </div>
     <div class="col-lg-8">
       <h4 *ngIf="hasBeenSubmitted" class="mb-3">
-        Thank you, Your review has been submitted!
+        {{ "REVIEWS.REVIEW_SUBMITTED" | translate }}
       </h4>
       <form #reviewForm="ngForm" class="row g-3">
         <div class="col-12">
-          <label for="exampleFormControlInput1" class="form-label"
-            >Write Summary:</label
-          >
+          <label for="exampleFormControlInput1" class="form-label">
+            {{ "REVIEWS.WRITE_SUMMARY" | translate }}
+          </label>
           <input
             required
             #txtInputSummary="ngModel"
@@ -94,14 +100,14 @@
             *ngIf="txtInputSummary.invalid && txtInputSummary.touched"
             style="color: red"
           >
-            This field is required
+            {{ "REVIEWS.FIELD_REQUIRED" | translate }}
           </p>
         </div>
 
         <div class="col-12">
-          <label for="exampleFormControlTextarea1" class="form-label"
-            >Write Review:</label
-          >
+          <label for="exampleFormControlTextarea1" class="form-label">
+            {{ "REVIEWS.WRITE_REVIEW" | translate }}
+          </label>
           <textarea
             required
             #txtInputReview="ngModel"
@@ -115,14 +121,14 @@
             *ngIf="txtInputReview.invalid && txtInputReview.touched"
             style="color: red"
           >
-            This field is required
+            {{ "REVIEWS.FIELD_REQUIRED" | translate }}
           </p>
         </div>
 
         <div class="col-12">
-          <label for="exampleFormControlInput1" class="form-label"
-            >Choose Rate Between 0 & 5</label
-          >
+          <label for="exampleFormControlInput1" class="form-label">
+            {{ "REVIEWS.CHOOSE_RATE" | translate }}
+          </label>
           <select
             [(ngModel)]="addReview.reviewVote"
             class="form-control w-25"
@@ -147,16 +153,18 @@
             class="btn"
             [disabled]="reviewForm.invalid"
           >
-            <i class="fas fa-pen"></i> Submit Review
+            <i class="fas fa-pen"></i>
+            {{ "REVIEWS.SUBMIT_REVIEW" | translate }}
           </button>
           <button
             *ngIf="editMode === true"
             (click)="onSubmit(reviewForm)"
             type="submit"
-            class="btn me-2"
+            class="btn me-2 ms-2"
             [disabled]="reviewForm.invalid"
           >
-            <i class="fas fa-edit"></i> Edit & Submit Review
+            <i class="fas fa-edit"></i>
+            {{ "REVIEWS.EDIT_SUBMIT_REVIEW" | translate }}
           </button>
           <button
             *ngIf="editMode === true"
@@ -164,30 +172,38 @@
             type="submit"
             class="btn"
           >
-            <i class="fas fa-window-close"></i> Cancel Edit
+            <i class="fas fa-window-close"></i>
+            {{ "REVIEWS.CANCEL_EDIT" | translate }}
           </button>
         </div>
       </form>
 
       <hr />
 
-      <h4 class="my-3">Latest reviews</h4>
+      <h4 class="my-3">
+        {{ "REVIEWS.LATEST_REVIEWS" | translate }}
+      </h4>
 
       <div *ngIf="reviews?.length > 0">
         <div class="media border p-3 mb-3" *ngFor="let review of reviews">
           <i class="far fa-user"></i>
-          <span class="ms-2">{{ review.reviewerName }}</span>
+          <span class="ms-2 me-2">{{ review.reviewerName }}</span>
           <div class="media-body">
             <i *ngFor="let star of review.stars" [class]="iconClass[star]"></i>
-            <span class="ms-2">{{ review.reviewSummary }}</span>
-            <p>Reviewed on {{ review.reviewTime }}</p>
+            <span class="ms-2 me-2">{{ review.reviewSummary }}</span>
+            <p>
+              {{ "REVIEWS.REVIEWED_ON" | translate }}
+              {{ review.reviewTime }}
+            </p>
             <p>{{ review.fullReview }}</p>
             <div *ngIf="review.reviewerID === user._id">
-              <button class="btn me-2" (click)="onEdit(review._id)">
-                <i class="fas fa-unlock-alt"></i> Edit
+              <button class="btn me-2 ms-2" (click)="onEdit(review._id)">
+                <i class="fas fa-unlock-alt"></i>
+                {{ "REVIEWS.EDIT" | translate }}
               </button>
               <button class="btn" (click)="onDelete(review._id)">
-                <i class="fas fa-eraser"></i> Delete
+                <i class="fas fa-eraser"></i>
+                {{ "REVIEWS.DELETE" | translate }}
               </button>
             </div>
             <!-- <p>{{ review.helpful }} people found this helpful</p> -->

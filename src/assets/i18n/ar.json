@@ -15,10 +15,17 @@
     "TODAYS_DEALS": "صفقات اليوم",
     "CUSTOMER_SERVICE": "خدمة العملاء",
     "GITFT_CARDS": "بطاقات الهدايا",
-    "SELL": "باع",
-    "REGISTRY": "التسجيل",
+    "SELL": "ابدأ البيع",
+    "REGISTER": "سجل",
     "LOGOUT": "تسجيل الخروج",
     "ACCOUNT": "الحساب",
+    "BECOME_SELLER": "كن بائع لدي أمازون؟",
+    "ALREADY_SELLER": "بالفعل بائع لدى أمازون؟",
+    "LOGIN": "سجل دخول",
+    "SELLER_CENTRAL": "مركز البائع الرئيسي",
+    "VIEW_ITEMS": "عرض البضائع",
+    "ADD_PRODUCT": "أضف منتج",
+    "ADD": "إضافة",
     "ALL_DEPARTMENTS": "جميع الأقسام",
     "ARTS_&_CRAFTS": "الفنون والحرف اليدوية",
     "AUTOMOTIVE": "السيارات",
@@ -49,7 +56,7 @@
     "VIDEO_GAMES": "ألعاب الفيديو"
   },
   "HOME": {
-    "GAMING_ACCESSORIES": "اكسسوارات الألعاب",
+    "ALL_PRODUCTS": "جميع المنتجات",
     "FIND_YOUR_IDEAL_TV": "اعثر على تلفزيونك المثالي",
     "DEALS_&_PROMOTIONS": "الصفقات والعروض",
     "SHOP_OUR_FULL_SECETION": "تسوق مجموعتنا الكاملة",
@@ -83,5 +90,23 @@
   },
   "SELLER": {
     "GET_STARTED_SELLING": "ابدأ البيع على أمازون"
+  },
+  "REVIEWS": {
+    "CUSTOMER_REVIEWS": "آراء العملاء",
+    "OUT_OF": "من",
+    "OVERALL_RATINGS": "اجمالي التقييمات",
+    "STAR": "نجمة",
+    "WRITE_SUMMARY": "كتابة ملخص المراجعة",
+    "WRITE_REVIEW": "كتابة المراجعة",
+    "FIELD_REQUIRED": "هذه الخانة مطلوبة",
+    "SUBMIT_REVIEW": "اضافة المراجعة",
+    "CHOOSE_RATE": "اختار التقييم بين 0 و 5",
+    "REVIEW_SUBMITTED": "شكرا لك، لقد تم اضافة المراجعة!",
+    "EDIT_SUBMIT_REVIEW": "تعديل و اضافة المراجعة",
+    "CANCEL_EDIT": "الغاء التعديل",
+    "LATEST_REVIEWS": "احدث المراجعات",
+    "REVIEWED_ON": "تمت المراجعة في",
+    "EDIT": "تعديل",
+    "DELETE": "حذف"
   }
 }

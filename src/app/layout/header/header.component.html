@@ -122,56 +122,70 @@
                 {{ "HEADER.BOOKS" | translate }}
               </option>
               <option value="search-alias=computers-intl-ship">
-                Computers
+                {{ "HEADER.COMPUTERS" | translate }}
               </option>
-              <option value="search-alias=digital-music">Digital Music</option>
+              <option value="search-alias=digital-music">
+                {{ "HEADER.DIGITAL_MUSIC" | translate }}
+              </option>
               <option value="search-alias=electronics-intl-ship">
-                Electronics
+                {{ "HEADER.ELECTRONICS" | translate }}
               </option>
-              <option value="search-alias=digital-text">Kindle Store</option>
-              <option value="search-alias=instant-video">Prime Video</option>
+              <option value="search-alias=digital-text">
+                {{ "HEADER.KINDLE_STORE" | translate }}
+              </option>
+              <option value="search-alias=instant-video">
+                {{ "HEADER.PRIME_VIDEO" | translate }}
+              </option>
               <option value="search-alias=fashion-womens-intl-ship">
-                Women's Fashion
+                {{ "HEADER.WOMENS_FASHION" | translate }}
               </option>
               <option value="search-alias=fashion-mens-intl-ship">
-                Men's Fashion
+                {{ "HEADER.MENS_FASHION" | translate }}
               </option>
               <option value="search-alias=fashion-girls-intl-ship">
-                Girls' Fashion
+                {{ "HEADER.GIRLS_FASHION" | translate }}
               </option>
               <option value="search-alias=fashion-boys-intl-ship">
-                Boys' Fashion
+                {{ "HEADER.BOYS_FASHION" | translate }}
               </option>
-              <option value="search-alias=deals-intl-ship">Deals</option>
+              <option value="search-alias=deals-intl-ship">
+                {{ "HEADER.DEALS" | translate }}
+              </option>
               <option value="search-alias=hpc-intl-ship">
-                Health & Household
+                {{ "HEADER.HEALTH_&_HOUSEHOLD" | translate }}
               </option>
               <option value="search-alias=kitchen-intl-ship">
-                Home & Kitchen
+                {{ "HEADER.HOME_&_KITCHEN" | translate }}
               </option>
               <option value="search-alias=industrial-intl-ship">
-                Industrial & Scientific
+                {{ "HEADER.INDUSTRIAL_&_SCIENTIFIC" | translate }}
               </option>
-              <option value="search-alias=luggage-intl-ship">Luggage</option>
+              <option value="search-alias=luggage-intl-ship">
+                {{ "HEADER.LUGGAGE" | translate }}
+              </option>
               <option value="search-alias=movies-tv-intl-ship">
-                Movies & TV
+                {{ "HEADER.MOVIES_&_TV" | translate }}
               </option>
               <option value="search-alias=music-intl-ship">
-                Music, CDs & Vinyl
+                {{ "HEADER.MUSIC_CDS_&_VINYL" | translate }}
               </option>
-              <option value="search-alias=pets-intl-ship">Pet Supplies</option>
-              <option value="search-alias=software-intl-ship">Software</option>
+              <option value="search-alias=pets-intl-ship">
+                {{ "HEADER.PET_SUPPLIES" | translate }}
+              </option>
+              <option value="search-alias=software-intl-ship">
+                {{ "HEADER.SOFTWARE" | translate }}
+              </option>
               <option value="search-alias=sporting-intl-ship">
-                Sports & Outdoors
+                {{ "HEADER.SPORTS_&_OUTDOORS" | translate }}
               </option>
               <option value="search-alias=tools-intl-ship">
-                Tools & Home Improvement
+                {{ "HEADER.TOOLS_&_HOME_IMPROVEMENT" | translate }}
               </option>
               <option value="search-alias=toys-and-games-intl-ship">
-                Toys & Games
+                {{ "HEADER.TOYS_&_GAMES" | translate }}
               </option>
               <option value="search-alias=videogames-intl-ship">
-                Video Games
+                {{ "HEADER.VIDEO_GAMES" | translate }}
               </option>
             </select>
 
@@ -250,11 +264,13 @@
             data-bs-toggle="dropdown"
             aria-expanded="false"
           >
-            <span>{{
-              SignedIn()
-                ? ("HEADER.HELLO" | translate) + loggedInUser
-                : ("HEADER.HELLO" | translate) + ("HEADER.SIGNIN" | translate)
-            }}</span>
+            <span>
+              {{
+                SignedIn()
+                  ? ("HEADER.HELLO" | translate) + loggedInUser
+                  : ("HEADER.HELLO" | translate) + ("HEADER.SIGNIN" | translate)
+              }}</span
+            >
             {{ "HEADER.ACCOUNT" | translate }}
           </a>
 
@@ -587,27 +603,30 @@
 
           <ul class="dropdown-menu seller" aria-labelledby="dropdownMenuLink">
             <li class="dropdown-item">
-              Become an Amazon seller?
-              <a [routerLink]="['/seller', 'signup']">Register</a>
+              {{ "HEADER.BECOME_SELLER" | translate }}
+              <a [routerLink]="['/seller', 'signup']">{{
+                "HEADER.REGISTER" | translate
+              }}</a>
             </li>
             <li class="dropdown-item">
-              Already an Amazon seller?
-              <a [routerLink]="['/seller', 'login']">Login</a>
+              {{ "HEADER.ALREADY_SELLER" | translate }}
+              <a [routerLink]="['/seller', 'login']">{{
+                "HEADER.LOGIN" | translate
+              }}</a>
             </li>
             <li class="dropdown-item text-center">
-              seller central
-              <a [routerLink]="['/seller', 'home']"> View Items</a>
+              {{ "HEADER.SELLER_CENTRAL" | translate }}
+              <a [routerLink]="['/seller', 'home']">{{
+                "HEADER.VIEW_ITEMS" | translate
+              }}</a>
             </li>
             <li class="dropdown-item text-center">
-              Add Product <a [routerLink]="['/seller', 'add']"> Add</a>
+              {{ "HEADER.ADD_PRODUCT" | translate }}
+              <a [routerLink]="['/seller', 'add']">
+                {{ "HEADER.ADD" | translate }}
+              </a>
             </li>
           </ul>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link AH_link" aria-current="page" href="">{{
-            "HEADER.REGISTRY" | translate
-          }}</a>
         </li>
       </ul>
     </div>
