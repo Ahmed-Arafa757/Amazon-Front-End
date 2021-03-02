@@ -42,6 +42,11 @@ export class LoginComponent implements OnInit {
             (res: any) => {
               console.log(res);
               // this.loggedIn = (user != null);
+              localStorage.setItem('token', res['accessToken']);
+        localStorage.setItem('user email', res['userEmail']);
+        console.log('res on login',res);
+       
+        this.router.navigate(['/home']);
             },
             (err) => {
               if (err.error === "Email Not Found") {
