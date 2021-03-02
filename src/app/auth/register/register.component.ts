@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit { 
+  errorText = '';
   user: User = { userName: '', email: '', password: '', repeatedPassword: '' };
 
   constructor(private authService: AuthService, private router: Router) { }
@@ -26,6 +27,7 @@ export class RegisterComponent implements OnInit {
       },
       (err) => {
         console.log(err);
+        this.errorText = err['error'];
       },
       () => { },
     );
