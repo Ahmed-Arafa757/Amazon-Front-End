@@ -68,14 +68,6 @@ export class HeaderComponent implements OnInit {
     } else {
       this.langFlag = '../../../assets/images/icons/arabic.png';
     }
-    // if (input.id === 'english-lang') {
-    //   this.translate.use('en');
-    //   localStorage.set
-    //   this.langFlag = '../../../assets/images/icons/english.png';
-    // } else {
-    //   this.translate.use('ar');
-    //   this.langFlag = '../../../assets/images/icons/arabic.png';
-    // }
   }
 
   SignedIn() {
