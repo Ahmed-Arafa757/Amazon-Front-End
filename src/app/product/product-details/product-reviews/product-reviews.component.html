@@ -196,7 +196,7 @@
               {{ review.reviewTime }}
             </p>
             <p>{{ review.fullReview }}</p>
-            <div *ngIf="review.reviewerID === user._id">
+            <div *ngIf="user?._id === review.reviewerID">
               <button class="btn me-2 ms-2" (click)="onEdit(review._id)">
                 <i class="fas fa-unlock-alt"></i>
                 {{ "REVIEWS.EDIT" | translate }}
