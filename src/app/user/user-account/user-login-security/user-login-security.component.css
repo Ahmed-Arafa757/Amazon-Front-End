@@ -1,0 +1,24 @@
+td {
+  padding: 30px;
+}
+td p:nth-of-type(1) {
+  font-weight: bold;
+}
+.edit-btn {
+  padding: 3px 25px;
+  background: linear-gradient(#f3f3f3, #e4e4e4);
+  border: 1px solid rgb(189, 189, 189);
+}
+.edit-btn:hover {
+  background: linear-gradient(#e4e4e4, #dddddd);
+}
+
+.done-btn {
+  padding: 3px 25px;
+  background: linear-gradient(to bottom, #f7dfa5, #f0c14b);
+  border: 1px solid rgba(128, 128, 128, 0.397);
+}
+
+.done-btn:hover {
+  background: linear-gradient(to bottom, #fce1a2, #fdcc4e);
+}
