@@ -64,7 +64,7 @@ body {
 }
 #AA_walletRow .AA_alignCenterDiv .AA_sideText {
   display: inline-block;
-  text-align: left;
+  text-align: start;
 }
 #AA_walletRow #AA_walletLeftCard {
   border: none;
@@ -112,7 +112,7 @@ body {
   margin-top: 20%;
 }
 #AA_starRightCard .AA_alignLeftDiv {
-  text-align: left;
+  text-align: start;
 }
 #AA_starRightCard .AA_alignLeftDiv .AA_starImgText {
   display: inline-block;

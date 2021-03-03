@@ -75,7 +75,7 @@ body
         }
         .AA_sideText{
             display: inline-block;
-            text-align: left;
+            text-align: start;
         }
     }
 
@@ -132,7 +132,7 @@ body
     margin-top: 20%;
 
     .AA_alignLeftDiv{
-        text-align: left;
+        text-align: start;
 
         .AA_starImgText{
             display: inline-block;

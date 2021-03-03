@@ -17,6 +17,7 @@
     "GITFT_CARDS": "بطاقات الهدايا",
     "SELL": "باع",
     "REGISTRY": "التسجيل",
+
     "LOGOUT": "تسجيل الخروج",
     "ACCOUNT": "الحساب",
     "ALL_DEPARTMENTS": "جميع الأقسام",
@@ -47,6 +48,7 @@
     "TOOLS_&_HOME_IMPROVEMENT": "أدوات وتحسينات المنزل",
     "TOYS_&_GAMES": "الألعاب والدمى",
     "VIDEO_GAMES": "ألعاب الفيديو"
+
   },
   "HOME": {
     "GAMING_ACCESSORIES": "اكسسوارات الألعاب",
@@ -81,7 +83,102 @@
     "SIGN_IN_EXPRERIENCE": "سجل الدخول للحصول على أفضل تجربة",
     "SIGN_IN_SECURELY": "تسجيل الدخول بأمان"
   },
+
+  "LOGIN": {
+    "SIGN_IN": "تسجيل الدخول",
+    "EMAIL": "البريد الإلكتروني",
+    "THIS_FIELD_IS_REQUIRED": "هذا الحقل مطلوب",
+    "PASSWORD": "كلمة المرور",
+    "LOGIN": "تسجيل الدخول",
+    "BY_CONTINUING_YOU_AGREE": ".بتسجيلك للدخول فإنك توافق على شروط الاستخدام والبيع واشعار الخصوصية",
+    "NEED_HELP": "تحتاج مساعده؟",
+    "FORGOT_YOUR_PASSWORD": "نسيت كلمه المرور؟",
+    "OTHER_ISSUES": "مشكلات أخرى تتعلق بتسجيل الدخول",
+    "NEW_TO_AMAZON": "جديد في أمازون؟",
+    "CREATE_YOUR_NEW_ACCOUNT": "قم بإنشاء حساب أمازون الخاص بك",
+    "CONDITIONS": "الشروط",
+    "PRIVACY_NOTICE": "إشعار الخصوصية",
+    "HELP": "مساعدة",
+    "COPY_RIGHTS": "© ۱۹۹٦-۲۰۲۱ Amazon.com، Inc. أو الشركات التابعة لها"
+
+
+
+
+
+
+
+
+  },
+  "REGISTER": {
+    "CREATE_ACCOUNT": "إنشاء حساب",
+    "YOUR_NAME": "الإسم",
+    "EMAIL": "البريد الالكتروني",
+    "PASSWORD": "كلمة المرور",
+    "PASSWORD_MUST_BE_AT_LEAST": "يجب أن تتكون كلمات المرور من ٦ أحرف على الأقل.",
+    "RE_ENTER_PASSWORD": "إعادة إدخال كلمة المرور",
+    "CREATE_YOUR_AMAZON_ACCOUNT": "قم بإنشاء حساب أمازون الخاص بك",
+    "BY_CONTINING_YOU_AGREE": "بالمتابعة ، أنت توافق على موقع شروط أمازون",
+    "ALREADY_HAVE_AN_ACCOUNT": "هل لديك حساب؟",
+    "SIGN_IN": "تسجيل الدخول",
+    "CONDITIONS": "الشروط",
+    "PRIVACY_NOTICE": "إشعار الخصوصية",
+    "HELP": "مساعدة",
+    "COPY_RIGHTS": "© ۱۹۹٦-۲۰۲۱ Amazon.com، Inc. أو الشركات التابعة لها"
+
+
+
+  },
+  "DISCOVER_AMAZON": {
+    "AMAZON_COM_SHIPS": "Amazon.com شحن",
+    "WORLD_WIDE": "إلى جميع أنحاء العالم",
+    "AMAZON_DELIVERS": "امازون تصل إليك",
+    "WORLDWIDE_SHIPPPING": "الشحن إلى جميع أنحاء العالم",
+    "WE_SHIP_OVER": "نشحن إلى أكثر من ۱۰۰ دولة ومنطقة ،",
+    "RIGHT_TO": "مباشرة إلى عتبة داركم",
+    "CHECK_YOUR_LOCATION": "تحقق من موقعك",
+    "SHOP_IN_8_LANGUAGES": "تسوق بـ ۸ لغات",
+    "BROWSE_OR_SEARCH": "تصفح أو ابحث بلغتك",
+    "SELECT_YOUR_LANGUAGE": "اختر لغتك",
+    "SHOP_IN_75_CURRENCIES": "تسوق بـ ٧٥ عملة",
+    "FREEDOM_TO_CHOOSE": "حرية اختيار عملتك المفضلة",
+    "SELECT_YOUR_CURRENCY": "اختر عملتك",
+    "PRODUCTS_THAT_SHIP": "المنتجات التي تشحن لك",
+    "FIND_TOP_PRODUCTS": "ابحث عن أفضل المنتجات التي تشحن لك",
+    "LEARN_MORE": "تعلم أكثر",
+    "TRANSPARENT_COSTS": "تكاليف خفيفه",
+    "WE_ESTIMATE": "نحن نقدر رسوم الشحن والجمارك",
+    "TRACK_YOUR_ORDER": "تتبع طلباتك",
+    "GET_UPDATES": "احصل على التحديثات على تسليم الطرود",
+    "CUSTOMER_SERVICE_24/7": "خدمة عملاء ۲٤/٧",
+    "YOU_CAN_EMAIL": "يمكنك إرسال بريد إلكتروني أو الدردشة أو الاتصال بنا في أي وقت",
+    "CONTACT_US": "اتصل بنا",
+    "EASY_RETURNS": "عوائد سهلة",
+    "EXPLORE_OPTIONS": "استكشف الخيارات لإرجاع طلبك",
+    "SHOP_WITH_CONFIDENCE": "تسوق بثقة",
+    "SAFE_AND_SECURE": "مدفوعات آمنة ومأمنة",
+    "WE_PROTECT": "نحن نحمي مدفوعاتك الشخصية",
+    "INFORMATION": "معلومات",
+    "EXPERIENCE_AMAZON_ADVANTAGES": "تجربة مميزات أمازون",
+    "GREAT_DEALS": "صفقات رائعة وقيمة فائقة",
+    "LOW_PRICES": "أسعار منخفضة وصفقات مذهلة كل يوم",
+    "SHOP_DEALS": "صفقات التسوق",
+    "BROWSE_AN_EPIC_SELECTION": "تصفح مجموعة مختارة ملحمية",
+    "DISCOVER_MILLIONS": "اكتشف ملايين المنتجات التي يتم شحنها على مستوى العالم",
+    "SHOP_NOW": "تسوق الآن",
+    "SHOP_ON_THE_GO": "تسوق أثناء التنقل",
+    "DOWNLOAD_AMAZON_APP": "قم بتنزيل تطبيق أمازون للتسوق المريح",
+    "DOWNLOAD_NOW": "حمل الآن",
+    "TRUSTED_REVIEWS": "تقييمات وتقييمات موثوقة",
+    "CHECK_PRODUCT_FEEDBACK": "تحقق من ملاحظات المنتج من المتسوقين الفعليين",
+    "NOW_LETS_GET": "الآن دعنا نتسوق!",
+    "SEE_PERSONALIZED_RECOMMENDATIONS": "انظر التوصيات الشخصية",
+    "SIGN_IN": "تسجيل الدخول",
+    "NEW_CUSTOMER": "عميل جديد؟",
+    "START_HERE": "أبدأ هنا"
+
+
   "SELLER": {
     "GET_STARTED_SELLING": "ابدأ البيع على أمازون"
+
   }
 }
