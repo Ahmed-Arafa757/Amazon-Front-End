@@ -11,6 +11,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 })
 export class SellerRegisterComponent implements OnInit {
   seller:Seller={sellerName:'' , email: '', password: '', repeatedPassword: '', phone:'' };
+  errors = '';
   constructor(
     private sellerAuthService:SellerAuthService, 
     private router: Router,
@@ -41,6 +42,7 @@ export class SellerRegisterComponent implements OnInit {
         });
       },
       (err) => {
+        this.errors = err.error.err;
         console.log(err);
       },
       () => { },

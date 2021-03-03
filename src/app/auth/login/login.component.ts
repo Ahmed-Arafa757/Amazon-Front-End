@@ -38,16 +38,14 @@ export class LoginComponent implements OnInit {
     this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID)
     .then(
       (user)=>{
-        if (user && user.provider === 'GOOGLE') {
-          this.usersService.signInWithGoogle(user).subscribe(
-            (res: any) => {
-              console.log(res);
-              // this.loggedIn = (user != null);
-              localStorage.setItem('token', res['accessToken']);
-        localStorage.setItem('user email', res['userEmail']);
-        console.log('res on login',res);
-       
-        this.router.navigate(['/home']);
+        this.usersService.signInWithGoogle(user).subscribe(
+          (res: any) => {
+            console.log(res);
+            // this.loggedIn = (user != null);
+            localStorage.setItem('token', res['accessToken']);
+            localStorage.setItem('user email', res['userEmail']);
+            console.log('res on login',res);
+            this.router.navigate(['/home']);
             },
             (err) => {
               if (err.error === "Email Not Found") {
@@ -55,16 +53,16 @@ export class LoginComponent implements OnInit {
                 this.router.navigate(['register'], {
                   queryParams: { name: user.name, email: user.email, provider: user.provider},
                 });
-               
+              
               } else if(err.error === "Provider Not Match"){
                 console.error("Provider Not Match");
               } 
               else {
-                console.error(err);
+                console.error(err.error);
               }
             },
             () => {}
-          );}
+        );
       }
       )
       .catch((err)=>{console.error(err);})
@@ -74,11 +72,14 @@ export class LoginComponent implements OnInit {
       this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID)
     .then(
       (user)=>{
-        if (user && user.provider === 'FACEBOOK') {
-          this.usersService.signInWithFB(user).subscribe(
-            (res: any) => {
-              console.log(res);
-              // this.loggedIn = (user != null);
+        this.usersService.signInWithFB(user).subscribe(
+          (res: any) => {
+            console.log(res);
+            // this.loggedIn = (user != null);
+            localStorage.setItem('token', res['accessToken']);
+            localStorage.setItem('user email', res['userEmail']);
+            console.log('res on login',res);
+            this.router.navigate(['/home']);
             },
             (err) => {
               if (err.error === "Email Not Found") {
@@ -86,16 +87,16 @@ export class LoginComponent implements OnInit {
                 this.router.navigate(['register'], {
                   queryParams: { name: user.name, email: user.email, provider: user.provider},
                 });
-               
+              
               } else if(err.error === "Provider Not Match"){
                 console.error("Provider Not Match");
               } 
               else {
-                console.error(err);
+                console.error(err.error);
               }
             },
             () => {}
-          );}
+        );
       }
       )
       .catch((err)=>{console.error(err);})
