@@ -154,5 +154,11 @@
     "TOTAL_BEFORE_TAX": "Total before tax:",
     "TAX": "14% tax to be collected:",
     "ORDER_TOTAL": "Order total:"
+  },
+  "PLACEORDER": {
+    "YOU_WILL_PAY": "You will pay",
+    "SELECT_YOUR_PAYMENT": "Please select your payment method to complete purchase",
+    "THANK_YOU_PURCHASE": "Thank you for your purchase!",
+    "ORDER_NUMBER": "Your Order Number is #"
   }
 }
