@@ -15,11 +15,17 @@
     "TODAYS_DEALS": "صفقات اليوم",
     "CUSTOMER_SERVICE": "خدمة العملاء",
     "GITFT_CARDS": "بطاقات الهدايا",
-    "SELL": "باع",
-    "REGISTRY": "التسجيل",
-
+    "SELL": "ابدأ البيع",
+    "REGISTER": "سجل",
     "LOGOUT": "تسجيل الخروج",
     "ACCOUNT": "الحساب",
+    "BECOME_SELLER": "كن بائع لدي أمازون؟",
+    "ALREADY_SELLER": "بالفعل بائع لدى أمازون؟",
+    "LOGIN": "سجل دخول",
+    "SELLER_CENTRAL": "مركز البائع الرئيسي",
+    "VIEW_ITEMS": "عرض البضائع",
+    "ADD_PRODUCT": "أضف منتج",
+    "ADD": "إضافة",
     "ALL_DEPARTMENTS": "جميع الأقسام",
     "ARTS_&_CRAFTS": "الفنون والحرف اليدوية",
     "AUTOMOTIVE": "السيارات",
@@ -51,7 +57,7 @@
 
   },
   "HOME": {
-    "GAMING_ACCESSORIES": "اكسسوارات الألعاب",
+    "ALL_PRODUCTS": "جميع المنتجات",
     "FIND_YOUR_IDEAL_TV": "اعثر على تلفزيونك المثالي",
     "DEALS_&_PROMOTIONS": "الصفقات والعروض",
     "SHOP_OUR_FULL_SECETION": "تسوق مجموعتنا الكاملة",
@@ -83,7 +89,6 @@
     "SIGN_IN_EXPRERIENCE": "سجل الدخول للحصول على أفضل تجربة",
     "SIGN_IN_SECURELY": "تسجيل الدخول بأمان"
   },
-
   "LOGIN": {
     "SIGN_IN": "تسجيل الدخول",
     "EMAIL": "البريد الإلكتروني",
@@ -176,9 +181,79 @@
     "NEW_CUSTOMER": "عميل جديد؟",
     "START_HERE": "أبدأ هنا"
 
-
+  },
   "SELLER": {
     "GET_STARTED_SELLING": "ابدأ البيع على أمازون"
+  },
+  "REVIEWS": {
+    "CUSTOMER_REVIEWS": "آراء العملاء",
+    "OUT_OF": "من",
+    "OVERALL_RATINGS": "اجمالي التقييمات",
+    "STAR": "نجمة",
+    "WRITE_SUMMARY": "كتابة ملخص المراجعة",
+    "WRITE_REVIEW": "كتابة المراجعة",
+    "FIELD_REQUIRED": "هذه الخانة مطلوبة",
+    "SUBMIT_REVIEW": "اضافة المراجعة",
+    "CHOOSE_RATE": "اختار التقييم بين 0 و 5",
+    "REVIEW_SUBMITTED": "شكرا لك، لقد تم اضافة المراجعة!",
+    "EDIT_SUBMIT_REVIEW": "تعديل و اضافة المراجعة",
+    "CANCEL_EDIT": "الغاء التعديل",
+    "LATEST_REVIEWS": "احدث المراجعات",
+    "REVIEWED_ON": "تمت المراجعة في",
+    "EDIT": "تعديل",
+    "DELETE": "حذف"
+  },
+  "CART": {
+    "SHOPPING_CART": "عربة التسوق",
+    "PRICE": "السعر",
+    "ONLY": "فقط",
+    "LEFT_IN_STOCK": "متاح في المخزون - اطلب قريبًا.",
+    "SHIPPED_FROM": "تم الشحن من",
+    "DELETE": "حذف",
+    "TOTAL": "المجموع",
+    "ITEM": "عنصر",
+    "PRICE_&_AVAILABILITY": "يخضع سعر وتوافر العناصر على Amazon.com للتغيير. تعتبر عربة التسوق مكانًا مؤقتًا لتخزين قائمة بالعناصر الخاصة بك وتعكس أحدث سعر لكل عنصر.",
+    "PROCEED_TO_CHECKOUT": "تكملة عملية الشراء",
+    "PLEASE_SIGNIN_CONTINUE": "من فضلك سجل دخولك للمتابعة"
+  },
+  "CHECKOUT": {
+    "CONFIRM": "التأكيد",
+    "ITEMS": "منتج",
+    "SHIPPING_ADDRESS": "عنوان الشحن",
+    "ADD_SHIPPING_ADDRESS": "أضف عنوان شحن جديد؟",
+    "COUNTRY": "الدولة:",
+    "CITY": "المدينة:",
+    "STATE": "الولاية:",
+    "POSTAL_CODE": "الرمز البريدي:",
+    "STREET_DETAILS": "تفاصيل الشارع:",
+    "SAVE_ADDRESS": "حفظ العنوان؟",
+    "YES": "نعم",
+    "SELECT_SHIPPING_ADDRESS": "اختار عنوان للشحن:",
+    "REVIEW_ITEMS": "مراجعة المنتجات",
+    "PRICE": "السعر",
+    "ONLY": "فقط",
+    "LEFT_IN_STOCK": "متاح في المخزون - اطلب قريبًا.",
+    "SHIPPED_FROM": "تم الشحن من",
+    "DELETE": "حذف",
+    "TOTAL": "المجموع",
+    "ITEM": "عنصر",
+    "PAYMENT_METHODS": "طرق الدفع المتاحة:",
+    "MASTERCARD": "بطاقة ماستر كارد",
+    "VISA": "بطاقة فيزا",
+    "PAYPAL": "باي بال",
+    "CONTINUE_PAYMENT": "التكملة للدفع",
+    "AMAZON_PRIVACY_POLICY": "من خلال تقديم طلبك ، فإنك توافق على إشعار الخصوصية وشروط الاستخدام الخاصة بشركة Amazon.com.",
+    "ORDER_SUMMARY": "ملخص تكلفة الطلب",
+    "SHIPPING_HANDLING": "شحن وتسليم:",
+    "TOTAL_BEFORE_TAX": "الاجمالي قبل الضرائب",
+    "TAX": "14٪ ضريبة يتم تحصيلها:",
+    "ORDER_TOTAL": "اجمالي التكلفة"
+  },
+  "PLACEORDER": {
+    "YOU_WILL_PAY": "سوف تدفع",
+    "SELECT_YOUR_PAYMENT": "الرجاء اختيار طريقة الدفع الخاصة بك لإكمال الشراء",
+    "THANK_YOU_PURCHASE": "شكرا لك على الشراء!",
+    "ORDER_NUMBER": "رقم الطلب الخاص بك هو"
 
   }
 }

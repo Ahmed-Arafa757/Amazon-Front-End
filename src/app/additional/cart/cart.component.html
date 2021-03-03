@@ -1,18 +1,22 @@
 <div style="background-color: #eaeded">
-  <div class="container-fluid">
+  <div dir="auto" class="container-fluid">
     <div class="row">
       <div class="col-md-9">
         <div class="card my-3">
           <div class="card-body">
-            <h3 class="card-title m-0">Shopping Cart</h3>
-            <span class="float-end text-muted">Price</span>
+            <h3 class="card-title m-0">
+              {{ "CART.SHOPPING_CART" | translate }}
+            </h3>
+            <span class="float-end text-muted">
+              {{ "CART.PRICE" | translate }}
+            </span>
             <div style="clear: both"></div>
             <hr />
             <div
               class="row MM_shoppingCart my-3"
               *ngFor="let item of cartArray"
             >
-              <div class="col-3">
+              <div class="col-auto">
                 <a
                   class="ms-3"
                   href="#"
@@ -26,23 +30,26 @@
                 </a>
               </div>
 
-              <div class="col-9 p-5">
-                <a href="# " class="fs-5">{{ item.productName }}</a>
-                <span class="fs-5 fw-bold float-end me-2">
-                  {{
-                    item.productPrice.finalPrice | currency: "EGP ":"symbol"
-                  }}</span
-                >
+              <div class="col-auto p-5">
+                <div class="d-flex justify-content-start">
+                  <span class="fs-5 mx-2">{{ item.productName }} </span>
+                  <span class="fs-5 fw-bold">
+                    {{ item.productPrice.finalPrice | currency }}</span
+                  >
+                </div>
                 <div *ngIf="item.productStock <= 20" class="text-danger">
-                  Only {{ item.productStock }} left in stock - order soon.
+                  {{ "CART.ONLY" | translate }}
+                  {{ item.productStock }}
+                  {{ "CART.LEFT_IN_STOCK" | translate }}
                 </div>
-                <div>Shipped from: <a href="#">Amazon.com</a></div>
-                <div>
-                  Gift options not available. Gift options not available.
-                  <a href="#"> Learn more </a>
+                <div class="text-muted" style="font-size: 0.8rem">
+                  {{ "CART.SHIPPED_FROM" | translate }}:
+
+                  <span> Amazon.com</span>
                 </div>
+
                 <div>
-                  <span class="dropdown me-2">
+                  <span class="dropdown">
                     <select
                       [(ngModel)]="item.quantity"
                       (change)="updateQuantityPrice()"
@@ -56,23 +63,31 @@
                       <option [ngValue]="5">5</option>
                     </select>
                   </span>
-                  <span class="MM_itemOptions">
-                    <a (click)="deleteItem(item)" style="cursor: pointer"
-                      >Delete</a
-                    >
-                    <a href="#">Save for later</a>
-                    <a href="#">Compare with similar items</a>
-                  </span>
+                  <!-- <span class="MM_itemOptions"> -->
+                  <button
+                    (click)="deleteItem(item)"
+                    class="btn btn-danger py-0 mx-2"
+                  >
+                    {{ "CART.DELETE" | translate }}
+                  </button>
+                  <!-- <a href="#">Save for later</a>
+                    <a href="#">Compare with similar items</a> -->
+                  <!-- </span> -->
                 </div>
               </div>
             </div>
             <div class="row">
               <div class="col-12">
                 <hr />
-                <span class="float-end fs-5"
-                  >Total ({{ totalQuantity }} item):
+                <span class="float-end fs-5">
+                  {{ "CART.TOTAL" | translate }}
+
+                  ({{ totalQuantity }}
+                  {{ "CART.ITEM" | translate }}
+
+                  ):
                   <span class="fw-bold">
-                    {{ totalPrice | currency: "EGP ":"symbol" }}
+                    {{ totalPrice | currency }}
                   </span>
                 </span>
               </div>
@@ -85,13 +100,7 @@
         </div>
 
         <div class="mb-3" style="font-size: 0.8em">
-          The price and availability of items at Amazon.com are subject to
-          change. The Cart is a temporary place to store a list of your items
-          and reflects each item's most recent price. Shopping Cart
-          <a href="#">Learn more</a>
-          <br />
-          Do you have a gift card or promotional code? We'll ask you to enter
-          your claim code when it's time to pay.
+          {{ "CART.PRICE_&_AVAILABILITY" | translate }}
         </div>
       </div>
 
@@ -100,19 +109,31 @@
           <div class="col-12 MM_subTotal">
             <div class="card my-3">
               <div class="card-body my-4">
-                <span class="fs-5"
-                  >Total ({{ totalQuantity }} item):
+                <span class="fs-5">
+                  {{ "CART.TOTAL" | translate }}
+
+                  ({{ totalQuantity }}
+                  {{ "CART.ITEM" | translate }}
+
+                  ):
                   <span class="fw-bold">
-                    {{ totalPrice | currency: "EGP ":"symbol" }}
+                    {{ totalPrice | currency }}
                   </span>
                 </span>
                 <button
                   [routerLink]="['/checkout']"
-                  class="btn bg-gradient p-1 my-2 col-12"
-                  [disabled]="totalQuantity === 0"
+                  class="btn p-1 my-2 col-12"
+                  [disabled]="totalQuantity === 0 || !isLogged"
                 >
-                  Proceed to checkout
+                  {{ "CART.PROCEED_TO_CHECKOUT" | translate }}
                 </button>
+                <div
+                  *ngIf="totalQuantity === 0 || !isLogged"
+                  style="font-size: 0.8rem; text-align: center"
+                  class="text-muted"
+                >
+                  {{ "CART.PLEASE_SIGNIN_CONTINUE" | translate }}
+                </div>
               </div>
             </div>
           </div>
