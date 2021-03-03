@@ -13,35 +13,39 @@
         <div class="card">
           <div class="card-body">
             <form #regForm='ngForm'>
-              <div class="mb-3">
-                <p class="fs-3">Create account</p>
+              <div dir="auto" class="mb-3">
+                <p class="fs-3">
+                  {{ "REGISTER.CREATE_ACCOUNT" | translate }}
+                </p>
 
 
                 <div>
 
-                  <label for="name" class="form-label fw-bold">Your name </label>
-                   <input required minlength="5" type="text" class="form-control mb-3" id="name"
-                     [(ngModel)]='user.userName'
-                     #name='ngModel'
-                     name="name" />
+                  <label for="name" class="form-label fw-bold">
+                    {{ "REGISTER.YOUR_NAME" | translate }}
+                  </label>
+                  <input required minlength="5" type="text" class="form-control mb-3" id="name"
+                    [(ngModel)]='user.userName' #name='ngModel' name="name" />
                 </div>
 
                 <div [ngClass]='{"invalid" : email.invalid && email.touched}'>
 
-                  <label for="email" class="form-label fw-bold">Email </label>
-                  <input required minlength="10" maxlength="30" [(ngModel)]='user.email' #email='ngModel' 
-                  pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
-                    type="email" class="form-control mb-3"
+                  <label for="email" class="form-label fw-bold">
+                    {{ "REGISTER.EMAIL" | translate }}
+                  </label>
+                  <input required minlength="10" maxlength="30" [(ngModel)]='user.email' #email='ngModel'
+                    pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" type="email" class="form-control mb-3"
                     id="email" name="email" />
                 </div>
 
                 <div [ngClass]='{"invalid" : password.invalid && password.touched}'>
 
-                  <label for="password" class="form-label fw-bold">Password
+                  <label for="password" class="form-label fw-bold">
+                    {{ "REGISTER.PASSWORD" | translate }}
+
                   </label>
                   <input required minlength="6" maxlength="20" [(ngModel)]='user.password' #password='ngModel'
-                    type="password" class="form-control" id="password"
-                    name="password"
+                    type="password" class="form-control" id="password" name="password"
                     placeholder="At least 6 characters" />
                 </div>
 
@@ -49,18 +53,18 @@
 
                 <div class="form-text mb-3">
                   <i class="fas fa-info" style="color: rgb(0, 152, 212)"></i>
-                  Passwords must be at least 6 characters.
+                  {{ "REGISTER.PASSWORD_MUST_BE_AT_LEAST" | translate }}
                 </div>
 
 
                 <div [ngClass]='{"invalid" : re.invalid && re.touched}'>
 
-                  <label for="confirm-password" class="form-label fw-bold">Re-enter password
+                  <label for="confirm-password" class="form-label fw-bold">
+                    {{ "REGISTER.RE_ENTER_PASSWORD" | translate }}
+
                   </label>
                   <input required minlength="6" maxlength="20" [(ngModel)]='user.repeatedPassword' #re='ngModel'
-                    type="password" name='confirm-password'
-                    class="form-control"
-                    id="confirm-password" />
+                    type="password" name='confirm-password' class="form-control" id="confirm-password" />
                 </div>
 
 
@@ -68,41 +72,52 @@
               </div>
 
               <button type="submit" [ngClass]="{'disabled': password.invalid || email.invalid || name.invalid || re.invalid 
-            || re.value !== password.value}"
-               class="btn bg-gradient col-12 mb-3" (click)='onRegister()' >
-                Create your Amazon account
+            || re.value !== password.value}" class="btn bg-gradient col-12 mb-3" (click)='onRegister()'>
+                {{ "REGISTER.CREATE_YOUR_AMAZON_ACCOUNT" | translate }}
+
               </button>
             </form>
-         
-              <div *ngIf='errorText !== "" ' class="alert alert-danger" role="alert">
-                {{errorText}}
-              </div>
-            <span>
-              By continuing, you agree to Amazon's
-              <a href="#">Conditions of Use</a> and
-              <a href="#">Privacy Notice</a>.</span>
+
+            <div *ngIf='errorText !== "" ' class="alert alert-danger" role="alert">
+              {{errorText}}
+                
+                <!-- {{ "REGISTER.ERROR_TEXT" | translate }} -->
+              <!-- {{ 'Hello ' + name | translate: { name: 'Srinivas' } }} -->
+            </div>
+            <div dir="auto">
+
+              <span>
+                {{ "REGISTER.BY_CONTINING_YOU_AGREE" | translate }}
+  
+              </span>
+            </div>
 
             <hr class="my-4" />
+            <div dir="auto">
 
-            <span>Already have an account?
-              <a [routerLink]="['/login']">Sign-In
-                <i class="fas fa-caret-right" style="font-size: 0.7rem"></i></a></span>
+              <span>
+                {{ "REGISTER.ALREADY_HAVE_AN_ACCOUNT" | translate }}
+  
+                <a [routerLink]="['/login']">
+                  {{ "REGISTER.SIGN_IN" | translate }}
+  
+                  <i class="fas fa-caret-right" style="font-size: 0.7rem"></i></a>
+                </span>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="row">
+    <div dir="auto" class="row">
       <div class="col-sm-12 col-md-8 col-lg-6 mx-auto text-center MM_buttomRights">
         <hr />
-        <a href="#">Conditions</a>
-        <a href="#">Privacy Notice</a>
-        <a href="#">Help</a>
+        <a href="#">{{ "REGISTER.CONDITIONS" | translate }}</a>
+        <a href="#">{{ "REGISTER.PRIVACY_NOTICE" | translate }}</a>
+        <a href="#">{{ "REGISTER.HELP" | translate }}</a>
         <p class="mt-3 text-muted">
-          © 1996-2020, Amazon.com, Inc. or its affiliates
+          {{ "REGISTER.COPY_RIGHTS" | translate }}
         </p>
       </div>
     </div>
   </div>
-
- 

@@ -1,5 +1,5 @@
 // import { localizedString } from '@angular/compiler/src/output/output_ast';
-import { Injectable,Component, OnInit, EventEmitter } from '@angular/core';
+import { Injectable, Component, OnInit, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 // import { Person } from 'src/app/_model/person';
 import { User } from 'src/app/_model/users';
@@ -18,10 +18,10 @@ import { UsersService } from 'src/app/_services/users.service';
 })
 export class LoginComponent implements OnInit {
 
-  user: User = { email: '', password: ''};
+  user: User = { email: '', password: '' };
 
   // loggedInUser;
-  errorText='' ;
+  errorText = '';
 
   constructor(private authService: AuthService,
     private router: Router,
@@ -43,13 +43,13 @@ export class LoginComponent implements OnInit {
         // console.log(res['person']['id']);
         localStorage.setItem('token', res['accessToken']);
         localStorage.setItem('user email', res['userEmail']);
-        console.log('res on login',res);
-       
-       
+        console.log('res on login', res);
+
+
         this.router.navigate(['/home']);
       },
       (err) => {
-        
+
         console.log('err', err['error']);
         this.errorText = err['error'];
       },

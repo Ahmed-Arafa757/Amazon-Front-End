@@ -8,4 +8,11 @@
 .order-summary {
   font-size: 0.9rem;
 }
+
+.place-order {
+  background-color: #fac745;
+}
+.place-order:hover {
+  background-color: #ffd95d;
+}
 /*# sourceMappingURL=checkout.component.css.map */
