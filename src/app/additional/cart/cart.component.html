@@ -16,7 +16,7 @@
               class="row MM_shoppingCart my-3"
               *ngFor="let item of cartArray"
             >
-              <div class="col-3">
+              <div class="col-auto">
                 <a
                   class="ms-3"
                   href="#"
@@ -30,24 +30,26 @@
                 </a>
               </div>
 
-              <div class="col-9 p-5">
-                <a href="# " class="fs-5">{{ item.productName }} </a>
-                <span class="fs-5 fw-bold float-end me-2 ms-2">
-                  {{ item.productPrice.finalPrice | currency }}</span
-                >
+              <div class="col-auto p-5">
+                <div class="d-flex justify-content-start">
+                  <span class="fs-5 mx-2">{{ item.productName }} </span>
+                  <span class="fs-5 fw-bold">
+                    {{ item.productPrice.finalPrice | currency }}</span
+                  >
+                </div>
                 <div *ngIf="item.productStock <= 20" class="text-danger">
                   {{ "CART.ONLY" | translate }}
                   {{ item.productStock }}
                   {{ "CART.LEFT_IN_STOCK" | translate }}
                 </div>
-                <div>
+                <div class="text-muted" style="font-size: 0.8rem">
                   {{ "CART.SHIPPED_FROM" | translate }}:
 
-                  <a href="#"> Amazon.com</a>
+                  <span> Amazon.com</span>
                 </div>
 
                 <div>
-                  <span class="dropdown me-2">
+                  <span class="dropdown">
                     <select
                       [(ngModel)]="item.quantity"
                       (change)="updateQuantityPrice()"
@@ -61,13 +63,16 @@
                       <option [ngValue]="5">5</option>
                     </select>
                   </span>
-                  <span class="MM_itemOptions">
-                    <a (click)="deleteItem(item)" style="cursor: pointer">
-                      {{ "CART.DELETE" | translate }}
-                    </a>
-                    <!-- <a href="#">Save for later</a>
+                  <!-- <span class="MM_itemOptions"> -->
+                  <button
+                    (click)="deleteItem(item)"
+                    class="btn btn-danger py-0 mx-2"
+                  >
+                    {{ "CART.DELETE" | translate }}
+                  </button>
+                  <!-- <a href="#">Save for later</a>
                     <a href="#">Compare with similar items</a> -->
-                  </span>
+                  <!-- </span> -->
                 </div>
               </div>
             </div>
@@ -117,7 +122,7 @@
                 </span>
                 <button
                   [routerLink]="['/checkout']"
-                  class="btn bg-gradient p-1 my-2 col-12"
+                  class="btn p-1 my-2 col-12"
                   [disabled]="totalQuantity === 0 || !isLogged"
                 >
                   {{ "CART.PROCEED_TO_CHECKOUT" | translate }}

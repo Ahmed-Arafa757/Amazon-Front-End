@@ -15,16 +15,18 @@
                 >1 -
                 {{ "CHECKOUT.SHIPPING_ADDRESS" | translate }}
               </span>
-              <div class="form-check form-switch my-3">
+              <div
+                class="d-flex justify-content-start form-check form-switch my-3"
+              >
+                <label class="form-check-label me-5" for="addNewAddress">
+                  {{ "CHECKOUT.ADD_SHIPPING_ADDRESS" | translate }}
+                </label>
                 <input
                   class="form-check-input"
                   type="checkbox"
-                  id="flexSwitchCheckDefault"
+                  id="addNewAddress"
                   (click)="onAddNewAddress()"
                 />
-                <label class="form-check-label" for="flexSwitchCheckDefault">
-                  {{ "CHECKOUT.ADD_SHIPPING_ADDRESS" | translate }}
-                </label>
               </div>
               <form
                 *ngIf="addNewShipping"
@@ -107,7 +109,7 @@
                     style="vertical-align: baseline"
                     (click)="onAddUserAddress(addressForm)"
                     type="submit"
-                    class="btn bg-gradient p-1 px-3 mb-3"
+                    class="btn p-1 px-3 mb-3"
                     [disabled]="addressForm.invalid"
                   >
                     {{ "CHECKOUT.YES" | translate }}
@@ -117,11 +119,44 @@
               <p class="fw-bold mt-3">
                 {{ "CHECKOUT.SELECT_SHIPPING_ADDRESS" | translate }}
               </p>
-              <div class="form-check w-75">
+              <div class="d-flex justify-content-start form-check w-75">
                 <div
                   class="media border p-5 mb-3"
                   *ngFor="let address of addresses"
                 >
+                  <label class="form-check-label media-body" for="address">
+                    <div>
+                      <span class="fw-bold" style="font-size: 0.8rem">
+                        {{ "CHECKOUT.COUNTRY" | translate }}
+                      </span>
+                      {{ address.country }}
+                    </div>
+                    <div>
+                      <span class="fw-bold" style="font-size: 0.8rem">
+                        {{ "CHECKOUT.CITY" | translate }}
+                      </span>
+                      {{ address.city }}
+                    </div>
+                    <div *ngIf="address.state">
+                      <span class="fw-bold" style="font-size: 0.8rem">
+                        {{ "CHECKOUT.STATE" | translate }}
+                      </span>
+                      {{ address.state }}
+                    </div>
+                    <div *ngIf="address.state">
+                      <span class="fw-bold" style="font-size: 0.8rem">
+                        {{ "CHECKOUT.POSTAL_CODE" | translate }}
+                      </span>
+                      {{ address.postalCode }}
+                    </div>
+                    <div>
+                      <span class="fw-bold" style="font-size: 0.8rem">
+                        {{ "CHECKOUT.STREET_DETAILS" | translate }}
+                      </span>
+                      {{ address.street }}
+                    </div>
+                  </label>
+
                   <input
                     class="form-check-input"
                     (change)="onCheckAddress()"
@@ -130,40 +165,6 @@
                     type="radio"
                     id="address"
                   />
-                  <label class="form-check-label" for="">
-                    <div class="media-body">
-                      <div>
-                        <span class="fw-bold" style="font-size: 0.8rem">
-                          {{ "CHECKOUT.COUNTRY" | translate }}
-                        </span>
-                        {{ address.country }}
-                      </div>
-                      <div>
-                        <span class="fw-bold" style="font-size: 0.8rem">
-                          {{ "CHECKOUT.CITY" | translate }}
-                        </span>
-                        {{ address.city }}
-                      </div>
-                      <div *ngIf="address.state">
-                        <span class="fw-bold" style="font-size: 0.8rem">
-                          {{ "CHECKOUT.STATE" | translate }}
-                        </span>
-                        {{ address.state }}
-                      </div>
-                      <div *ngIf="address.state">
-                        <span class="fw-bold" style="font-size: 0.8rem">
-                          {{ "CHECKOUT.POSTAL_CODE" | translate }}
-                        </span>
-                        {{ address.postalCode }}
-                      </div>
-                      <div>
-                        <span class="fw-bold" style="font-size: 0.8rem">
-                          {{ "CHECKOUT.STREET_DETAILS" | translate }}
-                        </span>
-                        {{ address.street }}
-                      </div>
-                    </div>
-                  </label>
                 </div>
               </div>
 
@@ -186,7 +187,7 @@
                     class="row MM_shoppingCart my-3"
                     *ngFor="let item of cartArray"
                   >
-                    <div class="col-3">
+                    <div class="col-auto">
                       <a class="ms-3" href="#">
                         <img
                           [src]="item.productImages[0]"
@@ -196,27 +197,26 @@
                       </a>
                     </div>
 
-                    <div class="col-9 p-5">
-                      <a href="# " class="fs-5">{{ item.productName }}</a>
-                      <span class="fs-5 fw-bold float-end me-2">
-                        {{
-                          item.productPrice.finalPrice
-                            | currency: "EGP ":"symbol"
-                        }}</span
-                      >
+                    <div class="col-auto p-5">
+                      <div class="d-flex justify-content-start">
+                        <span class="fs-5 mx-2">{{ item.productName }}</span>
+                        <span class="fs-5 fw-bold">
+                          {{ item.productPrice.finalPrice | currency }}</span
+                        >
+                      </div>
                       <div *ngIf="item.productStock <= 20" class="text-danger">
                         {{ "CHECKOUT.ONLY" | translate }}
                         {{ item.productStock }}
 
                         {{ "CHECKOUT.LEFT_IN_STOCK" | translate }}
                       </div>
-                      <div>
+                      <div class="text-muted" style="font-size: 0.8rem">
                         {{ "CHECKOUT.SHIPPED_FROM" | translate
-                        }}<a href="#"> Amazon.com</a>
+                        }}<span> Amazon.com </span>
                       </div>
 
                       <div>
-                        <span class="dropdown me-2">
+                        <span class="dropdown">
                           <select
                             [(ngModel)]="item.quantity"
                             (change)="updateQuantityPrice()"
@@ -230,26 +230,29 @@
                             <option [ngValue]="5">5</option>
                           </select>
                         </span>
-                        <span class="MM_itemOptions">
-                          <a (click)="deleteItem(item)" style="cursor: pointer">
-                            {{ "CHECKOUT.DELETE" | translate }}
-                          </a>
-                          <!-- <a href="#">Save for later</a>
+                        <!-- <span class="MM_itemOptions"> -->
+                        <button
+                          (click)="deleteItem(item)"
+                          class="btn btn-danger py-0 mx-2"
+                        >
+                          {{ "CHECKOUT.DELETE" | translate }}
+                        </button>
+                        <!-- <a href="#">Save for later</a>
                           <a href="#">Compare with similar items</a> -->
-                        </span>
+                        <!-- </span> -->
                       </div>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-12">
                       <hr />
-                      <span class="float-end fs-5"
+                      <span class="fs-5"
                         >{{ "CHECKOUT.TOTAL" | translate }} ({{ totalQuantity }}
                         {{ "CHECKOUT.ITEM" | translate }}
                         ):
-                        <span class="fw-bold">
-                          {{ totalPrice | currency: "EGP ":"symbol" }}
-                        </span>
+                      </span>
+                      <span class="fw-bold">
+                        {{ totalPrice | currency }}
                       </span>
                     </div>
                   </div>
@@ -294,7 +297,7 @@
               <button
                 (click)="onConfirm()"
                 [routerLink]="['/place-order']"
-                class="btn bg-gradient p-1 my-2 col-12 place-order"
+                class="btn p-1 my-2 col-12 place-order"
                 [disabled]="totalQuantity === 0 || isSelectedAddress === false"
               >
                 {{ "CHECKOUT.CONTINUE_PAYMENT" | translate }}
@@ -305,40 +308,108 @@
               </p>
               <hr />
               <div class="order-summary">
-                <span class="fs-5">
-                  {{ "CHECKOUT.ORDER_SUMMARY" | translate }}
-                </span>
-                <p class="mt-3">
+                <table class="table table-borderless caption-top">
+                  <caption class="text-center">
+                    <p class="fs-5">
+                      {{ "CHECKOUT.ORDER_SUMMARY" | translate }}
+                    </p>
+                  </caption>
+                  <tbody>
+                    <tr>
+                      <th scope="row">
+                        <span>
+                          {{ "CHECKOUT.ITEMS" | translate }}
+                          ({{ totalQuantity }}):</span
+                        >
+                      </th>
+                      <td>
+                        <span class="" *ngIf="totalPrice > 0">
+                          {{ totalPrice | currency }}
+                        </span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span>
+                          {{ "CHECKOUT.SHIPPING_HANDLING" | translate }}
+                        </span>
+                      </th>
+                      <td>
+                        <span class="" *ngIf="totalPrice > 0">{{
+                          shipping + handling | currency
+                        }}</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span>
+                          {{ "CHECKOUT.TOTAL_BEFORE_TAX" | translate }}:
+                        </span>
+                      </th>
+                      <td>
+                        <span class="" *ngIf="totalPrice > 0">{{
+                          totalPrice + shipping + handling | currency
+                        }}</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <span>
+                          {{ "CHECKOUT.TAX" | translate }}
+                        </span>
+                      </th>
+                      <td>
+                        <span class="" *ngIf="totalPrice > 0">{{
+                          tax_total | currency
+                        }}</span>
+                      </td>
+                    </tr>
+                    <tr class="border-top">
+                      <th scope="row">
+                        <span class="text-danger">
+                          {{ "CHECKOUT.ORDER_TOTAL" | translate }}:
+                        </span>
+                      </th>
+                      <td>
+                        <span class="" *ngIf="totalPrice > 0">
+                          {{ total_amount | currency }}
+                        </span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <!-- <p class="mt-3">
                   <span>
                     {{ "CHECKOUT.ITEMS" | translate }}
                     ({{ totalQuantity }}):</span
                   >
-                  <span class="float-end" *ngIf="totalPrice > 0">
-                    {{ totalPrice | currency: "EGP ":"symbol" }}
+                  <span class="" *ngIf="totalPrice > 0">
+                    {{ totalPrice | currency }}
                   </span>
                 </p>
                 <p>
                   <span>
                     {{ "CHECKOUT.SHIPPING_HANDLING" | translate }}
                   </span>
-                  <span class="float-end" *ngIf="totalPrice > 0">{{
-                    shipping + handling | currency: "EGP ":"symbol"
+                  <span class="" *ngIf="totalPrice > 0">{{
+                    shipping + handling | currency
                   }}</span>
                 </p>
                 <p>
                   <span>
                     {{ "CHECKOUT.TOTAL_BEFORE_TAX" | translate }}
                   </span>
-                  <span class="float-end" *ngIf="totalPrice > 0">{{
-                    totalPrice + shipping + handling | currency: "EGP ":"symbol"
+                  <span class="" *ngIf="totalPrice > 0">{{
+                    totalPrice + shipping + handling | currency
                   }}</span>
                 </p>
                 <p>
                   <span>
                     {{ "CHECKOUT.TAX" | translate }}
                   </span>
-                  <span class="float-end" *ngIf="totalPrice > 0">{{
-                    tax_total | currency: "EGP ":"symbol"
+                  <span class="" *ngIf="totalPrice > 0">{{
+                    tax_total | currency
                   }}</span>
                 </p>
                 <hr />
@@ -346,10 +417,10 @@
                   <span>
                     {{ "CHECKOUT.ORDER_TOTAL" | translate }}
                   </span>
-                  <span class="float-end" *ngIf="totalPrice > 0">
-                    {{ total_amount | currency: "EGP ":"symbol" }}
+                  <span class="" *ngIf="totalPrice > 0">
+                    {{ total_amount | currency }}
                   </span>
-                </p>
+                </p> -->
               </div>
             </div>
           </div>
