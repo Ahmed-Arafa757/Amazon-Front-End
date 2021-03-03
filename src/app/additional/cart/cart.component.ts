@@ -11,11 +11,15 @@ export class CartComponent implements OnInit {
   cartArray = [];
   totalQuantity = 0;
   totalPrice = 0;
+  isLogged: boolean = false;
   constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
     this.cartArray = this.productService.cartProducts;
     this.updateQuantityPrice();
+    if (localStorage.getItem('user email')) {
+      this.isLogged = true;
+    }
   }
 
   updateQuantityPrice() {

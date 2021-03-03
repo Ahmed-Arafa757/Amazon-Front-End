@@ -118,10 +118,17 @@
                 <button
                   [routerLink]="['/checkout']"
                   class="btn bg-gradient p-1 my-2 col-12"
-                  [disabled]="totalQuantity === 0"
+                  [disabled]="totalQuantity === 0 || !isLogged"
                 >
                   {{ "CART.PROCEED_TO_CHECKOUT" | translate }}
                 </button>
+                <div
+                  *ngIf="totalQuantity === 0 || !isLogged"
+                  style="font-size: 0.8rem; text-align: center"
+                  class="text-muted"
+                >
+                  {{ "CART.PLEASE_SIGNIN_CONTINUE" | translate }}
+                </div>
               </div>
             </div>
           </div>
