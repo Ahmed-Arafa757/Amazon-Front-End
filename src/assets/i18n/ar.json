@@ -2,7 +2,7 @@
   "HEADER": {
     "HELLO": "مرحبا, ",
     "SIGNIN": "تسجيل الدخول",
-    "ACCOUNT": "الحساب والقوائم",
+    "ACCOUNT_&_LISTS": "الحساب والقوائم",
     "RETURNS": "المرتجعات",
     "ORDERS": "و الطلبات",
     "CART": "عربة التسوق",
@@ -17,7 +17,38 @@
     "GITFT_CARDS": "بطاقات الهدايا",
     "SELL": "باع",
     "REGISTRY": "التسجيل",
-    "LOGOUT": "تسجيل الخروج"
+
+    "LOGOUT": "تسجيل الخروج",
+    "ACCOUNT": "الحساب",
+    "ALL_DEPARTMENTS": "جميع الأقسام",
+    "ARTS_&_CRAFTS": "الفنون والحرف اليدوية",
+    "AUTOMOTIVE": "السيارات",
+    "BABY": "طفل",
+    "BEAUTY_&_PERSONAL_CARE": "الجمال والعناية الشخصية",
+    "BOOKS": "كتب",
+    "COMPUTERS": "أجهزة الكمبيوتر",
+    "DIGITAL_MUSIC": "موسيقى رقمية",
+    "ELECTRONICS": "إلكترونيات",
+    "KINDLE_STORE": "متجر Kindle",
+    "PRIME_VIDEO": "Prime فيديو",
+    "WOMENS_FASHION": "أزياء نسائية",
+    "MENS_FASHION": "أزياء رجالية",
+    "GIRLS_FASHION": "أزياء البنات",
+    "BOYS_FASHION": "أزياء الأولاد",
+    "DEALS": "الصفقات",
+    "HEALTH_&_HOUSEHOLD": "الصحة والمنزلية",
+    "HOME_&_KITCHEN": "المنزل والمطبخ",
+    "INDUSTRIAL_&_SCIENTIFIC": "الصناعية والعلمية",
+    "LUGGAGE": "أمتعة",
+    "MOVIES_&_TV": "أفلام ومسلسلات تلفزيونية",
+    "MUSIC_CDS_&_VINYL": "الموسيقى والأقراص المدمجة",
+    "PET_SUPPLIES": "مستلزمات الحيوانات الأليفة",
+    "SOFTWARE": "البرمجيات",
+    "SPORTS_&_OUTDOORS": "الرياضة ومنتجات الحديقة",
+    "TOOLS_&_HOME_IMPROVEMENT": "أدوات وتحسينات المنزل",
+    "TOYS_&_GAMES": "الألعاب والدمى",
+    "VIDEO_GAMES": "ألعاب الفيديو"
+
   },
   "HOME": {
     "GAMING_ACCESSORIES": "اكسسوارات الألعاب",
@@ -28,7 +59,7 @@
     "SHOP_NOW": "تسوق الآن",
     "SHOP_TOP_CATEGORIES": "تسوق أفضل الفئات",
     "ELECTRONICS": "إلكترونيات",
-    "AMAZON_BASICS": "أمازون بيزكس",
+    "AMAZON_BASICS": "منتجات AmazonBasics",
     "COMPUTERS_&_ACCESSORIES": "أجهزة الكمبيوتر وملحقاتها",
     "DISCOVER_AMAZON": "اكتشف أمازون",
     "CLICK_TO_LEARN_MORE": "اضغط لتتعلم المزيد",
@@ -52,6 +83,7 @@
     "SIGN_IN_EXPRERIENCE": "سجل الدخول للحصول على أفضل تجربة",
     "SIGN_IN_SECURELY": "تسجيل الدخول بأمان"
   },
+
   "LOGIN": {
     "SIGN_IN": "تسجيل الدخول",
     "EMAIL": "البريد الإلكتروني",
@@ -143,6 +175,10 @@
     "SIGN_IN": "تسجيل الدخول",
     "NEW_CUSTOMER": "عميل جديد؟",
     "START_HERE": "أبدأ هنا"
+
+
+  "SELLER": {
+    "GET_STARTED_SELLING": "ابدأ البيع على أمازون"
 
   }
 }
