@@ -47,6 +47,11 @@ const routes: Routes = [
   { path: 'departments', component: DepartmentsComponent },
   { path: 'discover-amazon', component: DiscoverAmazonComponent },
   { path: 'search-results/:id', component: SearchResultsComponent },
+  {
+    path: 'search-results',
+    redirectTo: 'search-results/',
+    pathMatch: 'full',
+  },
   { path: 'top-sellers', component: TopSellersComponent },
   // { path: 'product', loadChildren: './product.module' },
   { path: 'product/listing', component: ProductListingComponent },
