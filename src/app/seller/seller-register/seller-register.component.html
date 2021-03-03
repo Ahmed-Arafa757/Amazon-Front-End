@@ -71,7 +71,9 @@
     
     
                   </div>
-    
+                  <div *ngIf='errors.length != 0'>
+                    {{errors}}
+                  </div>
                   <button type="submit" class="btn bg-gradient col-12 mb-3" (click)='onRegister()'>
                     Create your Amazon account
                   </button>

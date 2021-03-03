@@ -1,2 +1,22 @@
+.sellerHeader {
+  background: url(../../../assets/images/svg/wave.svg) no-repeat top left;
+}
 
+#heading {
+  font-size: 80px !important;
+  line-height: 96px;
+  font-family: AEmb, Helvetica, Arial, sans-serif;
+  font-weight: 900;
+  color: white;
+}
+
+#heading2 {
+  font-size: 20px !important;
+  line-height: 30px;
+  font-family: AEmb, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  color: white;
+  text-align: start;
+  width: 70%;
+}
 /*# sourceMappingURL=seller-home.component.css.map */

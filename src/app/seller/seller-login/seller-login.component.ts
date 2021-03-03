@@ -36,26 +36,33 @@ export class SellerLoginComponent implements OnInit {
     .then(
       (user)=>{
         this.user = user;
-        if (this.user && this.user.provider === 'GOOGLE') {
-          this.sellerAuthService.signInWithGoogle(this.user).subscribe(
+        this.sellerAuthService.signInWithGoogle(this.user).subscribe(
             (res: any) => {
-                    let mySellerName=res.seller.sellerName
-                    let myId=res.seller._id
-                    let myToken=res.token
-                    
-                    var sellerLoginStorage = {'_id': myId,'token':myToken};
-                     localStorage.setItem('sellerLoginStorage', JSON.stringify(sellerLoginStorage));
-                     this.router.navigate(['seller/home'], {
-                      queryParams: { sellerName:  mySellerName},
-                    });
+              let mySellerName=res.seller.sellerName
+              let myId=res.seller._id
+              let myToken=res.token
+              
+              var sellerLoginStorage = {'_id': myId,'token':myToken};
+              localStorage.setItem('sellerLoginStorage', JSON.stringify(sellerLoginStorage));
+              this.router.navigate(['seller/home'], {
+                queryParams: { sellerName:  mySellerName},
+              });
             },
             (err) => {
-              this.router.navigate(['seller/signup'], {
-              queryParams: { name: user.name, email: user.email }})
+              if (err.error === "Email Not Found") {
+                console.error("Email Not Found");
+                this.router.navigate(['seller/signup'], {
+                  queryParams: { name: user.name, email: user.email, provider: user.provider},
+                });
+              
+              } else if(err.error === "Provider Not Match"){
+                console.error("Provider Not Match");
+              } 
+              else {
+                console.error(err.error);
               }
-          )}else{
-            
-          }
+              }
+          )
       }
       )
       .catch((err)=>{console.error(err);})
@@ -66,33 +73,44 @@ export class SellerLoginComponent implements OnInit {
 
 
   signInWithFB(): void {
-    this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
-    this.authService.authState.subscribe((user) => {
-      this.user = user;
-      if (user && user.provider === 'FACEBOOK') {
-        this.sellerAuthService.signInWithFB(user).subscribe(
-          (res: any) => {
-            if (res.length === 0) {
-              this.router.navigate(['seller/signup'], {
-                queryParams: { name: user.name, email: user.email },
+    this.authService.signIn(FacebookLoginProvider.PROVIDER_ID)
+    .then(
+      (user)=>{
+        this.user = user;
+        this.sellerAuthService.signInWithFB(this.user).subscribe(
+            (res: any) => {
+              let mySellerName=res.seller.sellerName
+              let myId=res.seller._id
+              let myToken=res.token
+              
+              var sellerLoginStorage = {'_id': myId,'token':myToken};
+              localStorage.setItem('sellerLoginStorage', JSON.stringify(sellerLoginStorage));
+              this.router.navigate(['seller/home'], {
+                queryParams: { sellerName:  mySellerName},
               });
-              console.log('Email Not Found');
-              this.signOut();
-            } else {
-              console.log(res);
-            }
-          },
-          (err) => {
-            console.error(err);
-          },
-          () => {}
-        );
+            },
+            (err) => {
+              if (err.error === "Email Not Found") {
+                console.error("Email Not Found");
+                this.router.navigate(['seller/signup'], {
+                  queryParams: { name: user.name, email: user.email, provider: user.provider},
+                });
+              
+              } else if(err.error === "Provider Not Match"){
+                console.error("Provider Not Match");
+              } 
+              else {
+                console.error(err.error);
+              }
+              }
+          )
       }
-      this.loggedIn = user != null;
-    });
+      )
+      .catch((err)=>{console.error(err);})
+    
   }
 
-  async signOut(){    
+  signOut(){    
     this.authService.signOut();
   }
 

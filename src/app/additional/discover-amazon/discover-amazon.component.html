@@ -3,9 +3,11 @@
   <div class="row" id="AA_vanRow">
 
 
-    <div class="col-md-4" id="AA_amazonShips">
+    <div dir="auto" class="col-md-4" id="AA_amazonShips">
 
-      <p class="h2">Amazon.com ships <br>worldwide </p>
+      <p class="h2">
+        {{ "DISCOVER_AMAZON.AMAZON_COM_SHIPS" | translate }}<br>{{ "DISCOVER_AMAZON.WORLD_WIDE" | translate }}
+      </p>
     </div>
 
     <div class="col-md-1"></div>
@@ -22,17 +24,22 @@
   <div class="row">
     <div class="col-md-6">
       <div class="card" id="AA_worldWideCard">
+
         <div class="card-body" id="AA_cardBody">
           <img
             src="https://m.media-amazon.com/images/G/01/AmazonExports/Projects/HelpPage/worldwide-shipping-illustration._CB451995074_.png"
             class="img-fluid">
         </div>
-        <div>
-          <p class="h6" id="AA_amazonDelivers">AMAZON DELIVERS TO YOU</p> <br>
-          <p class="h3" id="AA_worldWideShipping">Worldwide shipping</p><br>
-          <p class="h5" id="AA_shipOver">We ship to over 100 countries and regions, <br>
-            right to your doorstep</p><br>
-          <button type=" button" class="btn btn-outline-primary">Check your location</button>
+        <div dir="auto">
+          <p class="h6" id="AA_amazonDelivers">
+            {{ "DISCOVER_AMAZON.AMAZON_DELIVERS" | translate }}</p> <br>
+          <p class="h3" id="AA_worldWideShipping">
+            {{ "DISCOVER_AMAZON.WORLDWIDE_SHIPPPING" | translate }}</p><br>
+          <p class="h5" id="AA_shipOver">
+            {{ "DISCOVER_AMAZON.WE_SHIP_OVER" | translate }}<br>
+            {{ "DISCOVER_AMAZON.RIGHT_TO" | translate }} </p><br>
+          <button type=" button" class="btn btn-outline-primary">
+            {{ "DISCOVER_AMAZON.CHECK_YOUR_LOCATION" | translate }}</button>
 
         </div>
       </div>
@@ -43,15 +50,31 @@
 
       <div class="card" id="AA_fourColCard">
         <div class="card-body">
-          <div style="text-align: left;">
-            <div class="AA_sideDiv"> <img
-                src="https://m.media-amazon.com/images/G/01/AmazonExports/Projects/HelpPage/language-icon._CB438827103_.png"
-                id="AA_sideImg" class="img-fluid"></div>
-            <div class="AA_sideText">
-              <p class="h4">Shop in 8 languages</p>
-              <p class="h5">Browse or search in your language</p>
-              <p class="h6" id="AA_hoveredCursor">Select your language</p>
+          <div style="text-align: start;">
+            <div class="row">
+              <div class="col-md-2"></div>
+              <div class="col-md-2">
+                <div class="AA_sideDiv"> <img
+                    src="https://m.media-amazon.com/images/G/01/AmazonExports/Projects/HelpPage/language-icon._CB438827103_.png"
+                    id="AA_sideImg" class="img-fluid">
+                </div>
 
+
+              </div>
+              <div dir="auto" class="col-md-6  AA_sideText">
+
+
+                <p class="h4">
+                  {{ "DISCOVER_AMAZON.SHOP_IN_8_LANGUAGES" | translate }}</p>
+                <p class="h5">
+                  {{ "DISCOVER_AMAZON.BROWSE_OR_SEARCH" | translate }}</p>
+                <p class="h6" id="AA_hoveredCursor">
+                  {{ "DISCOVER_AMAZON.SELECT_YOUR_LANGUAGE" | translate }}</p>
+
+
+
+              </div>
+              <div class="col-md-2"></div>
             </div>
           </div>
 
@@ -59,15 +82,30 @@
         </div>
 
         <div class="card-body">
-          <div style="text-align: left;">
-            <div class="AA_sideDiv"> <img
-                src="https://m.media-amazon.com/images/G/01/AmazonExports/Projects/HelpPage/currency-icon._CB438827103_.png"
-                id="AA_sideImg" class="img-fluid"></div>
-            <div class="AA_sideText">
-              <p class="h4">Shop in 75 currencies</p>
-              <p class="h5">Freedom to choose your preferred currency</p>
-              <p class="h6" id="AA_hoveredCursor">Select your currency</p>
+          <div style="text-align: start;">
+            <div class="row">
+              <div class="col-md-2"></div>
+              <div class="col-md-2">
+                <div class="AA_sideDiv"> <img
+                    src="https://m.media-amazon.com/images/G/01/AmazonExports/Projects/HelpPage/currency-icon._CB438827103_.png"
+                    id="AA_sideImg" class="img-fluid">
+                </div>
 
+
+              </div>
+              <div dir="auto" class="col-md-6 AA_sideText">
+
+                <p class="h4">
+                  {{ "DISCOVER_AMAZON.SHOP_IN_75_CURRENCIES" | translate }}</p>
+                <p class="h5">
+                  {{ "DISCOVER_AMAZON.FREEDOM_TO_CHOOSE" | translate }}</p>
+                <p class="h6" id="AA_hoveredCursor">
+                  {{ "DISCOVER_AMAZON.SELECT_YOUR_CURRENCY" | translate }}</p>
+
+
+
+              </div>
+              <div class="col-md-2"></div>
             </div>
           </div>
 
@@ -75,15 +113,32 @@
         </div>
 
         <div class="card-body">
-          <div style="text-align: left;">
-            <div class="AA_sideDiv"> <img
-                src="https://m.media-amazon.com/images/G/01/AmazonExports/Projects/HelpPage/shipping-icon._CB438827102_.png"
-                id="AA_sideImg" class="img-fluid"></div>
-            <div class="AA_sideText">
-              <p class="h4">Products that ship to you</p>
-              <p class="h5">Find top products that ship to you</p>
-              <p class="h6" id="AA_hoveredCursor">Learn more</p>
+          <div style="text-align: start;">
+            <div class="row">
+              <div class="col-md-2"></div>
+              <div class="col-md-2">
+                <div class="AA_sideDiv">
+                  <img
+                    src="https://m.media-amazon.com/images/G/01/AmazonExports/Projects/HelpPage/shipping-icon._CB438827102_.png"
+                    id="AA_sideImg" class="img-fluid">
+                </div>
 
+
+              </div>
+              <div dir="auto" class="col-md-6 AA_sideText">
+
+                <p class="h4">
+                  {{ "DISCOVER_AMAZON.PRODUCTS_THAT_SHIP" | translate }}</p>
+                <p class="h5">
+                  {{ "DISCOVER_AMAZON.FIND_TOP_PRODUCTS" | translate }}</p>
+                <p class="h6" id="AA_hoveredCursor">
+                  {{ "DISCOVER_AMAZON.LEARN_MORE" | translate }}</p>
+
+
+
+
+              </div>
+              <div class="col-md-2"></div>
             </div>
           </div>
 
@@ -91,15 +146,31 @@
         </div>
 
         <div class="card-body">
-          <div style="text-align: left;">
-            <div class="AA_sideDiv"> <img
-                src="https://m.media-amazon.com/images/G/01/AmazonExports/Projects/HelpPage/transparent-costs-icon._CB438827102_.png"
-                id="AA_sideImg" class="img-fluid"></div>
-            <div class="AA_sideText">
-              <p class="h4">Transparent costs</p>
-              <p class="h5">We estimate shipping and custom fees</p>
-              <p class="h6" id="AA_hoveredCursor">Learn more</p>
+          <div style="text-align: start;">
+            <div class="row">
+              <div class="col-md-2"></div>
+              <div class="col-md-2">
+                <div class="AA_sideDiv"> <img
+                    src="https://m.media-amazon.com/images/G/01/AmazonExports/Projects/HelpPage/transparent-costs-icon._CB438827102_.png"
+                    id="AA_sideImg" class="img-fluid">
+                </div>
 
+
+              </div>
+              <div dir="auto" class="col-md-6  AA_sideText">
+
+
+                <p class="h4">
+                  {{ "DISCOVER_AMAZON.TRANSPARENT_COSTS" | translate }}</p>
+                <p class="h5">
+                  {{ "DISCOVER_AMAZON.WE_ESTIMATE" | translate }}</p>
+                <p class="h6" id="AA_hoveredCursor">
+                  {{ "DISCOVER_AMAZON.LEARN_MORE" | translate }}</p>
+
+
+
+              </div>
+              <div class="col-md-2"></div>
             </div>
           </div>
 
@@ -119,13 +190,27 @@
       <div class="card" id="AA_walletLeftCard">
         <div class="card-body">
           <div class="AA_alignCenterDiv">
-            <div class="AA_sideImgDiv"> <img
-                src="https://m.media-amazon.com/images/G/01/AmazonExports/Projects/HelpPage/tracking-icon._CB1566846352_.png"
-                id="AA_sideImg" class="img-fluid"></div>
-            <div class="AA_sideText">
-              <p class="h4">Track your orders</p>
-              <p class="h5">Get updates on package delivery</p>
-              <p class="h6" id="AA_hoveredCursor">Learn more</p>
+            <div class="row">
+              <div class="col-md-3"></div>
+              <div class="col-md-2">
+
+                <div class="AA_sideImgDiv"> <img
+                    src="https://m.media-amazon.com/images/G/01/AmazonExports/Projects/HelpPage/tracking-icon._CB1566846352_.png"
+                    id="AA_sideImg" class="img-fluid">
+                </div>
+
+              </div>
+              <div dir="auto" class="col-md-7 AA_sideText">
+
+                <p class="h4">
+                  {{ "DISCOVER_AMAZON.TRACK_YOUR_ORDER" | translate }}</p>
+                <p class="h5">
+                  {{ "DISCOVER_AMAZON.GET_UPDATES" | translate }}</p>
+                <p class="h6" id="AA_hoveredCursor">
+                  {{ "DISCOVER_AMAZON.LEARN_MORE" | translate }}</p>
+
+
+              </div>
 
             </div>
           </div>
@@ -135,14 +220,28 @@
 
         <div class="card-body" id="AA_bisqueBg">
           <div class="AA_alignCenterDiv">
-            <div class="AA_sideImgDiv"> <img
-                src="https://m.media-amazon.com/images/G/01/AmazonExports/Projects/HelpPage/customer-service-icon._CB1566846593_.png"
-                id="AA_sideImg" class="img-fluid" style="padding-left: -5%;"></div>
-            <div class="AA_sideText">
-              <p class="h4">24/7 customer service</p>
-              <p class="h5">You can email, chat, or call us any time</p>
-              <p class="h6" id="AA_hoveredCursor">Contact us</p>
+            <div class="row">
+              <div class="col-md-3"></div>
+              <div class="col-md-2">
 
+                <div class="AA_sideImgDiv"> <img
+                    src="https://m.media-amazon.com/images/G/01/AmazonExports/Projects/HelpPage/customer-service-icon._CB1566846593_.png"
+                    id="AA_sideImg" class="img-fluid" style="padding-left: -5%;">
+                </div>
+
+              </div>
+              <div dir="auto" class="col-md-7 AA_sideText">
+
+
+                <p class="h4">
+                  {{ "DISCOVER_AMAZON.CUSTOMER_SERVICE_24/7" | translate }}</p>
+                <p class="h5">
+                  {{ "DISCOVER_AMAZON.YOU_CAN_EMAIL" | translate }}</p>
+                <p class="h6" id="AA_hoveredCursor">
+                  {{ "DISCOVER_AMAZON.CONTACT_US" | translate }}</p>
+
+
+              </div>
             </div>
           </div>
 
@@ -151,14 +250,27 @@
 
         <div class="card-body" id="AA_bisqueBg">
           <div class="AA_alignCenterDiv">
-            <div class="AA_sideImgDiv"> <img
-                src="https://m.media-amazon.com/images/G/01/AmazonExports/Projects/HelpPage/easy-returns-icon._CB438827103_.png"
-                id="AA_sideImg" class="img-fluid"></div>
-            <div class="AA_sideText">
-              <p class="h4">Easy returns </p>
-              <p class="h5">Explore options to return your order</p>
-              <p class="h6" id="AA_hoveredCursor">Learn more</p>
+            <div class="row">
+              <div class="col-md-3"></div>
+              <div class="col-md-2">
 
+                <div class="AA_sideImgDiv"> <img
+                    src="https://m.media-amazon.com/images/G/01/AmazonExports/Projects/HelpPage/easy-returns-icon._CB438827103_.png"
+                    id="AA_sideImg" class="img-fluid">
+                </div>
+
+              </div>
+              <div dir="auto" class="col-md-7 AA_sideText">
+
+
+                <p class="h4">
+                  {{ "DISCOVER_AMAZON.EASY_RETURNS" | translate }} </p>
+                <p class="h5">
+                  {{ "DISCOVER_AMAZON.EXPLORE_OPTIONS" | translate }}</p>
+                <p class="h6" id="AA_hoveredCursor">
+                  {{ "DISCOVER_AMAZON.LEARN_MORE" | translate }}</p>
+
+              </div>
             </div>
           </div>
 
@@ -179,11 +291,17 @@
             src="https://m.media-amazon.com/images/G/01/AmazonExports/Projects/HelpPage/payments-illustration._CB438876654_.png"
             class="img-fluid">
         </div>
-        <div id="AA_walletText">
-          <p class="h6" id="AA_shopWith">SHOP WITH CONFIDENCE</p> <br>
-          <p class="h3" id="AA_safe">Safe and secure payments</p><br>
-          <p class="h5" id="AA_protect">We protect your personal payment<br> information</p><br>
-          <button type="button" class="btn btn-outline-primary">Learn more</button>
+        <div dir="auto" id="AA_walletText">
+          <p class="h6" id="AA_shopWith">
+            {{ "DISCOVER_AMAZON.SHOP_WITH_CONFIDENCE" | translate }}</p> <br>
+          <p class="h3" id="AA_safe">
+            {{ "DISCOVER_AMAZON.SAFE_AND_SECURE" | translate }}</p><br>
+          <p class="h5" id="AA_protect">
+            {{ "DISCOVER_AMAZON.WE_PROTECT" | translate }}<br>
+            {{ "DISCOVER_AMAZON.INFORMATION" | translate }} </p>
+          <br>
+          <button type="button" class="btn btn-outline-primary">
+            {{ "DISCOVER_AMAZON.LEARN_MORE" | translate }}</button>
 
         </div>
       </div>
@@ -202,11 +320,15 @@
             src="https://m.media-amazon.com/images/G/01/AmazonExports/Projects/HelpPage/value-illustration._CB451003343_.png"
             class="img-fluid">
         </div>
-        <div>
-          <p class="h6" id="AA_experience">EXPERIENCE AMAZON ADVANTAGE</p> <br>
-          <p class="h3" id="AA_great">Great deals and super value</p><br>
-          <p class="h5" id="AA_lowPrices">Low prices and amazing deals every day</p><br>
-          <button type="button" class="btn btn-outline-primary">Shop deals</button>
+        <div dir="auto">
+          <p class="h6" id="AA_experience">
+            {{ "DISCOVER_AMAZON.EXPERIENCE_AMAZON_ADVANTAGES" | translate }}</p> <br>
+          <p class="h3" id="AA_great">
+            {{ "DISCOVER_AMAZON.GREAT_DEALS" | translate }}</p><br>
+          <p class="h5" id="AA_lowPrices">
+            {{ "DISCOVER_AMAZON.LOW_PRICES" | translate }}</p><br>
+          <button type="button" class="btn btn-outline-primary">
+            {{ "DISCOVER_AMAZON.SHOP_DEALS" | translate }}</button>
 
         </div>
       </div>
@@ -215,17 +337,33 @@
 
     <div class="col-md-6">
 
+
       <div class="card" id="AA_starRightCard">
         <div class="card-body">
           <div class="AA_alignLeftDiv">
-            <div class="AA_starImgDiv"> <img
-                src="https://m.media-amazon.com/images/G/01/AmazonExports/Projects/HelpPage/selection-icon._CB438827102_.png"
-                id="AA_starImg" class="img-fluid"></div>
-            <div class="AA_starImgText">
-              <p class="h4">Browse an epic selection</p>
-              <p class="h5">Discover millions of products that ship globally</p>
-              <p class="h6" id="AA_hoveredCursor">Shop now</p>
+            <div class="row">
+              <div class="col-md-2"></div>
+              <div class="col-md-2">
+                <div class="AA_starImgDiv">
+                  <img
+                    src="https://m.media-amazon.com/images/G/01/AmazonExports/Projects/HelpPage/selection-icon._CB438827102_.png"
+                    id="AA_starImg" class="img-fluid">
+                </div>
 
+              </div>
+              <div dir="auto" class="col-md-6  AA_starImgText">
+
+                <p class="h4">
+                  {{ "DISCOVER_AMAZON.BROWSE_AN_EPIC_SELECTION" | translate }}</p>
+                <p class="h5">
+                  {{ "DISCOVER_AMAZON.DISCOVER_MILLIONS" | translate }}
+                </p>
+                <p class="h6" id="AA_hoveredCursor">
+                  {{ "DISCOVER_AMAZON.SHOP_NOW" | translate }}</p>
+
+
+              </div>
+              <div class="col-md-2"></div>
             </div>
           </div>
 
@@ -234,14 +372,27 @@
 
         <div class="card-body">
           <div class="AA_alignLeftDiv">
-            <div class="AA_starImgDiv"> <img
-                src="https://m.media-amazon.com/images/G/01/AmazonExports/Projects/HelpPage/mobile-icon._CB438827103_.png"
-                id="AA_starImg" class="img-fluid"></div>
-            <div class="AA_starImgText">
-              <p class="h4">Shop on the go</p>
-              <p class="h5">Download the Amazon app for convenient shopping</p>
-              <p class="h6" id="AA_hoveredCursor">Download now</p>
+            <div class="row">
+              <div class="col-md-2"></div>
+              <div class="col-md-2">
+                <div class="AA_starImgDiv"> <img
+                    src="https://m.media-amazon.com/images/G/01/AmazonExports/Projects/HelpPage/mobile-icon._CB438827103_.png"
+                    id="AA_starImg" class="img-fluid">
+                </div>
 
+              </div>
+              <div dir="auto" class="col-md-6 AA_starImgText">
+
+                <p class="h4">
+                  {{ "DISCOVER_AMAZON.SHOP_ON_THE_GO" | translate }}</p>
+                <p class="h5">
+                  {{ "DISCOVER_AMAZON.DOWNLOAD_AMAZON_APP" | translate }}
+                </p>
+                <p class="h6" id="AA_hoveredCursor">
+                  {{ "DISCOVER_AMAZON.DOWNLOAD_NOW" | translate }}</p>
+
+              </div>
+              <div class="col-md-2"></div>
             </div>
           </div>
 
@@ -250,14 +401,28 @@
 
         <div class="card-body">
           <div class="AA_alignLeftDiv">
-            <div class="AA_starImgDiv"> <img
-                src="https://m.media-amazon.com/images/G/01/AmazonExports/Projects/HelpPage/reviews-icon._CB438827102_.png"
-                id="AA_starImg" class="img-fluid"></div>
-            <div class="AA_starImgText">
-              <p class="h4">Trusted reviews and ratings</p>
-              <p class="h5">Check product feedback from actual shoppers</p>
-              <p class="h6" id="AA_hoveredCursor">Learn more</p>
+            <div class="row">
+              <div class="col-md-2"></div>
+              <div class="col-md-2">
+                
+                <div class="AA_starImgDiv"> <img
+                    src="https://m.media-amazon.com/images/G/01/AmazonExports/Projects/HelpPage/reviews-icon._CB438827102_.png"
+                    id="AA_starImg" class="img-fluid">
+                </div>
 
+              </div>
+              <div dir="auto" class="col-md-6  AA_starImgText">
+
+          
+                  <p class="h4">
+                    {{ "DISCOVER_AMAZON.TRUSTED_REVIEWS" | translate }}</p>
+                  <p class="h5">
+                    {{ "DISCOVER_AMAZON.CHECK_PRODUCT_FEEDBACK" | translate }}</p>
+                  <p class="h6" id="AA_hoveredCursor">
+                    {{ "DISCOVER_AMAZON.LEARN_MORE" | translate }}</p>
+    
+              </div>
+              <div class="col-md-2"></div>
             </div>
           </div>
 
@@ -272,19 +437,24 @@
   </div>
 
   <div class="row">
-    <div class="col-md-12" id="AA_lastRow">
+    <div dir="auto" class="col-md-12" id="AA_lastRow">
 
-      <p class="h3">NOW LET'S GET SHOPPING!</p><br><br>
+      <p class="h3">
+        {{ "DISCOVER_AMAZON.NOW_LETS_GET" | translate }}</p><br><br>
       <hr>
-      <div *ngIf='SignedIn() === false'>
-        <p class="h6" id="AA_startHere">See personalized recommendations</p>
+      <div dir="auto" *ngIf='SignedIn() === false'>
+        <p class="h6" id="AA_startHere">
+          {{ "DISCOVER_AMAZON.SEE_PERSONALIZED_RECOMMENDATIONS" | translate }}</p>
         <a [routerLink]="['/login']">
-          <div class="d-grid gap-2 col-2 mx-auto">
-            <button class="btn " type="button" id="AA_signInBtn">Sign in</button>
+          <div dir="auto" class="d-grid gap-2 col-2 mx-auto">
+            <button class="btn " type="button" id="AA_signInBtn">
+              {{ "DISCOVER_AMAZON.SIGN_IN" | translate }}</button>
           </div>
         </a>
-        <p class="h6" id="AA_startHere">New customer? <a [routerLink]="['/register']">
-            <span id="AA_startHere"> start here</span></a>
+        <p class="h6" id="AA_startHere">
+          {{ "DISCOVER_AMAZON.NEW_CUSTOMER" | translate }} <a [routerLink]="['/register']">
+            <span id="AA_startHere">
+              {{ "DISCOVER_AMAZON.START_HERE" | translate }} </span></a>
         </p>
 
         <hr>
