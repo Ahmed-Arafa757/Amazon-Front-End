@@ -1,7 +1,15 @@
 <div dir="auto" class="container-fluid">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb mx-3 mt-3">
+      <li class="breadcrumb-item">
+        <a [routerLink]="['/cart']" style="text-decoration: none">Cart</a>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">Checkout</li>
+    </ol>
+  </nav>
   <div class="row">
     <div class="col-md-9">
-      <div class="card my-3 border-0">
+      <div class="card my-2 border-0">
         <div class="card-body">
           <h3 class="card-title mb-5 text-center">
             {{ "CHECKOUT.CONFIRM" | translate }} ({{ totalQuantity }}
