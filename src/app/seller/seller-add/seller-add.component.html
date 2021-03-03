@@ -5,10 +5,11 @@
   <div class="row position-relative m-3 ">
       <div class="col-6 p-1 ">
           <div class="imgActions col col-12 m-4">
-              <input (input)='addImg($event.target.files[0].name,"add")' type="file" name="img" id="img" style="display: none;" accept=".png, .jpg, .jpeg"  />
+              <input (input)='addImg($event.target,"add")' type="file" name="img" id="img" style="display: none;" accept=".png, .jpg, .jpeg"  />
               <div><button class="uploadImg m-2 p-2" (click)="fireUplodeImg($event)" > <i class="fas fa-upload"></i> Upload Photo</button>
                 </div>
-
+                <!-- <button type="button" (click)='uploadImg()'>upload</button> -->
+                <!-- <img src="https://iti-upload.herokuapp.com/files/amr4.jpg" alt=""> -->
               <div><button class="uploadImg m-2 p-2" (click)='removeImg()' > Remove Last Image</button></div>
             </div> 
           <div class="col col-12 m-2 p-4" >

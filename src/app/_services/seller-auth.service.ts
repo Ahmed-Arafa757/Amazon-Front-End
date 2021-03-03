@@ -9,8 +9,8 @@ export class SellerAuthService {
     
 
 
-  /* baseUrl = 'https://mearn-stack-backend-test.herokuapp.com/'; */
-  baseUrl = 'http://localhost:3000/';
+  baseUrl = 'https://iti-amzon-backend.herokuapp.com/';
+  /* baseUrl = 'http://localhost:3000/'; */
   constructor(private httpClient: HttpClient) { }
 
 

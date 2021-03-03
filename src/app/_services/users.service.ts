@@ -416,8 +416,8 @@ export class UsersService {
   // ];
 
   constructor(private httpClient: HttpClient) {}
-  //baseUrl = 'http://localhost:3000/';
-  baseUrl = 'https://iti-amzon-backend.herokuapp.com/';
+  baseUrl = 'http://localhost:3000/';
+  /* baseUrl = 'https://iti-amzon-backend.herokuapp.com/'; */
 
   getAllUsers() {
     return this.httpClient.get(`${this.baseUrl}users`);
@@ -475,5 +475,13 @@ export class UsersService {
 
   deleteUser(id: string) {
     this.httpClient.delete(`${this.baseUrl}user/${id}`);
+  }
+  signInWithGoogle(socialUser){
+    console.log(socialUser);
+    return this.httpClient.post(`${this.baseUrl}user/login/google`,socialUser)
+  }
+  signInWithFB(socialUser){
+    console.log(socialUser);
+    return this.httpClient.post(`${this.baseUrl}user/login/facebook`,socialUser)
   }
 }

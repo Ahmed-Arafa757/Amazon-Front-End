@@ -1,14 +1,23 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Seller } from '../_model/sellers';
 
+@Injectable({
+    providedIn: 'root',
+  })
 export class SellersService {
      sellers: Seller [] = [];
-
-    constructor() { } 
+  baseUrl = 'https://iti-amzon-backend.herokuapp.com/';
+ /* baseUrl = 'http://localhost:3000/'; */
+    constructor(private httpClinet:HttpClient) { } 
 
     getAllSellers(): Seller[] {
 
         return this.sellers.slice();
 
+    }
+    getSellerById(id) {
+        return this.httpClinet.get(this.baseUrl + 'api/sellers/id/' + id);
     }
     
     /* getSellerById(id): Seller {

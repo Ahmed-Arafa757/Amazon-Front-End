@@ -3,7 +3,9 @@ import { ActivatedRoute } from '@angular/router';
 import { Product } from 'src/app/_model/product';
 import { CategoryService } from 'src/app/_services/category.service';
 import { ColorService } from 'src/app/_services/color.service';
+import { ImageService } from 'src/app/_services/image.service';
 import { ProductService } from 'src/app/_services/product.service';
+import { SellersService } from 'src/app/_services/sellers.service';
 import { WarehouseService } from 'src/app/_services/warehouse.service';
 
 @Component({
@@ -14,6 +16,7 @@ import { WarehouseService } from 'src/app/_services/warehouse.service';
 export class SellerAddComponent implements OnInit {
   product:Product={productImages:[],productInfo:[{color:[],description:''}],productPrice:{},keywords:[]};
   colors;
+  arrayOfImages = [];
   categories;
   subCategories;
   isColor=false;
@@ -27,9 +30,19 @@ export class SellerAddComponent implements OnInit {
     private productService : ProductService ,
     private warehouseService : WarehouseService,
     private activatedRoute:ActivatedRoute,
+    private imageService:ImageService,
+    private sellerService:SellersService,
     ) { }
 
   ngOnInit(): void {
+    let sellerId = JSON.parse(localStorage.getItem('sellerLoginStorage'))['_id'];    
+    this.product.productSales= sellerId;
+    /* this.sellerService.getSellerById(sellerId).subscribe(
+      (res:any)=>{
+        this.product.productSales= res.name;
+      },
+      (err)=>{console.error(err)},
+    ); */
     this.product.productPrice.onSale='1';
     this.colors=this.colorService.allColors();
     this.categories = this.categoryService.getAllCategories();
@@ -76,41 +89,63 @@ export class SellerAddComponent implements OnInit {
       );
     }
   }
+  async uploadImg(){
+    for(let image of this.arrayOfImages)
+    {      
+      let img:any = image;
+      console.log(img);
+      let index = 0;
+      this.imageService.upload(img.files[0],this.product.productSales+this.product.productName+index+Date.now()).subscribe(
+        (res:any)=>{
+          this.product.productImages.push(res.link)
+          index++;
+        },
+        (err)=>{console.error(err)},
+        ()=>{}
+      )
+    }
+  }
   applySub()
   {
     this.subCategories = this.categoryService.getAllSubCategoriesOfACategryById(this.product.productCategory);
   }
   addImg(img,mode){  
-      let firstImg = document.getElementById('0') as HTMLImageElement;
-      if(mode == 'add'){
-        this.product.productImages.push(img);
-      }
-      if(this.index==0)
-      {
-        firstImg.src = `../../../assets/images/test/${img}`
-      }
-      else if(this.index>=0)
-      {
-        let newImg = document.getElementById('imgPresent').innerHTML+`<div class="carousel-item">
-            <img src="../../../assets/images/test/${img}" class="d-block w-100" alt="...">
-          </div>`;
-          document.getElementById('imgPresent').innerHTML=newImg;
-      }
-      else
-      {
-        document.getElementById('imgPresent').innerHTML=`<div class="carousel-item active">
-        <img id="0" src="../../../assets/images/test/featured-image-placeholder.jpg" class="d-block w-100" alt="...">
+    let url = URL.createObjectURL(img.files[0]);
+    console.log(url);
+    let firstImg = document.getElementById('0') as HTMLImageElement;
+    /* firstImg.src = url */
+    if(mode == 'add'){
+      this.arrayOfImages.push(img);
+    }
+    if(this.index==0)
+    {
+      firstImg.src = url
+    }
+    else if(this.index>=0)
+    {
+      let newImg = document.getElementById('imgPresent').innerHTML+`<div class="carousel-item">
+          <img src=${url} class="d-block w-100" alt="...">
         </div>`;
-      }
-      this.index++;
+        document.getElementById('imgPresent').innerHTML=newImg;
+    }
+    else
+    {
+      document.getElementById('imgPresent').innerHTML=`<div class="carousel-item active">
+      <img id="0" src="../../../assets/images/test/featured-image-placeholder.jpg" class="d-block w-100" alt="...">
+      </div>`;
+    }
+    this.index++;
+    console.log(this.product.productImages)
+    console.log(img)
   }
   removeImg(){
     let index = 0;
-    if(this.product.productImages.length==0)
+    if(this.arrayOfImages.length==0)
     {
       alert('No image to remove ');
     }
     else{
+      this.index--;
     this.product.productImages.pop();    
     document.getElementById('imgPresent').innerHTML='';
     if(this.product.productImages.length==0)
@@ -123,15 +158,17 @@ export class SellerAddComponent implements OnInit {
     {
       for(let img of this.product.productImages)
       {
+        let i:any = img;
+        let url = URL.createObjectURL(i.files[0]);
         if(index == 0)
         {
           index++;
           document.getElementById('imgPresent').innerHTML+=`<div class="carousel-item active">
-          <img src="../../../assets/images/test/${img}" class="d-block w-100" alt="...">
+          <img src=${url} class="d-block w-100" alt="...">
         </div>`
         }else{
           document.getElementById('imgPresent').innerHTML+=`<div class="carousel-item ">
-          <img src="../../../assets/images/test/${img}" class="d-block w-100" alt="...">
+          <img src=${url} class="d-block w-100" alt="...">
         </div>`
         }
       }
@@ -173,7 +210,7 @@ export class SellerAddComponent implements OnInit {
   let index = this.product.keywords.findIndex( k => k == key );
   this.product.keywords.splice(index,1);
   }
-  submitAdd(form){
+  async submitAdd(form){
     if(this.editMode){
       this.product.productInfo[0].color = [];
       if(this.isColor){
@@ -204,12 +241,7 @@ export class SellerAddComponent implements OnInit {
        }
        else{
          delete this.product.productInfo[0].color ;
-       }
-       /* this.productService.addProduct(this.product).subscribe(
-         (res)=>{console.log(res);},
-         (err)=>{console.error(err)},
-         ()=>{}
-       )   */ 
+       }  
        this.productService.updateProduct(this.product).subscribe(
         (res)=>{
           console.log(res);
@@ -250,6 +282,8 @@ export class SellerAddComponent implements OnInit {
     else{
       delete this.product.productInfo[0].color ;
     }
+    await this.uploadImg();
+    console.log(this.product.productImages);
     this.productService.addProduct(this.product).subscribe(
       (res)=>{
         console.log(res);
