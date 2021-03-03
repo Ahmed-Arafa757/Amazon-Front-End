@@ -108,5 +108,17 @@
     "REVIEWED_ON": "Reviewed on",
     "EDIT": "Edit",
     "DELETE": "Delete"
+  },
+  "CART": {
+    "SHOPPING_CART": "Shopping Cart",
+    "PRICE": "Price",
+    "ONLY": "Only",
+    "LEFT_IN_STOCK": "left in stock - order soon.",
+    "SHIPPED_FROM": "Shipped from",
+    "DELETE": "Delete",
+    "TOTAL": "Total",
+    "ITEM": "item",
+    "PRICE_&_AVAILABILITY": "The price and availability of items at Amazon.com are subject to change. The Cart is a temporary place to store a list of your items and reflects each item's most recent price.",
+    "PROCEED_TO_CHECKOUT": "Proceed to checkout"
   }
 }
