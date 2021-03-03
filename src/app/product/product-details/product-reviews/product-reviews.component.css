@@ -1,4 +1,14 @@
 i {
   color: #ff9900;
 }
+
+button {
+  background: linear-gradient(to bottom, #f7dfa5, #f0c14b);
+}
+button:hover {
+  background: linear-gradient(to bottom, #f6c88f, #ed9220);
+}
+button i {
+  color: #000;
+}
 /*# sourceMappingURL=product-reviews.component.css.map */

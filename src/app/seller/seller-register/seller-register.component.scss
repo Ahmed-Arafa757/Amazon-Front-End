@@ -1,11 +1,15 @@
-
-    .login__forget-password{
-        margin: -30px 20px;
-         position: absolute;
-         right: 0;
-         
-    }
-
+#password{
+    position: relative;
+    
+  }
+  #togglePassword{
+    cursor: pointer;
+    display: inline-block;
+     position: absolute;
+    margin: -40px 35px 20px 20px;
+    padding: 10px;
+     right: 0; 
+  }
     
     
 

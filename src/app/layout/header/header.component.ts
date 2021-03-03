@@ -34,6 +34,8 @@ export class HeaderComponent implements OnInit {
   ) {
     this.currentLang = localStorage.getItem('currentLang') || 'en';
     this.translate.use(this.currentLang);
+    //Changing the html lang attribute also
+    document.documentElement.lang = this.currentLang;
     if (this.currentLang === 'en') {
       this.langFlag = '../../../assets/images/icons/english.png';
     } else {
@@ -63,6 +65,8 @@ export class HeaderComponent implements OnInit {
   changeCurrentLanguage(lang: string) {
     this.translate.use(lang);
     localStorage.setItem('currentLang', lang);
+    //Changing the html lang attribute also
+    document.documentElement.lang = lang;
     if (lang === 'en') {
       this.langFlag = '../../../assets/images/icons/english.png';
     } else {

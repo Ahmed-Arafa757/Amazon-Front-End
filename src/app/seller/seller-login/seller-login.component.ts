@@ -23,6 +23,7 @@ export class SellerLoginComponent implements OnInit {
   loggedInSeller: Seller;
   user: SocialUser;
   loggedIn: boolean;
+  showPass:Boolean=false;
   constructor(
     private sellerAuthService: SellerAuthService,
     private router: Router,
@@ -139,8 +140,10 @@ this.sellerAuthService.login(mySeller).subscribe(
     var x = document.getElementById('password') as HTMLInputElement;
     if (x.type === 'password') {
       x.type = 'text';
+      this.showPass=true
     } else {
       x.type = 'password';
+      this.showPass=false
     }
   }
 }
