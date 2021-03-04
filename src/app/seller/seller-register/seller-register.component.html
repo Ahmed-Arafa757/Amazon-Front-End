@@ -18,25 +18,31 @@
                     <p class="fs-3">{{ "SELLER.CREATE" | translate }}</p>
     
     
-                    <div >
+                    <div class="my-2">
     
                       <label for="sellerName" class="form-label fw-bold">{{ "SELLER.SELLER_NAME" | translate }}</label>
-                      <input [ngClass]='{"is-invalid" : sellerName.invalid && sellerName.touched}' type="text" class="form-control mb-3" id="sellerName" name="sellerName" [(ngModel)]='seller.sellerName' #sellerName='ngModel' required />
+                      <input [ngClass]='{"is-invalid" : sellerName.invalid && sellerName.touched,"is-valid":sellerName.valid}' minlength="6" type="text" class="form-control " id="sellerName" name="sellerName" [(ngModel)]='seller.sellerName' #sellerName='ngModel' required />
+                      <div class="alert alert-danger my-1 py-1" role="alert" *ngIf="sellerName.invalid && sellerName.touched">
+                        {{ "SELLER.NAME_VALID" | translate }}</div>
                     </div>
 
-                    <div >
+                    <div class="my-2">
     
                       <label for="phone" class="form-label fw-bold">{{ "SELLER.SELLER_PHONE" | translate }}</label>
-                      <input [ngClass]='{"is-invalid" : phone.invalid && phone.touched}' type="text" class="form-control mb-3" id="phone" name="phone" [(ngModel)]='seller.phone' #phone='ngModel' required />
+                      <input [ngClass]='{"is-invalid" : phone.invalid && phone.touched,"is-valid":phone.valid}' 
+                      minlength="8" pattern="^[0-9]*$"
+                      type="text" class="form-control " id="phone" name="phone" [(ngModel)]='seller.phone' #phone='ngModel' required />
+                      <div class="alert alert-danger my-1 py-1" role="alert" *ngIf="phone.invalid && phone.touched">
+                        {{ "SELLER.PHONE_VALID" | translate }}</div>
                     </div>
     
-                    <div>
+                    <div class="my-2">
                       <label for="exampleInputEmail1" class="form-label fw-bold">{{ "SELLER.EMAIL" | translate }}
                       </label>
-                      <input [ngClass]="{'is-invalid': UserEmail.invalid && UserEmail.touched,'is-valid':UserEmail.valid}"
-                        required minlength="10" maxlength="30" [(ngModel)]="seller.email" #UserEmail="ngModel" type="email"
+                      <input [ngClass]="{'is-invalid': sellerEmail.invalid && sellerEmail.touched,'is-valid':sellerEmail.valid}"
+                        required minlength="10" maxlength="30" [(ngModel)]="seller.email" #sellerEmail="ngModel" type="email"
                         class="form-control" name="email" id="inputEmail" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" />
-                      <div class="alert alert-danger my-1 py-1" role="alert" *ngIf="UserEmail.invalid && UserEmail.touched">
+                      <div class="alert alert-danger my-1 py-1" role="alert" *ngIf="sellerEmail.invalid && sellerEmail.touched">
                         {{ "SELLER.EMAIL_VALID" | translate }}</div>
                     </div>
     
@@ -55,24 +61,25 @@
                     </div>
     
     
-                    <div >
+                    <div class="my-2">
     
                       <label for="confirm-password" class="form-label fw-bold">{{ "SELLER.RE_PASSWORD" | translate }}
                       </label>
-                      <input required minlength="6" maxlength="20" [(ngModel)]='seller.repeatedPassword' #re='ngModel'
+                      <input required minlength="6" maxlength="20" [(ngModel)]='seller.repeatedPassword' #rePassword='ngModel'
                         type="password" name='confirm-password'
                         class="form-control"
                         id="confirm-password"
-                        (change)="checkPassword()"
+                        [ngClass]="{'is-invalid': rePassword.invalid && rePassword.touched,'is-valid':rePassword.touched&&!dontMatch}"
+                        (keyup)="checkPassword()"
                          />
-                        <div class="alert alert-danger my-1 py-1" role="alert" *ngIf="!checkPassword">
-                          {{ "SELLER.PASSWORD_VALID" | translate }}</div>
+                        <div class="alert alert-danger my-1 py-1" role="alert" *ngIf="dontMatch">
+                          {{ "SELLER.RE_PASSWORD_VALID" | translate }}</div>
                     </div>
     
     
     
                   </div>
-                  <div *ngIf='errors.length != 0'>
+                  <div class="alert alert-danger my-2 py-2" *ngIf='errors.length != 0'>
                     {{errors}}
                   </div>
                   <button type="submit" class="btn bg-gradient col-12 mb-3" (click)='onRegister()'>

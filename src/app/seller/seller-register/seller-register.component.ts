@@ -13,7 +13,7 @@ export class SellerRegisterComponent implements OnInit {
   seller:Seller={sellerName:'' , email: '', password: '', repeatedPassword: '', phone:'' };
   errors = '';
   showPass:Boolean=false;
-  checkPass:Boolean=false;
+  dontMatch:Boolean=false;
   constructor(
     private sellerAuthService:SellerAuthService, 
     private router: Router,
@@ -54,11 +54,11 @@ export class SellerRegisterComponent implements OnInit {
 checkPassword(){
   var password = document.getElementById('password') as HTMLInputElement;
   var repeatedPass=document.getElementById('confirm-password') as HTMLInputElement;
-
+console.log(password.value,repeatedPass.value)
   if(password.value===repeatedPass.value){
-    this.checkPass=true
+    this.dontMatch=false
   }else{
-    this.checkPass=false
+    this.dontMatch=true
   }
 }
 
