@@ -1,1 +1,76 @@
-<p>user-login-security works!</p>
+<div dir="auto" class="container my-4" style="max-width: 700px">
+  <nav style="--bs-breadcrumb-divider: ''" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a [routerLink]="['/account']" style="text-decoration: none">{{
+          "LOGIN_SECURITY.YOUR_ACCOUNT" | translate
+        }}</a>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">
+        / {{ "LOGIN_SECURITY.LOGIN_&_SECURITY" | translate }}
+      </li>
+    </ol>
+  </nav>
+  <div class="row">
+    <div class="col-12 my-2">
+      <h3>{{ "LOGIN_SECURITY.LOGIN_&_SECURITY" | translate }}</h3>
+    </div>
+
+    <div class="col-12">
+      <table class="table" style="border: 1px solid rgb(201, 201, 201)">
+        <tbody>
+          <tr>
+            <td>
+              <p class="m-0">{{ "LOGIN_SECURITY.NAME" | translate }}</p>
+              <p>Placeholder for name:</p>
+            </td>
+            <td>
+              <button class="btn edit-btn">
+                {{ "LOGIN_SECURITY.EDIT" | translate }}
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p class="m-0">{{ "LOGIN_SECURITY.EMAIL" | translate }}</p>
+              <p>Placeholder for email:</p>
+            </td>
+            <td>
+              <button class="btn edit-btn">
+                {{ "LOGIN_SECURITY.EDIT" | translate }}
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p class="m-0">{{ "LOGIN_SECURITY.MOBILE" | translate }}</p>
+              <p>Placeholder for mobile:</p>
+            </td>
+            <td>
+              <button class="btn edit-btn">
+                {{ "LOGIN_SECURITY.EDIT" | translate }}
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p class="m-0">{{ "LOGIN_SECURITY.PASSWORD" | translate }}</p>
+              <p>Placeholder for password:</p>
+            </td>
+            <td>
+              <button class="btn edit-btn">
+                {{ "LOGIN_SECURITY.EDIT" | translate }}
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-12">
+      <button class="btn done-btn">
+        {{ "LOGIN_SECURITY.DONE" | translate }}
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,20 @@
-<div class="container my-4" style="max-width: 700px">
-  <h3>Your Orders</h3>
+<div dir="auto" class="container my-4" style="max-width: 700px">
+  <nav style="--bs-breadcrumb-divider: ''" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a [routerLink]="['/account']" style="text-decoration: none">
+          {{ "ORDERS.YOUR_ACCOUNT" | translate }}
+        </a>
+      </li>
+
+      <li class="breadcrumb-item active" aria-current="page">
+        / {{ "ORDERS.YOUR_ORDERS" | translate }}
+      </li>
+    </ol>
+  </nav>
+  <h3>
+    {{ "ORDERS.YOUR_ORDERS" | translate }}
+  </h3>
   <ul class="nav nav-tabs mt-3" id="myTab" role="tablist">
     <li class="nav-item" role="presentation">
       <button
@@ -15,7 +30,7 @@
         aria-controls="allOrders"
         aria-selected="true"
       >
-        All orders
+        {{ "ORDERS.ALL_ORDERS" | translate }}
       </button>
     </li>
     <li class="nav-item" role="presentation">
@@ -32,7 +47,7 @@
         aria-controls="currentOrders"
         aria-selected="false"
       >
-        Current Orders
+        {{ "ORDERS.CURRENT_ORDERS" | translate }}
       </button>
     </li>
     <li class="nav-item" role="presentation">
@@ -49,7 +64,7 @@
         aria-controls="previousOrders"
         aria-selected="false"
       >
-        Previous Orders
+        {{ "ORDERS.PREVIOUS_ORDERS" | translate }}
       </button>
     </li>
     <li class="nav-item" role="presentation">
@@ -66,14 +81,16 @@
         aria-controls="cancelledOrders"
         aria-selected="false"
       >
-        Cancelled Orders
+        {{ "ORDERS.CANCELLED_ORDERS" | translate }}
       </button>
     </li>
   </ul>
 
   <div class="tab-content" id="myTabContent">
     <div *ngIf="allOrders.length <= 0" class="d-flex align-items-center mt-5">
-      <strong>Loading...</strong>
+      <strong>
+        {{ "ORDERS.LOADING" | translate }}
+      </strong>
       <div
         class="spinner-border ms-auto"
         role="status"
@@ -96,16 +113,29 @@
             <div class="card-header">
               <div class="row">
                 <div class="col-md-4">
-                  <p>Order Placed</p>
+                  <p>{{ "ORDERS.ORDER_PLACED" | translate }}</p>
                   <p>{{ order.orderDate }}</p>
                 </div>
                 <div class="col-md-4">
-                  <p>Total</p>
-                  <p>EGP {{ order.orderPrice }}</p>
+                  <p>{{ "ORDERS.TOTAL" | translate }}</p>
+                  <p>{{ order.orderPrice | currency }}</p>
                 </div>
                 <div class="col-md-4">
-                  <p>Order# {{ order._id }}</p>
-                  <p>Order Status: {{ order.orderStatus }}</p>
+                  <p>
+                    {{ "ORDERS.ORDER_NUMBER" | translate }} #{{ order._id }}
+                  </p>
+                  <p>
+                    {{ "ORDERS.ORDER_STATUS" | translate }}
+                    <span *ngIf="order.orderStatus === 'Completed'">{{
+                      "ORDERS.COMPLETED" | translate
+                    }}</span>
+                    <span *ngIf="order.orderStatus === 'Cancelled'">{{
+                      "ORDERS.CANCELLED" | translate
+                    }}</span>
+                    <span *ngIf="order.orderStatus === 'Pending'">{{
+                      "ORDERS.PENDING" | translate
+                    }}</span>
+                  </p>
                 </div>
               </div>
             </div>
@@ -115,14 +145,15 @@
                   {{ item.name }}
                 </h5>
                 <p class="card-text">
-                  Unit Price: EGP {{ item.unit_amount.value }} <br />
-                  Quantity: {{ item.quantity }}
+                  {{ "ORDERS.UNIT_PRICE" | translate }}
+                  {{ item.unit_amount.value | currency }} <br />
+                  {{ "ORDERS.QUANTITY" | translate }} {{ item.quantity }}
                 </p>
               </div>
               <div *ngIf="order.orderStatus === 'Pending'">
                 <hr />
                 <button (click)="cancelUserOrder(order)" class="btn btn-danger">
-                  Cancel Order
+                  {{ "ORDERS.CANCEL_ORDER" | translate }}
                 </button>
               </div>
             </div>

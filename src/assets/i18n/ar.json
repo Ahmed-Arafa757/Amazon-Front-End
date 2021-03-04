@@ -54,7 +54,6 @@
     "TOOLS_&_HOME_IMPROVEMENT": "أدوات وتحسينات المنزل",
     "TOYS_&_GAMES": "الألعاب والدمى",
     "VIDEO_GAMES": "ألعاب الفيديو"
-
   },
   "HOME": {
     "ALL_PRODUCTS": "جميع المنتجات",
@@ -105,14 +104,6 @@
     "PRIVACY_NOTICE": "إشعار الخصوصية",
     "HELP": "مساعدة",
     "COPY_RIGHTS": "© ۱۹۹٦-۲۰۲۱ Amazon.com، Inc. أو الشركات التابعة لها"
-
-
-
-
-
-
-
-
   },
   "REGISTER": {
     "CREATE_ACCOUNT": "إنشاء حساب",
@@ -129,9 +120,6 @@
     "PRIVACY_NOTICE": "إشعار الخصوصية",
     "HELP": "مساعدة",
     "COPY_RIGHTS": "© ۱۹۹٦-۲۰۲۱ Amazon.com، Inc. أو الشركات التابعة لها"
-
-
-
   },
   "DISCOVER_AMAZON": {
     "AMAZON_COM_SHIPS": "Amazon.com شحن",
@@ -180,7 +168,6 @@
     "SIGN_IN": "تسجيل الدخول",
     "NEW_CUSTOMER": "عميل جديد؟",
     "START_HERE": "أبدأ هنا"
-
   },
   "SELLER": {
     "GET_STARTED_SELLING": "ابدأ البيع على أمازون"
@@ -217,7 +204,8 @@
     "PLEASE_SIGNIN_CONTINUE": "من فضلك سجل دخولك للمتابعة"
   },
   "CHECKOUT": {
-    "CONFIRM": "التأكيد",
+    "CART": "عربة التسوق",
+    "CONFIRMATION": "تأكيد الخروج",
     "ITEMS": "منتج",
     "SHIPPING_ADDRESS": "عنوان الشحن",
     "ADD_SHIPPING_ADDRESS": "أضف عنوان شحن جديد؟",
@@ -254,6 +242,41 @@
     "SELECT_YOUR_PAYMENT": "الرجاء اختيار طريقة الدفع الخاصة بك لإكمال الشراء",
     "THANK_YOU_PURCHASE": "شكرا لك على الشراء!",
     "ORDER_NUMBER": "رقم الطلب الخاص بك هو"
-
+  },
+  "ACCOUNT": {
+    "YOUR_ACCOUNT": "الحساب الخاص بك",
+    "YOUR_ORDERS": "طلباتك",
+    "YOUR_ORDERS_DESC": "الطلبات الحالية والطلبات السابقة والطلبات الملغاة",
+    "LOGIN_&_SECURITY": "تسجيل الدخول والأمان",
+    "LOGIN_&_SECURITY_DESC": "تعديل علي الاسم والبريد الإلكتروني وكلمة المرور"
+  },
+  "LOGIN_SECURITY": {
+    "YOUR_ACCOUNT": "الحساب الخاص بك",
+    "LOGIN_&_SECURITY": "تسجيل الدخول والأمان",
+    "EDIT": "تعديل",
+    "NAME": "الاسم:",
+    "EMAIL": "البريد الالكتروني:",
+    "MOBILE": "هاتف المحمول:",
+    "PASSWORD": "كلمة السر:",
+    "DONE": "تأكيد التعديل"
+  },
+  "ORDERS": {
+    "YOUR_ACCOUNT": "الحساب الخاص بك",
+    "YOUR_ORDERS": "طلباتك",
+    "ALL_ORDERS": "جميع الطلبات",
+    "CURRENT_ORDERS": "الطلبات الحالية",
+    "PREVIOUS_ORDERS": "الطلبات السابقة",
+    "CANCELLED_ORDERS": "الطلبات الملغاة",
+    "LOADING": "يتم التحميل...",
+    "ORDER_PLACED": "تم تنفيذ الطلب في",
+    "TOTAL": "الاجمالي",
+    "ORDER_NUMBER": "الطلب",
+    "ORDER_STATUS": "حالة الطلب:",
+    "UNIT_PRICE": "سعر المنتج:",
+    "QUANTITY": "الكمية:",
+    "CANCEL_ORDER": "الغاء الطلب",
+    "COMPLETED": "مكتمل",
+    "CANCELLED": "ألغيت",
+    "PENDING": "قيد الانتظار"
   }
 }
