@@ -249,5 +249,15 @@
     "YOUR_ORDERS_DESC": "Current orders, previous orders and cancelled orders",
     "LOGIN_&_SECURITY": "Login & security",
     "LOGIN_&_SECURITY_DESC": "Edit name, email and password"
+  },
+  "LOGIN_SECURITY": {
+    "YOUR_ACCOUNT": "Your Account",
+    "LOGIN_&_SECURITY": "Login & security",
+    "EDIT": "Edit",
+    "NAME": "Name:",
+    "EMAIL": "Email:",
+    "MOBILE": "Mobile number:",
+    "PASSWORD": "Password:",
+    "DONE": "Done"
   }
 }
