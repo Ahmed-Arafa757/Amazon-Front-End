@@ -38,7 +38,11 @@ const routes: Routes = [
   },
   { path: 'register', component: RegisterComponent },
   { path: 'cart', component: CartComponent },
-  { path: 'checkout', component: CheckoutComponent },
+  {
+    path: 'checkout',
+    component: CheckoutComponent,
+    canActivate: [AuthGuardService],
+  },
   {
     path: 'customer-service',
     component: CustomerServiceComponent,
@@ -85,10 +89,26 @@ const routes: Routes = [
     canActivate: [SellerAuthGuardService],
   },
   // User
-  { path: 'account', component: UserAccountComponent },
-  { path: 'account/orders', component: UserOrdersComponent },
-  { path: 'account/login-security', component: UserLoginSecurityComponent },
-  { path: 'place-order', component: PlaceOrderComponent },
+  {
+    path: 'account',
+    component: UserAccountComponent,
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: 'account/orders',
+    component: UserOrdersComponent,
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: 'account/login-security',
+    component: UserLoginSecurityComponent,
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: 'place-order',
+    component: PlaceOrderComponent,
+    canActivate: [AuthGuardService],
+  },
   { path: '**', component: ErrorNotFoundComponent },
 ];
 
