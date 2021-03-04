@@ -242,5 +242,12 @@
     "SELECT_YOUR_PAYMENT": "Please select your payment method to complete purchase",
     "THANK_YOU_PURCHASE": "Thank you for your purchase!",
     "ORDER_NUMBER": "Your Order Number is #"
+  },
+  "ACCOUNT": {
+    "YOUR_ACCOUNT": "Your Account",
+    "YOUR_ORDERS": "Your Orders",
+    "YOUR_ORDERS_DESC": "Current orders, previous orders and cancelled orders",
+    "LOGIN_&_SECURITY": "Login & security",
+    "LOGIN_&_SECURITY_DESC": "Edit name, email and password"
   }
 }
