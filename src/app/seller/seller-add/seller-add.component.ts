@@ -54,6 +54,7 @@ export class SellerAddComponent implements OnInit {
       this.productService.productById(id).subscribe(
         (res)=>{
           this.product = res;
+          this.arrayOfImages = this.product.productImages.slice();
           console.log(this.product.productInfo[0].color)
           console.log(res);
           this.applySub()
@@ -89,33 +90,19 @@ export class SellerAddComponent implements OnInit {
       );
     }
   }
-  async uploadImg(){
-    for(let image of this.arrayOfImages)
-    {      
-      let img:any = image;
-      console.log(img);
-      let index = 0;
-      this.imageService.upload(img.files[0],this.product.productSales+this.product.productName+index+Date.now()).subscribe(
-        (res:any)=>{
-          this.product.productImages.push(res.link)
-          index++;
-        },
-        (err)=>{console.error(err)},
-        ()=>{}
-      )
-    }
-  }
   applySub()
   {
     this.subCategories = this.categoryService.getAllSubCategoriesOfACategryById(this.product.productCategory);
   }
   addImg(img,mode){  
-    let url = URL.createObjectURL(img.files[0]);
-    console.log(url);
+    let url;
     let firstImg = document.getElementById('0') as HTMLImageElement;
-    /* firstImg.src = url */
     if(mode == 'add'){
-      this.arrayOfImages.push(img);
+       url =  URL.createObjectURL(img.files[0]);
+      this.arrayOfImages.push(img.files[0]);
+    }
+    else{
+       url = img;
     }
     if(this.index==0)
     {
@@ -135,20 +122,18 @@ export class SellerAddComponent implements OnInit {
       </div>`;
     }
     this.index++;
-    console.log(this.product.productImages)
-    console.log(img)
   }
   removeImg(){
-    let index = 0;
-    if(this.arrayOfImages.length==0)
+
+    if(this.arrayOfImages.length === 0)
     {
       alert('No image to remove ');
     }
     else{
-      this.index--;
-    this.product.productImages.pop();    
+    this.index--;
+    this.arrayOfImages.pop();    
     document.getElementById('imgPresent').innerHTML='';
-    if(this.product.productImages.length==0)
+    if(this.arrayOfImages.length==0)
     {
       document.getElementById('imgPresent').innerHTML=`<div class="carousel-item active">
       <img id="0" src="../../../assets/images/test/featured-image-placeholder.jpg" class="d-block w-100" alt="...">
@@ -156,19 +141,22 @@ export class SellerAddComponent implements OnInit {
     }
     else
     {
-      for(let img of this.product.productImages)
-      {
-        let i:any = img;
-        let url = URL.createObjectURL(i.files[0]);
+      let index = 0;
+      for(let img of this.arrayOfImages)
+      { let imgURL = img ;
+        if(typeof img === 'object'){
+          let i:any = img;
+          imgURL = URL.createObjectURL(i);
+        }
         if(index == 0)
         {
           index++;
           document.getElementById('imgPresent').innerHTML+=`<div class="carousel-item active">
-          <img src=${url} class="d-block w-100" alt="...">
+          <img src=${imgURL} class="d-block w-100" alt="...">
         </div>`
         }else{
           document.getElementById('imgPresent').innerHTML+=`<div class="carousel-item ">
-          <img src=${url} class="d-block w-100" alt="...">
+          <img src=${imgURL} class="d-block w-100" alt="...">
         </div>`
         }
       }
@@ -202,19 +190,12 @@ export class SellerAddComponent implements OnInit {
     keyWordInput.value='';
   }
   removeKey(key){
-   /*  let filterd = this.product.keywords.filter((k) => { 
-      return k != key; 
-  });
-  this.product.keywords = filterd ; */
-
   let index = this.product.keywords.findIndex( k => k == key );
   this.product.keywords.splice(index,1);
   }
-  async submitAdd(form){
+   submitAdd(form){     
     if(this.editMode){
       this.product.productInfo[0].color = [];
-      if(this.isColor){
-        this.product.productInfo[0].color = [];
         if(form.value.prodSale == 0)
        {
          this.product.productPrice.finalPrice = (this.product.productPrice.currentPrice - this.product.productPrice.discount);
@@ -229,6 +210,7 @@ export class SellerAddComponent implements OnInit {
          this.product.productInfo[0][key]=input.value;
        }
        if(this.isColor){
+        this.product.productInfo[0].color = [];
          for (let index = 0; index < this.colors.length; index++) {
            if (form.value['color-'+index]) {
              this.product.productInfo[0].color.push(true);
@@ -242,16 +224,63 @@ export class SellerAddComponent implements OnInit {
        else{
          delete this.product.productInfo[0].color ;
        }  
-       this.productService.updateProduct(this.product).subscribe(
-        (res)=>{
-          console.log(res);
-          alert('Product Updated');
-        },
-        (err)=>{console.error(err)},
-        ()=>{}
-       )
-       
-    }}
+
+
+         let index = 0;
+        this.product.productImages=[];
+        for(let i = 0 ; i < this.arrayOfImages.length; i++)
+        {    
+          console.log(typeof this.arrayOfImages[i])
+          if(typeof this.arrayOfImages[i] === 'string' && i != this.arrayOfImages.length-1)
+          {
+            this.product.productImages.push(this.arrayOfImages[i]);
+            console.log('string and not last index')
+            continue;
+          }
+          else if(typeof this.arrayOfImages[i] === 'string' && i === this.arrayOfImages.length-1)
+          {
+            this.product.productImages.push(this.arrayOfImages[i]);
+            console.log('string and last index')
+            this.productService.updateProduct(this.product).subscribe(
+              (res)=>{
+                console.log(res);
+                alert('Product Updated');
+              },
+              (err)=>{console.error(err)},
+              ()=>{}
+             )
+          }
+          else{
+            console.log('else')
+            let img:any = this.arrayOfImages[i];
+            this.imageService.upload(img,this.product.productSales+this.product.productName.replace(/\s/g, "").trim()+index+Date.now()).subscribe(
+              (res:any)=>{
+                console.log(res.link);
+                this.product.productImages.push(res.link)
+                index++;
+                if(i === this.arrayOfImages.length-1)
+                {
+                  this.productService.updateProduct(this.product).subscribe(
+                    (res)=>{
+                      console.log(res);
+                      alert('Product Updated');
+                    },
+                    (err)=>{console.error(err)},
+                    ()=>{}
+                   )
+                }
+                else{
+                  console.log(this.product);
+                  
+                }
+              },
+              (err)=>{console.error(err)},
+              ()=>{}
+            )
+          }
+          
+        }
+    }
     else
     {
     this.product.productInfo[0].color = [];
@@ -282,16 +311,50 @@ export class SellerAddComponent implements OnInit {
     else{
       delete this.product.productInfo[0].color ;
     }
-    await this.uploadImg();
-    console.log(this.product.productImages);
-    this.productService.addProduct(this.product).subscribe(
-      (res)=>{
-        console.log(res);
-        alert('Product Added');
-      },
-      (err)=>{console.error(err)},
-      ()=>{}
-    )   
+    if(this.arrayOfImages.length > this.product.productImages.length )
+       {
+         let index = 0;
+        for(let i = this.product.productImages.length ; i < this.arrayOfImages.length; i++)
+        {      
+          let img:any = this.arrayOfImages[i];
+          console.log(img);
+          
+          this.imageService.upload(img,this.product.productSales+this.product.productName.replace(/\s/g, "").trim()+index+Date.now()).subscribe(
+            (res:any)=>{
+              console.log(res.link);
+              this.product.productImages.push(res.link)
+              index++;
+              if(this.product.productImages.length === this.arrayOfImages.length)
+              {
+                this.productService.addProduct(this.product).subscribe(
+                  (res)=>{
+                    console.log(res);
+                    alert('Product Added');
+                  },
+                  (err)=>{console.error(err)},
+                  ()=>{}
+                 )
+              }
+              else{
+                console.log(this.product);
+                
+              }
+            },
+            (err)=>{console.error(err)},
+            ()=>{}
+          )
+        }
+       }
+       else{
+        this.productService.addProduct(this.product).subscribe(
+          (res)=>{
+            console.log(res);
+            alert('Product Added');
+          },
+          (err)=>{console.error(err)},
+          ()=>{}
+         )
+       }  
     
   }
   }
