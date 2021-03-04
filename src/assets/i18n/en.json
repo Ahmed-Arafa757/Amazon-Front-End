@@ -104,7 +104,6 @@
     "PRIVACY_NOTICE": "Privacy Notice",
     "HELP": "Help",
     "COPY_RIGHTS": "© 1996-2021, Amazon.com, Inc. or its affiliates"
-
   },
   "REGISTER": {
     "CREATE_ACCOUNT": " Create account",
@@ -158,7 +157,7 @@
     "SHOP_DEALS": "Shop deals",
     "BROWSE_AN_EPIC_SELECTION": "Browse an epic selection",
     "DISCOVER_MILLIONS": "Discover millions of products that ship globally",
-    "SHOP_NOW":"Shop now",
+    "SHOP_NOW": "Shop now",
     "SHOP_ON_THE_GO": "Shop on the go",
     "DOWNLOAD_AMAZON_APP": "Download the Amazon app for convenient shopping",
     "DOWNLOAD_NOW": "Download now",
@@ -166,7 +165,7 @@
     "CHECK_PRODUCT_FEEDBACK": "Check product feedback from actual shoppers",
     "NOW_LETS_GET": "NOW LET'S GET SHOPPING!",
     "SEE_PERSONALIZED_RECOMMENDATIONS": "See personalized recommendations",
-    "SIGN_IN":"Sign in",
+    "SIGN_IN": "Sign in",
     "NEW_CUSTOMER": "New customer?",
     "START_HERE": "start here"
   },
@@ -205,7 +204,8 @@
     "PLEASE_SIGNIN_CONTINUE": "Please sign-in to continue"
   },
   "CHECKOUT": {
-    "CONFIRM": "Confirmation",
+    "CART": "Cart",
+    "CONFIRMATION": "Checkout Confirmation",
     "ITEMS": "Items",
     "SHIPPING_ADDRESS": "Shipping address",
     "ADD_SHIPPING_ADDRESS": "Add new shipping address?",
@@ -242,6 +242,5 @@
     "SELECT_YOUR_PAYMENT": "Please select your payment method to complete purchase",
     "THANK_YOU_PURCHASE": "Thank you for your purchase!",
     "ORDER_NUMBER": "Your Order Number is #"
-
   }
 }

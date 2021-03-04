@@ -54,7 +54,6 @@
     "TOOLS_&_HOME_IMPROVEMENT": "أدوات وتحسينات المنزل",
     "TOYS_&_GAMES": "الألعاب والدمى",
     "VIDEO_GAMES": "ألعاب الفيديو"
-
   },
   "HOME": {
     "ALL_PRODUCTS": "جميع المنتجات",
@@ -105,14 +104,6 @@
     "PRIVACY_NOTICE": "إشعار الخصوصية",
     "HELP": "مساعدة",
     "COPY_RIGHTS": "© ۱۹۹٦-۲۰۲۱ Amazon.com، Inc. أو الشركات التابعة لها"
-
-
-
-
-
-
-
-
   },
   "REGISTER": {
     "CREATE_ACCOUNT": "إنشاء حساب",
@@ -129,9 +120,6 @@
     "PRIVACY_NOTICE": "إشعار الخصوصية",
     "HELP": "مساعدة",
     "COPY_RIGHTS": "© ۱۹۹٦-۲۰۲۱ Amazon.com، Inc. أو الشركات التابعة لها"
-
-
-
   },
   "DISCOVER_AMAZON": {
     "AMAZON_COM_SHIPS": "Amazon.com شحن",
@@ -180,7 +168,6 @@
     "SIGN_IN": "تسجيل الدخول",
     "NEW_CUSTOMER": "عميل جديد؟",
     "START_HERE": "أبدأ هنا"
-
   },
   "SELLER": {
     "GET_STARTED_SELLING": "ابدأ البيع على أمازون"
@@ -217,7 +204,8 @@
     "PLEASE_SIGNIN_CONTINUE": "من فضلك سجل دخولك للمتابعة"
   },
   "CHECKOUT": {
-    "CONFIRM": "التأكيد",
+    "CART": "عربة التسوق",
+    "CONFIRMATION": "تأكيد الخروج",
     "ITEMS": "منتج",
     "SHIPPING_ADDRESS": "عنوان الشحن",
     "ADD_SHIPPING_ADDRESS": "أضف عنوان شحن جديد؟",
@@ -254,6 +242,5 @@
     "SELECT_YOUR_PAYMENT": "الرجاء اختيار طريقة الدفع الخاصة بك لإكمال الشراء",
     "THANK_YOU_PURCHASE": "شكرا لك على الشراء!",
     "ORDER_NUMBER": "رقم الطلب الخاص بك هو"
-
   }
 }
