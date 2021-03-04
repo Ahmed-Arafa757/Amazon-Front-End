@@ -170,7 +170,13 @@
     "START_HERE": "start here"
   },
   "SELLER": {
-    "GET_STARTED_SELLING": "Get started selling on Amazon"
+    "GET_STARTED_SELLING": "Get started selling on Amazon",
+    "EMAIL":"Email",
+    "EMAIL_VALID":"Email is required",
+    "FIELD_REQ":"this field is required",
+    "PASSWORD_VALID":"Minimum eight characters, at least one uppercase letter, one lowercase letter and one number"
+    
+
   },
   "REVIEWS": {
     "CUSTOMER_REVIEWS": "Customer reviews",
