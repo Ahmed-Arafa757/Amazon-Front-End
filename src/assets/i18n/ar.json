@@ -278,5 +278,8 @@
     "COMPLETED": "مكتمل",
     "CANCELLED": "ألغيت",
     "PENDING": "قيد الانتظار"
+  },
+  "PRODUCT_INFO": {
+    "YOUR_ACCOUNT": "الحساب الخاص بك"
   }
 }
