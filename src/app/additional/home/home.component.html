@@ -135,13 +135,14 @@
               <div id="AH_home-signin" class="card">
                 <div class="card-body">
                   <h5 class="card-title AH_card-title">
+                    
                     {{
-                      SignedIn()
+                      isLogged
                         ? ("HEADER.HELLO" | translate) + loggedInUser
                         : ("HOME.SIGN_IN_EXPRERIENCE" | translate)
                     }}
                   </h5>
-                  <a *ngIf="SignedIn() === false" [routerLink]="['/login']">{{
+                  <a *ngIf="isLogged === false" [routerLink]="['/login']">{{
                     "HOME.SIGN_IN_SECURELY" | translate
                   }}</a>
                 </div>
@@ -1429,7 +1430,7 @@
         <h5 class="mx-3">
           {{ "HOME.BEST_SELLERS_IN_KINDLE_EBOOKS" | translate }}
         </h5>
-        <button *ngIf="SignedIn() === false" class="a-button mb-4">
+        <button *ngIf="isLogged === false" class="a-button mb-4">
           <a [routerLink]="['/login']" class="text-decoration-none">
             {{ "HOME.SIGN_IN_PERSONALIZED" | translate }}</a
           >

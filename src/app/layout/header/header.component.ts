@@ -13,8 +13,7 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit {
-  // person: Person = { name: '', email: '', password: '', repeatedPassword: '' };
+export class HeaderComponent implements OnInit,DoCheck {
   langFlag = '../../../assets/images/icons/english.png';
   currentLang: string;
   cartArray = [];
@@ -62,6 +61,46 @@ export class HeaderComponent implements OnInit {
     console.log('header on init');
   }
 
+  ngDoCheck() {
+
+    if(this.isLogged === false){
+
+      if (
+        localStorage.hasOwnProperty('token') &&
+        localStorage.hasOwnProperty('user id')
+
+      ) {
+
+        this.usersService.getUserById(localStorage.getItem('user id')).subscribe(
+          (res) => {
+            console.log(res);
+            this.loggedInUser = res['userName']; 
+
+
+          },
+          (err)=>{console.log(err);
+          },
+          ()=>{}
+        )
+
+        this.isLogged = true;
+
+      } else {
+        this.isLogged = false;
+      }
+
+    } else {
+      if (localStorage.hasOwnProperty('token') &&
+        localStorage.hasOwnProperty('user id')) {
+        this.isLogged = true;
+
+      } else {
+        this.isLogged = false;
+
+      }
+    }
+  }
+
   changeCurrentLanguage(lang: string) {
     this.translate.use(lang);
     localStorage.setItem('currentLang', lang);
@@ -74,30 +113,9 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  SignedIn() {
-    if (
-      localStorage.hasOwnProperty('token') &&
-      localStorage.hasOwnProperty('user email')
-    ) {
-      this.loggedInUser = localStorage.getItem('user email').split('@')[0];
-      // console.log(this.loggedInUser);
 
-      //     if (
-      //       localStorage.hasOwnProperty('token') &&
-      //       localStorage.hasOwnProperty('user email')
-      //     ) {
-      //       this.loggedInUser = localStorage.getItem('user email').split('@')[0];
-      //       // console.log(this.loggedInUser);
-      this.isLogged = true;
-
-      return true;
-    } else {
-      this.isLogged = false;
-      return false;
-    }
-  }
   logout() {
-    localStorage.removeItem('user email');
+    localStorage.removeItem('user id');
     localStorage.removeItem('token');
   }
 }
