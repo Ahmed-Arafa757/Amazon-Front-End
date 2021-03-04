@@ -79,15 +79,15 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title AH_card-title">
-                {{ "HOME.GAMING_ACCESSORIES" | translate }}
+                {{ "HOME.ALL_PRODUCTS" | translate }}
               </h5>
-              <a href=""
+              <a [routerLink]="['/product', 'listing']"
                 ><img
-                  src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/May/Dashboard/Fuji_Dash_Gaming_1x._SY304_CB432517394_.jpg"
+                  src="https://images-eu.ssl-images-amazon.com/images/G/40/prime/launchassets/homepage/categorycards/desktop/kanz.gw.dt.singlecard.prime.1x._SY260_CB412882067_.jpg"
                   class="AH_card-img"
-                  alt="Gaming Accessories"
+                  alt="All Products"
               /></a>
-              <a class="AH_card-link" href="">{{
+              <a class="AH_card-link" [routerLink]="['/product', 'listing']">{{
                 "HOME.SHOP_OUR_FULL_SECETION" | translate
               }}</a>
             </div>

@@ -12,6 +12,8 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 export class SellerRegisterComponent implements OnInit {
   seller:Seller={sellerName:'' , email: '', password: '', repeatedPassword: '', phone:'' };
   errors = '';
+  showPass:Boolean=false;
+  dontMatch:Boolean=false;
   constructor(
     private sellerAuthService:SellerAuthService, 
     private router: Router,
@@ -49,15 +51,25 @@ export class SellerRegisterComponent implements OnInit {
     );
   }
 
+checkPassword(){
+  var password = document.getElementById('password') as HTMLInputElement;
+  var repeatedPass=document.getElementById('confirm-password') as HTMLInputElement;
+console.log(password.value,repeatedPass.value)
+  if(password.value===repeatedPass.value){
+    this.dontMatch=false
+  }else{
+    this.dontMatch=true
+  }
+}
 
   showPassword() {
-
-    var x = document.getElementById("password") as HTMLInputElement;
-
-    if (x.type === "password") {
-      x.type = "text";
+    var x = document.getElementById('password') as HTMLInputElement;
+    if (x.type === 'password') {
+      x.type = 'text';
+      this.showPass=true
     } else {
-      x.type = "password";
+      x.type = 'password';
+      this.showPass=false
     }
   }
 }

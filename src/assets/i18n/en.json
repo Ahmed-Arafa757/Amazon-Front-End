@@ -16,9 +16,16 @@
     "CUSTOMER_SERVICE": "Customer Service",
     "GITFT_CARDS": "Gift Cards",
     "SELL": "Sell",
-    "REGISTRY": "Registry",
+    "REGISTER": "Register",
     "LOGOUT": "Logout",
     "ACCOUNT": "Account",
+    "BECOME_SELLER": "Become an Amazon seller?",
+    "ALREADY_SELLER": "Already an Amazon seller?",
+    "LOGIN": "Login",
+    "SELLER_CENTRAL": "Seller central",
+    "VIEW_ITEMS": "View Items",
+    "ADD_PRODUCT": "Add Product",
+    "ADD": "Add",
     "ALL_DEPARTMENTS": "All Departments",
     "ARTS_&_CRAFTS": "Arts & Crafts",
     "AUTOMOTIVE": "Automotive",
@@ -49,7 +56,7 @@
     "VIDEO_GAMES": "Video Games"
   },
   "HOME": {
-    "GAMING_ACCESSORIES": "Gaming Accessories",
+    "ALL_PRODUCTS": "All Products",
     "FIND_YOUR_IDEAL_TV": "Find your ideal TV",
     "DEALS_&_PROMOTIONS": "Deals & Promotions",
     "SHOP_OUR_FULL_SECETION": "Shop our full selection",
@@ -81,7 +88,6 @@
     "SIGN_IN_EXPRERIENCE": "Sign in for the best experience",
     "SIGN_IN_SECURELY": "Sign in securely"
   },
-
   "LOGIN": {
     "SIGN_IN": "Sign In",
     "EMAIL": "Email",
@@ -98,7 +104,6 @@
     "PRIVACY_NOTICE": "Privacy Notice",
     "HELP": "Help",
     "COPY_RIGHTS": "© 1996-2021, Amazon.com, Inc. or its affiliates"
-
   },
   "REGISTER": {
     "CREATE_ACCOUNT": " Create account",
@@ -152,7 +157,7 @@
     "SHOP_DEALS": "Shop deals",
     "BROWSE_AN_EPIC_SELECTION": "Browse an epic selection",
     "DISCOVER_MILLIONS": "Discover millions of products that ship globally",
-    "SHOP_NOW":"Shop now",
+    "SHOP_NOW": "Shop now",
     "SHOP_ON_THE_GO": "Shop on the go",
     "DOWNLOAD_AMAZON_APP": "Download the Amazon app for convenient shopping",
     "DOWNLOAD_NOW": "Download now",
@@ -160,14 +165,136 @@
     "CHECK_PRODUCT_FEEDBACK": "Check product feedback from actual shoppers",
     "NOW_LETS_GET": "NOW LET'S GET SHOPPING!",
     "SEE_PERSONALIZED_RECOMMENDATIONS": "See personalized recommendations",
-    "SIGN_IN":"Sign in",
+    "SIGN_IN": "Sign in",
     "NEW_CUSTOMER": "New customer?",
     "START_HERE": "start here"
 
   },
   "SELLER": {
-    "GET_STARTED_SELLING": "Get started selling on Amazon"
+    "GET_STARTED_SELLING": "Get started selling on Amazon",
+    "EMAIL":"Email",
+    "EMAIL_VALID":"Email is required",
+    "PHONE_VALID":"Phone accepts only numbers & min length of 8 numbers",
+    "NAME_VALID":"min length of name is 6 characters",
+    "FIELD_REQ":"this field is required",
+    "PASSWORD_VALID":"Minimum eight characters, at least one uppercase letter, one lowercase letter and one number",
+    "RE_PASSWORD_VALID":"Password dont match",
+    "LOGIN":"Login",
+    "CREATE":"Create account",
+    "CREATE_AMA":"Create your Amazon account",
+    "SELLER_NAME":"Seller's Name",
+    "SELLER_PHONE":"Seller Phone",
+    "PASSWORD":"Password",
+    "RE_PASSWORD":"Re-enter Password"
+    
 
+  },
+  "REVIEWS": {
+    "CUSTOMER_REVIEWS": "Customer reviews",
+    "OUT_OF": "out of",
+    "OVERALL_RATINGS": "Overall ratings",
+    "STAR": "star",
+    "WRITE_SUMMARY": "Write Summary",
+    "WRITE_REVIEW": "Write Review",
+    "FIELD_REQUIRED": "This field is required",
+    "SUBMIT_REVIEW": "Submit Review",
+    "CHOOSE_RATE": "Choose Rate Between 0 & 5",
+    "REVIEW_SUBMITTED": "Thank you, Your review has been submitted!",
+    "EDIT_SUBMIT_REVIEW": "Edit & Submit Review",
+    "CANCEL_EDIT": "Cancel Edit",
+    "LATEST_REVIEWS": "Latest reviews",
+    "REVIEWED_ON": "Reviewed on",
+    "EDIT": "Edit",
+    "DELETE": "Delete"
+  },
+  "CART": {
+    "SHOPPING_CART": "Shopping Cart",
+    "PRICE": "Price",
+    "ONLY": "Only",
+    "LEFT_IN_STOCK": "left in stock - order soon.",
+    "SHIPPED_FROM": "Shipped from",
+    "DELETE": "Delete",
+    "TOTAL": "Total",
+    "ITEM": "item",
+    "PRICE_&_AVAILABILITY": "The price and availability of items at Amazon.com are subject to change. The Cart is a temporary place to store a list of your items and reflects each item's most recent price.",
+    "PROCEED_TO_CHECKOUT": "Proceed to checkout",
+    "PLEASE_SIGNIN_CONTINUE": "Please sign-in to continue"
+  },
+  "CHECKOUT": {
+    "CART": "Cart",
+    "CONFIRMATION": "Checkout Confirmation",
+    "ITEMS": "Items",
+    "SHIPPING_ADDRESS": "Shipping address",
+    "ADD_SHIPPING_ADDRESS": "Add new shipping address?",
+    "COUNTRY": "Country:",
+    "CITY": "City:",
+    "STATE": "State:",
+    "POSTAL_CODE": "Postal Code:",
+    "STREET_DETAILS": "Street Details:",
+    "SAVE_ADDRESS": "Save Address?",
+    "YES": "Yes",
+    "SELECT_SHIPPING_ADDRESS": "Select shipping address:",
+    "REVIEW_ITEMS": "Review items",
+    "PRICE": "Price",
+    "ONLY": "Only",
+    "LEFT_IN_STOCK": "left in stock - order soon.",
+    "SHIPPED_FROM": "Shipped from",
+    "DELETE": "Delete",
+    "TOTAL": "Total",
+    "ITEM": "item",
+    "PAYMENT_METHODS": "Available Payment Methods:",
+    "MASTERCARD": "MasterCard",
+    "VISA": "Visa",
+    "PAYPAL": "Paypal",
+    "CONTINUE_PAYMENT": "Continue to payment",
+    "AMAZON_PRIVACY_POLICY": "By placing your order, you agree to Amazon.com's privacy notice and conditions of use.",
+    "ORDER_SUMMARY": "Order Summary",
+    "SHIPPING_HANDLING": "Shipping & handling:",
+    "TOTAL_BEFORE_TAX": "Total before tax:",
+    "TAX": "14% tax to be collected:",
+    "ORDER_TOTAL": "Order total:"
+  },
+  "PLACEORDER": {
+    "YOU_WILL_PAY": "You will pay",
+    "SELECT_YOUR_PAYMENT": "Please select your payment method to complete purchase",
+    "THANK_YOU_PURCHASE": "Thank you for your purchase!",
+    "ORDER_NUMBER": "Your Order Number is #"
+  },
+  "ACCOUNT": {
+    "YOUR_ACCOUNT": "Your Account",
+    "YOUR_ORDERS": "Your Orders",
+    "YOUR_ORDERS_DESC": "Current orders, previous orders and cancelled orders",
+    "LOGIN_&_SECURITY": "Login & security",
+    "LOGIN_&_SECURITY_DESC": "Edit name, email and password"
+  },
+  "LOGIN_SECURITY": {
+    "YOUR_ACCOUNT": "Your Account",
+    "LOGIN_&_SECURITY": "Login & security",
+    "EDIT": "Edit",
+    "NAME": "Name:",
+    "EMAIL": "Email:",
+    "MOBILE": "Mobile number:",
+    "PASSWORD": "Password:",
+    "DONE": "Done"
+  },
+  "ORDERS": {
+    "YOUR_ACCOUNT": "Your Account",
+    "YOUR_ORDERS": "Your Orders",
+    "ALL_ORDERS": "All Orders",
+    "CURRENT_ORDERS": "Current Orders",
+    "PREVIOUS_ORDERS": "Previous Orders",
+    "CANCELLED_ORDERS": "Cancelled Orders",
+    "LOADING": "Loading...",
+    "ORDER_PLACED": "Order Placed On",
+    "TOTAL": "Total",
+    "ORDER_NUMBER": "Order",
+    "ORDER_STATUS": "Order Status:",
+    "UNIT_PRICE": "Unit Price:",
+    "QUANTITY": "Quantity:",
+    "CANCEL_ORDER": "Cancel Order",
+    "COMPLETED": "Completed",
+    "CANCELLED": "Cancelled",
+    "PENDING": "Pending"
   }
 }
   

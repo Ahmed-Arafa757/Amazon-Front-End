@@ -3,6 +3,7 @@ import { Product } from './../../../_model/product';
 import { ProductService } from 'src/app/_services/product.service';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CategoryService } from 'src/app/_services/category.service';
 
 @Component({
   selector: 'app-product-info',
@@ -62,7 +63,8 @@ export class ProductInfoComponent implements OnInit {
   }
   constructor(
     private productService: ProductService,
-    private activeRoute: ActivatedRoute
+    private activeRoute: ActivatedRoute,
+    private categoryService: CategoryService
   ) {}
 
   ngOnInit(): void {
@@ -108,5 +110,11 @@ export class ProductInfoComponent implements OnInit {
     }
 
     this.productService.addProductsToCart(this.cartArray);
+  }
+  testbutton() {
+    this.categoryService.removeSubCategory(
+      '5ff7bc011c1a3e395fc3053c',
+      'Wearable Technology'
+    );
   }
 }

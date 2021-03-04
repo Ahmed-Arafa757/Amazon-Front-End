@@ -1,7 +1,6 @@
-<div class="container">
+<div dir="auto" class="container">
 
-
-    <div class="container MM_signInContainer">
+    <div  class="container MM_signInContainer">
         <div class="row">
           <div class="col-sm-12 col-md-6 col-lg-4 mx-auto text-center mt-3 mb-3">
             <a [routerLink]="['']">
@@ -16,66 +15,75 @@
               <div class="card-body">
                 <form #regForm='ngForm'>
                   <div class="mb-3">
-                    <p class="fs-3">Create account</p>
+                    <p class="fs-3">{{ "SELLER.CREATE" | translate }}</p>
     
     
-                    <div >
+                    <div class="my-2">
     
-                      <label for="sellerName" class="form-label fw-bold">Seller name </label>
-                      <input [ngClass]='{"is-invalid" : sellerName.invalid && sellerName.touched}' type="text" class="form-control mb-3" id="sellerName" name="sellerName" [(ngModel)]='seller.sellerName' #sellerName='ngModel' required />
+                      <label for="sellerName" class="form-label fw-bold">{{ "SELLER.SELLER_NAME" | translate }}</label>
+                      <input [ngClass]='{"is-invalid" : sellerName.invalid && sellerName.touched,"is-valid":sellerName.valid}' minlength="6" type="text" class="form-control " id="sellerName" name="sellerName" [(ngModel)]='seller.sellerName' #sellerName='ngModel' required />
+                      <div class="alert alert-danger my-1 py-1" role="alert" *ngIf="sellerName.invalid && sellerName.touched">
+                        {{ "SELLER.NAME_VALID" | translate }}</div>
                     </div>
 
-                    <div >
+                    <div class="my-2">
     
-                      <label for="phone" class="form-label fw-bold">Seller phone </label>
-                      <input [ngClass]='{"is-invalid" : phone.invalid && phone.touched}' type="text" class="form-control mb-3" id="phone" name="phone" [(ngModel)]='seller.phone' #phone='ngModel' required />
+                      <label for="phone" class="form-label fw-bold">{{ "SELLER.SELLER_PHONE" | translate }}</label>
+                      <input [ngClass]='{"is-invalid" : phone.invalid && phone.touched,"is-valid":phone.valid}' 
+                      minlength="8" pattern="^[0-9]*$"
+                      type="text" class="form-control " id="phone" name="phone" [(ngModel)]='seller.phone' #phone='ngModel' required />
+                      <div class="alert alert-danger my-1 py-1" role="alert" *ngIf="phone.invalid && phone.touched">
+                        {{ "SELLER.PHONE_VALID" | translate }}</div>
                     </div>
     
-                    <div >
-    
-                      <label for="email" class="form-label fw-bold">Email </label>
-                      <input [ngClass]='{"is-invalid" : email.invalid && email.touched}' required minlength="10" maxlength="30" [(ngModel)]='seller.email' #email='ngModel' required
-                        type="email" class="form-control mb-3"
-                        id="email" name="email" />
-                    </div>
-    
-                    <div >
-    
-                      <label for="password" class="form-label fw-bold">Password
+                    <div class="my-2">
+                      <label for="exampleInputEmail1" class="form-label fw-bold">{{ "SELLER.EMAIL" | translate }}
                       </label>
-                      <input [ngClass]='{"is-invalid" : password.invalid && password.touched}' required minlength="6" maxlength="20" [(ngModel)]='seller.password' #password='ngModel'
-                        type="password" class="form-control" id="password"
-                        name="password"
-                        placeholder="At least 6 characters" />
-                        <button (click)="showPassword()" class="login__forget-password px-1"> show Password ?</button>
+                      <input [ngClass]="{'is-invalid': sellerEmail.invalid && sellerEmail.touched,'is-valid':sellerEmail.valid}"
+                        required minlength="10" maxlength="30" [(ngModel)]="seller.email" #sellerEmail="ngModel" type="email"
+                        class="form-control" name="email" id="inputEmail" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" />
+                      <div class="alert alert-danger my-1 py-1" role="alert" *ngIf="sellerEmail.invalid && sellerEmail.touched">
+                        {{ "SELLER.EMAIL_VALID" | translate }}</div>
+                    </div>
+    
+                    <div class="my-2">
+                      <label class="form-label fw-bold">{{ "SELLER.PASSWORD" | translate }}</label>
+                      <input [ngClass]="{'is-invalid': password.invalid && password.touched,'is-valid':password.valid}"
+                        required minlength="6" maxlength="20" [(ngModel)]="seller.password" #password="ngModel"
+                        type="password" class="form-control" id="password" name="password" placeholder="enter your password"
+                        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$" />
+                        <div id="eye" class="d-flex justify-content-end align-items-center">
+                          <i (click)="showPassword()" [ngClass]="{'fa-eye-slash': showPass}" class="far fa-eye fa-2x "
+                          id="togglePassword"></i>
+                        </div>
+                      <div class="alert alert-danger my-1 py-1" role="alert" *ngIf="password.invalid && password.touched">
+                        {{ "SELLER.PASSWORD_VALID" | translate }}</div>
                     </div>
     
     
+                    <div class="my-2">
     
-                    <div class="form-text mb-3">
-                      <i class="fas fa-info" style="color: rgb(0, 152, 212)"></i>
-                      Passwords must be at least 6 characters.
-                    </div>
-    
-    
-                    <div [ngClass]='{"invalid" : re.invalid && re.touched}'>
-    
-                      <label for="confirm-password" class="form-label fw-bold">Re-enter password
+                      <label for="confirm-password" class="form-label fw-bold">{{ "SELLER.RE_PASSWORD" | translate }}
                       </label>
-                      <input required minlength="6" maxlength="20" [(ngModel)]='seller.repeatedPassword' #re='ngModel'
+                      <input required minlength="6" maxlength="20" [(ngModel)]='seller.repeatedPassword' #rePassword='ngModel'
                         type="password" name='confirm-password'
                         class="form-control"
-                        id="confirm-password" />
+                        id="confirm-password"
+                        [ngClass]="{'is-invalid': rePassword.invalid && rePassword.touched,'is-valid':rePassword.touched&&!dontMatch}"
+                        (keyup)="checkPassword()"
+                         />
+                        <div class="alert alert-danger my-1 py-1" role="alert" *ngIf="dontMatch">
+                          {{ "SELLER.RE_PASSWORD_VALID" | translate }}</div>
                     </div>
     
     
     
                   </div>
-                  <div *ngIf='errors.length != 0'>
+                  <div class="alert alert-danger my-2 py-2" *ngIf='errors.length != 0'>
                     {{errors}}
                   </div>
                   <button type="submit" class="btn bg-gradient col-12 mb-3" (click)='onRegister()'>
-                    Create your Amazon account
+                    {{ "SELLER.CREATE_AMA" | translate }}
                   </button>
                 </form>
                 <span>

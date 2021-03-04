@@ -20,9 +20,11 @@ export class SellerLoginComponent implements OnInit {
     email: '',
     password: '',
   };
+  errors = '';
   loggedInSeller: Seller;
   user: SocialUser;
   loggedIn: boolean;
+  showPass:Boolean=false;
   constructor(
     private sellerAuthService: SellerAuthService,
     private router: Router,
@@ -51,21 +53,27 @@ export class SellerLoginComponent implements OnInit {
             (err) => {
               if (err.error === "Email Not Found") {
                 console.error("Email Not Found");
+                this.errors = err.error;
+                alert("please sign up with google")
                 this.router.navigate(['seller/signup'], {
                   queryParams: { name: user.name, email: user.email, provider: user.provider},
                 });
               
               } else if(err.error === "Provider Not Match"){
                 console.error("Provider Not Match");
+                this.errors = err.error;
               } 
               else {
                 console.error(err.error);
+                this.errors = err.error;
               }
               }
           )
       }
       )
-      .catch((err)=>{console.error(err);})
+      .catch((err)=>{
+        console.error(err);
+        this.errors = err.error.err;})
     
     }
     
@@ -91,22 +99,27 @@ export class SellerLoginComponent implements OnInit {
             },
             (err) => {
               if (err.error === "Email Not Found") {
+                this.errors = err.error;
                 console.error("Email Not Found");
+                alert("please sign up with Facebook")
                 this.router.navigate(['seller/signup'], {
                   queryParams: { name: user.name, email: user.email, provider: user.provider},
                 });
+                
               
               } else if(err.error === "Provider Not Match"){
+                this.errors = "you are not registered by facebook";
                 console.error("Provider Not Match");
               } 
-              else {
+              else {this.errors = err.error;
                 console.error(err.error);
               }
               }
           )
       }
       )
-      .catch((err)=>{console.error(err);})
+      .catch((err)=>{this.errors = err.error.err;
+        console.error(err);})
     
   }
 
@@ -130,7 +143,8 @@ this.sellerAuthService.login(mySeller).subscribe(
        
          
       },
-      (err)=>{console.log(err)},
+      (err)=>{this.errors = err.error;
+        console.log(err.error)},
       () => {console.log() },
       )
     
@@ -139,8 +153,10 @@ this.sellerAuthService.login(mySeller).subscribe(
     var x = document.getElementById('password') as HTMLInputElement;
     if (x.type === 'password') {
       x.type = 'text';
+      this.showPass=true
     } else {
       x.type = 'password';
+      this.showPass=false
     }
   }
 }
