@@ -50,7 +50,7 @@
                       <label class="form-label fw-bold">{{ "SELLER.PASSWORD" | translate }}</label>
                       <input [ngClass]="{'is-invalid': password.invalid && password.touched,'is-valid':password.valid}"
                         required minlength="6" maxlength="20" [(ngModel)]="seller.password" #password="ngModel"
-                        type="password" class="form-control" id="password" name="password"
+                        type="password" class="form-control" id="password" name="password" placeholder="enter your password"
                         pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$" />
                         <div id="eye" class="d-flex justify-content-end align-items-center">
                           <i (click)="showPassword()" [ngClass]="{'fa-eye-slash': showPass}" class="far fa-eye fa-2x "
