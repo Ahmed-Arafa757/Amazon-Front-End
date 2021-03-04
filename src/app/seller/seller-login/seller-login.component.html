@@ -47,7 +47,9 @@
 
                 <br />
               </div>
-
+              <div class="alert alert-danger my-2 py-2" *ngIf='errors.length != 0'>
+                {{errors}}
+              </div>
               <button type="submit" class="btn bg-gradient col-12 mb-3" (click)="onLogin(seller)">
                 {{ "SELLER.LOGIN" | translate }}
               </button>
