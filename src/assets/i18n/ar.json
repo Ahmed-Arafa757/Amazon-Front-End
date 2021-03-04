@@ -259,5 +259,24 @@
     "MOBILE": "هاتف المحمول:",
     "PASSWORD": "كلمة السر:",
     "DONE": "تأكيد التعديل"
+  },
+  "ORDERS": {
+    "YOUR_ACCOUNT": "الحساب الخاص بك",
+    "YOUR_ORDERS": "طلباتك",
+    "ALL_ORDERS": "جميع الطلبات",
+    "CURRENT_ORDERS": "الطلبات الحالية",
+    "PREVIOUS_ORDERS": "الطلبات السابقة",
+    "CANCELLED_ORDERS": "الطلبات الملغاة",
+    "LOADING": "يتم التحميل...",
+    "ORDER_PLACED": "تم تنفيذ الطلب في",
+    "TOTAL": "الاجمالي",
+    "ORDER_NUMBER": "الطلب",
+    "ORDER_STATUS": "حالة الطلب:",
+    "UNIT_PRICE": "سعر المنتج:",
+    "QUANTITY": "الكمية:",
+    "CANCEL_ORDER": "الغاء الطلب",
+    "COMPLETED": "مكتمل",
+    "CANCELLED": "ألغيت",
+    "PENDING": "قيد الانتظار"
   }
 }
