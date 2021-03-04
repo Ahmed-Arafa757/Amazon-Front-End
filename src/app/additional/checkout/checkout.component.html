@@ -1,5 +1,5 @@
 <div dir="auto" class="container-fluid">
-  <nav aria-label="breadcrumb">
+  <nav style="--bs-breadcrumb-divider: ''" aria-label="breadcrumb">
     <ol class="breadcrumb mx-3 mt-3">
       <li class="breadcrumb-item">
         <a [routerLink]="['/cart']" style="text-decoration: none">{{
@@ -7,7 +7,7 @@
         }}</a>
       </li>
       <li class="breadcrumb-item active" aria-current="page">
-        {{ "CHECKOUT.CONFIRMATION" | translate }}
+        / {{ "CHECKOUT.CONFIRMATION" | translate }}
       </li>
     </ol>
   </nav>
