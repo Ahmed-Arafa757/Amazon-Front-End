@@ -9,7 +9,7 @@ import { User } from '../_model/users';
 export class AuthService {
   baseUrl = 'http://localhost:3000/';
 
-  userLoggedIn = new EventEmitter<User>();
+  // userLoggedIn = new EventEmitter<User>();
 
   constructor(private httpClient: HttpClient) { }
 

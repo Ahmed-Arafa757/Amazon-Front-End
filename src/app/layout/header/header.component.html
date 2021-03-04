@@ -72,7 +72,7 @@
                       </div>
                       <div class="text-center">
                         <button
-                          *ngIf="SignedIn() === false"
+                          *ngIf="isLogged === false"
                           type="button"
                           class="btn bg-gradient mt-3 p-1 w-75"
                           style="background-color: #ffd04f; font-size: 1em"
@@ -251,7 +251,7 @@
             aria-expanded="false"
           >
             <span>{{
-              SignedIn()
+              isLogged
                 ? ("HEADER.HELLO" | translate) + loggedInUser
                 : ("HEADER.HELLO" | translate) + ("HEADER.SIGNIN" | translate)
             }}</span>
@@ -259,7 +259,7 @@
           </a>
 
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li *ngIf="SignedIn() === false" class="text-center MM_SignIn">
+            <li *ngIf="isLogged === false" class="text-center MM_SignIn">
               <a [routerLink]="['/login']"
                 ><button type="button" class="btn bg-gradient">
                   {{ "HEADER.SIGNIN" | translate }}
@@ -273,7 +273,7 @@
                 </a>
               </span>
             </li>
-            <li *ngIf="SignedIn() === true" class="text-center MM_SignIn">
+            <li *ngIf="isLogged === true" class="text-center MM_SignIn">
               <a [routerLink]="['/home']" (click)="logout()"
                 ><button type="button" class="btn bg-gradient">
                   {{ "HEADER.LOGOUT" | translate }}
@@ -356,7 +356,7 @@
       class="text-white ps-4 py-3 fs-4 fw-bold AH_Sidenav-header d-block text-decoration-none"
     >
       <i class="fas fa-user-circle"></i> Hello,
-      <span>{{ SignedIn() ? loggedInUser : "Sign in" }}</span>
+      <span>{{  isLogged ? loggedInUser : "Sign in" }}</span>
     </a>
     <span style="cursor: pointer" id="AH_closebtn" onclick="AH_closeNav()"
       >&times;</span
@@ -534,7 +534,7 @@
         <div class="col-12">Help</div>
       </div>
       <div class="AH_sidenav-link row">
-        <div *ngIf="SignedIn() === false" class="col-12">
+        <div *ngIf=" isLogged === false" class="col-12">
           <a [routerLink]="['/login']">{{ "HEADER.SIGNIN" | translate }}</a>
         </div>
       </div>
@@ -577,7 +577,7 @@
           <a
             class="dropdown-toggle nav-link AH_link"
             href="#"
-            *ngIf="SignedIn() === false"
+            *ngIf="isLogged === false"
             id="dropdownMenuLink"
             data-bs-toggle="dropdown"
             aria-expanded="false"

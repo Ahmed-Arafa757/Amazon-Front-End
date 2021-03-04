@@ -102,12 +102,6 @@
     "COPY_RIGHTS": "© ۱۹۹٦-۲۰۲۱ Amazon.com، Inc. أو الشركات التابعة لها"
 
 
-
-
-
-
-
-
   },
   "REGISTER": {
     "CREATE_ACCOUNT": "إنشاء حساب",
@@ -177,6 +171,7 @@
     "START_HERE": "أبدأ هنا"
 
 
+  },
   "SELLER": {
     "GET_STARTED_SELLING": "ابدأ البيع على أمازون"
 

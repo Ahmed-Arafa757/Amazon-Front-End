@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, DoCheck } from '@angular/core';
 import Splide from '@splidejs/splide';
 // import { Person } from 'src/app/_model/person';
 import { PersonService } from 'src/app/_services/person.service';
@@ -9,7 +9,8 @@ import { UsersService } from 'src/app/_services/users.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, DoCheck {
+  isLogged: boolean = false;
   loggedInUser;
   constructor(
     private personService: PersonService,
@@ -32,21 +33,46 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  SignedIn() {
+  ngDoCheck() {
+
+    if (this.isLogged === false) {
+
+      if (
+        localStorage.hasOwnProperty('token') &&
+        localStorage.hasOwnProperty('user id')
+
+      ) {
+
+        this.usersService.getUserById(localStorage.getItem('user id')).subscribe(
+          (res) => {
+            console.log(res);
+            this.loggedInUser = res['userName']; 
 
 
-    if (localStorage.hasOwnProperty("token") && localStorage.hasOwnProperty("user email")) {
+          },
+          (err) => {
+            console.log(err);
+          },
+          () => { }
+        )
 
+        this.isLogged = true;
 
-      this.loggedInUser = localStorage.getItem('user email').split('@')[0];
-      // console.log(this.loggedInUser);
+      } else {
+        this.isLogged = false;
+      }
 
-
-
-      return true;
     } else {
-      return false;
-    }
+      if (localStorage.hasOwnProperty('token') &&
+        localStorage.hasOwnProperty('user id')) {
+        this.isLogged = true;
 
+      } else {
+        this.isLogged = false;
+
+      }
+    }
   }
+
+ 
 }
