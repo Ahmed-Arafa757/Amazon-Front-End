@@ -30,14 +30,17 @@
 
                 <br />
 
-                <div>
+                <div >
                   <label class="form-label">Password </label>
                   <input [ngClass]="{'is-invalid': password.invalid && password.touched,'is-valid':password.valid}"
                     required minlength="6" maxlength="20" [(ngModel)]="seller.password" #password="ngModel"
                     type="password" class="form-control" id="password" name="password"
                     pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$" />
-                  <i (click)="showPassword()" [ngClass]="{'fa-eye-slash': showPass}" class="far fa-eye fa-2x"
-                    id="togglePassword"></i>
+                    <div id="eye" class="d-flex justify-content-end align-items-center">
+                      <i (click)="showPassword()" [ngClass]="{'fa-eye-slash': showPass}" class="far fa-eye fa-2x "
+                      id="togglePassword"></i>
+                    </div>
+                 
                   <div class="alert alert-danger my-1 py-1" role="alert" *ngIf="password.invalid && password.touched">
                     {{ "SELLER.PASSWORD_VALID" | translate }}</div>
                 </div>
@@ -46,7 +49,7 @@
               </div>
 
               <button type="submit" class="btn bg-gradient col-12 mb-3" (click)="onLogin(seller)">
-                Login
+                {{ "SELLER.LOGIN" | translate }}
               </button>
               <div class="loginBtns">
                 <div id="google" class="loginBtn" (click)="signInWithGoogle()">

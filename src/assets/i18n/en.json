@@ -174,7 +174,14 @@
     "EMAIL":"Email",
     "EMAIL_VALID":"Email is required",
     "FIELD_REQ":"this field is required",
-    "PASSWORD_VALID":"Minimum eight characters, at least one uppercase letter, one lowercase letter and one number"
+    "PASSWORD_VALID":"Minimum eight characters, at least one uppercase letter, one lowercase letter and one number",
+    "LOGIN":"Login",
+    "CREATE":"Create account",
+    "CREATE_AMA":"Create your Amazon account",
+    "SELLER_NAME":"Seller's Name",
+    "SELLER_PHONE":"Seller Phone",
+    "PASSWORD":"Password",
+    "RE_PASSWORD":"Re-enter Password"
     
 
   },

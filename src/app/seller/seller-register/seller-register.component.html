@@ -1,7 +1,6 @@
-<div class="container">
+<div dir="auto" class="container">
 
-
-    <div class="container MM_signInContainer">
+    <div  class="container MM_signInContainer">
         <div class="row">
           <div class="col-sm-12 col-md-6 col-lg-4 mx-auto text-center mt-3 mb-3">
             <a [routerLink]="['']">
@@ -16,23 +15,23 @@
               <div class="card-body">
                 <form #regForm='ngForm'>
                   <div class="mb-3">
-                    <p class="fs-3">Create account</p>
+                    <p class="fs-3">{{ "SELLER.CREATE" | translate }}</p>
     
     
                     <div >
     
-                      <label for="sellerName" class="form-label fw-bold">Seller name </label>
+                      <label for="sellerName" class="form-label fw-bold">{{ "SELLER.SELLER_NAME" | translate }}</label>
                       <input [ngClass]='{"is-invalid" : sellerName.invalid && sellerName.touched}' type="text" class="form-control mb-3" id="sellerName" name="sellerName" [(ngModel)]='seller.sellerName' #sellerName='ngModel' required />
                     </div>
 
                     <div >
     
-                      <label for="phone" class="form-label fw-bold">Seller phone </label>
+                      <label for="phone" class="form-label fw-bold">{{ "SELLER.SELLER_PHONE" | translate }}</label>
                       <input [ngClass]='{"is-invalid" : phone.invalid && phone.touched}' type="text" class="form-control mb-3" id="phone" name="phone" [(ngModel)]='seller.phone' #phone='ngModel' required />
                     </div>
     
                     <div>
-                      <label for="exampleInputEmail1" class="form-label">{{ "SELLER.EMAIL" | translate }}
+                      <label for="exampleInputEmail1" class="form-label fw-bold">{{ "SELLER.EMAIL" | translate }}
                       </label>
                       <input [ngClass]="{'is-invalid': UserEmail.invalid && UserEmail.touched,'is-valid':UserEmail.valid}"
                         required minlength="10" maxlength="30" [(ngModel)]="seller.email" #UserEmail="ngModel" type="email"
@@ -41,14 +40,16 @@
                         {{ "SELLER.EMAIL_VALID" | translate }}</div>
                     </div>
     
-                    <div class="mb-2">
-                      <label class="form-label">Password </label>
+                    <div class="my-2">
+                      <label class="form-label fw-bold">{{ "SELLER.PASSWORD" | translate }}</label>
                       <input [ngClass]="{'is-invalid': password.invalid && password.touched,'is-valid':password.valid}"
                         required minlength="6" maxlength="20" [(ngModel)]="seller.password" #password="ngModel"
                         type="password" class="form-control" id="password" name="password"
                         pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$" />
-                      <i (click)="showPassword()" [ngClass]="{'fa-eye-slash': showPass}" class="far fa-eye fa-2x"
-                        id="togglePassword"></i>
+                        <div id="eye" class="d-flex justify-content-end align-items-center">
+                          <i (click)="showPassword()" [ngClass]="{'fa-eye-slash': showPass}" class="far fa-eye fa-2x "
+                          id="togglePassword"></i>
+                        </div>
                       <div class="alert alert-danger my-1 py-1" role="alert" *ngIf="password.invalid && password.touched">
                         {{ "SELLER.PASSWORD_VALID" | translate }}</div>
                     </div>
@@ -56,7 +57,7 @@
     
                     <div >
     
-                      <label for="confirm-password" class="form-label fw-bold">Re-enter password
+                      <label for="confirm-password" class="form-label fw-bold">{{ "SELLER.RE_PASSWORD" | translate }}
                       </label>
                       <input required minlength="6" maxlength="20" [(ngModel)]='seller.repeatedPassword' #re='ngModel'
                         type="password" name='confirm-password'
@@ -75,7 +76,7 @@
                     {{errors}}
                   </div>
                   <button type="submit" class="btn bg-gradient col-12 mb-3" (click)='onRegister()'>
-                    Create your Amazon account
+                    {{ "SELLER.CREATE_AMA" | translate }}
                   </button>
                 </form>
                 <span>
