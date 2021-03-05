@@ -29,6 +29,7 @@ export class CheckoutComponent implements OnInit {
   isSelectedAddress: boolean = false;
   addNewShipping: boolean = false;
   paymentMethods: PaymentMethods[] = [];
+  shippingDate: string = '';
 
   constructor(
     private orderService: OrderService,
@@ -67,6 +68,14 @@ export class CheckoutComponent implements OnInit {
       },
       () => {}
     );
+
+    const shippingDate = new Date();
+    shippingDate.setDate(shippingDate.getDate() + 7);
+    this.shippingDate = shippingDate
+      .toUTCString()
+      .split(' ')
+      .slice(0, 4)
+      .join(' ');
   }
 
   updateQuantityPrice() {

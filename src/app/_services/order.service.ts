@@ -27,6 +27,7 @@ export class OrderService {
         shippingAddress: order.shippingAddress,
         orderStatus: order.orderStatus,
         customerId: order.customerId,
+        deliveryDate: order.deliveryDate,
       };
       return prod;
     }
@@ -34,6 +35,8 @@ export class OrderService {
 
   addOrder(order) {
     const orderDate = new Date(order.orderDetails.create_time).toUTCString();
+    const shippingDate = new Date();
+    shippingDate.setDate(shippingDate.getDate() + 7);
     const newOrder: Order = {
       _id: order.orderData.orderID,
       orderItems: order.orderDetails.purchase_units[0].items,
@@ -45,6 +48,7 @@ export class OrderService {
       shippingAddress: order.userAddress,
       orderStatus: 'Pending',
       customerId: order.userID,
+      deliveryDate: shippingDate.toUTCString().split(' ').slice(0, 4).join(' '),
     };
 
     this.http
@@ -71,19 +75,4 @@ export class OrderService {
   cancelUserOrder(id: string, order: Order): Observable<Order> {
     return this.http.put<Order>(`http://localhost:3000/api/order/${id}`, order);
   }
-
-  // updateReview(reviewID: string, review: Review) {
-  //   this.http
-  //     .put(`http://localhost:3000/api/reviews/${reviewID}`, review)
-  //     .subscribe(() => {
-  //       const updatedReviews = [...this.reviews];
-  //       const oldReviewIndex = updatedReviews.findIndex(
-  //         (r) => r._id === review._id
-  //       );
-
-  //       updatedReviews[oldReviewIndex] = review;
-  //       this.reviews = updatedReviews;
-  //       this.latestReviews.emit(this.reviews);
-  //     });
-  // }
 }
