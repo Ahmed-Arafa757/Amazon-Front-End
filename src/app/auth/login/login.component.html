@@ -25,7 +25,7 @@
                   <input required minlength="10" maxlength="30" [(ngModel)]='user.email' #UserEmail='ngModel'
                     type="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" class="form-control"
                     name="email" id="inputEmail" />
-                  <span
+                  <span style="color: red; font-size: 12px;"
                     *ngIf='UserEmail.invalid && UserEmail.touched'>{{ "LOGIN.THIS_FIELD_IS_REQUIRED" | translate }}</span>
 
 
@@ -35,7 +35,7 @@
                   <label class="form-label">{{ "LOGIN.PASSWORD" | translate }} </label>
                   <input required minlength="6" maxlength="20" [(ngModel)]="user.password" #password="ngModel"
                     type="password" class="form-control" name="password" />
-                  <span
+                  <span style="color: red; font-size: 12px;"
                     *ngIf="password.invalid && password.touched">{{ "LOGIN.THIS_FIELD_IS_REQUIRED" | translate }}</span>
                 </div>
                 <br />
