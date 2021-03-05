@@ -21,10 +21,10 @@ export class UserOrdersComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const userEmail = localStorage.getItem('user email');
-    this.usersService.getUserByEmail(userEmail).subscribe({
+    const userID = localStorage.getItem('user id');
+    this.usersService.getUserById(userID).subscribe({
       next: (user: any) => {
-        this.orderService.getUserOrders(user[0]._id).subscribe({
+        this.orderService.getUserOrders(user._id).subscribe({
           next: (responseData: any) => {
             this.allOrders = responseData.orders;
             this.displayedOrders = this.allOrders;

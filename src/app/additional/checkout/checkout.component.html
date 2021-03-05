@@ -355,7 +355,7 @@
                     <tr>
                       <th scope="row">
                         <span>
-                          {{ "CHECKOUT.TOTAL_BEFORE_TAX" | translate }}:
+                          {{ "CHECKOUT.TOTAL_BEFORE_TAX" | translate }}
                         </span>
                       </th>
                       <td>
@@ -376,10 +376,10 @@
                         }}</span>
                       </td>
                     </tr>
-                    <tr class="border-top">
+                    <tr class="border-top border-bottom">
                       <th scope="row">
                         <span class="text-danger">
-                          {{ "CHECKOUT.ORDER_TOTAL" | translate }}:
+                          {{ "CHECKOUT.ORDER_TOTAL" | translate }}
                         </span>
                       </th>
                       <td>
@@ -388,51 +388,16 @@
                         </span>
                       </td>
                     </tr>
+                    <tr>
+                      <td colspan="2">
+                        <span class="fw-bold" style="font-size: 0.8rem"
+                          >{{ "CHECKOUT.ESTIMATEDDATE" | translate }}
+                          {{ shippingDate }}</span
+                        >
+                      </td>
+                    </tr>
                   </tbody>
                 </table>
-
-                <!-- <p class="mt-3">
-                  <span>
-                    {{ "CHECKOUT.ITEMS" | translate }}
-                    ({{ totalQuantity }}):</span
-                  >
-                  <span class="" *ngIf="totalPrice > 0">
-                    {{ totalPrice | currency }}
-                  </span>
-                </p>
-                <p>
-                  <span>
-                    {{ "CHECKOUT.SHIPPING_HANDLING" | translate }}
-                  </span>
-                  <span class="" *ngIf="totalPrice > 0">{{
-                    shipping + handling | currency
-                  }}</span>
-                </p>
-                <p>
-                  <span>
-                    {{ "CHECKOUT.TOTAL_BEFORE_TAX" | translate }}
-                  </span>
-                  <span class="" *ngIf="totalPrice > 0">{{
-                    totalPrice + shipping + handling | currency
-                  }}</span>
-                </p>
-                <p>
-                  <span>
-                    {{ "CHECKOUT.TAX" | translate }}
-                  </span>
-                  <span class="" *ngIf="totalPrice > 0">{{
-                    tax_total | currency
-                  }}</span>
-                </p>
-                <hr />
-                <p class="text-danger fs-5">
-                  <span>
-                    {{ "CHECKOUT.ORDER_TOTAL" | translate }}
-                  </span>
-                  <span class="" *ngIf="totalPrice > 0">
-                    {{ total_amount | currency }}
-                  </span>
-                </p> -->
               </div>
             </div>
           </div>

@@ -175,22 +175,20 @@
   },
   "SELLER": {
     "GET_STARTED_SELLING": "Get started selling on Amazon",
-    "EMAIL":"Email",
-    "EMAIL_VALID":"Email is required",
-    "PHONE_VALID":"Phone accepts only numbers & min length of 8 numbers",
-    "NAME_VALID":"min length of name is 6 characters",
-    "FIELD_REQ":"this field is required",
-    "PASSWORD_VALID":"Minimum eight characters, at least one uppercase letter, one lowercase letter and one number",
-    "RE_PASSWORD_VALID":"Password dont match",
-    "LOGIN":"Login",
-    "CREATE":"Create account",
-    "CREATE_AMA":"Create your Amazon account",
-    "SELLER_NAME":"Seller's Name",
-    "SELLER_PHONE":"Seller Phone",
-    "PASSWORD":"Password",
-    "RE_PASSWORD":"Re-enter Password"
-    
-
+    "EMAIL": "Email",
+    "EMAIL_VALID": "Email is required",
+    "PHONE_VALID": "Phone accepts only numbers & min length of 8 numbers",
+    "NAME_VALID": "min length of name is 6 characters",
+    "FIELD_REQ": "this field is required",
+    "PASSWORD_VALID": "Minimum eight characters, at least one uppercase letter, one lowercase letter and one number",
+    "RE_PASSWORD_VALID": "Password dont match",
+    "LOGIN": "Login",
+    "CREATE": "Create account",
+    "CREATE_AMA": "Create your Amazon account",
+    "SELLER_NAME": "Seller's Name",
+    "SELLER_PHONE": "Seller Phone",
+    "PASSWORD": "Password",
+    "RE_PASSWORD": "Re-enter Password"
   },
   "REVIEWS": {
     "CUSTOMER_REVIEWS": "Customer reviews",
@@ -255,7 +253,8 @@
     "SHIPPING_HANDLING": "Shipping & handling:",
     "TOTAL_BEFORE_TAX": "Total before tax:",
     "TAX": "14% tax to be collected:",
-    "ORDER_TOTAL": "Order total:"
+    "ORDER_TOTAL": "Order total:",
+    "ESTIMATEDDATE": "Estimated delivery date:"
   },
   "PLACEORDER": {
     "YOU_WILL_PAY": "You will pay",
@@ -300,7 +299,9 @@
     "CANCEL_ORDER": "Cancel Order",
     "COMPLETED": "Completed",
     "CANCELLED": "Cancelled",
-    "PENDING": "Pending"
+    "PENDING": "Pending",
+    "TO_BE_DELIVERED_ON": "Order to be delivered on:",
+    "DELIVERED_ON": "Order delivered on:"
   }
 }
   

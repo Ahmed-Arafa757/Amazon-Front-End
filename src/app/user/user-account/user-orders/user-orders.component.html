@@ -150,11 +150,27 @@
                   {{ "ORDERS.QUANTITY" | translate }} {{ item.quantity }}
                 </p>
               </div>
-              <div *ngIf="order.orderStatus === 'Pending'">
+              <div *ngIf="order.orderStatus !== 'Cancelled'" class="row mt-2">
                 <hr />
-                <button (click)="cancelUserOrder(order)" class="btn btn-danger">
-                  {{ "ORDERS.CANCEL_ORDER" | translate }}
-                </button>
+                <div class="col-auto me-auto" style="font-size: 0.8rem">
+                  <span *ngIf="order.orderStatus === 'Pending'">
+                    {{ "ORDERS.TO_BE_DELIVERED_ON" | translate }}
+                    {{ order.deliveryDate }}
+                  </span>
+                  <span *ngIf="order.orderStatus === 'Completed'">
+                    {{ "ORDERS.DELIVERED_ON" | translate }}
+                    {{ order.deliveryDate }}
+                  </span>
+                </div>
+                <div class="col-auto">
+                  <button
+                    *ngIf="order.orderStatus === 'Pending'"
+                    (click)="cancelUserOrder(order)"
+                    class="btn btn-danger"
+                  >
+                    {{ "ORDERS.CANCEL_ORDER" | translate }}
+                  </button>
+                </div>
               </div>
             </div>
           </div>

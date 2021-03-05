@@ -59,10 +59,12 @@ export class ProductReviewsComponent implements OnInit {
       () => {}
     );
 
-    const userEmail = localStorage.getItem('user email');
-    this.usersService.getUserByEmail(userEmail).subscribe({
+    const userID = localStorage.getItem('user id');
+    this.usersService.getUserById(userID).subscribe({
       next: (user: any) => {
-        this.user = user[0];
+        console.log(user);
+        this.user = user;
+        console.log(this.user);
       },
       error: (err) => {
         console.log(err);
