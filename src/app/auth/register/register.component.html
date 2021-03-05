@@ -24,9 +24,12 @@
                   <label for="name" class="form-label fw-bold">
                     {{ "REGISTER.YOUR_NAME" | translate }}
                   </label>
-                  <input required minlength="5" type="text" class="form-control mb-3" id="name"
+                  <input required minlength="3" maxlength="20" type="text" class="form-control mb-3" id="name"
                     [(ngModel)]='user.userName' #name='ngModel' name="name" />
                 </div>
+                <span style="color: red; font-size: 12px;"
+                  *ngIf='name.invalid && name.touched'>{{ "REGISTER.MUST_BE_THREE" | translate }}</span>
+
 
                 <div [ngClass]='{"invalid" : email.invalid && email.touched}'>
 
@@ -37,6 +40,8 @@
                     pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" type="email" class="form-control mb-3"
                     id="email" name="email" />
                 </div>
+                <span style="color: red; font-size: 12px;"
+                  *ngIf='email.invalid && email.touched'>{{ "REGISTER.THIS_FIELD_IS_REQUIRED" | translate }}</span>
 
                 <div [ngClass]='{"invalid" : password.invalid && password.touched}'>
 
@@ -48,6 +53,9 @@
                     type="password" class="form-control" id="password" name="password"
                     placeholder="At least 6 characters" />
                 </div>
+                <span style="color: red; font-size: 12px;"
+                  *ngIf='password.invalid &&
+                  password.touched'>{{ "REGISTER.THIS_FIELD_IS_REQUIRED" | translate }}</span>
 
 
 
@@ -66,6 +74,8 @@
                   <input required minlength="6" maxlength="20" [(ngModel)]='user.repeatedPassword' #re='ngModel'
                     type="password" name='confirm-password' class="form-control" id="confirm-password" />
                 </div>
+                <span style="color: red; font-size: 12px;"
+                  *ngIf='re.invalid && re.touched'>{{ "REGISTER.THIS_FIELD_IS_REQUIRED" | translate }}</span>
 
 
 
@@ -80,15 +90,15 @@
 
             <div *ngIf='errorText !== "" ' class="alert alert-danger" role="alert">
               {{errorText}}
-                
-                <!-- {{ "REGISTER.ERROR_TEXT" | translate }} -->
+
+              <!-- {{ "REGISTER.ERROR_TEXT" | translate }} -->
               <!-- {{ 'Hello ' + name | translate: { name: 'Srinivas' } }} -->
             </div>
             <div dir="auto">
 
               <span>
                 {{ "REGISTER.BY_CONTINING_YOU_AGREE" | translate }}
-  
+
               </span>
             </div>
 
@@ -97,12 +107,12 @@
 
               <span>
                 {{ "REGISTER.ALREADY_HAVE_AN_ACCOUNT" | translate }}
-  
+
                 <a [routerLink]="['/login']">
                   {{ "REGISTER.SIGN_IN" | translate }}
-  
+
                   <i class="fas fa-caret-right" style="font-size: 0.7rem"></i></a>
-                </span>
+              </span>
             </div>
           </div>
         </div>

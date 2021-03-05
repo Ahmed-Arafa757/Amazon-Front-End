@@ -12,7 +12,7 @@ import {
   GoogleLoginProvider,
 } from 'angularx-social-login';
 import { SocialUser } from 'angularx-social-login';
- 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -24,7 +24,7 @@ import { SocialUser } from 'angularx-social-login';
 export class LoginComponent implements OnInit {
 
 
-  user: User = { email: '', password: ''};
+  user: User = { email: '', password: '' };
 
   // loggedInUser;
   errorText = '';
@@ -38,87 +38,84 @@ export class LoginComponent implements OnInit {
   }
   signInWithGoogle(): void {
     this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID)
-    .then(
-      (user)=>{
-        this.usersService.signInWithGoogle(user).subscribe(
-          (res: any) => {
-            console.log(res);
-            // this.loggedIn = (user != null);
-            localStorage.setItem('token', res['accessToken']);
-            localStorage.setItem('user email', res['userEmail']);
-            console.log('res on login',res);
-            this.router.navigate(['/home']);
+      .then(
+        (user) => {
+          this.usersService.signInWithGoogle(user).subscribe(
+            (res: any) => {
+              console.log(res);
+              // this.loggedIn = (user != null);
+              localStorage.setItem('token', res.accessToken);
+              localStorage.setItem('user id', res.userId);
+             
+              console.log('res on login', res);
+              this.router.navigate(['/home']);
             },
             (err) => {
-              if (err.error === "Email Not Found") {
-                console.error("Email Not Found");
+              if (err.error === 'Email Not Found') {
+                console.error('Email Not Found');
                 this.router.navigate(['register'], {
-                  queryParams: { name: user.name, email: user.email, provider: user.provider},
+                  queryParams: { name: user.name, email: user.email, provider: user.provider },
                 });
-              
-              } else if(err.error === "Provider Not Match"){
-                console.error("Provider Not Match");
-              } 
+
+              } else if (err.error === 'Provider Not Match') {
+                console.error('Provider Not Match');
+              }
               else {
                 console.error(err.error);
               }
             },
-            () => {}
-        );
-      }
+            () => { }
+          );
+        }
       )
-      .catch((err)=>{console.error(err);})
-    
-    }
-    signInWithFB(): void {
-      this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID)
-    .then(
-      (user)=>{
-        this.usersService.signInWithFB(user).subscribe(
-          (res: any) => {
-            console.log(res);
-            // this.loggedIn = (user != null);
-            localStorage.setItem('token', res['accessToken']);
-            localStorage.setItem('user email', res['userEmail']);
-            console.log('res on login',res);
-            this.router.navigate(['/home']);
+      .catch((err) => { console.error(err); });
+
+  }
+  signInWithFB(): void {
+    this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID)
+      .then(
+        (user) => {
+          this.usersService.signInWithFB(user).subscribe(
+            (res: any) => {
+              console.log(res); 
+              // this.loggedIn = (user != null);
+              localStorage.setItem('token', res.accessToken);
+              localStorage.setItem('user id', res.userId);
+              console.log('res on login', res);
+              this.router.navigate(['/home']);
             },
             (err) => {
-              if (err.error === "Email Not Found") {
-                console.error("Email Not Found");
+              if (err.error === 'Email Not Found') {
+                console.error('Email Not Found');
                 this.router.navigate(['register'], {
-                  queryParams: { name: user.name, email: user.email, provider: user.provider},
+                  queryParams: { name: user.name, email: user.email, provider: user.provider },
                 });
-              
-              } else if(err.error === "Provider Not Match"){
-                console.error("Provider Not Match");
-              } 
+
+              } else if (err.error === 'Provider Not Match') {
+                console.error('Provider Not Match');
+              }
               else {
                 console.error(err.error);
               }
             },
-            () => {}
-        );
-      }
+            () => { }
+          );
+        }
       )
-      .catch((err)=>{console.error(err);})
-    }
-    signOut(){    
-      this.socialAuthService.signOut();
-    }
+      .catch((err) => { console.error(err); });
+  }
+  signOut() {
+    this.socialAuthService.signOut();
+  }
   onLogin(useR) {
     console.log('this.user', useR);
-    // this.loggedInUser = this.usersService.getUserByEmail(this.user.email);
-    // console.log('this.loggedInUser',this.loggedInUser);
-
-
-    // localStorage.setItem('userId', this.loggedInUser.id);
+   
 
     this.authService.login(useR).subscribe(
       (res) => {
-        // console.log(res['person']['id']);
+       
         localStorage.setItem('token', res['accessToken']);
-        localStorage.setItem('user email', res['userEmail']);
+        localStorage.setItem('user id', res['userId']);
         console.log('res on login', res);
 
 
@@ -126,8 +123,8 @@ export class LoginComponent implements OnInit {
       },
       (err) => {
 
-        console.log('err', err['error']);
-        this.errorText = err['error'];
+        console.log('err', err.error);
+        this.errorText = err.error;
       },
       () => { },
     );

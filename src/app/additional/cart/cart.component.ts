@@ -17,7 +17,7 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     this.cartArray = this.productService.cartProducts;
     this.updateQuantityPrice();
-    if (localStorage.getItem('user email')) {
+    if (localStorage.getItem('user id')) {
       this.isLogged = true;
     }
   }

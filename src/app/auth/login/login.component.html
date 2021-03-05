@@ -25,7 +25,7 @@
                   <input required minlength="10" maxlength="30" [(ngModel)]='user.email' #UserEmail='ngModel'
                     type="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" class="form-control"
                     name="email" id="inputEmail" />
-                  <span
+                  <span style="color: red; font-size: 12px;"
                     *ngIf='UserEmail.invalid && UserEmail.touched'>{{ "LOGIN.THIS_FIELD_IS_REQUIRED" | translate }}</span>
 
 
@@ -35,14 +35,14 @@
                   <label class="form-label">{{ "LOGIN.PASSWORD" | translate }} </label>
                   <input required minlength="6" maxlength="20" [(ngModel)]="user.password" #password="ngModel"
                     type="password" class="form-control" name="password" />
-                  <span
+                  <span style="color: red; font-size: 12px;"
                     *ngIf="password.invalid && password.touched">{{ "LOGIN.THIS_FIELD_IS_REQUIRED" | translate }}</span>
                 </div>
                 <br />
               </div>
               <div class="loginBtns">
                 <div id="google" class="loginBtn" (click)='signInWithGoogle()'> <img src="../../../assets/images/logo/kisspng-google-logo-google-search-search-engine-optimizati-5be4b4e65a01a8.7135521715417151743687.png" style="width: 25px;"> Google</div>
-                <div id="faceBook" class="loginBtn" (click)='signInWithFB()'> <i class="fab fa-facebook-square"></i> FaceBook</div>
+                <div id="faceBook" class="loginBtn" (click)='signInWithFB()'> <i class="fab fa-facebook-square"></i> Facebook</div>
               </div>
 
               <button type="submit" [ngClass]="{'disabled': password.invalid || UserEmail.invalid}"

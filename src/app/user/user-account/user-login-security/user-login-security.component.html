@@ -16,16 +16,20 @@
       <h3>{{ "LOGIN_SECURITY.LOGIN_&_SECURITY" | translate }}</h3>
     </div>
 
-    <div class="col-12">
+    <form #loginSecForm='ngForm' class="col-12">
       <table class="table" style="border: 1px solid rgb(201, 201, 201)">
         <tbody>
           <tr>
             <td>
               <p class="m-0">{{ "LOGIN_SECURITY.NAME" | translate }}</p>
-              <p>Placeholder for name:</p>
+              <input required minlength="3" maxlength="20" type="text" name="name" id="name"
+                [(ngModel)]='loggedInUser.userName' #name='ngModel'
+                [attr.disabled]="userNameEdit == false ? 'disabled' : null"><br>
+                <span style="color: red; font-size: 12px;"
+                  *ngIf='name.invalid && name.touched'>{{ "LOGIN_SECURITY.MUST_BE_THREE" | translate }}</span>
             </td>
             <td>
-              <button class="btn edit-btn">
+              <button class="btn edit-btn" (click)='userNameEditClicked()'>
                 {{ "LOGIN_SECURITY.EDIT" | translate }}
               </button>
             </td>
@@ -33,10 +37,16 @@
           <tr>
             <td>
               <p class="m-0">{{ "LOGIN_SECURITY.EMAIL" | translate }}</p>
-              <p>Placeholder for email:</p>
+              <input required minlength="10" maxlength="30" #email='ngModel' [(ngModel)]='loggedInUser.email'
+                pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" type="email" name="email" id="email"
+                [attr.disabled]="emailEdit == false ? 'disabled' : null">
+              <br>
+                <span style="color: red; font-size: 12px;"
+                  *ngIf='email.invalid && email.touched'>{{ "LOGIN_SECURITY.THIS_FIELD_IS_REQUIRED" | translate }}</span>
             </td>
+
             <td>
-              <button class="btn edit-btn">
+              <button class="btn edit-btn" (click)='emailEditClicked()'>
                 {{ "LOGIN_SECURITY.EDIT" | translate }}
               </button>
             </td>
@@ -44,10 +54,12 @@
           <tr>
             <td>
               <p class="m-0">{{ "LOGIN_SECURITY.MOBILE" | translate }}</p>
-              <p>Placeholder for mobile:</p>
+              <input minlength="11" type="text" #phoneNumber='ngModel' [(ngModel)]='loggedInUser.phone'
+                name="phoneNumber" id="phoneNumber" [attr.disabled]="phoneEdit == false ? 'disabled' : null">
+
             </td>
             <td>
-              <button class="btn edit-btn">
+              <button class="btn edit-btn" (click)='phoneEditClicked()'>
                 {{ "LOGIN_SECURITY.EDIT" | translate }}
               </button>
             </td>
@@ -55,20 +67,47 @@
           <tr>
             <td>
               <p class="m-0">{{ "LOGIN_SECURITY.PASSWORD" | translate }}</p>
-              <p>Placeholder for password:</p>
+              <input required minlength="6" #password maxlength="20" type="password" name="password"
+                id="password" (input)='loggedInUser.password = $event.target.value'
+                [attr.disabled]="passwordEdit == false ? 'disabled' : null">
+               <br> <span style="color: red; font-size: 12px;"
+                  *ngIf='password.invalid &&
+                  password.touched'>{{ "LOGIN_SECURITY.THIS_FIELD_IS_REQUIRED" | translate }}</span>
             </td>
             <td>
-              <button class="btn edit-btn">
+              <button class="btn edit-btn" (click)='passwordEditClicked()'>
+                {{ "LOGIN_SECURITY.EDIT" | translate }}
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p class="m-0">{{ "LOGIN_SECURITY.RE_ENTER_PASSWORD" | translate }}</p>
+              <input required minlength="6" #re maxlength="20" type="password" name="repeatedPassword"
+                (input)='loggedInUser.repeatedPassword = $event.target.value' id="repeatedPassword"
+                [attr.disabled]="repeatedPasswordEdit == false ? 'disabled' : null">
+               <br> <span style="color: red; font-size: 12px;" 
+               *ngIf='re.invalid &&  re.touched'>{{ "LOGIN_SECURITY.THIS_FIELD_IS_REQUIRED" | translate }}</span> 
+            </td>
+            <td>
+              <button class="btn edit-btn"  (click)='repeatedPasswordEditClicked()'>
                 {{ "LOGIN_SECURITY.EDIT" | translate }}
               </button>
             </td>
           </tr>
         </tbody>
       </table>
+    </form>
+    <div *ngIf='responseText !== "" ' class="alert alert-success" role="alert">
+      {{responseText}}
+
+      <!-- {{ "REGISTER.ERROR_TEXT" | translate }} -->
+      <!-- {{ 'Hello ' + name | translate: { name: 'Srinivas' } }} -->
     </div>
 
     <div class="col-12">
-      <button class="btn done-btn">
+      <button class="btn done-btn" [ngClass]="{'disabled': password.invalid || password.value == null || password.value == '' || email.invalid || name.invalid || re.invalid 
+            || re.value !== password.value}" (click)='onSubmit()'>
         {{ "LOGIN_SECURITY.DONE" | translate }}
       </button>
     </div>

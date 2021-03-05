@@ -107,6 +107,7 @@
   },
   "REGISTER": {
     "CREATE_ACCOUNT": "إنشاء حساب",
+    "THIS_FIELD_IS_REQUIRED": "هذا الحقل مطلوب",
     "YOUR_NAME": "الإسم",
     "EMAIL": "البريد الالكتروني",
     "PASSWORD": "كلمة المرور",
@@ -119,7 +120,8 @@
     "CONDITIONS": "الشروط",
     "PRIVACY_NOTICE": "إشعار الخصوصية",
     "HELP": "مساعدة",
-    "COPY_RIGHTS": "© ۱۹۹٦-۲۰۲۱ Amazon.com، Inc. أو الشركات التابعة لها"
+    "COPY_RIGHTS": "© ۱۹۹٦-۲۰۲۱ Amazon.com، Inc. أو الشركات التابعة لها",
+    "MUST_BE_THREE": "يجب ان يكون الاسم 3 حروف علي الاقل"
   },
   "DISCOVER_AMAZON": {
     "AMAZON_COM_SHIPS": "Amazon.com شحن",
@@ -264,13 +266,16 @@
   },
   "LOGIN_SECURITY": {
     "YOUR_ACCOUNT": "الحساب الخاص بك",
+    "THIS_FIELD_IS_REQUIRED": "هذا الحقل مطلوب",
     "LOGIN_&_SECURITY": "تسجيل الدخول والأمان",
     "EDIT": "تعديل",
     "NAME": "الاسم:",
     "EMAIL": "البريد الالكتروني:",
     "MOBILE": "هاتف المحمول:",
     "PASSWORD": "كلمة السر:",
-    "DONE": "تأكيد التعديل"
+    "RE_ENTER_PASSWORD": "اعد كتابه كلمه السر:",
+    "DONE": "تأكيد التعديل",
+    "MUST_BE_THREE": "يجب ان يكون الاسم 3 حروف علي الاقل"
   },
   "ORDERS": {
     "YOUR_ACCOUNT": "الحساب الخاص بك",

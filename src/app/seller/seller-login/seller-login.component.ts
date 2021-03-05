@@ -108,7 +108,7 @@ export class SellerLoginComponent implements OnInit {
                 
               
               } else if(err.error === "Provider Not Match"){
-                this.errors = "you are not registered by facebook yet";
+                this.errors = "you are not registered by facebook";
                 console.error("Provider Not Match");
               } 
               else {this.errors = err.error;
