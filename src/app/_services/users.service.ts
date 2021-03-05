@@ -459,22 +459,23 @@ export class UsersService {
       repeatedPassword: user.repeatedPassword,
     };
 
-    this.httpClient.post(`${this.baseUrl}user/register`, newUser);
+    return  this.httpClient.post(`${this.baseUrl}user/register`, newUser);
   }
 
   updateUser(user: User) {
     const updatedUser = {
       _id: user._id,
       userName: user.userName,
+      phone:user.phone,
       email: user.email,
       password: user.password,
       repeatedPassword: user.repeatedPassword,
     };
-    this.httpClient.put(`${this.baseUrl}user`, updatedUser);
+    return this.httpClient.put(`${this.baseUrl}user`, updatedUser);
   }
 
   deleteUser(id: string) {
-    this.httpClient.delete(`${this.baseUrl}user/${id}`);
+   return this.httpClient.delete(`${this.baseUrl}user/${id}`);
   }
   signInWithGoogle(socialUser){
     console.log(socialUser);

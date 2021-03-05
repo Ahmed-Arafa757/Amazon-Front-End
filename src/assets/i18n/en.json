@@ -109,6 +109,7 @@
     "CREATE_ACCOUNT": " Create account",
     "YOUR_NAME": "Your name",
     "EMAIL": "Email",
+    "THIS_FIELD_IS_REQUIRED": "This field is required",
     "PASSWORD": "Password",
     "PASSWORD_MUST_BE_AT_LEAST": "Passwords must be at least 6 characters.",
     "RE_ENTER_PASSWORD": "Re-enter password",
@@ -119,7 +120,9 @@
     "CONDITIONS": "Conditions",
     "PRIVACY_NOTICE": "Privacy Notice",
     "HELP": "Help",
-    "COPY_RIGHTS": "© 1996-2021, Amazon.com, Inc. or its affiliates"
+    "COPY_RIGHTS": "© 1996-2021, Amazon.com, Inc. or its affiliates",
+    "MUST_BE_THREE": "name must be 3 characters at least"
+
   },
   "DISCOVER_AMAZON": {
     "AMAZON_COM_SHIPS": "Amazon.com ships ",
@@ -269,13 +272,16 @@
   },
   "LOGIN_SECURITY": {
     "YOUR_ACCOUNT": "Your Account",
+    "THIS_FIELD_IS_REQUIRED": "This field is required",
     "LOGIN_&_SECURITY": "Login & security",
     "EDIT": "Edit",
     "NAME": "Name:",
     "EMAIL": "Email:",
     "MOBILE": "Mobile number:",
     "PASSWORD": "Password:",
-    "DONE": "Done"
+    "RE_ENTER_PASSWORD":"Re-enter Password",
+    "DONE": "Done",
+    "MUST_BE_THREE":"name must be 3 characters at least"
   },
   "ORDERS": {
     "YOUR_ACCOUNT": "Your Account",
