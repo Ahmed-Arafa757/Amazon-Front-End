@@ -30,7 +30,10 @@ export class ShipmentsService {
     };
 
     this.http
-      .post('http://localhost:3000/api/shipments', newShipment)
+      .post(
+        'https://iti-amzon-backend.herokuapp.com/api/shipments',
+        newShipment
+      )
       .subscribe((responseShipment) => {
         console.log(responseShipment);
       });
