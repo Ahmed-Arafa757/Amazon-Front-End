@@ -1,23 +1,30 @@
 <div style="background-color: white">
-  <div class="container-fluid">
+  <div dir="auto" class="container-fluid">
     <div class="row mb-3">
       <div class="col MM_result">
         <p class="my-2">
-          {{ productsResult.length }} {{ "SEARCH_RESULTS.RESULTS_FOR" | translate }} 
+          {{ productsResult.length }}
+          {{ "SEARCH_RESULTS.RESULTS_FOR" | translate }}
           <span class="fw-bold">"{{ searchInput }}"</span>
           <span class="dropdown me-2 float-end">
             <!-- <select [(ngModel)]="item.quantity" (change)="updateQuantityPrice()" -->
-          {{ "SEARCH_RESULTS.SORT_BY" | translate }} 
+            {{ "SEARCH_RESULTS.SORT_BY" | translate }}
             <select
               #selectOption
               (click)="sort(selectOption)"
               class="btn btn-light dropdown-toggle p-1 shadow-sm"
               id="dropdownMenuButton"
             >
-              <option value="1" disabled>{{ "SEARCH_RESULTS.FEATURED" | translate }} </option>
-              <option value="2">{{ "SEARCH_RESULTS.LOW_TO_HIGH" | translate }}</option>
-              <option value="3">{{ "SEARCH_RESULTS.HIGH_TO_LOW" | translate }}</option>
-              <option value="4">{{ "SEARCH_RESULTS.NAME" | translate }} </option>
+              <option value="1" disabled>
+                {{ "SEARCH_RESULTS.FEATURED" | translate }}
+              </option>
+              <option value="2">
+                {{ "SEARCH_RESULTS.LOW_TO_HIGH" | translate }}
+              </option>
+              <option value="3">
+                {{ "SEARCH_RESULTS.HIGH_TO_LOW" | translate }}
+              </option>
+              <option value="4">{{ "SEARCH_RESULTS.NAME" | translate }}</option>
             </select>
           </span>
         </p>
@@ -25,18 +32,32 @@
     </div>
     <div class="row mb-5">
       <div class="col-md-2 ps-3 mb-3 MM_sideFilter">
-        <div class="fw-bold">{{ "SEARCH_RESULTS.CONDITION" | translate }} </div>
+        <div class="fw-bold">{{ "SEARCH_RESULTS.CONDITION" | translate }}</div>
         <ul>
-          <li><a href="#">{{ "SEARCH_RESULTS.NEW" | translate }} </a></li>
-          <li><a href="#">{{ "SEARCH_RESULTS.USED" | translate }} </a></li>
-          <li><a href="#">{{ "SEARCH_RESULTS.RENEWED" | translate }} </a></li>
+          <li>
+            <a href="#">{{ "SEARCH_RESULTS.NEW" | translate }} </a>
+          </li>
+          <li>
+            <a href="#">{{ "SEARCH_RESULTS.USED" | translate }} </a>
+          </li>
+          <li>
+            <a href="#">{{ "SEARCH_RESULTS.RENEWED" | translate }} </a>
+          </li>
         </ul>
         <br />
-        <div class="fw-bold">{{ "SEARCH_RESULTS.DEPARTMENT" | translate }} </div>
+        <div class="fw-bold">{{ "SEARCH_RESULTS.DEPARTMENT" | translate }}</div>
         <ul>
-          <li><a href="#">{{ "SEARCH_RESULTS.CELL_PHONES" | translate }} </a></li>
-          <li><a href="#">{{ "SEARCH_RESULTS.ELECTRONICS" | translate }} </a></li>
-          <li><a href="#">{{ "SEARCH_RESULTS.CELL_PHONES_AND_ACCESSORIES" | translate }} </a></li>
+          <li>
+            <a href="#">{{ "SEARCH_RESULTS.CELL_PHONES" | translate }} </a>
+          </li>
+          <li>
+            <a href="#">{{ "SEARCH_RESULTS.ELECTRONICS" | translate }} </a>
+          </li>
+          <li>
+            <a href="#"
+              >{{ "SEARCH_RESULTS.CELL_PHONES_AND_ACCESSORIES" | translate }}
+            </a>
+          </li>
         </ul>
         <br />
         <div class="fw-bold">{{ "SEARCH_RESULTS.AVERAGE" | translate }}</div>
@@ -47,7 +68,7 @@
             <i class="fas fa-star"></i>
             <i class="fas fa-star"></i>
             <i class="far fa-star"></i>
-          {{ "SEARCH_RESULTS.AND_UP" | translate }} 
+            {{ "SEARCH_RESULTS.AND_UP" | translate }}
           </a>
         </div>
         <div>
@@ -57,7 +78,7 @@
             <i class="fas fa-star"></i>
             <i class="far fa-star"></i>
             <i class="far fa-star"></i>
-          {{ "SEARCH_RESULTS.AND_UP" | translate }}
+            {{ "SEARCH_RESULTS.AND_UP" | translate }}
           </a>
         </div>
         <div>
@@ -67,7 +88,7 @@
             <i class="far fa-star"></i>
             <i class="far fa-star"></i>
             <i class="far fa-star"></i>
-          {{ "SEARCH_RESULTS.AND_UP" | translate }} 
+            {{ "SEARCH_RESULTS.AND_UP" | translate }}
           </a>
         </div>
         <div>
@@ -77,11 +98,11 @@
             <i class="far fa-star"></i>
             <i class="far fa-star"></i>
             <i class="far fa-star"></i>
-          {{ "SEARCH_RESULTS.AND_UP" | translate }}
+            {{ "SEARCH_RESULTS.AND_UP" | translate }}
           </a>
         </div>
         <br />
-        <div class="fw-bold">{{ "SEARCH_RESULTS.BRAND" | translate }} </div>
+        <div class="fw-bold">{{ "SEARCH_RESULTS.BRAND" | translate }}</div>
         <div class="form-check">
           <input class="form-check-input" type="checkbox" value="" id="one" />
           <label class="form-check-label" for="one"> Apple </label>
@@ -95,13 +116,27 @@
         <br />
         <div class="fw-bold">Price</div>
         <ul>
-          <li><a href="#">{{ "SEARCH_RESULTS.UNDER_50" | translate }} </a></li>
-          <li><a href="#">{{ "SEARCH_RESULTS.50_TO_100" | translate }}</a></li>
-          <li><a href="#">{{ "SEARCH_RESULTS.100_TO_150" | translate }}</a></li>
-          <li><a href="#">{{ "SEARCH_RESULTS.150_TO_250" | translate }} </a></li>
-          <li><a href="#">{{ "SEARCH_RESULTS.250_TO_400" | translate }} </a></li>
-          <li><a href="#">{{ "SEARCH_RESULTS.400_TO_600" | translate }} </a></li>
-          <li><a href="#">{{ "SEARCH_RESULTS.600_AND_ABOVE" | translate }}</a></li>
+          <li>
+            <a href="#">{{ "SEARCH_RESULTS.UNDER_50" | translate }} </a>
+          </li>
+          <li>
+            <a href="#">{{ "SEARCH_RESULTS.50_TO_100" | translate }}</a>
+          </li>
+          <li>
+            <a href="#">{{ "SEARCH_RESULTS.100_TO_150" | translate }}</a>
+          </li>
+          <li>
+            <a href="#">{{ "SEARCH_RESULTS.150_TO_250" | translate }} </a>
+          </li>
+          <li>
+            <a href="#">{{ "SEARCH_RESULTS.250_TO_400" | translate }} </a>
+          </li>
+          <li>
+            <a href="#">{{ "SEARCH_RESULTS.400_TO_600" | translate }} </a>
+          </li>
+          <li>
+            <a href="#">{{ "SEARCH_RESULTS.600_AND_ABOVE" | translate }}</a>
+          </li>
           <li class="mt-2">
             <form action="" method="get">
               <div class="input-group me-2">
@@ -120,7 +155,9 @@
                   placeholder="Max"
                 />
               </div>
-              <button class="btn bg-gradient">{{ "SEARCH_RESULTS.GO" | translate }} </button>
+              <button class="btn bg-gradient">
+                {{ "SEARCH_RESULTS.GO" | translate }}
+              </button>
             </form>
           </li>
         </ul>
@@ -148,7 +185,8 @@
                   "
                   style="cursor: pointer"
                 >
-                  <i class="fas fa-long-arrow-alt-left"></i>{{ "SEARCH_RESULTS.PREVIOUS" | translate }} 
+                  <i class="fas fa-long-arrow-alt-left"></i
+                  >{{ "SEARCH_RESULTS.PREVIOUS" | translate }}
                 </li>
 
                 <li
@@ -170,7 +208,8 @@
                   "
                   style="cursor: pointer"
                 >
-                  <i class="fas fa-long-arrow-alt-right"></i>{{ "SEARCH_RESULTS.NEXT" | translate }} 
+                  <i class="fas fa-long-arrow-alt-right"></i
+                  >{{ "SEARCH_RESULTS.NEXT" | translate }}
                 </li>
               </ul>
             </nav>
@@ -183,10 +222,11 @@
       <div class="col-12">
         <div class="row tp-product-slider m-4">
           <span class="fs-5 fw-bold p-0 mt-2" style="width: initial"
-            >{{ "SEARCH_RESULTS.INSPIRED" | translate }} 
+            >{{ "SEARCH_RESULTS.INSPIRED" | translate }}
           </span>
-          <a href="" class="text-reset mt-2" style="width: initial">{{ "SEARCH_RESULTS.SHOP_NOW" | translate }} 
-            </a>
+          <a href="" class="text-reset mt-2" style="width: initial"
+            >{{ "SEARCH_RESULTS.SHOP_NOW" | translate }}
+          </a>
           <ul class="tp-list-inline px-0 mt-2">
             <li class="list-inline-item">
               <img
