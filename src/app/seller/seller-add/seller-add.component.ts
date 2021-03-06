@@ -98,7 +98,13 @@ export class SellerAddComponent implements OnInit {
   }
   applySub()
   {
-    this.subCategories = this.categoryService.getAllSubCategoriesOfACategryById(this.product.productCategory);
+this.categoryService.getAllSubCategoriesOfACategryById(this.product.productCategory).subscribe(
+  (res)=>{
+    this.subCategories=res
+  },
+  (err)=>{console.error(err)},
+  ()=>{},
+)
   }
   addImg(img,mode){  
     let url;

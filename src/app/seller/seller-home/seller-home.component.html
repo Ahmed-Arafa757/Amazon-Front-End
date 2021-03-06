@@ -1,4 +1,4 @@
-<div class="sellerHeader">
+<div dir="auto" class="sellerHeader">
     <!-- <div class=" container d-flex justify-content-center align-items-center">
     
         <div class="row">
@@ -23,7 +23,7 @@
         </div>
       </div> -->
       <h2 *ngIf='products.length === 0 '>
-        Please Add Products 
+        {{"SELLER.ADD_MESSAGE" | translate}} 
         <a [routerLink]="['/seller', 'add']">
           {{ "HEADER.ADD" | translate }}
         </a>
