@@ -632,13 +632,13 @@
                 "HEADER.LOGIN" | translate
               }}</a>
             </li>
-            <li class="dropdown-item text-center">
+            <li *ngIf="loggedInSeller" class="dropdown-item text-center">
               {{ "HEADER.SELLER_CENTRAL" | translate }}
               <a [routerLink]="['/seller', 'home']">{{
                 "HEADER.VIEW_ITEMS" | translate
               }}</a>
             </li>
-            <li class="dropdown-item text-center">
+            <li *ngIf="loggedInSeller" class="dropdown-item text-center">
               {{ "HEADER.ADD_PRODUCT" | translate }}
               <a [routerLink]="['/seller', 'add']">
                 {{ "HEADER.ADD" | translate }}
