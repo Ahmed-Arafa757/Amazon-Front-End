@@ -53,7 +53,11 @@
     "SPORTS_&_OUTDOORS": "الرياضة ومنتجات الحديقة",
     "TOOLS_&_HOME_IMPROVEMENT": "أدوات وتحسينات المنزل",
     "TOYS_&_GAMES": "الألعاب والدمى",
-    "VIDEO_GAMES": "ألعاب الفيديو"
+    "VIDEO_GAMES": "ألعاب الفيديو",
+    "LOCATION":"اختر موقعك",
+    "LOCATION_MESSAGE":"قد تختلف خيارات التسليم وسرعات التسليم باختلاف المواقع",
+    "LOCATION_BTN":"حسناً",
+    "LOCATION_SIGNIN":"برجاء تسجيل الدخول لاظهار عناوينك"
   },
   "HOME": {
     "ALL_PRODUCTS": "جميع المنتجات",
@@ -183,7 +187,8 @@
     "SELLER_NAME": "اسم البائع",
     "SELLER_PHONE": "هاتف البائع",
     "PASSWORD": "كلمة المرور",
-    "RE_PASSWORD": "إعادة إدخال كلمة المرور"
+    "RE_PASSWORD": "إعادة إدخال كلمة المرور",
+    "ADD_MESSAGE":"من فضلك ادخل منتج"
   },
   "REVIEWS": {
     "CUSTOMER_REVIEWS": "آراء العملاء",
@@ -299,6 +304,7 @@
     "DELIVERED_ON": "تم توصيل الطلب في:"
   },
   "PRODUCT_INFO": {
+<<<<<<< HEAD
     "YOUR_ACCOUNT": "الحساب الخاص بك",
     "Visit_the_Store": "الذهاب إلى المتجر",
     "Ratings": "تقييم ",
@@ -326,5 +332,32 @@
     "Cart": "أضف إلى العربة",
     "FreeShipping": "شحن مجاني على طلبات التوصيل",
     "Related": "منتجات مرتبطة بهذا المنتج"
+=======
+    "YOUR_ACCOUNT": "الحساب الخاص بك"
+  },
+  "SIDENAV":{
+    "HELLO":"مرحبا ,",
+    "SIGNIN":"تسجيل الدخول",
+    "DIGITAL_CONTENT":"المحتوى الرقمي والأجهزة",
+    "AMAZON_MUSIC":"أغاني امازون",
+    "KINDLE":"قارئ الإلكترونية والكتب Kindle ",
+    "APPSTORE":"متجر التطبيقات للاندرويد",
+    "CATEGORIES":"التسوق حسب القسم",
+    "SEE_ALL":"اظهار الكل",
+    "SEE_LESS":"اظهار اقل",
+    "FEATURES":"البرامج و السمات",
+    "GIFT":"بطاقات الهدايا",
+    "FOUNDATION":"مؤسسة أمازون",
+    "LIVE":"امازون لايف",
+    "INTERNATIONAL":"التسوق الدولى",
+    "SECOND_CHANCE":"فرصة أمازون الثانية",
+    "FULL_DIRECTORY":"دليل المتجر الكامل",
+    "HELP_SETTING":"مساعدة و اعدادات",
+    "ACCOUNT":"حسابك",
+    "HELP":"مساعدة"
+  },
+  "FOOTER":{
+    "TOP":"العودة إلي الاعلي"
+>>>>>>> 602343eacda82dcf956c486be6546827877b817c
   }
 }

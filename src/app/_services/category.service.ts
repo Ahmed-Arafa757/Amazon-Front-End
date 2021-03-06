@@ -9,7 +9,11 @@ import { Category } from '../_model/categories';
 export class CategoryService {
   category: Category[];
   baseUrl = 'https://iti-amzon-backend.herokuapp.com/';
+<<<<<<< HEAD
   // baseUrl = 'http://localhost:3000/';
+=======
+  /* baseUrl = 'http://localhost:3000/'; */
+>>>>>>> 602343eacda82dcf956c486be6546827877b817c
 
   constructor(private httpClient: HttpClient) {
     // this.category

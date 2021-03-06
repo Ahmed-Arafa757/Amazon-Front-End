@@ -53,7 +53,11 @@
     "SPORTS_&_OUTDOORS": "Sports & Outdoors",
     "TOOLS_&_HOME_IMPROVEMENT": "Tools & Home Improvement",
     "TOYS_&_GAMES": "Toys & Games",
-    "VIDEO_GAMES": "Video Games"
+    "VIDEO_GAMES": "Video Games",
+    "LOCATION":"Choose your location",
+    "LOCATION_MESSAGE":"Delivery options and delivery speeds may vary for different locations",
+    "LOCATION_BTN":"Done",
+    "LOCATION_SIGNIN":"Sign in to see your addresses"
   },
   "HOME": {
     "ALL_PRODUCTS": "All Products",
@@ -186,7 +190,8 @@
     "SELLER_NAME": "Seller's Name",
     "SELLER_PHONE": "Seller Phone",
     "PASSWORD": "Password",
-    "RE_PASSWORD": "Re-enter Password"
+    "RE_PASSWORD": "Re-enter Password",
+    "ADD_MESSAGE":"Please Add Products"
   },
   "REVIEWS": {
     "CUSTOMER_REVIEWS": "Customer reviews",
@@ -301,6 +306,7 @@
     "TO_BE_DELIVERED_ON": "Order to be delivered on:",
     "DELIVERED_ON": "Order delivered on:"
   },
+<<<<<<< HEAD
   "PRODUCT_INFO": {
     "YOUR_ACCOUNT": "الحساب الخاص بك",
     "Visit_the_Store": "Visit the Store",
@@ -328,5 +334,30 @@
     "OtherSellers": "Other Sellers on Amazon",
     "Cart": "Add To Cart",
     "Related": "Products related to this item"
+=======
+  "SIDENAV":{
+    "HELLO":"Hello,",
+    "SIGNIN":"Sign in",
+    "DIGITAL_CONTENT":"Digital Content & Devices",
+    "AMAZON_MUSIC":"Amazon Music",
+    "KINDLE":"Kindle E-readers & Books",
+    "APPSTORE":"Appstore for Android",
+    "CATEGORIES":"Shop By Department",
+    "SEE_ALL":"See All",
+    "SEE_LESS":"See Less",
+    "FEATURES":"Programs & Features",
+    "GIFT":"Gift Cards",
+    "FOUNDATION":"#FoundatiOnAmazon",
+    "LIVE":"Amazon Live",
+    "INTERNATIONAL":"International Shopping",
+    "SECOND_CHANCE":"Amazon Second Chance",
+    "FULL_DIRECTORY":"Full Store Directory",
+    "HELP_SETTING":"Help & Settings",
+    "ACCOUNT":"Your Account",
+    "HELP":"Help"
+  },
+  "FOOTER":{
+    "TOP":"Back To Top"
+>>>>>>> 602343eacda82dcf956c486be6546827877b817c
   }
 }

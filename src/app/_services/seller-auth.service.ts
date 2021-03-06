@@ -9,11 +9,9 @@ export class SellerAuthService {
     
 
 
-  // baseUrl = 'https://iti-amzon-backend.herokuapp.com/';
-   baseUrl = 'http://localhost:3000/'
+  baseUrl = 'https://iti-amzon-backend.herokuapp.com/';
+   /* baseUrl = 'http://localhost:3000/' */
   constructor(private httpClient: HttpClient) { }
-
-
 
   signInWithGoogle(socialUser){
     console.log(socialUser);
@@ -36,27 +34,7 @@ export class SellerAuthService {
     //   ()=>{},
     //      )
   }
-
-  
-
-//   checkPassword(seller:Seller):Boolean{
-     
-//    let x= Boolean(seller.password !== seller.repeatedPassword) 
-//    console.log(seller.password,seller.repeatedPassword,x);
-//    return x
-// }
-
-
-
-
-
-
-// getSellerById(myid): Seller{
-
-//   // return this.sellers.find(p => p.sellerId === myid); 
-
-// }
-
+ 
 isAuthenticated():boolean{
   if(localStorage.getItem('sellerLoginStorage')){
     return true;
