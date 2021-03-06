@@ -67,18 +67,20 @@ export class HeaderComponent implements OnInit, DoCheck {
         localStorage.hasOwnProperty('token') &&
         localStorage.hasOwnProperty('user id')
       ) {
-        this.usersService
-          .getUserById(localStorage.getItem('user id'))
-          .subscribe(
-            (res) => {
-              console.log(res);
-              this.loggedInUser = res['userName'];
-            },
-            (err) => {
-              console.log(err);
-            },
-            () => {}
-          );
+
+
+        this.usersService.getUserById(localStorage.getItem('user id')).subscribe(
+          (res) => {
+            console.log('res');
+            this.loggedInUser = res['userName']; 
+
+
+          },
+          (err)=>{console.log(err);
+          },
+          ()=>{}
+        )
+
 
         this.isLogged = true;
       } else {
