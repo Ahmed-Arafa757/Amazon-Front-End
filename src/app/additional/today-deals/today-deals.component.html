@@ -1,0 +1,300 @@
+<div style="background-color: white">
+    <div class="container-fluid">
+      <div class="row mb-3">
+        <div class="col MM_result">
+          <p class="my-2">
+            {{ productsResult.length }} results for
+            <span class="fw-bold">"{{ searchInput }}"</span>
+            <span class="dropdown me-2 float-end">
+              <!-- <select [(ngModel)]="item.quantity" (change)="updateQuantityPrice()" -->
+              Sort by:
+              <select
+                #selectOption
+                (click)="sort(selectOption)"
+                class="btn btn-light dropdown-toggle p-1 shadow-sm"
+                id="dropdownMenuButton"
+              >
+                <option value="1" disabled>Featured</option>
+                <option value="2">Price low to high</option>
+                <option value="3">Price high to low</option>
+                <option value="4">Name</option>
+              </select>
+            </span>
+          </p>
+        </div>
+      </div>
+      <div class="row mb-5">
+        <div class="col-md-2 ps-3 mb-3 MM_sideFilter">
+          <div class="fw-bold">Condition</div>
+          <ul>
+            <li><a href="#">New</a></li>
+            <li><a href="#">Used</a></li>
+            <li><a href="#">Renewed</a></li>
+          </ul>
+          <br />
+          <div class="fw-bold">Department</div>
+          <ul>
+            <li><a href="#">Cell Phones</a></li>
+            <li><a href="#">Electronics</a></li>
+            <li><a href="#">Cell Phones & Accessories</a></li>
+          </ul>
+          <br />
+          <div class="fw-bold">Avg. Customer Review</div>
+          <div>
+            <a href="#">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              & Up
+            </a>
+          </div>
+          <div>
+            <a href="#">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+              & Up
+            </a>
+          </div>
+          <div>
+            <a href="#">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+              & Up
+            </a>
+          </div>
+          <div>
+            <a href="#">
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+              & Up
+            </a>
+          </div>
+          <br />
+          <div class="fw-bold">Brand</div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="one" />
+            <label class="form-check-label" for="one"> Apple </label>
+            <br />
+            <input class="form-check-input" type="checkbox" value="" id="two" />
+            <label class="form-check-label" for="two"> Samsung </label>
+            <br />
+            <input class="form-check-input" type="checkbox" value="" id="three" />
+            <label class="form-check-label" for="three"> Google </label>
+          </div>
+          <br />
+          <div class="fw-bold">Price</div>
+          <ul>
+            <li><a href="#">Under $50</a></li>
+            <li><a href="#">$50 to $100</a></li>
+            <li><a href="#">$100 to $150</a></li>
+            <li><a href="#">$150 to $250</a></li>
+            <li><a href="#">$250 to $400</a></li>
+            <li><a href="#">$400 to $600</a></li>
+            <li><a href="#">$600 & Above</a></li>
+            <li class="mt-2">
+              <form action="" method="get">
+                <div class="input-group me-2">
+                  <span class="input-group-text px-1">$</span>
+                  <input
+                    type="text"
+                    class="form-control px-1"
+                    placeholder="Min"
+                  />
+                </div>
+                <div class="input-group me-2">
+                  <span class="input-group-text px-1">$</span>
+                  <input
+                    type="text"
+                    class="form-control px-1"
+                    placeholder="Max"
+                  />
+                </div>
+                <button class="btn bg-gradient">Go</button>
+              </form>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-10">
+          <div class="row">
+            <app-product-item 
+              *ngFor="let item of onSaleProducts"
+              [product]="item"
+              class="col-12 col-lg-3 col-md-4 col-sm-6"
+            >
+            </app-product-item>
+          </div>
+  
+          <div class="row my-2">
+            <div class="col-12">
+              <nav aria-label="...">
+                <ul class="pagination justify-content-center">
+                  <li
+                    class="page-link bg-gradien"
+                    (click)="
+                      currentPage === 0
+                        ? currentPage
+                        : (currentPage = currentPage - 1)
+                    "
+                    style="cursor: pointer"
+                  >
+                    <i class="fas fa-long-arrow-alt-left"></i> Previous
+                  </li>
+  
+                  <li
+                    *ngFor="let page of numOfPages; let i = index"
+                    class="page-link bg-gradient"
+                    (click)="currentPage = i"
+                    [ngClass]="{ active: i == currentPage }"
+                    style="cursor: pointer"
+                  >
+                    {{ page }}
+                  </li>
+  
+                  <li
+                    class="page-link bg-gradien"
+                    (click)="
+                      currentPage >= lastPage - 1
+                        ? currentPage
+                        : (currentPage = currentPage + 1)
+                    "
+                    style="cursor: pointer"
+                  >
+                    <i class="fas fa-long-arrow-alt-right"></i> Next
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="col-12">
+          <div class="row tp-product-slider m-4">
+            <span class="fs-5 fw-bold p-0 mt-2" style="width: initial"
+              >Inspired by your browsing history
+            </span>
+            <a href="" class="text-reset mt-2" style="width: initial">Shop now</a>
+            <ul class="tp-list-inline px-0 mt-2">
+              <li class="list-inline-item">
+                <img
+                  alt="Minecraft - Nintendo Switch"
+                  src="https://images-na.ssl-images-amazon.com/images/I/71J38Txcb6L._AC_UL270_SR216,270_.jpg"
+                  class="product-image"
+                  height="200px"
+                />
+              </li>
+              <li class="list-inline-item">
+                <img
+                  alt="RUNMUS Gaming Headset Xbox One Headset with 7.1 Surround Sound, PS4 Headset with Noise Canceling Mic &amp; LED Light,..."
+                  src="https://images-na.ssl-images-amazon.com/images/I/61PbhMOuE4L._AC_UL270_SR270,270_.jpg"
+                  class="product-image"
+                  height="200px"
+                />
+              </li>
+              <li class="list-inline-item">
+                <img
+                  alt="amFilm Tempered Glass Screen Protector for Nintendo Switch 2017 (2-Pack)"
+                  src="https://images-na.ssl-images-amazon.com/images/I/61QEY3YKqqL._AC_UL270_SR270,270_.jpg"
+                  class="product-image"
+                  height="200px"
+                />
+              </li>
+              <li class="list-inline-item">
+                <img
+                  alt="Logitech G203 Prodigy RGB Wired Gaming Mouse – Black"
+                  src="https://images-na.ssl-images-amazon.com/images/I/61RYG1rUxeL._AC_UL270_SR270,270_.jpg"
+                  class="product-image"
+                  height="200px"
+                />
+              </li>
+              <li class="list-inline-item">
+                <img
+                  alt="Logitech G602 Lag-Free Wireless Gaming Mouse – 11 Programmable Buttons, Upto 2500 DPI"
+                  src="https://images-na.ssl-images-amazon.com/images/I/613KPiwwsvL._AC_UL270_SR270,270_.jpg"
+                  class="product-image"
+                  height="200px"
+                />
+              </li>
+              <li class="list-inline-item">
+                <img
+                  alt="NUBWO Gaming headsets PS4 N7 Stereo Xbox one Headset Wired PC Gaming Headphones with Noise Canceling Mic , Over Ear..."
+                  src="https://images-na.ssl-images-amazon.com/images/I/51opmroKBgL._AC_UL270_SR270,270_.jpg"
+                  class="product-image"
+                  height="200px"
+                />
+              </li>
+              <li class="list-inline-item">
+                <img
+                  alt="Orzly Carry Case Compatible with Nintendo Switch - Black Protective Hard Portable Travel Carry Case Shell Pouch for..."
+                  src="https://images-na.ssl-images-amazon.com/images/I/61GggH1hAaL._AC_UL270_SR182,270_.jpg"
+                  class="product-image"
+                  height="200px"
+                />
+              </li>
+              <li class="list-inline-item">
+                <img
+                  alt="BEBONCOOL PS4 Controller Charger, Controller USB Charging Station Dock for DualShock 4, PlayStation 4 Charging Station..."
+                  src="https://images-na.ssl-images-amazon.com/images/I/61gYe3YaoxL._AC_UL270_SR270,270_.jpg"
+                  class="product-image"
+                  height="200px"
+                />
+              </li>
+              <li class="list-inline-item">
+                <img
+                  alt="PICTEK Gaming Mouse Wired [7200 DPI] [Programmable] [Breathing Light] Ergonomic Game USB Computer Mice RGB Gamer Desktop..."
+                  src="https://images-na.ssl-images-amazon.com/images/I/71zKhk9GyLL._AC_UL270_SR270,270_.jpg"
+                  class="product-image"
+                  height="200px"
+                />
+              </li>
+              <li class="list-inline-item">
+                <img
+                  alt="Redragon S101 Wired Gaming Keyboard and Mouse Combo RGB Backlit Gaming Keyboard with Multimedia Keys Wrist Rest and Red..."
+                  src="https://images-na.ssl-images-amazon.com/images/I/71GfTHgl0AL._AC_UL270_SR270,270_.jpg"
+                  class="product-image"
+                  height="200px"
+                />
+              </li>
+              <li class="list-inline-item">
+                <img
+                  alt="UGREEN Ethernet Adapter USB 2.0 to 10/100 Network RJ45 LAN Wired Adapter Compatible for Nintendo Switch, Wii, Wii U,..."
+                  src="https://images-na.ssl-images-amazon.com/images/I/61J4ILcCZyL._AC_UL270_SR270,270_.jpg"
+                  class="product-image"
+                  height="200px"
+                />
+              </li>
+              <li class="list-inline-item">
+                <img
+                  alt="Microsoft Xbox Wireless Adapter for Windows 10"
+                  src="https://images-na.ssl-images-amazon.com/images/I/61OcRGpakjL._AC_UL270_SR270,270_.jpg"
+                  class="product-image"
+                  height="200px"
+                />
+              </li>
+              <li class="list-inline-item">
+                <img
+                  alt="PICTEK Gaming Mouse Wired, RGB Chroma Backlit Gaming Mouse, 8 Programmable Buttons, 7200 DPI Adjustable, Comfortable..."
+                  src="https://images-na.ssl-images-amazon.com/images/I/61qeRQ18AkL._AC_UL405_SR228,405_.jpg"
+                  class="product-image"
+                  height="200px"
+                />
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
