@@ -1,3 +1,4 @@
+import { ProductService } from 'src/app/_services/product.service';
 import { SellersService } from 'src/app/_services/sellers.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params} from '@angular/router';
@@ -18,7 +19,7 @@ export class SellerHomeComponent implements OnInit {
 
   currentPage = 0;
   lastPage = 0;
-  constructor(private activatedRoute:ActivatedRoute,private sellersService: SellersService ) { }
+  constructor(private activatedRoute:ActivatedRoute,private sellersService: SellersService,private productService:ProductService ) { }
 
   ngOnInit(): any {
   if(localStorage.getItem('sellerLoginStorage')){
