@@ -13,8 +13,6 @@ export class SellerAuthService {
    /* baseUrl = 'http://localhost:3000/' */
   constructor(private httpClient: HttpClient) { }
 
-
-
   signInWithGoogle(socialUser){
     console.log(socialUser);
     return this.httpClient.post(`${this.baseUrl}api/seller/google`,socialUser)
@@ -36,27 +34,7 @@ export class SellerAuthService {
     //   ()=>{},
     //      )
   }
-
-  
-
-//   checkPassword(seller:Seller):Boolean{
-     
-//    let x= Boolean(seller.password !== seller.repeatedPassword) 
-//    console.log(seller.password,seller.repeatedPassword,x);
-//    return x
-// }
-
-
-
-
-
-
-// getSellerById(myid): Seller{
-
-//   // return this.sellers.find(p => p.sellerId === myid); 
-
-// }
-
+ 
 isAuthenticated():boolean{
   if(localStorage.getItem('sellerLoginStorage')){
     return true;

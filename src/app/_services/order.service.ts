@@ -53,7 +53,7 @@ export class OrderService {
 
     this.http
       .post<{ message: string; orderID: string }>(
-        'http://localhost:3000/api/order/add',
+        'https://iti-amzon-backend.herokuapp.com/api/order/add',
         newOrder
       )
       .subscribe((responseOrder) => {
@@ -68,11 +68,14 @@ export class OrderService {
     orders: Order[];
   }> {
     return this.http.get<{ message: string; orders: Order[] }>(
-      `http://localhost:3000/api/user-orders/${id}`
+      `https://iti-amzon-backend.herokuapp.com/api/user-orders/${id}`
     );
   }
 
   cancelUserOrder(id: string, order: Order): Observable<Order> {
-    return this.http.put<Order>(`http://localhost:3000/api/order/${id}`, order);
+    return this.http.put<Order>(
+      `https://iti-amzon-backend.herokuapp.com/api/order/${id}`,
+      order
+    );
   }
 }

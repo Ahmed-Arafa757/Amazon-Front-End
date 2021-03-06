@@ -122,7 +122,6 @@
     "HELP": "Help",
     "COPY_RIGHTS": "© 1996-2021, Amazon.com, Inc. or its affiliates",
     "MUST_BE_THREE": "name must be 3 characters at least"
-
   },
   "DISCOVER_AMAZON": {
     "AMAZON_COM_SHIPS": "Amazon.com ships ",
@@ -171,7 +170,6 @@
     "SIGN_IN": "Sign in",
     "NEW_CUSTOMER": "New customer?",
     "START_HERE": "start here"
-
   },
   "SELLER": {
     "GET_STARTED_SELLING": "Get started selling on Amazon",
@@ -260,7 +258,7 @@
     "YOU_WILL_PAY": "You will pay",
     "SELECT_YOUR_PAYMENT": "Please select your payment method to complete purchase",
     "THANK_YOU_PURCHASE": "Thank you for your purchase!",
-    "ORDER_NUMBER": "Your Order Number is #"
+    "ORDER_NUMBER": "Your Order Number is"
   },
   "ACCOUNT": {
     "YOUR_ACCOUNT": "Your Account",
@@ -278,9 +276,9 @@
     "EMAIL": "Email:",
     "MOBILE": "Mobile number:",
     "PASSWORD": "Password:",
-    "RE_ENTER_PASSWORD":"Re-enter Password",
+    "RE_ENTER_PASSWORD": "Re-enter Password",
     "DONE": "Done",
-    "MUST_BE_THREE":"name must be 3 characters at least"
+    "MUST_BE_THREE": "name must be 3 characters at least"
   },
   "ORDERS": {
     "YOUR_ACCOUNT": "Your Account",
@@ -328,4 +326,3 @@
     "TOP":"Back To Top"
   }
 }
-  

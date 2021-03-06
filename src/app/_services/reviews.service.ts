@@ -13,7 +13,7 @@ export class ReviewsService {
   getReviewsByProductId(id: string): any {
     this.http
       .get<{ message: string; reviews: any }>(
-        `http://localhost:3000/api/reviews/${id}`
+        `https://iti-amzon-backend.herokuapp.com/api/reviews/${id}`
       )
       .subscribe(
         (reviewsData) => {
@@ -38,7 +38,7 @@ export class ReviewsService {
     };
     this.http
       .post<{ message: string; reviewID: string }>(
-        'http://localhost:3000/api/reviews',
+        'https://iti-amzon-backend.herokuapp.com/api/reviews',
         newReview
       )
       .subscribe((responseReview) => {
@@ -51,7 +51,10 @@ export class ReviewsService {
 
   updateReview(reviewID: string, review: Review) {
     this.http
-      .put(`http://localhost:3000/api/reviews/${reviewID}`, review)
+      .put(
+        `https://iti-amzon-backend.herokuapp.com/api/reviews/${reviewID}`,
+        review
+      )
       .subscribe(() => {
         const updatedReviews = [...this.reviews];
         const oldReviewIndex = updatedReviews.findIndex(
@@ -66,7 +69,7 @@ export class ReviewsService {
 
   deleteReview(reviewID: string) {
     this.http
-      .delete(`http://localhost:3000/api/reviews/${reviewID}`)
+      .delete(`https://iti-amzon-backend.herokuapp.com/api/reviews/${reviewID}`)
       .subscribe(() => {
         const reviewsAfterDel = this.reviews.filter(
           (review) => review._id !== reviewID

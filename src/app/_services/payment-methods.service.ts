@@ -12,7 +12,7 @@ export class PaymentMethodsService {
   getAllPaymentMethods() {
     this.http
       .get<{ paymentMethods: PaymentMethods[] }>(
-        `http://localhost:3000/api/payment-methods`
+        `https://iti-amzon-backend.herokuapp.com/api/payment-methods`
       )
       .subscribe(
         (paymentMethodsData) => {
