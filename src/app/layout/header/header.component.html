@@ -255,7 +255,7 @@
           </ul>
         </li>
 
-        <li class="nav-item dropdown">
+        <li *ngIf="!loggedInSeller" class="nav-item dropdown">
           <a
             class="nav-link dropdown-toggle text-white"
             href=""
@@ -265,7 +265,7 @@
             aria-expanded="false"
           >
 
-            <span>{{
+            <span *ngIf="!loggedInSeller" >{{
               isLogged
                 ? ("HEADER.HELLO" | translate) + loggedInUser
                 : ("HEADER.HELLO" | translate) + ("HEADER.SIGNIN" | translate)
@@ -274,7 +274,7 @@
             {{ "HEADER.ACCOUNT" | translate }}
           </a>
 
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <ul *ngIf="!loggedInSeller" class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li *ngIf="isLogged === false" class="text-center MM_SignIn">
               <a [routerLink]="['/login']"
                 ><button type="button" class="btn bg-gradient">
@@ -332,7 +332,7 @@
           </ul>
         </li>
 
-        <li class="nav-item">
+        <li *ngIf="!loggedInSeller" class="nav-item">
           <a
             [routerLink]="['/account', 'orders']"
             class="nav-link text-white"
@@ -343,7 +343,7 @@
           >
         </li>
 
-        <li class="nav-item">
+        <li *ngIf="!loggedInSeller" class="nav-item">
           <a
             class="nav-link MM_Cart"
             [routerLink]="['/cart']"

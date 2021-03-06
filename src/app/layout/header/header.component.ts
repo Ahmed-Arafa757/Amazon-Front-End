@@ -57,13 +57,7 @@ export class HeaderComponent implements OnInit,DoCheck {
         alert('Subscribe Operation Compeleted');
       }
     );
-    if(localStorage.getItem('sellerLoginStorage')){
-      this.loggedInSeller=true
-      
-    }else{
-      this.loggedInSeller=false
-      
-    }
+    
     console.log('header on init');
   }
 
@@ -104,6 +98,13 @@ export class HeaderComponent implements OnInit,DoCheck {
         this.isLogged = false;
 
       }
+    }
+    if(localStorage.getItem('sellerLoginStorage')){
+      this.loggedInSeller=true
+      
+    }else{
+      this.loggedInSeller=false
+      
     }
   }
 
