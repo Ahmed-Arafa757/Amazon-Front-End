@@ -307,9 +307,8 @@
     "DELIVERED_ON": "Order delivered on:",
     "NOTFOUND":"No Orders to Display"
   },
-<<<<<<< HEAD
   "PRODUCT_INFO": {
-    "YOUR_ACCOUNT": "الحساب الخاص بك",
+    "YOUR_ACCOUNT": "Your Account",
     "Visit_the_Store": "Visit the Store",
     "Ratings": "Ratings",
     "answered_questions": "answered questions",
@@ -335,7 +334,7 @@
     "OtherSellers": "Other Sellers on Amazon",
     "Cart": "Add To Cart",
     "Related": "Products related to this item"
-=======
+  },
   "SIDENAV":{
     "HELLO":"Hello,",
     "SIGNIN":"Sign in",
@@ -359,6 +358,5 @@
   },
   "FOOTER":{
     "TOP":"Back To Top"
->>>>>>> 602343eacda82dcf956c486be6546827877b817c
   }
 }
