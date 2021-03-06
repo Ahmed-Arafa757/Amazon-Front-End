@@ -46,9 +46,7 @@ export class SellerLoginComponent implements OnInit {
               
               var sellerLoginStorage = {'_id': myId,'token':myToken};
               localStorage.setItem('sellerLoginStorage', JSON.stringify(sellerLoginStorage));
-              this.router.navigate(['seller/home'], {
-                queryParams: { sellerName:  mySellerName},
-              });
+              this.router.navigate(['seller/home']);
             },
             (err) => {
               if (err.error === "Email Not Found") {
@@ -64,6 +62,9 @@ export class SellerLoginComponent implements OnInit {
                 this.errors = err.error;
               } 
               else {
+                this.router.navigate(['seller/signup'], {
+                  queryParams: { name: user.name, email: user.email, provider: user.provider},
+                });
                 console.error(err.error);
                 this.errors = err.error;
               }
@@ -93,9 +94,7 @@ export class SellerLoginComponent implements OnInit {
               
               var sellerLoginStorage = {'_id': myId,'token':myToken};
               localStorage.setItem('sellerLoginStorage', JSON.stringify(sellerLoginStorage));
-              this.router.navigate(['seller/home'], {
-                queryParams: { sellerName:  mySellerName},
-              });
+              this.router.navigate(['seller/home']);
             },
             (err) => {
               if (err.error === "Email Not Found") {
@@ -137,11 +136,8 @@ this.sellerAuthService.login(mySeller).subscribe(
 
         var sellerLoginStorage = {'_id': myId, 'token':myToken};
          localStorage.setItem('sellerLoginStorage', JSON.stringify(sellerLoginStorage));
-         this.router.navigate(['seller/home'], {
-          queryParams: { sellerName:  mySellerName},
-        });
+         this.router.navigate(['seller/home']);
        
-         
       },
       (err)=>{this.errors = err.error;
         console.log(err.error)},
