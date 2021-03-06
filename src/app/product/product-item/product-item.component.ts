@@ -14,20 +14,20 @@ import { AdvertisementsService } from 'src/app/_services/advertisements.service'
 })
 export class ProductItemComponent implements OnInit {
   @Input() product: Product; 
-sellers;
+  sellers=[];
   stars = [];
   iconClass = {
     0: 'far fa-star',
     0.5: 'fas fa-star-half-alt',
     1: 'fas fa-star',
   };
-
+  index=0;
   constructor(private sellerService:SellersService) {}
 
   ngOnInit(): void {
     this.fillStars();
     this.sellerService.getAllSellers().subscribe(
-      (res)=>{​​this.sellers=res}​​,
+      (res:any)=>{​​this.sellers=res}​​,
       (err)=>{​​console.error(err)}​​,
       ()=>{​​}​​,
 
@@ -59,7 +59,7 @@ sellers;
     }
   }
   sellerName(id){​​​​    
-    if(id){​​​​
+    if(id!=undefined && this.sellers.length!=0){​​​​
       return this.sellers.find((seller)=>seller._id===id).sellerName
     }​​​​else{​​​​
       return 'undefined' 
