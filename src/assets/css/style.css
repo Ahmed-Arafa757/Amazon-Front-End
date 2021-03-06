@@ -11,6 +11,8 @@
 
 body {
   background-color: #eaeded;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 /* Amr */
@@ -33,16 +35,23 @@ body {
   position: absolute;
   width: 30%;
   top: 68px;
-  left: -40%;
   z-index: 9999;
-  transition: left 1s;
   overflow-x: hidden;
   overflow-y: auto;
   font-size: 13px;
   padding-bottom: 5px;
   bottom: 0;
 }
-
+.en
+{
+  left: -40%;
+  transition: left 1s;
+}
+.ar
+{
+  right: -40%;
+  transition: right 1s;
+}
 .AH_icon-img {
   width: 20px;
 }
@@ -103,10 +112,8 @@ body {
 }
 
 #AH_sidenav-head {
-  transition: left 1s;
   position: fixed;
   top: 0;
-  left: -40%;
   width: 30%;
 }
 
@@ -121,7 +128,7 @@ body {
 
 #AH_closebtn {
   position: absolute;
-  right: -50px;
+  /* right: -50px; */
   top: -10px;
   color: white;
   font-size: 50px;

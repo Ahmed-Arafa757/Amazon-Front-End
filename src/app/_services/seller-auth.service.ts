@@ -7,7 +7,10 @@ import { Seller } from '../_model/sellers';
 export class SellerAuthService {
   seller: Seller[] = []
     
+
+
   baseUrl = 'https://iti-amzon-backend.herokuapp.com/';
+   /* baseUrl = 'http://localhost:3000/' */
   constructor(private httpClient: HttpClient) { }
 
   signInWithGoogle(socialUser){

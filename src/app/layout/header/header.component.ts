@@ -118,6 +118,7 @@ export class HeaderComponent implements OnInit,DoCheck {
     } else {
       this.langFlag = '../../../assets/images/icons/arabic.png';
     }
+    this.currentLang=lang;
   }
 
 
