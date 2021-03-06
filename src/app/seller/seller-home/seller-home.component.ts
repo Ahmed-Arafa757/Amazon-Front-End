@@ -26,7 +26,7 @@ export class SellerHomeComponent implements OnInit {
     let mySellerId=JSON.parse(myObj)._id
     this.sellersService.getProductBySeller(mySellerId).subscribe(
       (res:any)=>{
-        console.log(res);
+       
         this.products=res;
       },
       (err)=>{
@@ -37,7 +37,6 @@ export class SellerHomeComponent implements OnInit {
     this.sellersService.getSellerById(mySellerId).subscribe(
       (res)=>{
         this.loggedInSeller=res
-        console.log(this.loggedInSeller.sellerName)
       },
       (err)=>{console.log(err)},
       ()=>{})

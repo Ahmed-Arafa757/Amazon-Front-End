@@ -2,25 +2,36 @@
   <div class="container d-flex justify-content-center align-items-center">
     <div class="row">
           <div class="col-md-12 my-4 d-flex justify-content-start align-items-center">
-            <div>
-              <h3>Welcome Back: {{loggedInSeller.sellerName}}</h3>
-              <h4 *ngIf="products.length != 0">My Products</h4>
+            <div class="container-fluid bg-secondary my-3 py-5">
+              <div class="row">
+                <h2>Welcome Back: {{loggedInSeller.sellerName}}</h2>
+              </div>
+              <div class="row">
+                <h4 *ngIf="products.length != 0">My Products:</h4>
+              </div>
             </div>
+            
             
           </div>
           
-            <div class="col-md-12 d-flex justify-content-start  align-items-center">
-              
-              <h5 *ngIf="products.length === 0">
-                {{ "SELLER.ADD_MESSAGE" | translate }}
-                <a [routerLink]="['/seller', 'add']">
-                  {{ "HEADER.ADD" | translate }}
-                </a>
-              </h5>
-              <div *ngIf="products" class="row">
-                <app-product-item *ngFor="let item of getSlicedArrOfProducts()" [product]="item" class="col-md-4">
-                </app-product-item>
+            <div class="col-md-12  d-flex justify-content-start my-5 align-items-center">
+              <div class="container-fluid">
+                <div class="row">
+                  <h5 *ngIf="products.length === 0">
+                    {{ "SELLER.ADD_MESSAGE" | translate }}
+                    <a [routerLink]="['/seller', 'add']">
+                      {{ "HEADER.ADD" | translate }}
+                    </a>
+                  </h5>
+                </div>
+                
+                <div *ngIf="products" class="row">
+                  <app-product-item *ngFor="let item of getSlicedArrOfProducts()" [product]="item" class="col-12 col-lg-6 col-md-6 col-sm-6">
+                  </app-product-item>
+                </div>
               </div>
+              
+              
             </div>
           
 
