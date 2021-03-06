@@ -10,14 +10,23 @@ import { Seller } from 'src/app/_model/sellers';
 })
 export class SellerHomeComponent implements OnInit {
   loggedInSeller: Seller={sellerName:'' , email:''};
-
+  products=[];
   constructor(private activatedRoute:ActivatedRoute,private sellersService: SellersService ) { }
 
   ngOnInit(): any {
   if(localStorage.getItem('sellerLoginStorage')){
     let myObj=localStorage.getItem('sellerLoginStorage')
     let mySellerId=JSON.parse(myObj)._id
-
+    this.sellersService.getProductBySeller(mySellerId).subscribe(
+      (res:any)=>{
+        console.log(res);
+        this.products=res;
+      },
+      (err)=>{
+        console.error(err.error);
+    },
+      ()=>{},
+    )
     this.sellersService.getSellerById(mySellerId).subscribe(
       (res)=>{
         this.loggedInSeller=res

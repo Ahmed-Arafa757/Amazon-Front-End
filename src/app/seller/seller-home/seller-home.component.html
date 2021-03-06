@@ -1,5 +1,5 @@
 <div class="sellerHeader">
-    <div class=" container d-flex justify-content-center align-items-center">
+    <!-- <div class=" container d-flex justify-content-center align-items-center">
     
         <div class="row">
           <div class="col-md-6 d-flex flex-column justify-content-center align-items-center">
@@ -21,6 +21,11 @@
             />
           </div>
         </div>
-      </div>
-      
+      </div> -->
+      <h2 *ngIf='products.length === 0 '>
+        Please Add Products 
+        <a [routerLink]="['/seller', 'add']">
+          {{ "HEADER.ADD" | translate }}
+        </a>
+      </h2>
 </div>
