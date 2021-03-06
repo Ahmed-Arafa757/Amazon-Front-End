@@ -302,6 +302,30 @@
     "PENDING": "Pending",
     "TO_BE_DELIVERED_ON": "Order to be delivered on:",
     "DELIVERED_ON": "Order delivered on:"
+  },
+  "SIDENAV":{
+    "HELLO":"Hello,",
+    "SIGNIN":"Sign in",
+    "DIGITAL_CONTENT":"Digital Content & Devices",
+    "AMAZON_MUSIC":"Amazon Music",
+    "KINDLE":"Kindle E-readers & Books",
+    "APPSTORE":"Appstore for Android",
+    "CATEGORIES":"Shop By Department",
+    "SEE_ALL":"See All",
+    "SEE_LESS":"See Less",
+    "FEATURES":"Programs & Features",
+    "GIFT":"Gift Cards",
+    "FOUNDATION":"#FoundatiOnAmazon",
+    "LIVE":"Amazon Live",
+    "INTERNATIONAL":"International Shopping",
+    "SECOND_CHANCE":"Amazon Second Chance",
+    "FULL_DIRECTORY":"Full Store Directory",
+    "HELP_SETTING":"Help & Settings",
+    "ACCOUNT":"Your Account",
+    "HELP":"Help"
+  },
+  "FOOTER":{
+    "TOP":"Back To Top"
   }
 }
   

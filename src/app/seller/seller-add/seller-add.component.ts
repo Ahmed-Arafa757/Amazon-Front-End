@@ -45,7 +45,13 @@ export class SellerAddComponent implements OnInit {
     ); */
     this.product.productPrice.onSale='1';
     this.colors=this.colorService.allColors();
-    this.categories = this.categoryService.getAllCategories();
+    this.categoryService.getAllCategories().subscribe(
+      (res)=>{
+        this.categories=res;
+      },
+      (err)=>{console.error(err)},
+      ()=>{},
+    )
     this.warehouses = this.warehouseService.getAllWareHouses();
     this.index =0;
     this.editMode = this.activatedRoute.snapshot.url[1] && this.activatedRoute.snapshot.url[1].path === 'edit';

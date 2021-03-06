@@ -300,5 +300,29 @@
   },
   "PRODUCT_INFO": {
     "YOUR_ACCOUNT": "الحساب الخاص بك"
+  },
+  "SIDENAV":{
+    "HELLO":"مرحبا ,",
+    "SIGNIN":"تسجيل الدخول",
+    "DIGITAL_CONTENT":"المحتوى الرقمي والأجهزة",
+    "AMAZON_MUSIC":"أغاني امازون",
+    "KINDLE":"قارئ الإلكترونية والكتب Kindle ",
+    "APPSTORE":"متجر التطبيقات للاندرويد",
+    "CATEGORIES":"التسوق حسب القسم",
+    "SEE_ALL":"اظهار الكل",
+    "SEE_LESS":"اظهار اقل",
+    "FEATURES":"البرامج و السمات",
+    "GIFT":"بطاقات الهدايا",
+    "FOUNDATION":"مؤسسة أمازون",
+    "LIVE":"امازون لايف",
+    "INTERNATIONAL":"التسوق الدولى",
+    "SECOND_CHANCE":"فرصة أمازون الثانية",
+    "FULL_DIRECTORY":"دليل المتجر الكامل",
+    "HELP_SETTING":"مساعدة و اعدادات",
+    "ACCOUNT":"حسابك",
+    "HELP":"مساعدة"
+  },
+  "FOOTER":{
+    "TOP":"العودة إلي الاعلي"
   }
 }
