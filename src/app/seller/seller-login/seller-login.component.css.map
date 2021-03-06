@@ -1,1 +1,9 @@
-{"version":3,"sources":["seller-login.component.scss"],"names":[],"mappings":"AAAA;EACE,kBAAkB;EAClB,kBAAkB;EAClB,QAAQ;AACV;;AAEA;EACE,aAAa;EACb,uBAAuB;EACvB,mBAAmB;AACrB;;AAEA;EACE,uBAAuB;EACvB,qBAAqB;EACrB,YAAY;EACZ,aAAa;EACb,6BAA6B;EAC7B,sBAAsB;EACtB,qBAAqB;EACrB,uBAAuB;EACvB,iBAAiB;EACjB,eAAe;EACf,gBAAgB;EAChB,eAAe;AACjB;;AAEA;EACE,yBAAyB;EACzB,YAAY;AACd","file":"seller-login.component.css","sourcesContent":[".login__forget-password {\n  margin: -30px 20px;\n  position: absolute;\n  right: 0;\n}\n\n.loginBtns {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n\n.loginBtn {\n  background-color: white;\n  text-decoration: none;\n  color: black;\n  padding: 20px;\n  box-shadow: 0px 0px 5px black;\n  border-radius: 0.25rem;\n  display: inline-block;\n  justify-content: center;\n  margin: 20px auto;\n  cursor: pointer;\n  font-weight: 400;\n  font-size: 1rem;\n}\n\n#faceBook {\n  background-color: #4267B2;\n  color: white;\n}\n\n/*# sourceMappingURL=file:///c:/Users/USER/Desktop/7agaty/iti/Angular/AngularFinalProject/our-app/src/app/seller/seller-login/seller-login.component.css.map */"]}
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,IAAI,CAAA;EAIF,KAAK,EAAE,GAAG;EACV,mBAAmB,EAAE,IAAI;EAC1B,UAAU,EAAE,KAAK;EAChB,OAAO,EAAE,SAAS;CACnB;;AARD,AACE,IADE,CACF,CAAC,CAAA;EACC,MAAM,EAAE,OAAO;CAChB;;AAMH,AAAA,UAAU,CACV;EACE,OAAO,EAAE,IAAI;EACX,eAAe,EAAE,MAAM;EACvB,WAAW,EAAE,MAAM;CACtB;;AACD,AAAA,SAAS,CACT;EACE,gBAAgB,EAAE,KAAK;EACvB,eAAe,EAAE,IAAI;EACrB,KAAK,EAAE,KAAK;EACZ,OAAO,EAAE,IAAI;EACb,UAAU,EAAE,iBAAiB;EAC7B,aAAa,EAAE,OAAO;EACtB,OAAO,EAAE,YAAY;EACrB,eAAe,EAAE,MAAM;EACvB,MAAM,EAAE,SAAS;EACjB,MAAM,EAAE,OAAO;EACf,WAAW,EAAE,GAAG;EAChB,SAAS,EAAE,IAAI;CAChB;;AACD,AAAA,SAAS,CACT;EACE,gBAAgB,EAAE,OAAO;EACzB,KAAK,EAAE,KAAK;CACb",
+    "sources": [
+        "seller-login.component.scss"
+    ],
+    "names": [],
+    "file": "seller-login.component.css"
+}

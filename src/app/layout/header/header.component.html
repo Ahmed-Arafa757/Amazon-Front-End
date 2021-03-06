@@ -54,11 +54,11 @@
                   style="background-color: #f0f0f0"
                 >
                   <h5 class="modal-title" id="exampleModalLabel">
-                    Choose your location
+                    {{"HEADER.LOCATION" | translate}}
                   </h5>
                   <button
                     type="button"
-                    class="btn-close"
+                    class="btn-close mx-2"
                     data-bs-dismiss="modal"
                     aria-label="Close"
                   ></button>
@@ -67,8 +67,7 @@
                   <div class="row">
                     <div class="col-12">
                       <div>
-                        Delivery options and delivery speeds may vary for
-                        different locations
+                        {{"HEADER.LOCATION_MESSAGE" | translate}}
                       </div>
                       <div class="text-center">
                         <button
@@ -77,7 +76,7 @@
                           class="btn bg-gradient mt-3 p-1 w-75"
                           style="background-color: #ffd04f; font-size: 1em"
                         >
-                          Sign in to see your addresses
+                          {{"HEADER.LOCATION_SIGNIN" | translate}}
                         </button>
                       </div>
                     </div>
@@ -90,7 +89,7 @@
                     data-bs-dismiss="modal"
                     style="background-color: #ffd04f"
                   >
-                    Done
+                  {{"HEADER.LOCATION_BTN" | translate}}
                   </button>
                 </div>
               </div>
@@ -197,9 +196,10 @@
               [placeholder]="'HEADER.SEARCH' | translate"
               aria-label="Search"
               name="searchInput"
+              (keyup.enter)='searchBTN.click()'
             />
             <span class="input-group-text MM_bg-search" id="basic-addon1">
-              <a [routerLink]="['/search-results', searchString]">
+              <a [routerLink]="['/search-results', searchString]" #searchBTN>
                 <i class="fas fa-search" style="color: #000"></i>
               </a>
             </span>
@@ -255,7 +255,7 @@
           </ul>
         </li>
 
-        <li class="nav-item dropdown">
+        <li *ngIf="!loggedInSeller" class="nav-item dropdown">
           <a
             class="nav-link dropdown-toggle text-white"
             href=""
@@ -265,7 +265,7 @@
             aria-expanded="false"
           >
 
-            <span>{{
+            <span *ngIf="!loggedInSeller" >{{
               isLogged
                 ? ("HEADER.HELLO" | translate) + loggedInUser
                 : ("HEADER.HELLO" | translate) + ("HEADER.SIGNIN" | translate)
@@ -274,7 +274,7 @@
             {{ "HEADER.ACCOUNT" | translate }}
           </a>
 
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <ul *ngIf="!loggedInSeller" class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li *ngIf="isLogged === false" class="text-center MM_SignIn">
               <a [routerLink]="['/login']"
                 ><button type="button" class="btn bg-gradient">
@@ -332,7 +332,7 @@
           </ul>
         </li>
 
-        <li class="nav-item">
+        <li *ngIf="!loggedInSeller" class="nav-item">
           <a
             [routerLink]="['/account', 'orders']"
             class="nav-link text-white"
@@ -343,7 +343,7 @@
           >
         </li>
 
-        <li class="nav-item">
+        <li *ngIf="!loggedInSeller" class="nav-item">
           <a
             class="nav-link MM_Cart"
             [routerLink]="['/cart']"
@@ -365,14 +365,14 @@
 </nav>
 <!-- Amr -->
 <div id="overlay" onclick="AH_closeNav()"></div>
-<div id="AH_Sidenav">
-  <div id="AH_sidenav-head">
+<div dir="auto" id="AH_Sidenav" [ngClass]=' currentLang '>
+  <div id="AH_sidenav-head"  [ngClass]=' currentLang '>
     <a
       [routerLink]="['/login']"
       class="text-white ps-4 py-3 fs-4 fw-bold AH_Sidenav-header d-block text-decoration-none"
     >
-      <i class="fas fa-user-circle"></i> Hello,
-      <span>{{  isLogged ? loggedInUser : "Sign in" }}</span>
+      <i class="fas fa-user-circle"></i> {{'SIDENAV.HELLO' | translate}}
+      <span>{{  isLogged ? loggedInUser : ("SIDENAV.SIGNIN" | translate) }}</span>
     </a>
     <span style="cursor: pointer" id="AH_closebtn" onclick="AH_closeNav()"
       >&times;</span
@@ -380,114 +380,139 @@
   </div>
   <div class="position-relative">
     <div class="AH_sidenav-body pt-3 row">
-      <h5>Digital Content & Devices</h5>
+      <h5>{{"SIDENAV.DIGITAL_CONTENT"|translate}}</h5>
       <div class="AH_sidenav-link row">
-        <div class="col-11">Amazon Music</div>
-        <div class="col-1"><i class="fas fa-chevron-right"></i></div>
+        <div class="col-11">{{"SIDENAV.AMAZON_MUSIC"|translate}}</div>
+        <div class="col-1" *ngIf='currentLang==="en"'><i class="fas fa-chevron-right"></i></div>
+        <div class="col-1" *ngIf='currentLang==="ar"'><i class="fas fa-chevron-left"></i></div>
       </div>
       <div class="AH_sidenav-link row">
-        <div class="col-11">Kindle E-readers & Books</div>
-        <div class="col-1"><i class="fas fa-chevron-right"></i></div>
+        <div class="col-11">{{"SIDENAV.KINDLE"|translate}}</div>
+        <div class="col-1" *ngIf='currentLang==="en"'><i class="fas fa-chevron-right"></i></div>
+        <div class="col-1" *ngIf='currentLang==="ar"'><i class="fas fa-chevron-left"></i></div>
       </div>
       <div class="AH_sidenav-link row">
-        <div class="col-11">Appstore for Android</div>
-        <div class="col-1"><i class="fas fa-chevron-right"></i></div>
+        <div class="col-11">{{"SIDENAV.APPSTORE"|translate}}</div>
+        <div class="col-1" *ngIf='currentLang==="en"'><i class="fas fa-chevron-right"></i></div>
+        <div class="col-1" *ngIf='currentLang==="ar"'><i class="fas fa-chevron-left"></i></div>
       </div>
       <hr />
-      <h5>Shop By Department</h5>
+      <h5>{{"SIDENAV.CATEGORIES"|translate}}</h5>
       <div class="AH_sidenav-link col-12 row">
         <div class="col-11">Electronics</div>
-        <div class="col-1"><i class="fas fa-chevron-right"></i></div>
+        <div class="col-1" *ngIf='currentLang==="en"'><i class="fas fa-chevron-right"></i></div>
+        <div class="col-1" *ngIf='currentLang==="ar"'><i class="fas fa-chevron-left"></i></div>
       </div>
       <div class="AH_sidenav-link col-12 row">
         <div class="col-11">Computers</div>
-        <div class="col-1"><i class="fas fa-chevron-right"></i></div>
+        <div class="col-1" *ngIf='currentLang==="en"'><i class="fas fa-chevron-right"></i></div>
+        <div class="col-1" *ngIf='currentLang==="ar"'><i class="fas fa-chevron-left"></i></div>
       </div>
       <div class="AH_sidenav-link col-12 row">
         <div class="col-11">Smart Home</div>
-        <div class="col-1"><i class="fas fa-chevron-right"></i></div>
+        <div class="col-1" *ngIf='currentLang==="en"'><i class="fas fa-chevron-right"></i></div>
+        <div class="col-1" *ngIf='currentLang==="ar"'><i class="fas fa-chevron-left"></i></div>
       </div>
       <div class="AH_sidenav-link col-12 row">
         <div class="col-11">Arts & Crafts</div>
-        <div class="col-1"><i class="fas fa-chevron-right"></i></div>
+        <div class="col-1" *ngIf='currentLang==="en"'><i class="fas fa-chevron-right"></i></div>
+        <div class="col-1" *ngIf='currentLang==="ar"'><i class="fas fa-chevron-left"></i></div>
       </div>
       <div id="shopSeeMore" class="col-12 row m-0 p-0">
         <hr class="w-75 m-auto" />
         <div class="AH_sidenav-link col-12 row">
           <div class="col-11">Automotive</div>
-          <div class="col-1"><i class="fas fa-chevron-right"></i></div>
+          <div class="col-1" *ngIf='currentLang==="en"'><i class="fas fa-chevron-right"></i></div>
+        <div class="col-1" *ngIf='currentLang==="ar"'><i class="fas fa-chevron-left"></i></div>
         </div>
         <div class="AH_sidenav-link col-12 row">
           <div class="col-11">Baby</div>
-          <div class="col-1"><i class="fas fa-chevron-right"></i></div>
+          <div class="col-1" *ngIf='currentLang==="en"'><i class="fas fa-chevron-right"></i></div>
+        <div class="col-1" *ngIf='currentLang==="ar"'><i class="fas fa-chevron-left"></i></div>
         </div>
         <div class="AH_sidenav-link col-12 row">
           <div class="col-11">Beauty and personal care</div>
-          <div class="col-1"><i class="fas fa-chevron-right"></i></div>
+          <div class="col-1" *ngIf='currentLang==="en"'><i class="fas fa-chevron-right"></i></div>
+        <div class="col-1" *ngIf='currentLang==="ar"'><i class="fas fa-chevron-left"></i></div>
         </div>
         <div class="AH_sidenav-link col-12 row">
           <div class="col-11">Women's Fashion</div>
-          <div class="col-1"><i class="fas fa-chevron-right"></i></div>
+          <div class="col-1" *ngIf='currentLang==="en"'><i class="fas fa-chevron-right"></i></div>
+        <div class="col-1" *ngIf='currentLang==="ar"'><i class="fas fa-chevron-left"></i></div>
         </div>
         <div class="AH_sidenav-link col-12 row">
           <div class="col-11">Men's Fashion</div>
-          <div class="col-1"><i class="fas fa-chevron-right"></i></div>
+          <div class="col-1" *ngIf='currentLang==="en"'><i class="fas fa-chevron-right"></i></div>
+        <div class="col-1" *ngIf='currentLang==="ar"'><i class="fas fa-chevron-left"></i></div>
         </div>
         <div class="AH_sidenav-link col-12 row">
           <div class="col-11">Girls' Fashion</div>
-          <div class="col-1"><i class="fas fa-chevron-right"></i></div>
+          <div class="col-1" *ngIf='currentLang==="en"'><i class="fas fa-chevron-right"></i></div>
+        <div class="col-1" *ngIf='currentLang==="ar"'><i class="fas fa-chevron-left"></i></div>
         </div>
         <div class="AH_sidenav-link col-12 row">
           <div class="col-11">Boys' Fashion</div>
-          <div class="col-1"><i class="fas fa-chevron-right"></i></div>
+          <div class="col-1" *ngIf='currentLang==="en"'><i class="fas fa-chevron-right"></i></div>
+        <div class="col-1" *ngIf='currentLang==="ar"'><i class="fas fa-chevron-left"></i></div>
         </div>
         <div class="AH_sidenav-link col-12 row">
           <div class="col-11">Health and Household</div>
-          <div class="col-1"><i class="fas fa-chevron-right"></i></div>
+          <div class="col-1" *ngIf='currentLang==="en"'><i class="fas fa-chevron-right"></i></div>
+        <div class="col-1" *ngIf='currentLang==="ar"'><i class="fas fa-chevron-left"></i></div>
         </div>
         <div class="AH_sidenav-link col-12 row">
           <div class="col-11">Home and Kitchen</div>
-          <div class="col-1"><i class="fas fa-chevron-right"></i></div>
+          <div class="col-1" *ngIf='currentLang==="en"'><i class="fas fa-chevron-right"></i></div>
+        <div class="col-1" *ngIf='currentLang==="ar"'><i class="fas fa-chevron-left"></i></div>
         </div>
         <div class="AH_sidenav-link col-12 row">
           <div class="col-11">Industrial and Scientific</div>
-          <div class="col-1"><i class="fas fa-chevron-right"></i></div>
+          <div class="col-1" *ngIf='currentLang==="en"'><i class="fas fa-chevron-right"></i></div>
+        <div class="col-1" *ngIf='currentLang==="ar"'><i class="fas fa-chevron-left"></i></div>
         </div>
         <div class="AH_sidenav-link col-12 row">
           <div class="col-11">Luggage</div>
-          <div class="col-1"><i class="fas fa-chevron-right"></i></div>
+          <div class="col-1" *ngIf='currentLang==="en"'><i class="fas fa-chevron-right"></i></div>
+        <div class="col-1" *ngIf='currentLang==="ar"'><i class="fas fa-chevron-left"></i></div>
         </div>
         <div class="AH_sidenav-link col-12 row">
           <div class="col-11">Movies & Television</div>
-          <div class="col-1"><i class="fas fa-chevron-right"></i></div>
+          <div class="col-1" *ngIf='currentLang==="en"'><i class="fas fa-chevron-right"></i></div>
+        <div class="col-1" *ngIf='currentLang==="ar"'><i class="fas fa-chevron-left"></i></div>
         </div>
         <div class="AH_sidenav-link col-12 row">
           <div class="col-11">Pet supplies</div>
-          <div class="col-1"><i class="fas fa-chevron-right"></i></div>
+          <div class="col-1" *ngIf='currentLang==="en"'><i class="fas fa-chevron-right"></i></div>
+        <div class="col-1" *ngIf='currentLang==="ar"'><i class="fas fa-chevron-left"></i></div>
         </div>
         <div class="AH_sidenav-link col-12 row">
           <div class="col-11">Software</div>
-          <div class="col-1"><i class="fas fa-chevron-right"></i></div>
+          <div class="col-1" *ngIf='currentLang==="en"'><i class="fas fa-chevron-right"></i></div>
+        <div class="col-1" *ngIf='currentLang==="ar"'><i class="fas fa-chevron-left"></i></div>
         </div>
         <div class="AH_sidenav-link col-12 row">
           <div class="col-11">Sports and Outdoors</div>
-          <div class="col-1"><i class="fas fa-chevron-right"></i></div>
+          <div class="col-1" *ngIf='currentLang==="en"'><i class="fas fa-chevron-right"></i></div>
+        <div class="col-1" *ngIf='currentLang==="ar"'><i class="fas fa-chevron-left"></i></div>
         </div>
         <div class="AH_sidenav-link col-12 row">
           <div class="col-11">Tools & Home Improvement</div>
-          <div class="col-1"><i class="fas fa-chevron-right"></i></div>
+          <div class="col-1" *ngIf='currentLang==="en"'><i class="fas fa-chevron-right"></i></div>
+        <div class="col-1" *ngIf='currentLang==="ar"'><i class="fas fa-chevron-left"></i></div>
         </div>
         <div class="AH_sidenav-link col-12 row">
           <div class="col-11">Toys and Games</div>
-          <div class="col-1"><i class="fas fa-chevron-right"></i></div>
+          <div class="col-1" *ngIf='currentLang==="en"'><i class="fas fa-chevron-right"></i></div>
+        <div class="col-1" *ngIf='currentLang==="ar"'><i class="fas fa-chevron-left"></i></div>
         </div>
         <div class="AH_sidenav-link col-12 row">
           <div class="col-11">Video Games</div>
-          <div class="col-1"><i class="fas fa-chevron-right"></i></div>
+          <div class="col-1" *ngIf='currentLang==="en"'><i class="fas fa-chevron-right"></i></div>
+        <div class="col-1" *ngIf='currentLang==="ar"'><i class="fas fa-chevron-left"></i></div>
         </div>
         <div class="AH_sidenav-link row" onclick="shopSeeLess()">
           <div class="col-12 shopSeeMore">
-            See Less <i class="fas fa-chevron-up"></i>
+            {{"SIDENAV.SEE_LESS"|translate}} <i class="fas fa-chevron-up"></i>
           </div>
         </div>
       </div>
@@ -497,57 +522,50 @@
         onclick="shopSeeMore()"
       >
         <div class="col-12 shopSeeMore">
-          See All <i class="fas fa-chevron-down"></i>
+          {{"SIDENAV.SEE_ALL"|translate}} <i class="fas fa-chevron-down"></i>
         </div>
       </div>
       <hr />
-      <h5>Programs & Features</h5>
+      <h5>{{"SIDENAV.FEATURES"|translate}}</h5>
       <div class="AH_sidenav-link row">
-        <div class="col-11">Gift Cards</div>
-        <div class="col-1"><i class="fas fa-chevron-right"></i></div>
+        <div class="col-11">{{"SIDENAV.GIFT"|translate}}</div>
+        <div class="col-1" *ngIf='currentLang==="en"'><i class="fas fa-chevron-right"></i></div>
+        <div class="col-1" *ngIf='currentLang==="ar"'><i class="fas fa-chevron-left"></i></div>
       </div>
       <div class="AH_sidenav-link row">
-        <div class="col-11">#FounditOnAmazon</div>
-        <div class="col-1"><i class="fas fa-chevron-right"></i></div>
+        <div class="col-11">{{"SIDENAV.FOUNDATION"|translate}}</div>
+        <div class="col-1" *ngIf='currentLang==="en"'><i class="fas fa-chevron-right"></i></div>
+        <div class="col-1" *ngIf='currentLang==="ar"'><i class="fas fa-chevron-left"></i></div>
       </div>
       <div class="AH_sidenav-link row">
-        <div class="col-11">Amazon Live</div>
-        <div class="col-1"><i class="fas fa-chevron-right"></i></div>
+        <div class="col-11">{{"SIDENAV.LIVE"|translate}}</div>
+        <div class="col-1" *ngIf='currentLang==="en"'><i class="fas fa-chevron-right"></i></div>
+        <div class="col-1" *ngIf='currentLang==="ar"'><i class="fas fa-chevron-left"></i></div>
       </div>
       <div class="AH_sidenav-link row">
-        <div class="col-11">International Shopping</div>
-        <div class="col-1"><i class="fas fa-chevron-right"></i></div>
+        <div class="col-11">{{"SIDENAV.INTERNATIONAL"|translate}}</div>
+        <div class="col-1" *ngIf='currentLang==="en"'><i class="fas fa-chevron-right"></i></div>
+        <div class="col-1" *ngIf='currentLang==="ar"'><i class="fas fa-chevron-left"></i></div>
       </div>
       <div class="AH_sidenav-link row">
-        <div class="col-11">Amazon Second Chance</div>
-        <div class="col-1"><i class="fas fa-chevron-right"></i></div>
+        <div class="col-11">{{"SIDENAV.SECOND_CHANCE"|translate}}</div>
+        <div class="col-1" *ngIf='currentLang==="en"'><i class="fas fa-chevron-right"></i></div>
+        <div class="col-1" *ngIf='currentLang==="ar"'><i class="fas fa-chevron-left"></i></div>
       </div>
       <div class="AH_sidenav-link row">
-        <div class="col-11">Full Store Directory</div>
-        <div class="col-1"><i class="fas fa-chevron-right"></i></div>
+        <div class="col-11">{{"SIDENAV.FULL_DIRECTORY"|translate}}</div>
+        <div class="col-1" *ngIf='currentLang==="en"'><i class="fas fa-chevron-right"></i></div>
+        <div class="col-1" *ngIf='currentLang==="ar"'><i class="fas fa-chevron-left"></i></div>
       </div>
       <hr />
-      <h5>Help & Settings</h5>
+      <h5>{{"SIDENAV.HELP_SETTING"|translate}}</h5>
       <div class="AH_sidenav-link row">
-        <div class="col-11">Your Account</div>
-        <div class="col-1"><i class="fas fa-chevron-right"></i></div>
+        <div class="col-11" ><a class="text-decoration-none text-dark w-100" onclick="AH_closeNav()" [routerLink]="['/account']"><div>{{"SIDENAV.ACCOUNT"|translate}}</div></a></div>
+        <div class="col-1" *ngIf='currentLang==="en"'><i class="fas fa-chevron-right"></i></div>
+        <div class="col-1" *ngIf='currentLang==="ar"'><i class="fas fa-chevron-left"></i></div>
       </div>
       <div class="AH_sidenav-link row">
-        <div class="col-1"><i class="fas fa-globe"></i></div>
-        <div class="col-11">English</div>
-      </div>
-      <div class="AH_sidenav-link row">
-        <div class="col-1">
-          <img
-            class="AH_icon-img"
-            src="../../../assets/images/icons/english.png"
-            alt="US"
-          />
-        </div>
-        <div class="col-11">United States</div>
-      </div>
-      <div class="AH_sidenav-link row">
-        <div class="col-12">Help</div>
+        <div class="col-12">{{"SIDENAV.HELP"|translate}}</div>
       </div>
       <div class="AH_sidenav-link row">
         <div *ngIf=" isLogged === false" class="col-12">
@@ -602,29 +620,34 @@
           </a>
 
           <ul class="dropdown-menu seller" aria-labelledby="dropdownMenuLink">
-            <li class="dropdown-item">
+            <li *ngIf="!loggedInSeller" class="dropdown-item">
               {{ "HEADER.BECOME_SELLER" | translate }}
               <a [routerLink]="['/seller', 'signup']">{{
                 "HEADER.REGISTER" | translate
               }}</a>
             </li>
-            <li class="dropdown-item">
+            <li *ngIf="!loggedInSeller" class="dropdown-item">
               {{ "HEADER.ALREADY_SELLER" | translate }}
               <a [routerLink]="['/seller', 'login']">{{
                 "HEADER.LOGIN" | translate
               }}</a>
             </li>
-            <li class="dropdown-item text-center">
+            <li *ngIf="loggedInSeller" class="dropdown-item text-center">
               {{ "HEADER.SELLER_CENTRAL" | translate }}
               <a [routerLink]="['/seller', 'home']">{{
                 "HEADER.VIEW_ITEMS" | translate
               }}</a>
             </li>
-            <li class="dropdown-item text-center">
+            <li *ngIf="loggedInSeller" class="dropdown-item text-center">
               {{ "HEADER.ADD_PRODUCT" | translate }}
               <a [routerLink]="['/seller', 'add']">
                 {{ "HEADER.ADD" | translate }}
               </a>
+            </li>
+            <li *ngIf="loggedInSeller" class="dropdown-item text-center">
+              <button (click)="logoutSeller()" type="button" class="btn bg-gradient">
+                {{ "HEADER.LOGOUT" | translate }}
+              </button>
             </li>
           </ul>
         </li>

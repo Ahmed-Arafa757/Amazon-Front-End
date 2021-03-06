@@ -53,7 +53,11 @@
     "SPORTS_&_OUTDOORS": "Sports & Outdoors",
     "TOOLS_&_HOME_IMPROVEMENT": "Tools & Home Improvement",
     "TOYS_&_GAMES": "Toys & Games",
-    "VIDEO_GAMES": "Video Games"
+    "VIDEO_GAMES": "Video Games",
+    "LOCATION":"Choose your location",
+    "LOCATION_MESSAGE":"Delivery options and delivery speeds may vary for different locations",
+    "LOCATION_BTN":"Done",
+    "LOCATION_SIGNIN":"Sign in to see your addresses"
   },
   "HOME": {
     "ALL_PRODUCTS": "All Products",
@@ -122,7 +126,6 @@
     "HELP": "Help",
     "COPY_RIGHTS": "© 1996-2021, Amazon.com, Inc. or its affiliates",
     "MUST_BE_THREE": "name must be 3 characters at least"
-
   },
   "DISCOVER_AMAZON": {
     "AMAZON_COM_SHIPS": "Amazon.com ships ",
@@ -171,26 +174,24 @@
     "SIGN_IN": "Sign in",
     "NEW_CUSTOMER": "New customer?",
     "START_HERE": "start here"
-
   },
   "SELLER": {
     "GET_STARTED_SELLING": "Get started selling on Amazon",
-    "EMAIL":"Email",
-    "EMAIL_VALID":"Email is required",
-    "PHONE_VALID":"Phone accepts only numbers & min length of 8 numbers",
-    "NAME_VALID":"min length of name is 6 characters",
-    "FIELD_REQ":"this field is required",
-    "PASSWORD_VALID":"Minimum eight characters, at least one uppercase letter, one lowercase letter and one number",
-    "RE_PASSWORD_VALID":"Password dont match",
-    "LOGIN":"Login",
-    "CREATE":"Create account",
-    "CREATE_AMA":"Create your Amazon account",
-    "SELLER_NAME":"Seller's Name",
-    "SELLER_PHONE":"Seller Phone",
-    "PASSWORD":"Password",
-    "RE_PASSWORD":"Re-enter Password"
-    
-
+    "EMAIL": "Email",
+    "EMAIL_VALID": "Email is required",
+    "PHONE_VALID": "Phone accepts only numbers & min length of 8 numbers",
+    "NAME_VALID": "min length of name is 6 characters",
+    "FIELD_REQ": "this field is required",
+    "PASSWORD_VALID": "Minimum eight characters, at least one uppercase letter, one lowercase letter and one number",
+    "RE_PASSWORD_VALID": "Password dont match",
+    "LOGIN": "Login",
+    "CREATE": "Create account",
+    "CREATE_AMA": "Create your Amazon account",
+    "SELLER_NAME": "Seller's Name",
+    "SELLER_PHONE": "Seller Phone",
+    "PASSWORD": "Password",
+    "RE_PASSWORD": "Re-enter Password",
+    "ADD_MESSAGE":"Please Add Products"
   },
   "REVIEWS": {
     "CUSTOMER_REVIEWS": "Customer reviews",
@@ -255,13 +256,14 @@
     "SHIPPING_HANDLING": "Shipping & handling:",
     "TOTAL_BEFORE_TAX": "Total before tax:",
     "TAX": "14% tax to be collected:",
-    "ORDER_TOTAL": "Order total:"
+    "ORDER_TOTAL": "Order total:",
+    "ESTIMATEDDATE": "Estimated delivery date:"
   },
   "PLACEORDER": {
     "YOU_WILL_PAY": "You will pay",
     "SELECT_YOUR_PAYMENT": "Please select your payment method to complete purchase",
     "THANK_YOU_PURCHASE": "Thank you for your purchase!",
-    "ORDER_NUMBER": "Your Order Number is #"
+    "ORDER_NUMBER": "Your Order Number is"
   },
   "ACCOUNT": {
     "YOUR_ACCOUNT": "Your Account",
@@ -279,9 +281,9 @@
     "EMAIL": "Email:",
     "MOBILE": "Mobile number:",
     "PASSWORD": "Password:",
-    "RE_ENTER_PASSWORD":"Re-enter Password",
+    "RE_ENTER_PASSWORD": "Re-enter Password",
     "DONE": "Done",
-    "MUST_BE_THREE":"name must be 3 characters at least"
+    "MUST_BE_THREE": "name must be 3 characters at least"
   },
   "ORDERS": {
     "YOUR_ACCOUNT": "Your Account",
@@ -300,6 +302,7 @@
     "CANCEL_ORDER": "Cancel Order",
     "COMPLETED": "Completed",
     "CANCELLED": "Cancelled",
+
     "PENDING": "Pending"
   },
   "SEARCH_RESULTS":{
@@ -344,6 +347,63 @@
     "SIGN_IN":"Sign In",
     "NEW_CUSTOMER":"New customer?",
     "START_HERE":"start here"
+
+    "PENDING": "Pending",
+    "TO_BE_DELIVERED_ON": "Order to be delivered on:",
+    "DELIVERED_ON": "Order delivered on:",
+    "NOTFOUND":"No Orders to Display"
+  },
+  "PRODUCT_INFO": {
+    "YOUR_ACCOUNT": "Your Account",
+    "Visit_the_Store": "Visit the Store",
+    "Ratings": "Ratings",
+    "answered_questions": "answered questions",
+    "List_Price": "List Price: ",
+    "EGP": "EGP",
+    "Price": "Price",
+    "Shipping_FEES": "Shipping & Import Fees Deposit to",
+    "You_Save": "You save:",
+    "Available_at": "Available at a lower price from other sellers that may not offer free Prime shipping.",
+    "About_this": "About this item",
+    "Compare": "Compare with similar items",
+    "New_from": "New (10) from",
+    "Similar": "Similar item to consider ",
+    "Arrives": "Arrives",
+    "Date": "March 19 -March 25",
+    "Stock": "left in stock - order soon.",
+    "Transaction": "Secure Transaction",
+    "Ships_from": "Ships from",
+    "Amazon": "Amazon",
+    "Sold_by": "Sold by",
+    "Deliver": "Deliver To Egypt",
+    "Share": "Share",
+    "OtherSellers": "Other Sellers on Amazon",
+    "Cart": "Add To Cart",
+    "Related": "Products related to this item"
+  },
+  "SIDENAV":{
+    "HELLO":"Hello,",
+    "SIGNIN":"Sign in",
+    "DIGITAL_CONTENT":"Digital Content & Devices",
+    "AMAZON_MUSIC":"Amazon Music",
+    "KINDLE":"Kindle E-readers & Books",
+    "APPSTORE":"Appstore for Android",
+    "CATEGORIES":"Shop By Department",
+    "SEE_ALL":"See All",
+    "SEE_LESS":"See Less",
+    "FEATURES":"Programs & Features",
+    "GIFT":"Gift Cards",
+    "FOUNDATION":"#FoundatiOnAmazon",
+    "LIVE":"Amazon Live",
+    "INTERNATIONAL":"International Shopping",
+    "SECOND_CHANCE":"Amazon Second Chance",
+    "FULL_DIRECTORY":"Full Store Directory",
+    "HELP_SETTING":"Help & Settings",
+    "ACCOUNT":"Your Account",
+    "HELP":"Help"
+  },
+  "FOOTER":{
+    "TOP":"Back To Top"
+
   }
 }
-  

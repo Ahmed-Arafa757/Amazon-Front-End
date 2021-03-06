@@ -29,6 +29,7 @@ export class CheckoutComponent implements OnInit {
   isSelectedAddress: boolean = false;
   addNewShipping: boolean = false;
   paymentMethods: PaymentMethods[] = [];
+  shippingDate: string = '';
 
   constructor(
     private orderService: OrderService,
@@ -38,10 +39,10 @@ export class CheckoutComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const userEmail = localStorage.getItem('user email');
-    this.usersService.getUserByEmail(userEmail).subscribe({
+    const userID = localStorage.getItem('user id');
+    this.usersService.getUserById(userID).subscribe({
       next: (user: any) => {
-        this.user = user[0];
+        this.user = user;
         console.log(this.user);
 
         this.addresses = this.user.address;
@@ -67,6 +68,14 @@ export class CheckoutComponent implements OnInit {
       },
       () => {}
     );
+
+    const shippingDate = new Date();
+    shippingDate.setDate(shippingDate.getDate() + 7);
+    this.shippingDate = shippingDate
+      .toUTCString()
+      .split(' ')
+      .slice(0, 4)
+      .join(' ');
   }
 
   updateQuantityPrice() {

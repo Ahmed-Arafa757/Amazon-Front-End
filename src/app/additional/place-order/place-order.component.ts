@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Shipments } from 'src/app/_model/shipments';
 import { OrderService } from 'src/app/_services/order.service';
 import { ProductService } from 'src/app/_services/product.service';
+import { ShipmentsService } from 'src/app/_services/shipments.service';
 
 declare var paypal;
 
@@ -15,7 +17,8 @@ export class PlaceOrderComponent implements OnInit {
   orderID: string = '';
   constructor(
     private orderService: OrderService,
-    private productService: ProductService
+    private productService: ProductService,
+    private shipmentsService: ShipmentsService
   ) {}
 
   ngOnInit(): void {
@@ -78,6 +81,26 @@ export class PlaceOrderComponent implements OnInit {
             };
             console.log(orderFullDetails);
             this.orderService.addOrder(orderFullDetails);
+
+            const shippingDate = new Date();
+            shippingDate.setDate(shippingDate.getDate() + 7);
+
+            const shippingDetails: Shipments = {
+              userID: placedOrder['userID'],
+              ordersID: data.orderID,
+              deliveryFees: placedOrder['shipping'] + placedOrder['handling'],
+              totalPrice: placedOrder['totalAmount'],
+              shipmentAddress: placedOrder['userAddress'],
+              deliveryDate: shippingDate
+                .toUTCString()
+                .split(' ')
+                .slice(0, 4)
+                .join(' '),
+              paymentMethod: 'Paypal',
+              shippingCompany: 'DHL',
+            };
+            console.log(shippingDetails);
+            this.shipmentsService.addShipment(shippingDetails);
           });
         },
       })

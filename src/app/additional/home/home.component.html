@@ -145,6 +145,9 @@
                   <a *ngIf="isLogged === false" [routerLink]="['/login']">{{
                     "HOME.SIGN_IN_SECURELY" | translate
                   }}</a>
+                  <a *ngIf="isLogged === true" (click)="logout()">{{
+                    "HEADER.LOGOUT" | translate
+                  }}</a>
                 </div>
               </div>
             </div>

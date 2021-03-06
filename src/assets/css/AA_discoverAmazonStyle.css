@@ -6,6 +6,7 @@ body {
   background-color: bisque;
   margin: 10px;
 }
+
 #AA_vanRow #AA_amazonShips {
   font-size: 32px;
   font-weight: bold;
@@ -18,12 +19,15 @@ body {
   border: none;
   text-align: center;
 }
+
 #AA_worldWideCard #AA_cardBody {
   padding-top: 20%;
 }
+
 #AA_worldWideCard #AA_amazonDelivers {
   color: red;
 }
+
 #AA_worldWideCard #AA_amazonDelivers,
 #AA_worldWideCard #AA_worldWideShipping,
 #AA_worldWideCard #AA_shipOver {
@@ -35,13 +39,16 @@ body {
   text-align: center;
   margin-top: 20%;
 }
+
 #AA_fourColCard .AA_sideDiv {
   display: inline-block;
   margin-right: 3%;
 }
+
 #AA_fourColCard .AA_sideDiv #AA_sideImg {
   margin-bottom: 100%;
 }
+
 #AA_fourColCard .AA_sideText {
   display: inline-block;
 }
@@ -49,23 +56,29 @@ body {
 #AA_walletRow {
   background-color: bisque;
 }
+
 #AA_walletRow #AA_bisqueBg {
   background-color: bisque;
 }
+
 #AA_walletRow .AA_alignCenterDiv {
   text-align: center;
 }
+
 #AA_walletRow .AA_alignCenterDiv .AA_sideImgDiv {
   display: inline-block;
   margin-right: 3%;
 }
+
 #AA_walletRow .AA_alignCenterDiv .AA_sideImgDiv #AA_sideImg {
   margin-bottom: 100%;
 }
+
 #AA_walletRow .AA_alignCenterDiv .AA_sideText {
   display: inline-block;
   text-align: start;
 }
+
 #AA_walletRow #AA_walletLeftCard {
   border: none;
   text-align: center;
@@ -77,14 +90,17 @@ body {
   border: none;
   text-align: center;
 }
+
 #AA_walletCard #AA_walletText {
   background-color: bisque;
 }
+
 #AA_walletCard #AA_walletText #AA_shopWith,
 #AA_walletCard #AA_walletText #AA_safe,
 #AA_walletCard #AA_walletText #AA_protect {
   font-weight: bold;
 }
+
 #AA_walletCard #AA_walletCardBody {
   padding-top: 20%;
   background-color: bisque;
@@ -94,12 +110,15 @@ body {
   border: none;
   text-align: center;
 }
+
 #AA_starCard #AA_starCardBody {
   padding-top: 20%;
 }
+
 #AA_starCard #AA_experience {
   color: red;
 }
+
 #AA_starCard #AA_experience,
 #AA_starCard #AA_great,
 #AA_starCard #AA_lowPrices {
@@ -111,16 +130,20 @@ body {
   text-align: center;
   margin-top: 20%;
 }
+
 #AA_starRightCard .AA_alignLeftDiv {
   text-align: start;
 }
+
 #AA_starRightCard .AA_alignLeftDiv .AA_starImgText {
   display: inline-block;
 }
+
 #AA_starRightCard .AA_alignLeftDiv .AA_starImgDiv {
   display: inline-block;
   margin-right: 5%;
 }
+
 #AA_starRightCard .AA_alignLeftDiv .AA_starImgDiv #AA_starImg {
   margin-bottom: 100%;
 }
@@ -129,9 +152,11 @@ body {
   text-align: center;
   margin-top: 15%;
 }
+
 #AA_lastRow #AA_startHere {
   font-size: calc(0.7rem + 0.1vw);
 }
+
 #AA_lastRow a {
   text-decoration: none;
 }
@@ -139,6 +164,7 @@ body {
 #AA_hoveredCursor {
   color: #4343f3;
 }
+
 #AA_hoveredCursor:hover {
   cursor: pointer;
 }

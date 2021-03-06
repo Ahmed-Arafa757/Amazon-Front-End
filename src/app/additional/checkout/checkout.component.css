@@ -1,9 +1,6 @@
 .privacy {
   font-size: 0.75rem;
 }
-.privacy a {
-  text-decoration: none;
-}
 
 .order-summary {
   font-size: 0.9rem;
@@ -12,6 +9,7 @@
 .place-order {
   background-color: #fac745;
 }
+
 .place-order:hover {
   background-color: #ffd95d;
 }

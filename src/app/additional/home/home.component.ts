@@ -32,7 +32,10 @@ export class HomeComponent implements OnInit, DoCheck {
       }).mount();
     }
   }
-
+  logout() {
+    localStorage.removeItem('user id');
+    localStorage.removeItem('token');
+  }
   ngDoCheck() {
 
     if (this.isLogged === false) {

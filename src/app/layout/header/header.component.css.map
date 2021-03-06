@@ -1,1 +1,9 @@
-{"version":3,"sources":["header.component.scss"],"names":[],"mappings":"AAAA;EACE,qBAAqB;AACvB","file":"header.component.css","sourcesContent":[".seller a {\n  text-decoration: none;\n}\n\n/*# sourceMappingURL=file:///c:/Users/USER/Desktop/7agaty/iti/Angular/AngularFinalProject/our-app/src/app/layout/header/header.component.css.map */"]}
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,OAAO,CAAC;EAIN,UAAU,EAAE,MAAM;CACnB;;AALD,AACE,OADK,CACL,CAAC,CAAC;EACA,eAAe,EAAE,IAAI;CACtB",
+    "sources": [
+        "header.component.scss"
+    ],
+    "names": [],
+    "file": "header.component.css"
+}
