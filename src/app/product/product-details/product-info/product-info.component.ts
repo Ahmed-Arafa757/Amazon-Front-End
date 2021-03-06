@@ -4,6 +4,8 @@ import { ProductService } from 'src/app/_services/product.service';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CategoryService } from 'src/app/_services/category.service';
+import { ReviewsService } from 'src/app/_services/reviews.service';
+import { HeaderComponent } from 'src/app/layout/header/header.component';
 
 @Component({
   selector: 'app-product-info',
@@ -11,6 +13,8 @@ import { CategoryService } from 'src/app/_services/category.service';
   styleUrls: ['./product-info.component.css'],
 })
 export class ProductInfoComponent implements OnInit {
+  currerntLang = localStorage.getItem('currentLang');
+
   product: Product = {
     productId: 0,
     productName: '',
@@ -36,9 +40,10 @@ export class ProductInfoComponent implements OnInit {
   cartQuantity = 0;
 
   shippingFees: number = 36.3;
-  DeliverTo: string = 'Egypt';
+  DeliverTo: string = this.currerntLang == 'en' ? 'Egypt' : 'مصر';
   relatedProducts = [];
-
+  similarProduct;
+  similarProductReview;
   searchProductsByKeywords(...params) {
     console.log(params);
 
@@ -56,6 +61,10 @@ export class ProductInfoComponent implements OnInit {
         }
 
         this.relatedProducts = related.slice(0, 10);
+        this.similarProduct = related.slice(0, 1)[0];
+        console.log(results);
+
+        console.log(this.similarProduct);
       },
       () => {},
       () => {}
@@ -64,10 +73,12 @@ export class ProductInfoComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private activeRoute: ActivatedRoute,
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
+    private reviwService: ReviewsService
   ) {}
 
   ngOnInit(): void {
+    this.reviwService.latestReviews.subscribe((res) => {});
     console.log(this.product);
     this.activeRoute.url.subscribe(
       (res) => {
@@ -110,11 +121,5 @@ export class ProductInfoComponent implements OnInit {
     }
 
     this.productService.addProductsToCart(this.cartArray);
-  }
-  testbutton() {
-    this.categoryService.removeSubCategory(
-      '5ff7bc011c1a3e395fc3053c',
-      'Wearable Technology'
-    );
   }
 }

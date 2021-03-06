@@ -307,6 +307,35 @@
     "DELIVERED_ON": "Order delivered on:",
     "NOTFOUND":"No Orders to Display"
   },
+<<<<<<< HEAD
+  "PRODUCT_INFO": {
+    "YOUR_ACCOUNT": "الحساب الخاص بك",
+    "Visit_the_Store": "Visit the Store",
+    "Ratings": "Ratings",
+    "answered_questions": "answered questions",
+    "List_Price": "List Price: ",
+    "EGP": "EGP",
+    "Price": "Price",
+    "Shipping_FEES": "Shipping & Import Fees Deposit to",
+    "You_Save": "You save:",
+    "Available_at": "Available at a lower price from other sellers that may not offer free Prime shipping.",
+    "About_this": "About this item",
+    "Compare": "Compare with similar items",
+    "New_from": "New (10) from",
+    "Similar": "Similar item to consider ",
+    "Arrives": "Arrives",
+    "Date": "March 19 -March 25",
+    "Stock": "left in stock - order soon.",
+    "Transaction": "Secure Transaction",
+    "Ships_from": "Ships from",
+    "Amazon": "Amazon",
+    "Sold_by": "Sold by",
+    "Deliver": "Deliver To Egypt",
+    "Share": "Share",
+    "OtherSellers": "Other Sellers on Amazon",
+    "Cart": "Add To Cart",
+    "Related": "Products related to this item"
+=======
   "SIDENAV":{
     "HELLO":"Hello,",
     "SIGNIN":"Sign in",
@@ -330,5 +359,6 @@
   },
   "FOOTER":{
     "TOP":"Back To Top"
+>>>>>>> 602343eacda82dcf956c486be6546827877b817c
   }
 }
