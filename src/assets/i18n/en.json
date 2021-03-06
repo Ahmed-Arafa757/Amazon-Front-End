@@ -330,11 +330,13 @@
     "250_TO_400": "$250 to $400",
     "400_TO_600": "$400 to $600",
     "600_AND_ABOVE": " $600 & Above",
-    "Go": "Go",
+    "GO": "Go",
     "PREVIOUS": "Previous",
     "NEXT": "Next",
     "INSPIRED": "Inspired by your browsing history",
-    "SHOP_NOW": "Shop now"
+    "SHOP_NOW": "Shop now",
+    "MIN": "Min",
+    "MAX": "Max"
   },
   "PRODUCTS_LISTING": {
     "OUR_FULL_SELECTION": "Our Full Selection",
