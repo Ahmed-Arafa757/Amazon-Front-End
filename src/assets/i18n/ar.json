@@ -53,7 +53,11 @@
     "SPORTS_&_OUTDOORS": "الرياضة ومنتجات الحديقة",
     "TOOLS_&_HOME_IMPROVEMENT": "أدوات وتحسينات المنزل",
     "TOYS_&_GAMES": "الألعاب والدمى",
-    "VIDEO_GAMES": "ألعاب الفيديو"
+    "VIDEO_GAMES": "ألعاب الفيديو",
+    "LOCATION":"اختر موقعك",
+    "LOCATION_MESSAGE":"قد تختلف خيارات التسليم وسرعات التسليم باختلاف المواقع",
+    "LOCATION_BTN":"حسناً",
+    "LOCATION_SIGNIN":"برجاء تسجيل الدخول لاظهار عناوينك"
   },
   "HOME": {
     "ALL_PRODUCTS": "جميع المنتجات",
@@ -183,7 +187,8 @@
     "SELLER_NAME": "اسم البائع",
     "SELLER_PHONE": "هاتف البائع",
     "PASSWORD": "كلمة المرور",
-    "RE_PASSWORD": "إعادة إدخال كلمة المرور"
+    "RE_PASSWORD": "إعادة إدخال كلمة المرور",
+    "ADD_MESSAGE":"من فضلك ادخل منتج"
   },
   "REVIEWS": {
     "CUSTOMER_REVIEWS": "آراء العملاء",

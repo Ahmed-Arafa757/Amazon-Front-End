@@ -53,7 +53,11 @@
     "SPORTS_&_OUTDOORS": "Sports & Outdoors",
     "TOOLS_&_HOME_IMPROVEMENT": "Tools & Home Improvement",
     "TOYS_&_GAMES": "Toys & Games",
-    "VIDEO_GAMES": "Video Games"
+    "VIDEO_GAMES": "Video Games",
+    "LOCATION":"Choose your location",
+    "LOCATION_MESSAGE":"Delivery options and delivery speeds may vary for different locations",
+    "LOCATION_BTN":"Done",
+    "LOCATION_SIGNIN":"Sign in to see your addresses"
   },
   "HOME": {
     "ALL_PRODUCTS": "All Products",
@@ -186,7 +190,8 @@
     "SELLER_NAME": "Seller's Name",
     "SELLER_PHONE": "Seller Phone",
     "PASSWORD": "Password",
-    "RE_PASSWORD": "Re-enter Password"
+    "RE_PASSWORD": "Re-enter Password",
+    "ADD_MESSAGE":"Please Add Products"
   },
   "REVIEWS": {
     "CUSTOMER_REVIEWS": "Customer reviews",
