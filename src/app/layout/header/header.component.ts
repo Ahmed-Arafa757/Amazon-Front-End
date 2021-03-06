@@ -73,7 +73,7 @@ export class HeaderComponent implements OnInit,DoCheck {
 
         this.usersService.getUserById(localStorage.getItem('user id')).subscribe(
           (res) => {
-            console.log(res);
+            console.log('res');
             this.loggedInUser = res['userName']; 
 
 
