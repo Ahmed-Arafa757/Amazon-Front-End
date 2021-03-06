@@ -2,4 +2,25 @@ a {
   text-decoration: none;
   cursor: pointer;
 }
+
+.sale-tag {
+  width: 50px;
+  height: 50px;
+  background: #f0c14b;
+  position: absolute;
+  border-radius: 0%  0%  0% 50%;
+  top: 0px;
+  right: 0px;
+}
+
+.sale-tag span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  font-weight: bolder;
+  font-size: 11px;
+  color: #fff;
+}
 /*# sourceMappingURL=product-item.component.css.map */

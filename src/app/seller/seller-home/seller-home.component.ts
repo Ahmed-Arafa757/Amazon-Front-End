@@ -54,4 +54,11 @@ export class SellerHomeComponent implements OnInit {
     const end = start + this.pageSize;
     return this.products.slice(start, end);
   }
+  deleteProd(id){
+    this.productService.deleteProduct(id).subscribe(
+      (res)=>{console.log(res)},
+      (err)=>{console.log(err)},
+      ()=>{}
+    )
+    }
 }

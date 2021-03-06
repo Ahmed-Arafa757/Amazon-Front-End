@@ -25,9 +25,18 @@
                   </h5>
                 </div>
                 
-                <div *ngIf="products" class="row">
-                  <app-product-item *ngFor="let item of getSlicedArrOfProducts()" [product]="item" class="col-12 col-lg-6 col-md-6 col-sm-6">
-                  </app-product-item>
+                <div  *ngIf="products" class="row">
+                  <div class="col-12 col-lg-6 col-md-6 col-sm-6" *ngFor="let item of getSlicedArrOfProducts()">
+                    <app-product-item  [product]="item" >
+                    
+                    </app-product-item>
+                    <div *ngIf="loggedInSeller" class="crud-actions">
+                      <a [routerLink]="['/product', 'details', item._id]"><i class="far fa-eye"></i></a>
+                      <a [routerLink]="['/seller','edit',item._id]"><i class="fas fa-edit mx-2"></i></a>
+                      <a (click)="deleteProd(item._id)"><i class="fas fa-trash-alt"></i></a>
+                  </div>
+                  </div>
+                  
                 </div>
               </div>
               
