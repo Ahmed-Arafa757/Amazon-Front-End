@@ -302,11 +302,7 @@
     "PENDING": "قيد الانتظار",
     "TO_BE_DELIVERED_ON": "يتم توصيل الطلب في:",
     "DELIVERED_ON": "تم توصيل الطلب في:",
-    "NOTFOUND":"لا يوجد طلبات لعرضها"
-  },
-  "PRODUCT_INFO": {
-
-    "YOUR_ACCOUNT": "الحساب الخاص بك"
+    "NOTFOUND": "لا يوجد طلبات لعرضها"
   },
   "SEARCH_RESULTS": {
     "RESULTS_FOR": "ينتج عنه",
@@ -350,7 +346,8 @@
     "SIGN_IN": "تسجيل الدخول",
     "NEW_CUSTOMER": "عميل جديد؟",
     "START_HERE": "ابدأ هنا"
-
+  },
+  "PRODUCT_INFO": {
     "YOUR_ACCOUNT": "الحساب الخاص بك",
     "Visit_the_Store": "الذهاب إلى المتجر",
     "Ratings": "تقييم ",
@@ -402,6 +399,5 @@
   },
   "FOOTER": {
     "TOP": "العودة إلي الاعلي"
-
   }
 }
