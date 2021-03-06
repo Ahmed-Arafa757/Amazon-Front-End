@@ -25,8 +25,7 @@ export class TodayDealsComponent implements OnInit {
       (res: any) => {
         this.products = res;
         this.onSaleProducts=res.filter((p)=>{return p.productPrice.onSale==="0"})
-        console.log(this.onSaleProducts)
-        this.activatedRoute.params.subscribe(
+        /* this.activatedRoute.params.subscribe(
           (params) => {
             this.productsResult = JSON.parse(JSON.stringify(this.onSaleProducts));
             this.searchInput = params.id.toLowerCase();
@@ -43,7 +42,7 @@ export class TodayDealsComponent implements OnInit {
             console.log(err);
           },
           () => {}
-        );
+        ); */
       },
       (err) => {
         console.error(err);

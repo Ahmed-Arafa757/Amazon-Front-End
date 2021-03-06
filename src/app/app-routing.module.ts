@@ -52,6 +52,8 @@ const routes: Routes = [
   { path: 'departments', component: DepartmentsComponent },
   { path: 'discover-amazon', component: DiscoverAmazonComponent },
   { path: 'search-results/:id', component: SearchResultsComponent },
+  { path: 'search-results/category/:category', component: SearchResultsComponent },
+  { path: 'search-results/sub_category/:sub', component: SearchResultsComponent },
   {
     path: 'search-results',
     redirectTo: 'search-results/',
