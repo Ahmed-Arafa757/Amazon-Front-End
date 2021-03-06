@@ -1,1 +1,9 @@
-{"version":3,"sources":["checkout.component.scss"],"names":[],"mappings":"AAAA;EACE,kBAAkB;AACpB;AACA;EACE,qBAAqB;AACvB;;AAEA;EACE,iBAAiB;AACnB;;AAEA;EACE,yBAAyB;AAC3B;AACA;EACE,yBAAyB;AAC3B","file":"checkout.component.css","sourcesContent":[".privacy {\n  font-size: 0.75rem;\n}\n.privacy a {\n  text-decoration: none;\n}\n\n.order-summary {\n  font-size: 0.9rem;\n}\n\n.place-order {\n  background-color: #fac745;\n}\n.place-order:hover {\n  background-color: #ffd95d;\n}\n\n/*# sourceMappingURL=file:///c:/Users/USER/Desktop/7agaty/iti/Angular/AngularFinalProject/our-app/src/app/additional/checkout/checkout.component.css.map */"]}
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,QAAQ,CAAC;EACP,SAAS,EAAE,OAAO;CAInB;;AAED,AAAA,cAAc,CAAC;EACb,SAAS,EAAE,MAAM;CAClB;;AAED,AAAA,YAAY,CAAC;EACX,gBAAgB,EAAE,OAAO;CAI1B;;AALD,AAEE,YAFU,AAET,MAAM,CAAC;EACN,gBAAgB,EAAE,OAAO;CAC1B",
+    "sources": [
+        "checkout.component.scss"
+    ],
+    "names": [],
+    "file": "checkout.component.css"
+}

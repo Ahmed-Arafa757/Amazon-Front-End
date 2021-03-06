@@ -14,7 +14,7 @@ export class SearchResultsComponent implements OnInit {
   searchInput: string = '';
 
   numOfPages: number[] = [];
-  pageSize = 9;
+  pageSize = 12;
   currentPage = 0;
   lastPage = 0;
 

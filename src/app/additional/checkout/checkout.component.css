@@ -1,9 +1,6 @@
 .privacy {
   font-size: 0.75rem;
 }
-.privacy a {
-  text-decoration: none;
-}
 
 .order-summary {
   font-size: 0.9rem;
@@ -12,7 +9,9 @@
 .customized-btn {
   background-color: #fac745;
 }
-.customized-btn:hover {
+/* .customized-btn:hover { */
+
+.place-order:hover {
   background-color: #ffd95d;
 }
 /*# sourceMappingURL=checkout.component.css.map */

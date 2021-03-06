@@ -1,26 +1,26 @@
 <!--  [style.backgroundImage]="'url('+Advertisement.img[0]+')'" -->
-<div class="card" id="AA_productCard">
-  <a [routerLink]="['/product', 'details', product._id]" [ngStyle]="{
-      display: 'flex',
-      alignItems: 'center',
-      height: '300px'
-    }"><img [src]="product.productImages[0]" class="card-img-top" id="AA_productsImgs" /></a>
+
+<div class="card p-3 m-1" style="width: 100%;min-height:440px;max-height: 440px;" id="AA_productCard">
+  <div *ngIf="product.productPrice.onSale==='0'" class="sale-tag"><span>SALE</span></div>
+  <a style="width: 100%;height:100%;" [routerLink]="['/product', 'details', product._id]" class="d-flex justify-content-center align-items-center">
+      <img [src]="product.productImages[0]" style="width: 250px;max-width: 100%;height:250px;max-height: 100%; object-fit: contain;"  id="AA_productsImgs" /></a>
 
   <div class="card-body">
     <a [routerLink]="['/product', 'details', product._id]" class="card-title" id="AA_cardText">
       {{ product.productName }}
     </a>
     <p class="card-text">
-      <span class="AA_byAmazon">by Amazon Basics </span>
+      <span class="AA_byAmazon">by : {{sellerName(product.productSales)}} </span>
       <br />
 
       <span class="AA_ratingStars">
         <i *ngFor="let star of stars" [class]="iconClass[star]"></i> </span><br />
-      <sup class="AA_sup">EGP </sup><span class="AA_mainPrice">{{ getPrice() | currency:" ":"symbol"}}</span>
+      <sup class="AA_sup"></sup><span class="AA_mainPrice">{{ getPrice() | currency}}</span>
       <span class="AA_restPrice">
-        <del *ngIf="product.productPrice.discount > 0">EGP
-          {{ product.productPrice.currentPrice | currency:" ":"symbol"}}</del>
+        <del *ngIf="product.productPrice.discount > 0">
+          {{ product.productPrice.currentPrice | currency}}</del>
       </span>
     </p>
+   
   </div>
 </div>

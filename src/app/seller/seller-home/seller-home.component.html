@@ -1,26 +1,53 @@
-<div class="sellerHeader">
-    <div class=" container d-flex justify-content-center align-items-center">
-    
-        <div class="row">
-          <div class="col-md-6 d-flex flex-column justify-content-center align-items-center">
-            <div>
-              <h1 id="heading">welcome home {{seller.sellerName}}</h1>
-              <h6 id="heading2">
-                More than half the units sold in our stores are from independent
-                sellers.
-              </h6>
+<div dir="auto" class="sellerHeader">
+  <div class="container d-flex justify-content-center align-items-center">
+    <div class="row">
+          <div class="col-md-12 my-4 d-flex justify-content-start align-items-center">
+            <div class="container-fluid bg-secondary my-3 py-5">
+              <div class="row">
+                <h2>Welcome Back: {{loggedInSeller.sellerName}}</h2>
+              </div>
+              <div class="row">
+                <h4 *ngIf="products.length != 0">My Products:</h4>
+              </div>
             </div>
-      
+            
             
           </div>
-          <div class="col-md-6">
-            <img
-              src="https://m.media-amazon.com/images/G/01/sell/images/prime-boxes/prime-boxes-2.png"
-              alt=""
-              srcset=""
-            />
-          </div>
+          
+            <div class="col-md-12  d-flex justify-content-start my-5 align-items-center">
+              <div class="container-fluid">
+                <div class="row">
+                  <h5 *ngIf="products.length === 0">
+                    {{ "SELLER.ADD_MESSAGE" | translate }}
+                    <a [routerLink]="['/seller', 'add']">
+                      {{ "HEADER.ADD" | translate }}
+                    </a>
+                  </h5>
+                </div>
+                
+                <div  *ngIf="products" class="row">
+                  <div class="col-12 col-lg-6 col-md-6 col-sm-6" *ngFor="let item of getSlicedArrOfProducts()">
+                    <app-product-item  [product]="item" >
+                    
+                    </app-product-item>
+                    <div *ngIf="loggedInSeller" class="crud-actions">
+                      <a [routerLink]="['/product', 'details', item._id]"><i class="far fa-eye"></i></a>
+                      <a [routerLink]="['/seller','edit',item._id]"><i class="fas fa-edit mx-2"></i></a>
+                      <a (click)="deleteProd(item._id)"><i class="fas fa-trash-alt"></i></a>
+                  </div>
+                  </div>
+                  
+                </div>
+              </div>
+              
+              
+            </div>
+          
+
+          
         </div>
       </div>
-      
-</div>
+    
+    
+  </div>
+

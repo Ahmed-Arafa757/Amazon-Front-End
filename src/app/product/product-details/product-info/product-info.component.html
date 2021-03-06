@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" dir="auto">
   <ng-template class="p-0 m-0" #popContent>
     <div class="border-0 p-0 m-0">
       <div class="border-0 p-0">
@@ -72,7 +72,7 @@
     </div>
   </ng-template>
 </div>
-<div class="container my-5">
+<div class="container my-5" [dir]="currerntLang == 'en' ? 'ltr' : 'rtl'">
   <div class="row">
     <nav aria-label="breadcrumb m-0">
       <ol class="breadcrumb">
@@ -95,26 +95,17 @@
             id="landingImage"
             style="max-width: 550px; max-height: 550px"
           />
-          <span class="row d-flex justify-content-center mt-1">
+          <!-- <span class="row d-flex justify-content-center mt-1">
             Roll over image to zoom in</span
-          >
+          > -->
         </div>
 
         <div
           class="d-flex flex-column align-items-center position-absolute top-0 start-0 ms-md-4"
         >
           <img
-            [src]="product.productImages[0]"
-            class="img-thumbnail product-thumbnail"
-            alt="..."
-          />
-          <img
-            [src]="product.productImages[0]"
-            class="img-thumbnail product-thumbnail"
-            alt="..."
-          />
-          <img
-            [src]="product.productImages[0]"
+            *ngFor="let img of product.productImages; let i = index"
+            [src]="product.productImages[i]"
             class="img-thumbnail product-thumbnail"
             alt="..."
           />
@@ -125,8 +116,10 @@
       <span id="productTitle" class="word-break">
         {{ product.productName }}
       </span>
-      <a class="AH_card-link d-block" href="">Visit the Store</a>
-      <button (click)="(testbutton)">doos</button>
+      <a class="AH_card-link d-block" href="">{{
+        "PRODUCT_INFO.Visit_the_Store" | translate
+      }}</a>
+
       <div class="">
         <span
           type="button"
@@ -146,40 +139,57 @@
           </a>
         </span>
         <div class="d-flex flex-wrap">
-          <a href="" class="me-3 AH_card-link"> 3,5488 ratings </a> |
-          <a href="" class="ms-3 AH_card-link">135 answered questions</a>
+          <a href="" class="me-3 AH_card-link">
+            3,5488 {{ "PRODUCT_INFO.Ratings" | translate }}</a
+          >
+          |
+          <a href="" class="ms-3 AH_card-link"
+            >135 {{ "PRODUCT_INFO.answered_questions" | translate }}</a
+          >
         </div>
         <hr />
         <!-- price -->
         <div *ngIf="product.productPrice.discount > 0" class="row">
           <div class="col-3">
-            <span class="text-secondary">List Price: </span>
+            <span class="text-secondary"
+              >{{ "PRODUCT_INFO.List_Price" | translate }}:
+            </span>
           </div>
           <div class="col-9 p-0">
-            <del>EGP {{ product.productPrice.currentPrice }}</del>
+            <del
+              >{{ "PRODUCT_INFO.EGP" | translate }}
+              {{ product.productPrice.currentPrice }}</del
+            >
           </div>
         </div>
         <div class="row">
           <div class="col-3">
-            <span class="text-secondary"> Price: </span>
+            <span class="text-secondary">
+              Price: {{ "PRODUCT_INFO.Price" | translate }}
+            </span>
           </div>
           <div class="col-9 ps-0">
             <span class="">
               <span class="price"
-                >EGP {{ product.productPrice.finalPrice | number }}</span
+                >{{ "PRODUCT_INFO.EGP" | translate }}
+                {{ product.productPrice.finalPrice | number }}</span
               >
               <span class="word-break text-secondary">
-                + ${{ shippingFees }} Shipping & Import Fees Deposit to
+                + ${{ shippingFees }}
+                {{ "PRODUCT_INFO.Shipping_FEES" | translate }}
                 {{ DeliverTo }}</span
               >
             </span>
           </div>
         </div>
         <div *ngIf="product.productPrice.discount > 0" class="row mb-3">
-          <div class="col-3 text-secondary">You Save:</div>
+          <div class="col-3 text-secondary">
+            {{ "PRODUCT_INFO.You_Save" | translate }}:
+          </div>
           <div class="col-9 p-0">
             <span class="price" style="font-size: 14px">
-              EGP {{ product.productPrice.discount }}
+              {{ "PRODUCT_INFO.EGP" | translate }}
+              {{ product.productPrice.discount }}
               <span class="px-2">
                 ({{
                   (product.productPrice.discount /
@@ -191,8 +201,7 @@
           </div>
         </div>
         <span class="word-break fs-6">
-          Available at a lower price from other sellers that may not offer free
-          Prime shipping.
+          {{ "PRODUCT_INFO.Available_at" | translate }}
         </span>
 
         <!-- specs -->
@@ -228,7 +237,9 @@
 
         <!--About this item section  -->
         <div id="aboutProduct" class="mb-2">
-          <h6 class="font-weight-bold">About this item</h6>
+          <h6 class="font-weight-bold">
+            {{ "PRODUCT_INFO.About_this" | translate }}
+          </h6>
           <ul type="disk " class="ps-2">
             <li>
               Nine programmable controls: Move keyboard commands to mouse
@@ -243,34 +254,38 @@
               of surfaces and is tunable to achieve the responsiveness you need
             </li>
           </ul>
-          <a class="AH_card-link">Compare with similar items</a>
+          <a class="AH_card-link"> {{ "PRODUCT_INFO.Compare" | translate }}</a>
           <div class="AH_card-link mt-1">
-            New (10) from
+            {{ "PRODUCT_INFO.New_from" | translate }}
             <span class="price" style="font-size: 14px"
-              >EGP {{ product.productPrice.finalPrice }}</span
+              >{{ "PRODUCT_INFO.EGP" | translate }}
+              {{ product.productPrice.finalPrice }}</span
             >
           </div>
         </div>
         <hr />
         <!--Similar item to consider -->
         <div>
-          <h5 class="font-weight-bold">Similar item to consider</h5>
+          <h5 class="font-weight-bold">
+            {{ "PRODUCT_INFO.Similar" | translate }}
+          </h5>
           <div class="row">
             <div class="col-lg-3">
               <img
                 alt=""
                 style="max-width: 100px; max-height: 100px"
-                src="https://m.media-amazon.com/images/I/615JGNZIEPL._SS100_.jpg"
+                src="{{ similarProduct.productImages[0] }}"
                 id="value-pick-image"
               />
             </div>
             <div class="col-lg-9 ps-0">
               <h6 class="word-break AH_card-link">
-                FIODIO Wired Gaming Mouse, 4 RGB LED Backlight Modes Computer
-                Gaming Mice, Comfortable Ergonomic Optical PC Laptop Gamer Mouse
-                for Windows 7/8.1/10
+                {{ similarProduct.productName[currerntLang] || "" }}
               </h6>
-              <div class="price" style="font-size: 14px">EGP 500</div>
+              <div class="price" style="font-size: 14px">
+                {{ "PRODUCT_INFO.EGP" | translate }}
+                {{ similarProduct.finalPrice }}
+              </div>
               <i class="fas fa-star fa-sm"></i>
               <i class="fas fa-star fa-sm"></i>
               <i class="fas fa-star fa-sm"></i>
@@ -285,16 +300,20 @@
     <div class="col-md-2">
       <div class="card p-3">
         <div class="price">
-          EGP {{ product.productPrice.finalPrice | number }}
+          {{ "PRODUCT_INFO.EGP" | translate }}
+          {{ product.productPrice.finalPrice | number }}
         </div>
         <div class="word-break text-secondary mb-3" style="font-weight: 500">
-          + ${{ shippingFees }} Shipping & Import Fees Deposit to
+          + ${{ shippingFees }} {{ "PRODUCT_INFO.Shipping_FEES" | translate }}
           {{ DeliverTo }}
         </div>
 
         <!-- estimated Arrive time  -->
         <div class="mb-4">
-          Arrives: <span class="font-weight-bold">Feb 11 -March 8</span>
+          {{ "PRODUCT_INFO.Arrives" | translate }}
+          <span class="font-weight-bold">
+            {{ "PRODUCT_INFO.Date" | translate }}</span
+          >
         </div>
 
         <h5
@@ -302,7 +321,7 @@
           class="word-break mb-2"
           style="color: #a53d01"
         >
-          Only {{ product.productStock }} left in stock - order soon.
+          {{ product.productStock }} {{ "PRODUCT_INFO.Stock" | translate }}
         </h5>
         <!-- buttons -->
         <div class="row p-2">
@@ -330,24 +349,34 @@
         <!-- secure transaction -->
         <div class="d*flex">
           <i style="color: lightgrey" class="fas fa-lock me-3"></i>
-          <span class="AH_card-link">Secure Transaction</span>
+          <span class="AH_card-link"
+            >{{ "PRODUCT_INFO.Transaction" | translate }}
+          </span>
         </div>
         <hr />
         <!-- sold by & ships from -->
         <div>
           <div class="row">
-            <span class="col-5 fs-7"> Ships from </span>
-            <span class="col-7 fs-7">Amazon</span>
+            <span class="col-5 fs-7">
+              {{ "PRODUCT_INFO.Ships_from" | translate }}
+            </span>
+            <span class="col-7 fs-7">
+              {{ "PRODUCT_INFO.Amazon" | translate }}</span
+            >
           </div>
           <div class="row mb-3">
-            <span class="col-5 fs-7"> Sold by </span>
-            <a class="col-7 AH_card-link fs-7">LWOUTLET</a>
+            <span class="col-5 fs-7">
+              {{ "PRODUCT_INFO.Sold_by" | translate }}
+            </span>
+            <a class="col-7 AH_card-link fs-7">LWOUTLET </a>
           </div>
         </div>
         <hr class="m-0" />
         <div class="d-flex my-2">
           <i style="color: lightgray" class="fas fa-map-marker-alt me-2"></i>
-          <a class="AH_card-link fs-7">Deliver To Egypt</a>
+          <a class="AH_card-link fs-7">
+            {{ "PRODUCT_INFO.Deliver" | translate }}</a
+          >
         </div>
         <hr class="m-0" />
         <div class="mt-4">
@@ -358,9 +387,10 @@
       </div>
       <div class="card p-3 my-4 position-relative">
         <span>
-          New (10) from
-          <span class="price" style="font-size: 14px"
-            >EGP {{ product.productPrice.finalPrice }}</span
+          {{ "PRODUCT_INFO.New_from" | translate }}
+          <span class="price" style="font-size: 14px">
+            {{ "PRODUCT_INFO.EGP" | translate }}
+            {{ product.productPrice.finalPrice }}</span
           ><i
             class="mx-3 fas fa-chevron-right position-absolute end-0 top-50 translate-middle-y"
           ></i
@@ -369,7 +399,9 @@
 
       <!-- share -->
       <div class="d-flex justify-content-center">
-        <span class="AH_card-link me-2"> share</span>
+        <span class="AH_card-link me-2">
+          {{ "PRODUCT_Share" | translate }}</span
+        >
         <span class="me-2">
           <i class="far fa-envelope fa-lg" style="color: lightgrey"></i>
         </span>
@@ -385,18 +417,27 @@
 
       <div class="card my-4 position-relative">
         <div class="card-header bg-transparent fs-7 font-weight-bold">
-          Other Sellers on Amazon
+          {{ "PRODUCT_INFO.OtherSellers" | translate }}
         </div>
         <div class="p-2">
           <div class="d-flex justify-content-between">
-            <div class="price">EGP</div>
+            <div class="price">
+              {{ "PRODUCT_INFO.EGP" | translate }}
+              {{ "PRODUCT_INFO.Transaction" | translate }}
+            </div>
 
             <div class="button p-1">
-              <div class="fw-7">Add To Cart</div>
+              <div class="fw-7">
+                Add To Cart {{ "PRODUCT_INFO.Cart" | translate }}
+              </div>
             </div>
           </div>
-          <span class="fs-7">& FREE Shipping on eligible orders. </span>
-          <div class="fs-7 text-secondary">Sold By: <span>PNR Sales</span></div>
+          <span class="fs-7"
+            >{{ "PRODUCT_INFO.FreeShipping" | translate }}
+          </span>
+          <div class="fs-7 text-secondary">
+            {{ "PRODUCT_INFO.Sold_by" | translate }} <span>PNR Sales</span>
+          </div>
         </div>
       </div>
     </div>
@@ -404,7 +445,7 @@
   <hr class="mt-4" />
   <div *ngIf="relatedProducts.length > 0" class="row tp-product-slider my-3">
     <span class="h4 mb-3" style="color: #a53d01">
-      Products related to this item
+      {{ "PRODUCT_INFO.Related" | translate }}
     </span>
 
     <ul class="tp-list-inline py-3 px-0 mt-2">

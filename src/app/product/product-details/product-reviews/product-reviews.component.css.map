@@ -1,1 +1,9 @@
-{"version":3,"sources":["product-reviews.component.scss"],"names":[],"mappings":"AAAA;EACE,cAAc;AAChB;;AAEA;EACE,wDAAwD;AAC1D;AACA;EACE,wDAAwD;AAC1D;AACA;EACE,WAAW;AACb","file":"product-reviews.component.css","sourcesContent":["i {\n  color: #ff9900;\n}\n\nbutton {\n  background: linear-gradient(to bottom, #f7dfa5, #f0c14b);\n}\nbutton:hover {\n  background: linear-gradient(to bottom, #f6c88f, #ed9220);\n}\nbutton i {\n  color: #000;\n}\n\n/*# sourceMappingURL=file:///c:/Users/USER/Desktop/7agaty/iti/Angular/AngularFinalProject/our-app/src/app/product/product-details/product-reviews/product-reviews.component.css.map */"]}
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,CAAC,CAAC;EACA,KAAK,EAAE,OAAO;CACf;;AAED,AAAA,MAAM,CAAC;EACL,UAAU,EAAE,4CAA4C;CAOzD;;AARD,AAEE,MAFI,AAEH,MAAM,CAAC;EACN,UAAU,EAAE,4CAA4C;CACzD;;AAJH,AAKE,MALI,CAKJ,CAAC,CAAC;EACA,KAAK,EAAE,IAAI;CACZ",
+    "sources": [
+        "product-reviews.component.scss"
+    ],
+    "names": [],
+    "file": "product-reviews.component.css"
+}

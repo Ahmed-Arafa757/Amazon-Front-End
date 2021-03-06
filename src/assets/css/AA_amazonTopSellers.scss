@@ -104,17 +104,8 @@ body
 }
 
 #AA_productCard {
-    width: 22rem;
-    display: inline-block;
-    border: none;
+   
     
-    
-    
-
-    #AA_productsImgs {
-        width: 60%;
-    }
-
     #AA_cardText {
         font-size: calc(0.85rem + 0.1vw);
     }
@@ -133,7 +124,7 @@ body
 
     .AA_mainPrice {
         font-weight: bold;
-        font-size: calc(1.2rem + 0.1vw);
+        font-size: calc(1rem + 0.1vw);
     }
 
     .AA_sup,
