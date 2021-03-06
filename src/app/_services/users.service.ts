@@ -61,6 +61,7 @@ export class UsersService {
       email: user.email,
       password: user.password,
       repeatedPassword: user.repeatedPassword,
+      address: user.address,
     };
     return this.httpClient.put(`${this.baseUrl}user`, updatedUser);
   }
