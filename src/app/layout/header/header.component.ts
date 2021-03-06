@@ -41,7 +41,9 @@ export class HeaderComponent implements OnInit, DoCheck {
       this.langFlag = '../../../assets/images/icons/arabic.png';
     }
   }
-
+  search(key){
+    this.router.navigate(['search-results/'],{queryParams:{id:key}});
+  }
   ngOnInit(): void {
     this.productService.productAdded.subscribe(
       (res) => {
