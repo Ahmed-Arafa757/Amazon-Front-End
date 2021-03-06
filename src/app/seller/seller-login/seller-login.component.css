@@ -1,13 +1,25 @@
-.login__forget-password {
-  margin: -30px 20px;
-  position: absolute;
-  right: 0;
+#eye {
+  width: 10%;
+  -webkit-margin-start: auto;
+          margin-inline-start: auto;
+  margin-top: -40px;
+  padding: 10px 30px;
+}
+
+#eye i {
+  cursor: pointer;
 }
 
 .loginBtns {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .loginBtn {
@@ -15,10 +27,13 @@
   text-decoration: none;
   color: black;
   padding: 20px;
-  box-shadow: 0px 0px 5px black;
+  -webkit-box-shadow: 0px 0px 5px black;
+          box-shadow: 0px 0px 5px black;
   border-radius: 0.25rem;
   display: inline-block;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   margin: 20px auto;
   cursor: pointer;
   font-weight: 400;

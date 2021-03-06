@@ -1,1 +1,9 @@
-{"version":3,"sources":[],"names":[],"mappings":"","file":"customer-service.component.css"}
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "customer-service.component.scss"
+    ],
+    "names": [],
+    "file": "customer-service.component.css"
+}

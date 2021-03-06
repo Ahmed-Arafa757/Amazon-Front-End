@@ -11,6 +11,13 @@ import { Seller } from 'src/app/_model/sellers';
 export class SellerHomeComponent implements OnInit {
   loggedInSeller: Seller={sellerName:'' , email:''};
   products=[];
+  
+  numOfPages: number[] = [];
+
+  pageSize = 9;
+
+  currentPage = 0;
+  lastPage = 0;
   constructor(private activatedRoute:ActivatedRoute,private sellersService: SellersService ) { }
 
   ngOnInit(): any {
@@ -36,5 +43,16 @@ export class SellerHomeComponent implements OnInit {
       ()=>{})
   }
   }
+  calculateNumOfPages() {
+    this.numOfPages = [];
+    for (let index = 0; index < this.products.length / this.pageSize; index++) {
+      this.numOfPages.push(index + 1);
+    }
+  }
 
+  getSlicedArrOfProducts() {
+    const start = this.currentPage * this.pageSize;
+    const end = start + this.pageSize;
+    return this.products.slice(start, end);
+  }
 }

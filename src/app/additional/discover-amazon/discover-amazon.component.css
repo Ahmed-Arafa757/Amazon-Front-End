@@ -7,10 +7,12 @@
   border: 1px solid;
   border-color: #c89411 #b0820f #99710d;
   border-radius: 3px 3px 3px 3px;
-  border-radius: 0\9 ;
+  border-radius: 0\9;
+  -webkit-box-shadow: inset 0 1px 0 0 #fcf3dc;
   box-shadow: inset 0 1px 0 0 #fcf3dc;
   background: #f3cf72;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#FFF8E3AD", endColorstr="#FFEEBA37", GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFF8E3AD', endColorstr='#FFEEBA37', GradientType=0);
+  background: -webkit-gradient(linear, left top, left bottom, from(#f8e3ad), to(#EEBA37));
   background: linear-gradient(to bottom, #f8e3ad, #EEBA37);
   background: -ms-linear-gradient(top, #f8e3ad, #EEBA37);
   text-align: center;

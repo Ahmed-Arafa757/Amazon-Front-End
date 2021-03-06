@@ -1,31 +1,33 @@
 <div dir="auto" class="sellerHeader">
-    <!-- <div class=" container d-flex justify-content-center align-items-center">
-    
-        <div class="row">
-          <div class="col-md-6 d-flex flex-column justify-content-center align-items-center">
+  <div class="container d-flex justify-content-center align-items-center">
+    <div class="row">
+          <div class="col-md-12 my-4 d-flex justify-content-start align-items-center">
             <div>
-              <h1 id="heading">welcome home {{loggedInSeller.sellerName}}</h1>
-              <h6 id="heading2">
-                More than half the units sold in our stores are from independent
-                sellers.
-              </h6>
+              <h3>Welcome Back: {{loggedInSeller.sellerName}}</h3>
+              <h4 *ngIf="products.length != 0">My Products</h4>
             </div>
-      
             
           </div>
-          <div class="col-md-6">
-            <img
-              src="https://m.media-amazon.com/images/G/01/sell/images/prime-boxes/prime-boxes-2.png"
-              alt=""
-              srcset=""
-            />
-          </div>
+          
+            <div class="col-md-12 d-flex justify-content-start  align-items-center">
+              
+              <h5 *ngIf="products.length === 0">
+                {{ "SELLER.ADD_MESSAGE" | translate }}
+                <a [routerLink]="['/seller', 'add']">
+                  {{ "HEADER.ADD" | translate }}
+                </a>
+              </h5>
+              <div *ngIf="products" class="row">
+                <app-product-item *ngFor="let item of getSlicedArrOfProducts()" [product]="item" class="col-md-4">
+                </app-product-item>
+              </div>
+            </div>
+          
+
+          
         </div>
-      </div> -->
-      <h2 *ngIf='products.length === 0 '>
-        {{"SELLER.ADD_MESSAGE" | translate}} 
-        <a [routerLink]="['/seller', 'add']">
-          {{ "HEADER.ADD" | translate }}
-        </a>
-      </h2>
-</div>
+      </div>
+    
+    
+  </div>
+
