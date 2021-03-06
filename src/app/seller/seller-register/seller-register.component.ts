@@ -38,10 +38,21 @@ export class SellerRegisterComponent implements OnInit {
     this.sellerAuthService.register(this.seller).subscribe(
       (res) => {
         console.log(res); 
-        
-        this.router.navigate(['seller/home'], {
-          queryParams: { sellerName: this.seller.sellerName, email: this.seller.email },
-        });
+        this.sellerAuthService.login(this.seller).subscribe(
+          (res:any)=>{
+            
+            let myId=res.seller._id
+            let myToken=res.token
+    
+            var sellerLoginStorage = {'_id': myId, 'token':myToken};
+             localStorage.setItem('sellerLoginStorage', JSON.stringify(sellerLoginStorage));
+             this.router.navigate(['seller/home']);
+           
+          },
+          (err)=>{this.errors = err.error;
+            console.log(err.error)},
+          () => {console.log() },
+          )
       },
       (err) => {
         this.errors = err.error.err;
