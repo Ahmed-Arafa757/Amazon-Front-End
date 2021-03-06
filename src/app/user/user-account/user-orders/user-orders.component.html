@@ -87,7 +87,7 @@
   </ul>
 
   <div class="tab-content" id="myTabContent">
-    <div *ngIf="allOrders.length <= 0" class="d-flex align-items-center mt-5">
+    <div *ngIf="displayedOrders === undefined" class="d-flex align-items-center mt-5">
       <strong>
         {{ "ORDERS.LOADING" | translate }}
       </strong>
@@ -97,7 +97,12 @@
         aria-hidden="true"
       ></div>
     </div>
+    <div *ngIf="displayedOrders != undefined && displayedOrders.length === 0" class="d-flex align-items-center mt-5">
+      <strong>
+        {{ "ORDERS.NOTFOUND" | translate }}
+      </strong>
 
+    </div>
     <div
       class="tab-pane fade show active"
       id="allOrders"

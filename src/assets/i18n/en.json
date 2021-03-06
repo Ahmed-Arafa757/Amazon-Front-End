@@ -304,7 +304,8 @@
     "CANCELLED": "Cancelled",
     "PENDING": "Pending",
     "TO_BE_DELIVERED_ON": "Order to be delivered on:",
-    "DELIVERED_ON": "Order delivered on:"
+    "DELIVERED_ON": "Order delivered on:",
+    "NOTFOUND":"No Orders to Display"
   },
   "SIDENAV":{
     "HELLO":"Hello,",
