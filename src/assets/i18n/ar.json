@@ -301,7 +301,8 @@
     "CANCELLED": "ألغيت",
     "PENDING": "قيد الانتظار",
     "TO_BE_DELIVERED_ON": "يتم توصيل الطلب في:",
-    "DELIVERED_ON": "تم توصيل الطلب في:"
+    "DELIVERED_ON": "تم توصيل الطلب في:",
+    "NOTFOUND":"لا يوجد طلبات لعرضها"
   },
   "PRODUCT_INFO": {
     "YOUR_ACCOUNT": "الحساب الخاص بك"

@@ -13,8 +13,7 @@ export class UserOrdersComponent implements OnInit {
   currentOrders: Order[] = [];
   previousOrders: Order[] = [];
   cancelledOrders: Order[] = [];
-  displayedOrders: Order[] = [];
-
+  displayedOrders;
   constructor(
     private usersService: UsersService,
     private orderService: OrderService

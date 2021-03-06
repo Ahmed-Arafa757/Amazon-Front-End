@@ -196,9 +196,10 @@
               [placeholder]="'HEADER.SEARCH' | translate"
               aria-label="Search"
               name="searchInput"
+              (keyup.enter)='searchBTN.click()'
             />
             <span class="input-group-text MM_bg-search" id="basic-addon1">
-              <a [routerLink]="['/search-results', searchString]">
+              <a [routerLink]="['/search-results', searchString]" #searchBTN>
                 <i class="fas fa-search" style="color: #000"></i>
               </a>
             </span>
