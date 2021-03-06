@@ -602,13 +602,13 @@
           </a>
 
           <ul class="dropdown-menu seller" aria-labelledby="dropdownMenuLink">
-            <li class="dropdown-item">
+            <li *ngIf="!loggedInSeller" class="dropdown-item">
               {{ "HEADER.BECOME_SELLER" | translate }}
               <a [routerLink]="['/seller', 'signup']">{{
                 "HEADER.REGISTER" | translate
               }}</a>
             </li>
-            <li class="dropdown-item">
+            <li *ngIf="!loggedInSeller" class="dropdown-item">
               {{ "HEADER.ALREADY_SELLER" | translate }}
               <a [routerLink]="['/seller', 'login']">{{
                 "HEADER.LOGIN" | translate
@@ -625,6 +625,11 @@
               <a [routerLink]="['/seller', 'add']">
                 {{ "HEADER.ADD" | translate }}
               </a>
+            </li>
+            <li *ngIf="loggedInSeller" class="dropdown-item text-center">
+              <button (click)="logoutSeller()" type="button" class="btn bg-gradient">
+                {{ "HEADER.LOGOUT" | translate }}
+              </button>
             </li>
           </ul>
         </li>

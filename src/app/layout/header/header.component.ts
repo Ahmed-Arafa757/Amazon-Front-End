@@ -7,7 +7,7 @@ import { AuthService } from '../../_services/auth.service';
 import { UsersService } from '../../_services/users.service';
 import { LoginComponent } from '../../auth/login/login.component';
 import { TranslateService } from '@ngx-translate/core';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit,DoCheck {
   currentLang: string;
   cartArray = [];
   totalQuantity = 0;
-
+  loggedInSeller:boolean=false;
   searchString: string = '';
   loggedInUser;
   isLogged: boolean = false;
@@ -26,7 +26,7 @@ export class HeaderComponent implements OnInit,DoCheck {
   constructor(
     private productService: ProductService,
     private authService: AuthService,
-
+    private router: Router,
     private usersService: UsersService,
     private loginService: LoginComponent,
     public translate: TranslateService
@@ -57,7 +57,13 @@ export class HeaderComponent implements OnInit,DoCheck {
         alert('Subscribe Operation Compeleted');
       }
     );
-
+    if(localStorage.getItem('sellerLoginStorage')){
+      this.loggedInSeller=true
+      
+    }else{
+      this.loggedInSeller=false
+      
+    }
     console.log('header on init');
   }
 
@@ -118,4 +124,9 @@ export class HeaderComponent implements OnInit,DoCheck {
     localStorage.removeItem('user id');
     localStorage.removeItem('token');
   }
+  logoutSeller(){
+    localStorage.removeItem('sellerLoginStorage');
+    this.router.navigate(['/home']);
+  }
+
 }
