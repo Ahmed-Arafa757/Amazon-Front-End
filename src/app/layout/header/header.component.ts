@@ -13,7 +13,7 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit,DoCheck {
+export class HeaderComponent implements OnInit, DoCheck {
   langFlag = '../../../assets/images/icons/english.png';
   currentLang: string;
   cartArray = [];
@@ -62,41 +62,36 @@ export class HeaderComponent implements OnInit,DoCheck {
   }
 
   ngDoCheck() {
-
-    if(this.isLogged === false){
-
+    if (this.isLogged === false) {
       if (
         localStorage.hasOwnProperty('token') &&
         localStorage.hasOwnProperty('user id')
-
       ) {
-
-        this.usersService.getUserById(localStorage.getItem('user id')).subscribe(
-          (res) => {
-            console.log(res);
-            this.loggedInUser = res['userName']; 
-
-
-          },
-          (err)=>{console.log(err);
-          },
-          ()=>{}
-        )
+        this.usersService
+          .getUserById(localStorage.getItem('user id'))
+          .subscribe(
+            (res) => {
+              console.log(res);
+              this.loggedInUser = res['userName'];
+            },
+            (err) => {
+              console.log(err);
+            },
+            () => {}
+          );
 
         this.isLogged = true;
-
       } else {
         this.isLogged = false;
       }
-
     } else {
-      if (localStorage.hasOwnProperty('token') &&
-        localStorage.hasOwnProperty('user id')) {
+      if (
+        localStorage.hasOwnProperty('token') &&
+        localStorage.hasOwnProperty('user id')
+      ) {
         this.isLogged = true;
-
       } else {
         this.isLogged = false;
-
       }
     }
   }
@@ -104,6 +99,8 @@ export class HeaderComponent implements OnInit,DoCheck {
   changeCurrentLanguage(lang: string) {
     this.translate.use(lang);
     localStorage.setItem('currentLang', lang);
+    this.currentLang = lang;
+
     //Changing the html lang attribute also
     document.documentElement.lang = lang;
     if (lang === 'en') {
@@ -112,7 +109,6 @@ export class HeaderComponent implements OnInit,DoCheck {
       this.langFlag = '../../../assets/images/icons/arabic.png';
     }
   }
-
 
   logout() {
     localStorage.removeItem('user id');

@@ -13,7 +13,7 @@ import { HeaderComponent } from 'src/app/layout/header/header.component';
   styleUrls: ['./product-info.component.css'],
 })
 export class ProductInfoComponent implements OnInit {
-  currerntLang = this.header.currentLang;
+  currerntLang = localStorage.getItem('currentLang');
 
   product: Product = {
     productId: 0,
@@ -74,8 +74,7 @@ export class ProductInfoComponent implements OnInit {
     private productService: ProductService,
     private activeRoute: ActivatedRoute,
     private categoryService: CategoryService,
-    private reviwService: ReviewsService,
-    private header: HeaderComponent
+    private reviwService: ReviewsService
   ) {}
 
   ngOnInit(): void {
