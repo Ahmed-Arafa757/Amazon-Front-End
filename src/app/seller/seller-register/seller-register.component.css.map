@@ -1,1 +1,9 @@
-{"version":3,"sources":["seller-register.component.scss"],"names":[],"mappings":"AAAA;EACE,kBAAkB;EAClB,kBAAkB;EAClB,QAAQ;AACV","file":"seller-register.component.css","sourcesContent":[".login__forget-password {\n  margin: -30px 20px;\n  position: absolute;\n  right: 0;\n}\n\n/*# sourceMappingURL=file:///c:/Users/USER/Desktop/7agaty/iti/Angular/AngularFinalProject/our-app/src/app/seller/seller-register/seller-register.component.css.map */"]}
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,IAAI,CAAA;EAIA,KAAK,EAAE,GAAG;EACV,mBAAmB,EAAE,IAAI;EAC1B,UAAU,EAAE,KAAK;EAChB,OAAO,EAAE,SAAS;CACnB;;AARH,AACI,IADA,CACA,CAAC,CAAA;EACC,MAAM,EAAE,OAAO;CAChB",
+    "sources": [
+        "seller-register.component.scss"
+    ],
+    "names": [],
+    "file": "seller-register.component.css"
+}

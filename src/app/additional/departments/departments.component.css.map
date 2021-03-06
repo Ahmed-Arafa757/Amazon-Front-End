@@ -1,1 +1,9 @@
-{"version":3,"sources":[],"names":[],"mappings":"","file":"departments.component.css"}
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "departments.component.scss"
+    ],
+    "names": [],
+    "file": "departments.component.css"
+}

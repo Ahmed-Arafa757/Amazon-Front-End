@@ -1,6 +1,12 @@
-.login__forget-password {
-  margin: -30px 20px;
-  position: absolute;
-  right: 0;
+#eye {
+  width: 10%;
+  -webkit-margin-start: auto;
+          margin-inline-start: auto;
+  margin-top: -40px;
+  padding: 10px 30px;
+}
+
+#eye i {
+  cursor: pointer;
 }
 /*# sourceMappingURL=seller-register.component.css.map */

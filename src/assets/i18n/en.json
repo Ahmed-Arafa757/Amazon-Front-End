@@ -54,10 +54,10 @@
     "TOOLS_&_HOME_IMPROVEMENT": "Tools & Home Improvement",
     "TOYS_&_GAMES": "Toys & Games",
     "VIDEO_GAMES": "Video Games",
-    "LOCATION":"Choose your location",
-    "LOCATION_MESSAGE":"Delivery options and delivery speeds may vary for different locations",
-    "LOCATION_BTN":"Done",
-    "LOCATION_SIGNIN":"Sign in to see your addresses"
+    "LOCATION": "Choose your location",
+    "LOCATION_MESSAGE": "Delivery options and delivery speeds may vary for different locations",
+    "LOCATION_BTN": "Done",
+    "LOCATION_SIGNIN": "Sign in to see your addresses"
   },
   "HOME": {
     "ALL_PRODUCTS": "All Products",
@@ -191,7 +191,7 @@
     "SELLER_PHONE": "Seller Phone",
     "PASSWORD": "Password",
     "RE_PASSWORD": "Re-enter Password",
-    "ADD_MESSAGE":"Please Add Products"
+    "ADD_MESSAGE": "Please Add Products"
   },
   "REVIEWS": {
     "CUSTOMER_REVIEWS": "Customer reviews",
@@ -302,10 +302,57 @@
     "CANCEL_ORDER": "Cancel Order",
     "COMPLETED": "Completed",
     "CANCELLED": "Cancelled",
+
+    "PENDING": "Pending"
+  },
+  "SEARCH_RESULTS": {
+    "RESULTS_FOR": "results for",
+    "SORT_BY": "Sort by:",
+    "FEATURED": "Featured",
+    "LOW_TO_HIGH": " Price low to high",
+    "HIGH_TO_LOW": " Price high to low",
+    "NAME": "Name",
+    "CONDITION": "Condition",
+    "NEW": "New",
+    "USED": "Used",
+    "RENEWED": "Renewed",
+    "DEPARTMENT": "Department",
+    "CELL_PHONES": "Cell Phones",
+    "ELECTRONICS": "Electronics",
+    "CELL_PHONES_AND_ACCESSORIES": "Cell Phones & Accessories",
+    "AVERAGE": " Avg. Customer Review",
+    "AND_UP": "& Up",
+    "BRAND": "Brand",
+    "UNDER_50": "Under $50",
+    "50_TO_100": " $50 to $100",
+    "100_TO_150": " $100 to $150",
+    "150_TO_250": "$150 to $250",
+    "250_TO_400": "$250 to $400",
+    "400_TO_600": "$400 to $600",
+    "600_AND_ABOVE": " $600 & Above",
+    "GO": "Go",
+    "PREVIOUS": "Previous",
+    "NEXT": "Next",
+    "INSPIRED": "Inspired by your browsing history",
+    "SHOP_NOW": "Shop now",
+    "MIN": "Min",
+    "MAX": "Max"
+  },
+  "PRODUCTS_LISTING": {
+    "OUR_FULL_SELECTION": "Our Full Selection",
+    "TOP_PRODUCTS_SHIPPED": " Top products shipped internationally including electronics,baby, books, and more ",
+    "OVER_2000": " 1-12 of over 2,000 results for",
+    "EXPLORE": "Explore Best Products",
+    "PREVIOUS": "Previous",
+    "NEXT": "Next",
+    "SEE_PERSONALIZED": "See personalized recommendations",
+    "SIGN_IN": "Sign In",
+    "NEW_CUSTOMER": "New customer?",
+    "START_HERE": "start here",
     "PENDING": "Pending",
     "TO_BE_DELIVERED_ON": "Order to be delivered on:",
     "DELIVERED_ON": "Order delivered on:",
-    "NOTFOUND":"No Orders to Display"
+    "NOTFOUND": "No Orders to Display"
   },
   "PRODUCT_INFO": {
     "YOUR_ACCOUNT": "Your Account",
@@ -335,28 +382,28 @@
     "Cart": "Add To Cart",
     "Related": "Products related to this item"
   },
-  "SIDENAV":{
-    "HELLO":"Hello,",
-    "SIGNIN":"Sign in",
-    "DIGITAL_CONTENT":"Digital Content & Devices",
-    "AMAZON_MUSIC":"Amazon Music",
-    "KINDLE":"Kindle E-readers & Books",
-    "APPSTORE":"Appstore for Android",
-    "CATEGORIES":"Shop By Department",
-    "SEE_ALL":"See All",
-    "SEE_LESS":"See Less",
-    "FEATURES":"Programs & Features",
-    "GIFT":"Gift Cards",
-    "FOUNDATION":"#FoundatiOnAmazon",
-    "LIVE":"Amazon Live",
-    "INTERNATIONAL":"International Shopping",
-    "SECOND_CHANCE":"Amazon Second Chance",
-    "FULL_DIRECTORY":"Full Store Directory",
-    "HELP_SETTING":"Help & Settings",
-    "ACCOUNT":"Your Account",
-    "HELP":"Help"
+  "SIDENAV": {
+    "HELLO": "Hello,",
+    "SIGNIN": "Sign in",
+    "DIGITAL_CONTENT": "Digital Content & Devices",
+    "AMAZON_MUSIC": "Amazon Music",
+    "KINDLE": "Kindle E-readers & Books",
+    "APPSTORE": "Appstore for Android",
+    "CATEGORIES": "Shop By Department",
+    "SEE_ALL": "See All",
+    "SEE_LESS": "See Less",
+    "FEATURES": "Programs & Features",
+    "GIFT": "Gift Cards",
+    "FOUNDATION": "#FoundatiOnAmazon",
+    "LIVE": "Amazon Live",
+    "INTERNATIONAL": "International Shopping",
+    "SECOND_CHANCE": "Amazon Second Chance",
+    "FULL_DIRECTORY": "Full Store Directory",
+    "HELP_SETTING": "Help & Settings",
+    "ACCOUNT": "Your Account",
+    "HELP": "Help"
   },
-  "FOOTER":{
-    "TOP":"Back To Top"
+  "FOOTER": {
+    "TOP": "Back To Top"
   }
 }

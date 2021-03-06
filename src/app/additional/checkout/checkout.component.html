@@ -131,10 +131,13 @@
               <p class="fw-bold mt-3">
                 {{ "CHECKOUT.SELECT_SHIPPING_ADDRESS" | translate }}
               </p>
-              <div class="d-flex justify-content-start form-check w-75">
+              <div
+                *ngFor="let address of addresses"
+                class="d-flex justify-content-start form-check"
+              >
                 <div
                   class="media border p-5 mb-3"
-                  *ngFor="let address of addresses"
+                  style="min-width: 350px; max-width: 400px"
                 >
                   <label class="form-check-label media-body" for="address">
                     <div>
@@ -177,6 +180,14 @@
                     type="radio"
                     id="address"
                   />
+                  <br />
+                  <button
+                    (click)="onRemoveAddress(address)"
+                    class="btn p-1 my-2 customized-btn"
+                    style="font-size: 0.8rem"
+                  >
+                    Remove this address
+                  </button>
                 </div>
               </div>
 
@@ -309,7 +320,7 @@
               <button
                 (click)="onConfirm()"
                 [routerLink]="['/place-order']"
-                class="btn p-1 my-2 col-12 place-order"
+                class="btn p-1 my-2 col-12 customized-btn"
                 [disabled]="totalQuantity === 0 || isSelectedAddress === false"
               >
                 {{ "CHECKOUT.CONTINUE_PAYMENT" | translate }}

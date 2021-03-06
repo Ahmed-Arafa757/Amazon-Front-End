@@ -1,8 +1,11 @@
+
+import { SellersService } from 'src/app/_services/sellers.service';
 import { Component, OnInit, Input } from '@angular/core';
 
 import { Advertisement } from 'src/app/_model/advertisements';
 import { Product } from 'src/app/_model/product';
 import { AdvertisementsService } from 'src/app/_services/advertisements.service';
+
 
 @Component({
   selector: 'app-product-item',
@@ -11,19 +14,25 @@ import { AdvertisementsService } from 'src/app/_services/advertisements.service'
 })
 export class ProductItemComponent implements OnInit {
   @Input() product: Product; 
-
+sellers;
   stars = [];
-
   iconClass = {
     0: 'far fa-star',
     0.5: 'fas fa-star-half-alt',
     1: 'fas fa-star',
   };
 
-  constructor() {}
+  constructor(private sellerService:SellersService) {}
 
   ngOnInit(): void {
     this.fillStars();
+    this.sellerService.getAllSellers().subscribe(
+      (res)=>{​​this.sellers=res}​​,
+      (err)=>{​​console.error(err)}​​,
+      ()=>{​​}​​,
+
+    );
+
   }
   fillStars() {
     this.stars = [0, 0, 0, 0, 0];
@@ -49,4 +58,13 @@ export class ProductItemComponent implements OnInit {
       return this.product.productPrice.currentPrice;
     }
   }
+  sellerName(id){​​​​    
+    if(id){​​​​
+      return this.sellers.find((seller)=>seller._id===id).sellerName
+    }​​​​else{​​​​
+      return 'undefined' 
+     }​​​​
+  }
+  ​​​​
+  
 }

@@ -1,17 +1,16 @@
 .privacy {
   font-size: 0.75rem;
 }
-.privacy a {
-  text-decoration: none;
-}
 
 .order-summary {
   font-size: 0.9rem;
 }
 
-.place-order {
+.customized-btn {
   background-color: #fac745;
 }
+/* .customized-btn:hover { */
+
 .place-order:hover {
   background-color: #ffd95d;
 }

@@ -70,9 +70,7 @@
               <input required minlength="6" #password maxlength="20" type="password" name="password"
                 id="password" (input)='loggedInUser.password = $event.target.value'
                 [attr.disabled]="passwordEdit == false ? 'disabled' : null">
-               <br> <span style="color: red; font-size: 12px;"
-                  *ngIf='password.invalid &&
-                  password.touched'>{{ "LOGIN_SECURITY.THIS_FIELD_IS_REQUIRED" | translate }}</span>
+               <br>
             </td>
             <td>
               <button class="btn edit-btn" (click)='passwordEditClicked()'>
@@ -86,8 +84,8 @@
               <input required minlength="6" #re maxlength="20" type="password" name="repeatedPassword"
                 (input)='loggedInUser.repeatedPassword = $event.target.value' id="repeatedPassword"
                 [attr.disabled]="repeatedPasswordEdit == false ? 'disabled' : null">
-               <br> <span style="color: red; font-size: 12px;" 
-               *ngIf='re.invalid &&  re.touched'>{{ "LOGIN_SECURITY.THIS_FIELD_IS_REQUIRED" | translate }}</span> 
+               <br> 
+              
             </td>
             <td>
               <button class="btn edit-btn"  (click)='repeatedPasswordEditClicked()'>
@@ -101,12 +99,11 @@
     <div *ngIf='responseText !== "" ' class="alert alert-success" role="alert">
       {{responseText}}
 
-      <!-- {{ "REGISTER.ERROR_TEXT" | translate }} -->
-      <!-- {{ 'Hello ' + name | translate: { name: 'Srinivas' } }} -->
+     
     </div>
 
     <div class="col-12">
-      <button class="btn done-btn" [ngClass]="{'disabled': password.invalid || password.value == null || password.value == '' || email.invalid || name.invalid || re.invalid 
+      <button class="btn done-btn" [ngClass]="{'disabled': password.value < 7 || password.value == null || password.value == '' || email.invalid || name.invalid || re.invalid 
             || re.value !== password.value}" (click)='onSubmit()'>
         {{ "LOGIN_SECURITY.DONE" | translate }}
       </button>
