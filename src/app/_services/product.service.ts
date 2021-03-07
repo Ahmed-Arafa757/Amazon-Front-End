@@ -10,7 +10,7 @@ export class ProductService {
 
   cartProducts = [];
   baseUrl = 'https://iti-amzon-backend.herokuapp.com/';
- /* baseUrl = 'http://localhost:3000/'; */
+/*  baseUrl = 'http://localhost:3000/'; */
   productAdded = new EventEmitter<Product[]>();
 
   constructor(private httpClinet: HttpClient) {}
@@ -41,5 +41,9 @@ export class ProductService {
   addProductsToCart(products) {
     this.cartProducts = products.slice();
     this.productAdded.emit(this.cartProducts);
+  }
+  getProductByCategory(category){
+    console.log(category);
+    
   }
 }

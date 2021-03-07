@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Product } from 'src/app/_model/product';
+import { CategoryService } from 'src/app/_services/category.service';
 import { ProductService } from 'src/app/_services/product.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class SearchResultsComponent implements OnInit {
   products: Product[] = [];
   productsResult = [];
   searchInput: string = '';
-
+  categories;
   numOfPages: number[] = [];
   pageSize = 12;
   currentPage = 0;
@@ -20,7 +21,8 @@ export class SearchResultsComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private categoryService:CategoryService
   ) {}
 
   ngOnInit(): void {
@@ -28,17 +30,43 @@ export class SearchResultsComponent implements OnInit {
       (res: any) => {
         this.products = res;
 
-        this.activatedRoute.params.subscribe(
+        this.activatedRoute.queryParams.subscribe(
           (params) => {
             this.productsResult = JSON.parse(JSON.stringify(this.products));
+            if(params.id)
+            {            
+              this.searchInput = params.id.toLowerCase();
+              this.productsResult = this.productsResult.filter(
+                (p) =>
+                  p.productName &&
+                  p.productName.toLowerCase().includes(this.searchInput)
+              );
 
-            this.searchInput = params.id.toLowerCase();
+            }
+            else if(params.category)
+            {            
+              this.searchInput = params.category;
+              this.productsResult = this.productsResult.filter(
+                (p) =>
+                  p.productCategory === this.searchInput
+              );
+                this.categoryService.geCategoryById(this.searchInput).subscribe(
+                  (res:any)=>{
+                    this.searchInput = res.name;
+                  },
+                  (err)=>{console.error(err)},
+                  ()=>{},
+                ) 
+            }
+            else if(params.sub)
+            {            
+              this.searchInput = params.sub;
+              this.productsResult = this.productsResult.filter(
+                (p) =>
+                  p.productSubCategory === this.searchInput
+              );
+            }
 
-            this.productsResult = this.productsResult.filter(
-              (p) =>
-                p.productName &&
-                p.productName.toLowerCase().includes(this.searchInput)
-            );
 
             this.currentPage = 0;
             this.lastPage = this.productsResult.length / this.pageSize;
