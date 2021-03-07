@@ -94,7 +94,7 @@
     </nav>
   </div>
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-xl-6">
       <div class="col-12 d-flex ps-3 justify-content-center sticky-top test">
         <div style="padding: 20px">
           <img
@@ -111,7 +111,7 @@
         </div>
 
         <div
-          class="d-flex flex-column align-items-center position-absolute top-0 start-0 ms-md-4"
+          class="d-flex flex-column align-items-center position-absolute top-0 start-0 ms-xl-4"
         >
           <img
             *ngFor="let img of product.productImages; let i = index"
@@ -123,7 +123,7 @@
         </div>
       </div>
     </div>
-    <div class="col-md-4 px-4">
+    <div class="col-xl-4 px-4">
       <span id="productTitle" class="word-break">
         {{ product.productName }}
       </span>
@@ -218,10 +218,10 @@
         <!-- specs -->
         <div id="specsDiv" class="mt-2">
           <div *ngFor="let prop of productInfo" class="row gy-2 mt-2">
-            <div class="col-lg-4">
+            <div class="col-xl-4">
               <span class="font-weight-bold">{{ prop.name }}</span>
             </div>
-            <div class="col-lg-8 ps-lg-0">{{ prop.value }}</div>
+            <div class="col-xl-8 ps-xl-0">{{ prop.value }}</div>
           </div>
         </div>
         <hr />
@@ -252,7 +252,7 @@
             {{ "PRODUCT_INFO.Similar" | translate }}
           </h5>
           <div class="row">
-            <div class="col-lg-3">
+            <div class="col-xl-3">
               <img
                 alt=""
                 style="max-width: 100px; max-height: 100px"
@@ -260,7 +260,7 @@
                 id="value-pick-image"
               />
             </div>
-            <div class="col-lg-9 ps-0">
+            <div class="col-xl-9 ps-0">
               <h6 class="word-break AH_card-link">
                 {{ similarProduct.productName }}
               </h6>
@@ -279,7 +279,7 @@
         </div>
       </div>
     </div>
-    <div class="col-md-2">
+    <div class="col-xl-2">
       <div class="card p-3">
         <div class="price">
           {{ "PRODUCT_INFO.EGP" | translate }}
@@ -385,14 +385,14 @@
           {{ "PRODUCT_Share" | translate }}</span
         >
         <span class="me-2">
-          <i class="far fa-envelope fa-lg" style="color: lightgrey"></i>
+          <i class="far fa-envelope fa-xl" style="color: lightgrey"></i>
         </span>
 
         <span class="me-2">
-          <i class="fab fa-facebook-square fa-lg" style="color: #4267b2"></i>
+          <i class="fab fa-facebook-square fa-xl" style="color: #4267b2"></i>
         </span>
         <span class="me-2">
-          <i class="fab fa-twitter fa-lg" style="color: #1da1f2"></i>
+          <i class="fab fa-twitter fa-xl" style="color: #1da1f2"></i>
         </span>
       </div>
       <!-- Other sellers -->
@@ -434,6 +434,7 @@
       <li
         *ngFor="let relPro of relatedProducts"
         class="list-inline-item text-center"
+        style="max-width: 270px"
       >
         <a [routerLink]="['/product', 'details', relPro._id]">
           <img
@@ -442,7 +443,9 @@
             class="product-image"
             height="200px"
           />
-          <div>{{ relPro.productName }}</div>
+          <div class="word-break">
+            {{ relPro.productName | slice: 0:20 }}
+          </div>
         </a>
       </li>
     </ul>
