@@ -26,7 +26,7 @@
                 </div>
                 
                 <div  *ngIf="products" class="row">
-                  <div class="col-12 col-lg-6 col-md-6 col-sm-6" *ngFor="let item of getSlicedArrOfProducts()">
+                  <div class="col-12 col-lg-3 col-md-4 col-sm-6" *ngFor="let item of getSlicedArrOfProducts()">
                     <app-product-item  [product]="item" >
                       
                     </app-product-item>
