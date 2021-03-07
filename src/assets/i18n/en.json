@@ -302,7 +302,8 @@
     "CANCEL_ORDER": "Cancel Order",
     "COMPLETED": "Completed",
     "CANCELLED": "Cancelled",
-
+    "DELIVERED_ON": "Order delivered on:",
+    "TO_BE_DELIVERED_ON": "Order to be delivered on:",
     "PENDING": "Pending"
   },
   "SEARCH_RESULTS": {
