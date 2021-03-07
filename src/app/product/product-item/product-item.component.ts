@@ -22,6 +22,7 @@ sellers:any=[];
     0.5: 'fas fa-star-half-alt',
     1: 'fas fa-star',
   };
+  loggedInSeller:boolean=false;
   tempProduct;
   cartArray = [];
   cartQuantity = 0;
@@ -35,6 +36,11 @@ sellers:any=[];
       ()=>{​​}​​,
 
     );
+    if(localStorage.getItem('sellerLoginStorage')){
+      this.loggedInSeller=true
+    }else{
+      this.loggedInSeller=false
+    }
 
   }
   fillStars() {
