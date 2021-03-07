@@ -82,9 +82,9 @@
     "SHOP_LAPTOPS_&_TABLETS": "Shop Laptops & Tablets",
     "EXPLORE_HOME_BEDDING": "Explore home bedding",
     "CREATE_WITH_STRIP_LIGHTS": "Create with strip lights",
-    "GIFTS_IN_VIDEO_GAMES_UNDER": "Gifts in Video Games under $30",
-    "STUFFED_ANIMALS_&_TOYS_UNDER": "Stuffed Animals & Toys under $10",
-    "MUST_HAVE_WIRELESS_PRODUCTS": "Must have Wireless products",
+    "COMPUTER_&_VIDEO_GAMES": "Computer components & Video games",
+    "PHONE": "Smart Phones",
+    "CLOTHES_&_SHOES": "Clothes & Shoes",
     "BEST_SELLERS_IN_BABY": "Best Sellers in Baby",
     "OUR_FAVORITE_TOYS": "Our favorite Toys",
     "BEST_SELLERS_IN_KINDLE_EBOOKS": "Best sellers in Kindle eBooks",
@@ -302,7 +302,8 @@
     "CANCEL_ORDER": "Cancel Order",
     "COMPLETED": "Completed",
     "CANCELLED": "Cancelled",
-
+    "DELIVERED_ON": "Order delivered on:",
+    "TO_BE_DELIVERED_ON": "Order to be delivered on:",
     "PENDING": "Pending"
   },
   "SEARCH_RESULTS": {
@@ -380,7 +381,8 @@
     "Share": "Share",
     "OtherSellers": "Other Sellers on Amazon",
     "Cart": "Add To Cart",
-    "Related": "Products related to this item"
+    "Related": "Products related to this item",
+    "PRODUCT_Share": "Share"
   },
   "SIDENAV": {
     "HELLO": "Hello,",

@@ -35,33 +35,33 @@
             <h2>Product Data</h2>
             <div class="mb-3" >
               <label for="prodName" class="form-label ">Product Name</label>
-              <input [ngClass]="{'invalid':prodName.touched && prodName.invalid }" #prodName='ngModel' type="text" class="form-control " [(ngModel)]='product.productName' id="prodName" name="prodName">
+              <input required [ngClass]="{'invalid':prodName.touched && prodName.invalid }" #prodName='ngModel' type="text" class="form-control " [(ngModel)]='product.productName' id="prodName" name="prodName">
             </div>
             <div class="mb-3" >
               <label for="prodType" class="form-label ">Product Type</label>
-              <input #prodType='ngModel' type="text" class="form-control " [(ngModel)]='product.productType' id="prodType" name="prodType">
+              <input required #prodType='ngModel' type="text" class="form-control " [(ngModel)]='product.productType' id="prodType" name="prodType">
             </div>
 
             <div class="mb-3" >
               <label  class="form-label ">Product Category</label>
-              <select (change)='applySub()' #prodCategory='ngModel' class="form-select " [(ngModel)]='product.productCategory' id="prodCategory" name="prodCategory">
+              <select required (change)='applySub()' #prodCategory='ngModel' class="form-select " [(ngModel)]='product.productCategory' id="prodCategory" name="prodCategory">
                 <option *ngFor='let cat of categories' [value]="cat._id">{{cat.name}}</option>
               </select>
             </div>
             <div class="mb-3" >
               <label  class="form-label ">Product Sub Category</label>
-              <select #prodSubCategory='ngModel' class="form-select " [(ngModel)]='product.productSubCategory' id="prodSubCategory" name="prodSubCategory">
+              <select required #prodSubCategory='ngModel' class="form-select " [(ngModel)]='product.productSubCategory' id="prodSubCategory" name="prodSubCategory">
                 <option *ngFor='let subCat of subCategories' [value]="subCat">{{subCat}}</option>
               </select>
             </div>
             <div class="mb-3" >
               <label  class="form-label ">Product Stock</label>
-              <input #prodStock='ngModel' type="number" class="form-control " [(ngModel)]='product.productStock' id="prodStock" name="prodStock">
+              <input required #prodStock='ngModel' type="number" class="form-control " [(ngModel)]='product.productStock' id="prodStock" name="prodStock">
             </div>
 
             <div class="mb-3" >
               <label  class="form-label ">Warehouse</label>
-              <select #warehouse='ngModel' class="form-select " [(ngModel)]='product.warehouseId' id="warehouse" name="warehouse">
+              <select required #warehouse='ngModel' class="form-select " [(ngModel)]='product.warehouseId' id="warehouse" name="warehouse">
                 <option *ngFor='let warehouse of warehouses' [value]="warehouse._id">{{warehouse.name}}</option>
               </select>
             </div>
@@ -83,7 +83,7 @@
           </div>
             <div class="mb-3">
               <label for="prodDesc" class="form-label ">Description</label>
-              <textarea #prodDesc='ngModel' rows="4" style="resize: none;" class="form-control " [(ngModel)]='product.productInfo[0].description' id="prodDesc" name="prodDesc" ></textarea>
+              <textarea required #prodDesc='ngModel' rows="4" style="resize: none;" class="form-control " [(ngModel)]='product.productInfo[0].description' id="prodDesc" name="prodDesc" ></textarea>
             </div>
             <div class="mb-3">
               <label for="prodMat" class="form-label ">Material</label>
@@ -122,7 +122,7 @@
               <div class="mb-3" >
               <div class="form-group">
                 <label for="prodPrice">Price</label>
-                <input [(ngModel)]='product.productPrice.currentPrice' #prodPrice='ngModel' class="form-control" type="number" name="prodPrice" id="prodPrice">
+                <input required [(ngModel)]='product.productPrice.currentPrice' #prodPrice='ngModel' class="form-control" type="number" name="prodPrice" id="prodPrice">
             </div></div>
             <div class="mb-3" >
               <label for="prodSale">Status</label>

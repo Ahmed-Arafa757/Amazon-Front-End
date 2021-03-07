@@ -59,17 +59,20 @@ export class ProductReviewsComponent implements OnInit {
       () => {}
     );
 
-    const userID = localStorage.getItem('user id');
-    this.usersService.getUserById(userID).subscribe({
-      next: (user: any) => {
-        console.log(user);
-        this.user = user;
-        console.log(this.user);
-      },
-      error: (err) => {
-        console.log(err);
-      },
-    });
+    if(localStorage.getItem('user id'))
+    {
+      const userID = localStorage.getItem('user id');
+      this.usersService.getUserById(userID).subscribe({
+        next: (user: any) => {
+          console.log(user);
+          this.user = user;
+          console.log(this.user);
+        },
+        error: (err) => {
+          console.log(err);
+        },
+      });
+    }
   }
 
   getReviews() {

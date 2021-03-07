@@ -117,7 +117,7 @@
               <h5 class="card-title AH_card-title">
                 {{ "HOME.DEALS_&_PROMOTIONS" | translate }}
               </h5>
-              <a href=""
+              <a [routerLink]="['/deals']"
                 ><img
                   src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/May/Dashboard/Fuji_Dash_Deals_1x._SY304_CB430401028_.jpg"
                   class="AH_card-img"
@@ -135,7 +135,6 @@
               <div id="AH_home-signin" class="card">
                 <div class="card-body">
                   <h5 class="card-title AH_card-title">
-                    
                     {{
                       isLogged
                         ? ("HEADER.HELLO" | translate) + loggedInUser
@@ -304,166 +303,17 @@
         >
 
         <ul class="AA_listInline px-0 mt-2">
-          <li class="list-inline-item">
-            <img
-              alt="Minecraft - Nintendo Switch"
-              src="https://m.media-amazon.com/images/I/41ffko0T3kL._AC_SY200_.jpg"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/71dIHv1zh7L._AC_SY400_.jpg"
-            />
-          </li>
-          <li class="list-inline-item">
-            <img
-              alt="RUNMUS Gaming Headset Xbox One Headset with 7.1 Surround Sound, PS4 Headset with Noise Canceling Mic &amp; LED Light,..."
-              src="https://m.media-amazon.com/images/I/41KL+iXUXCL._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/61lnzTv2a0L._AC_SY400_.jpg"
-            />
-          </li>
-          <li class="list-inline-item">
-            <img
-              alt="amFilm Tempered Glass Screen Protector for Nintendo Switch 2017 (2-Pack)"
-              src="https://m.media-amazon.com/images/I/51G8LfsNZzL._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/61RS44SioLL._AC_SY400_.jpg"
-            />
-          </li>
-          <li class="list-inline-item">
-            <img
-              alt="Logitech G203 Prodigy RGB Wired Gaming Mouse – Black"
-              src="https://m.media-amazon.com/images/I/31i3tpuXxxL._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/71BmDZ6u22L._AC_SY400_.jpg"
-            />
-          </li>
-          <li class="list-inline-item">
-            <img
-              alt="Logitech G602 Lag-Free Wireless Gaming Mouse – 11 Programmable Buttons, Upto 2500 DPI"
-              src="https://m.media-amazon.com/images/I/41XlyY4EvQL._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/81ZQgWwuVzL._AC_SY400_.jpg"
-            />
-          </li>
-          <li class="list-inline-item">
-            <img
-              alt="NUBWO Gaming headsets PS4 N7 Stereo Xbox one Headset Wired PC Gaming Headphones with Noise Canceling Mic , Over Ear..."
-              src="https://m.media-amazon.com/images/I/41W5-duvLkL._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/61EIHYCUGYL._AC_SY400_.jpg"
-            />
-          </li>
-          <li class="list-inline-item">
-            <img
-              alt="Orzly Carry Case Compatible with Nintendo Switch - Black Protective Hard Portable Travel Carry Case Shell Pouch for..."
-              src="https://m.media-amazon.com/images/I/41g0C69FbvL._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/71+wvccA3ML._AC_SY400_.jpg"
-            />
-          </li>
-          <li class="list-inline-item">
-            <img
-              alt="BEBONCOOL PS4 Controller Charger, Controller USB Charging Station Dock for DualShock 4, PlayStation 4 Charging Station..."
-              src="https://m.media-amazon.com/images/I/41tQ9dniedL._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/81UWP87LpwL._AC_SY400_.jpg"
-            />
-          </li>
-          <li class="list-inline-item">
-            <img
-              alt="PICTEK Gaming Mouse Wired [7200 DPI] [Programmable] [Breathing Light] Ergonomic Game USB Computer Mice RGB Gamer Desktop..."
-              src="https://m.media-amazon.com/images/I/41bCxnHksnL._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/61gxUsLtlyL._AC_SY400_.jpg"
-            />
-          </li>
-          <li class="list-inline-item">
-            <img
-              alt="Redragon S101 Wired Gaming Keyboard and Mouse Combo RGB Backlit Gaming Keyboard with Multimedia Keys Wrist Rest and Red..."
-              src="https://m.media-amazon.com/images/I/41GGPRqTZtL._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/71kr3WAj1FL._AC_SY400_.jpg"
-            />
-          </li>
-          <li class="list-inline-item">
-            <img
-              alt="UGREEN Ethernet Adapter USB 2.0 to 10/100 Network RJ45 LAN Wired Adapter Compatible for Nintendo Switch, Wii, Wii U,..."
-              src="https://m.media-amazon.com/images/I/41Pf-FgUROL._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/51QguyfpCVL._AC_SY400_.jpg"
-            />
-          </li>
-          <li class="list-inline-item">
-            <img
-              alt="Microsoft Xbox Wireless Adapter for Windows 10"
-              src="https://m.media-amazon.com/images/I/416IxcmUpGL._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/51UqtdIsVlL._AC_SY400_.jpg"
-            />
-          </li>
-          <li class="list-inline-item">
-            <img
-              alt="PICTEK Gaming Mouse Wired, RGB Chroma Backlit Gaming Mouse, 8 Programmable Buttons, 7200 DPI Adjustable, Comfortable..."
-              src="https://m.media-amazon.com/images/I/41LO2OX6pRL._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/61d9C4yCB2L._AC_SY400_.jpg"
-            />
-          </li>
-          <li class="list-inline-item">
-            <img
-              alt="PICTEK Gaming Mouse Wired, RGB Chroma Backlit Gaming Mouse, 8 Programmable Buttons, 7200 DPI Adjustable, Comfortable..."
-              src="https://m.media-amazon.com/images/I/41cEMMExIoL._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/61d9C4yCB2L._AC_SY400_.jpg"
-            />
-          </li>
-          <li class="list-inline-item">
-            <img
-              alt="PICTEK Gaming Mouse Wired, RGB Chroma Backlit Gaming Mouse, 8 Programmable Buttons, 7200 DPI Adjustable, Comfortable..."
-              src="https://m.media-amazon.com/images/I/413g5VksS2L._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/61d9C4yCB2L._AC_SY400_.jpg"
-            />
-          </li>
-          <li class="list-inline-item">
-            <img
-              alt="PICTEK Gaming Mouse Wired, RGB Chroma Backlit Gaming Mouse, 8 Programmable Buttons, 7200 DPI Adjustable, Comfortable..."
-              src="https://m.media-amazon.com/images/I/51EFHtOLKxL._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/61d9C4yCB2L._AC_SY400_.jpg"
-            />
-          </li>
-          <li class="list-inline-item">
-            <img
-              alt="PICTEK Gaming Mouse Wired, RGB Chroma Backlit Gaming Mouse, 8 Programmable Buttons, 7200 DPI Adjustable, Comfortable..."
-              src="https://m.media-amazon.com/images/I/31qwualUaLL._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/61d9C4yCB2L._AC_SY400_.jpg"
-            />
-          </li>
-          <li class="list-inline-item">
-            <img
-              alt="PICTEK Gaming Mouse Wired, RGB Chroma Backlit Gaming Mouse, 8 Programmable Buttons, 7200 DPI Adjustable, Comfortable..."
-              src="https://m.media-amazon.com/images/I/315t-VOAjgL._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/61d9C4yCB2L._AC_SY400_.jpg"
-            />
+          <li
+            *ngFor="let product of topSellerProducts"
+            class="list-inline-item"
+          >
+            <a [routerLink]="['/product/details/', product._id]">
+              <img
+                [alt]="product.productName"
+                [src]="product.productImages && product.productImages[0]"
+                class="product-image"
+                height="200px"
+            /></a>
           </li>
         </ul>
       </div>
@@ -473,112 +323,18 @@
           <a href="" id="AA_link">{{ "HOME.SHOP_NOW" | translate }}</a></span
         >
 
-        <ul class="AA_listInline px-0 mt-2">
-          <li class="list-inline-item">
-            <img
-              alt="Minecraft - Nintendo Switch"
-              src="https://m.media-amazon.com/images/I/41Z7qvCN+UL._AC_SY200_.jpg"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/71dIHv1zh7L._AC_SY400_.jpg"
-            />
-          </li>
-          <li class="list-inline-item">
-            <img
-              alt="RUNMUS Gaming Headset Xbox One Headset with 7.1 Surround Sound, PS4 Headset with Noise Canceling Mic &amp; LED Light,..."
-              src="https://m.media-amazon.com/images/I/41yn8u3qJPL._AC_SY200_.jpg"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/61lnzTv2a0L._AC_SY400_.jpg"
-            />
-          </li>
-          <li class="list-inline-item">
-            <img
-              alt="amFilm Tempered Glass Screen Protector for Nintendo Switch 2017 (2-Pack)"
-              src="https://m.media-amazon.com/images/I/51+8z0H7zGL._AC_SY200_.jpg"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/61RS44SioLL._AC_SY400_.jpg"
-            />
-          </li>
-          <li class="list-inline-item">
-            <img
-              alt="Logitech G203 Prodigy RGB Wired Gaming Mouse – Black"
-              src="https://m.media-amazon.com/images/I/51tyP0EgjUL._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/71BmDZ6u22L._AC_SY400_.jpg"
-            />
-          </li>
-          <li class="list-inline-item">
-            <img
-              alt="Logitech G602 Lag-Free Wireless Gaming Mouse – 11 Programmable Buttons, Upto 2500 DPI"
-              src="https://m.media-amazon.com/images/I/51EnREs7ElL._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/81ZQgWwuVzL._AC_SY400_.jpg"
-            />
-          </li>
-          <li class="list-inline-item">
-            <img
-              alt="NUBWO Gaming headsets PS4 N7 Stereo Xbox one Headset Wired PC Gaming Headphones with Noise Canceling Mic , Over Ear..."
-              src="https://m.media-amazon.com/images/I/41RNHlao-eL._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/61EIHYCUGYL._AC_SY400_.jpg"
-            />
-          </li>
-          <li class="list-inline-item">
-            <img
-              alt="Orzly Carry Case Compatible with Nintendo Switch - Black Protective Hard Portable Travel Carry Case Shell Pouch for..."
-              src="https://m.media-amazon.com/images/I/51MQYQ+9lxL._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/71+wvccA3ML._AC_SY400_.jpg"
-            />
-          </li>
-          <li class="list-inline-item">
-            <img
-              alt="BEBONCOOL PS4 Controller Charger, Controller USB Charging Station Dock for DualShock 4, PlayStation 4 Charging Station..."
-              src="https://m.media-amazon.com/images/I/51BQ1hohpJL._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/81UWP87LpwL._AC_SY400_.jpg"
-            />
-          </li>
-          <li class="list-inline-item">
-            <img
-              alt="PICTEK Gaming Mouse Wired [7200 DPI] [Programmable] [Breathing Light] Ergonomic Game USB Computer Mice RGB Gamer Desktop..."
-              src="https://m.media-amazon.com/images/I/51EJjGyLVpL._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/61gxUsLtlyL._AC_SY400_.jpg"
-            />
-          </li>
-
-          <li class="list-inline-item">
-            <img
-              alt="UGREEN Ethernet Adapter USB 2.0 to 10/100 Network RJ45 LAN Wired Adapter Compatible for Nintendo Switch, Wii, Wii U,..."
-              src="https://m.media-amazon.com/images/I/414HE5yOdoL._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/51QguyfpCVL._AC_SY400_.jpg"
-            />
-          </li>
-          <li class="list-inline-item">
-            <img
-              alt="Microsoft Xbox Wireless Adapter for Windows 10"
-              src="https://m.media-amazon.com/images/I/31l214ak+LL._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/51UqtdIsVlL._AC_SY400_.jpg"
-            />
-          </li>
-          <li class="list-inline-item">
-            <img
-              alt="PICTEK Gaming Mouse Wired, RGB Chroma Backlit Gaming Mouse, 8 Programmable Buttons, 7200 DPI Adjustable, Comfortable..."
-              src="https://m.media-amazon.com/images/I/51WEIiwofyL._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/61d9C4yCB2L._AC_SY400_.jpg"
-            />
+        <ul class="AA_listInline px-0 mt-2 d-flex justify-content-around">
+          <li
+            *ngFor="let product of beautySkinProducts"
+            class="list-inline-item"
+          >
+            <a [routerLink]="['/product/details/', product._id]">
+              <img
+                [alt]="product.productName"
+                [src]="product.productImages[0]"
+                class="product-image"
+                height="200px"
+            /></a>
           </li>
         </ul>
       </div>
@@ -707,418 +463,63 @@
 
       <div class="row tp-product-slider m-4">
         <span id="AA_title"
-          >{{ "HOME.GIFTS_IN_VIDEO_GAMES_UNDER" | translate }}
+          >{{ "HOME.COMPUTER_&_VIDEO_GAMES" | translate }}
           <a href="" id="AA_link">{{ "HOME.SHOP_NOW" | translate }}</a></span
         >
 
         <ul class="tp-list-inline px-0 mt-2">
-          <li class="list-inline-item">
-            <img
-              alt="Minecraft - Nintendo Switch"
-              src="https://m.media-amazon.com/images/I/51NV8Uil7wL._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/71dIHv1zh7L._AC_SY400_.jpg"
-            />
-          </li>
-          <li class="list-inline-item">
-            <img
-              alt="RUNMUS Gaming Headset Xbox One Headset with 7.1 Surround Sound, PS4 Headset with Noise Canceling Mic &amp; LED Light,..."
-              src="https://m.media-amazon.com/images/I/41QztBTooxL._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/61lnzTv2a0L._AC_SY400_.jpg"
-            />
-          </li>
-          <li class="list-inline-item">
-            <img
-              alt="amFilm Tempered Glass Screen Protector for Nintendo Switch 2017 (2-Pack)"
-              src="https://m.media-amazon.com/images/I/41BP6N0cDVL._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/61RS44SioLL._AC_SY400_.jpg"
-            />
-          </li>
-          <li class="list-inline-item">
-            <img
-              alt="Logitech G203 Prodigy RGB Wired Gaming Mouse – Black"
-              src="https://m.media-amazon.com/images/I/319KAiGobEL._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/71BmDZ6u22L._AC_SY400_.jpg"
-            />
-          </li>
-          <li class="list-inline-item">
-            <img
-              alt="Logitech G602 Lag-Free Wireless Gaming Mouse – 11 Programmable Buttons, Upto 2500 DPI"
-              src="https://m.media-amazon.com/images/I/41Ww3zikowL._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/81ZQgWwuVzL._AC_SY400_.jpg"
-            />
-          </li>
-          <li class="list-inline-item">
-            <img
-              alt="NUBWO Gaming headsets PS4 N7 Stereo Xbox one Headset Wired PC Gaming Headphones with Noise Canceling Mic , Over Ear..."
-              src="https://m.media-amazon.com/images/I/41sFQT0I4aL._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/61EIHYCUGYL._AC_SY400_.jpg"
-            />
-          </li>
-          <li class="list-inline-item">
-            <img
-              alt="Orzly Carry Case Compatible with Nintendo Switch - Black Protective Hard Portable Travel Carry Case Shell Pouch for..."
-              src="https://m.media-amazon.com/images/I/51mZVG8qQZL._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/71+wvccA3ML._AC_SY400_.jpg"
-            />
-          </li>
-          <li class="list-inline-item">
-            <img
-              alt="BEBONCOOL PS4 Controller Charger, Controller USB Charging Station Dock for DualShock 4, PlayStation 4 Charging Station..."
-              src="https://m.media-amazon.com/images/I/41VbT96pAWL._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/81UWP87LpwL._AC_SY400_.jpg"
-            />
-          </li>
-          <li class="list-inline-item">
-            <img
-              alt="PICTEK Gaming Mouse Wired [7200 DPI] [Programmable] [Breathing Light] Ergonomic Game USB Computer Mice RGB Gamer Desktop..."
-              src="https://m.media-amazon.com/images/I/41PDAAtkyGL._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/61gxUsLtlyL._AC_SY400_.jpg"
-            />
-          </li>
-          <li class="list-inline-item">
-            <img
-              alt="Redragon S101 Wired Gaming Keyboard and Mouse Combo RGB Backlit Gaming Keyboard with Multimedia Keys Wrist Rest and Red..."
-              src="https://m.media-amazon.com/images/I/51vOyKGea+L._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/71kr3WAj1FL._AC_SY400_.jpg"
-            />
-          </li>
-          <li class="list-inline-item">
-            <img
-              alt="UGREEN Ethernet Adapter USB 2.0 to 10/100 Network RJ45 LAN Wired Adapter Compatible for Nintendo Switch, Wii, Wii U,..."
-              src="https://m.media-amazon.com/images/I/31aYZs3ij5L._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/51QguyfpCVL._AC_SY400_.jpg"
-            />
-          </li>
-          <li class="list-inline-item">
-            <img
-              alt="Microsoft Xbox Wireless Adapter for Windows 10"
-              src="https://m.media-amazon.com/images/I/31fbwd4IoxL._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/51UqtdIsVlL._AC_SY400_.jpg"
-            />
-          </li>
-          <li class="list-inline-item">
-            <img
-              alt="PICTEK Gaming Mouse Wired, RGB Chroma Backlit Gaming Mouse, 8 Programmable Buttons, 7200 DPI Adjustable, Comfortable..."
-              src="https://m.media-amazon.com/images/I/41dqioIt0wL._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/61d9C4yCB2L._AC_SY400_.jpg"
-            />
+          <li
+            *ngFor="let product of electronicsProducts"
+            class="list-inline-item"
+          >
+            <a [routerLink]="['/product/details/', product._id]">
+              <img
+                [alt]="product.productName"
+                [src]="product.productImages[0]"
+                class="product-image"
+                height="200px"
+            /></a>
           </li>
         </ul>
       </div>
       <div class="row tp-product-slider m-4">
         <span id="AA_title"
-          >{{ "HOME.STUFFED_ANIMALS_&_TOYS_UNDER" | translate }}
+          >{{ "HOME.PHONE" | translate }}
           <a href="" id="AA_link">{{ "HOME.SHOP_NOW" | translate }}</a></span
         >
 
-        <ul class="tp-list-inline px-0 mt-2">
-          <li class="list-inline-item">
-            <img
-              alt="Bedtime Originals Choo Choo Express Plush Elephant - Humphrey"
-              src="https://m.media-amazon.com/images/I/512wF3yP3FL._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/81-80FPGX0L._AC_SY400_.jpg"
-            />
-          </li>
-          <li class="list-inline-item">
-            <img
-              alt="Bedtime Originals Twinkle Toes Pink Elephant Plush, Hazel"
-              src="https://m.media-amazon.com/images/I/41-7l-po+EL._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/81ZB62prn-L._AC_SY400_.jpg"
-            />
-          </li>
-          <li class="list-inline-item">
-            <img
-              alt='Fortnite 7" Llama Loot Plush'
-              src="https://m.media-amazon.com/images/I/41XCql8cjsL._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/71KUNPdl7dL._AC_SY400_.jpg"
-            />
-          </li>
-          <li class="list-inline-item">
-            <img
-              alt="WowWee Pinkfong Baby Shark Official Song Cube - Baby Shark"
-              src="https://m.media-amazon.com/images/I/41IrQCmYA+L._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/71fw5Z2CBHL._AC_SY400_.jpg"
-            />
-          </li>
-
-          <li class="list-inline-item">
-            <img
-              alt="Hatchimals CollEGGtibles, 4 Pack + Bonus, Season 4 Hatchimals CollEGGtible, for Ages 5 and Up (Styles and Colors May Vary)"
-              src="https://m.media-amazon.com/images/I/51wO0e5gXXL._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/91ny13-KzkL._AC_SY400_.jpg"
-            />
-          </li>
-          <li class="list-inline-item">
-            <img
-              alt="L.O.L. Surprise! Fuzzy Pets with Washable Fuzz Series 2"
-              src="https://m.media-amazon.com/images/I/41VFhVMh8uL._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/814iawRsybL._AC_SY400_.jpg"
-            />
-          </li>
-          <li class="list-inline-item">
-            <img
-              alt='Aurora - Precious Moments - 8.5" Sparkle Unicorn'
-              src="https://m.media-amazon.com/images/I/31y8TMTwRIL._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/71msxzqxUbL._AC_SY400_.jpg"
-            />
-          </li>
-          <li class="list-inline-item">
-            <img
-              alt='Pokemon Pikachu 8" Plush - Officially Licensed and Stuffed Animal Material'
-              src="https://m.media-amazon.com/images/I/410IWzsZhvL._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/71qeNzidkkL._AC_SY400_.jpg"
-            />
-          </li>
-          <li class="list-inline-item">
-            <img
-              alt='UGLYDOLLS Yours Truly Moxy Stuffed Plush Toy, 9.75" Tall'
-              src="https://m.media-amazon.com/images/I/51AaJPOD4qL._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/81n4ilutaJL._AC_SY400_.jpg"
-            />
-          </li>
-          <li class="list-inline-item">
-            <img
-              alt="Bedtime Originals Roar Dinosaur Plush Rex, Blue"
-              src="https://m.media-amazon.com/images/I/41j+wOpGjEL._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/71KWM+gJoUL._AC_SY400_.jpg"
-            />
-          </li>
-          <li class="list-inline-item">
-            <img
-              alt="Bedtime Originals Plush Monkey Ollie, Brown"
-              src="https://m.media-amazon.com/images/I/41ZmuuKMtmL._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/41ZmuuKMtmL._AC_SY400_.jpg"
-            />
-          </li>
-          <li class="list-inline-item">
-            <img
-              alt="Disney-Pixar's Toy Story 4 Small Plush, Woody"
-              src="https://m.media-amazon.com/images/I/41KjZpFDPTL._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/81FPeSAQzJL._AC_SY400_.jpg"
-            />
-          </li>
-          <li class="list-inline-item">
-            <img
-              alt="Disney The Lion King Large Plush, Simba"
-              src="https://m.media-amazon.com/images/I/41gU8tflgcL._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/8101nm8n7jL._AC_SY400_.jpg"
-            />
-          </li>
-          <li class="list-inline-item">
-            <img
-              alt="Disney Junior Sofia The First Pillowtime Pal"
-              src="https://m.media-amazon.com/images/I/41ABnWmX0eL._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/8150WGZupLL._AC_SY400_.jpg"
-            />
-          </li>
-          <li class="list-inline-item">
-            <img
-              alt="Ty 41208 Paw Patrol - Chase with Glitter Eyes 15 cm"
-              src="https://m.media-amazon.com/images/I/417ENa7Wl2L._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/51umjdE3YhL._AC_SY400_.jpg"
-            />
+        <ul class="tp-list-inline px-0 mt-2 d-flex justify-content-around">
+          <li *ngFor="let product of phoneProducts" class="list-inline-item">
+            <a [routerLink]="['/product/details/', product._id]">
+              <img
+                [alt]="product.productName"
+                [src]="product.productImages[0]"
+                class="product-image"
+                height="200px"
+            /></a>
           </li>
         </ul>
       </div>
       <div class="row tp-product-slider m-4">
         <span id="AA_title"
-          >{{ "HOME.MUST_HAVE_WIRELESS_PRODUCTS" | translate }}
+          >{{ "HOME.CLOTHES_&_SHOES" | translate }}
           <a href="" id="AA_link">{{ "HOME.SHOP_NOW" | translate }}</a></span
         >
 
         <ul class="tp-list-inline px-0 mt-2">
-          <li class="list-inline-item">
-            <img
-              alt="Garmin Forerunner 235, GPS Running Watch, Black/Gray"
-              src="https://m.media-amazon.com/images/I/41PYkNWSrAL._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/819WMWm6NoL._AC_SY400_.jpg"
-            />
+          <li
+            *ngFor="let product of clothingShoesProducts"
+            class="list-inline-item"
+          >
+            <a [routerLink]="['/product/details/', product._id]">
+              <img
+                [alt]="product.productName"
+                [src]="product.productImages && product.productImages[0]"
+                class="product-image"
+                height="200px"
+            /></a>
           </li>
-          <li class="list-inline-item">
-            <img
-              alt="AmazonBasics Nylon Braided Lightning to USB A Cable, MFi Certified Apple iPhone Charger, Dark Gray, 6-Foot"
-              src="https://m.media-amazon.com/images/I/41TEawIMRfL._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/71p11135VSL._AC_SY400_.jpg"
-            />
-          </li>
-          <li class="list-inline-item">
-            <img
-              alt="Wemo F7C030fc Light Switch, WiFi enabled, Works with Alexa and the Google Assistant"
-              src="https://m.media-amazon.com/images/I/310bMKQjT5L._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/510yp4Dw5pL._AC_SY400_.jpg"
-            />
-          </li>
-          <li class="list-inline-item">
-            <img
-              alt="Tram 1410 Broad Band Discone/Scanner Base Antenna"
-              src="https://m.media-amazon.com/images/I/31R4prWMk0L._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/71thpsLVv0L._AC_SY400_.jpg"
-            />
-          </li>
-
-          <li class="list-inline-item">
-            <img
-              alt="Mkeke Compatible with iPhone Xr Case,Clear Anti-Scratch Shock Absorption Cases for 6.1 Inch"
-              src="https://m.media-amazon.com/images/I/41WOalZ1N5L._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/71j2Zqi6BGL._AC_SY400_.jpg"
-            />
-          </li>
-          <li class="list-inline-item">
-            <img
-              alt="iOttie Easy One Touch 4 Dash &amp; Windshield Car Mount Phone Holder Desk Stand Pad &amp; Mat for iPhone, Samsung, Moto, Huawei,..."
-              src="https://m.media-amazon.com/images/I/51EXcNKQgoL._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/718NVofDrCL._AC_SY400_.jpg"
-            />
-          </li>
-          <li class="list-inline-item">
-            <img
-              alt="AmazonBasics 3.5 mm Male to Male Stereo Audio Aux Cable, 4 Feet, 1.2 Meters"
-              src="https://m.media-amazon.com/images/I/413BYCci6NL._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/61+pbMjCqWL._AC_SY400_.jpg"
-            />
-          </li>
-          <li class="list-inline-item">
-            <img
-              alt='OtterBox Defender Series Case for iPad Pro 12.9" (3rd Gen - ONLY) - Retail Packaging - Black'
-              src="https://m.media-amazon.com/images/I/31QZt3z85mL._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/51pUYchnV8L._AC_SY400_.jpg"
-            />
-          </li>
-          <li class="list-inline-item">
-            <img
-              alt="AmazonBasics Apple Certified 30-Pin to USB Charging Cable for Apple iPhone 4, iPod, iPad 3rd Generation, 3.2 Foot, Black"
-              src="https://m.media-amazon.com/images/I/4178UF1W9NL._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/81PlihBKrNL._AC_SY400_.jpg"
-            />
-          </li>
-          <li class="list-inline-item">
-            <img
-              alt="Garmin vívofit jr, Kids Fitness/Activity Tracker, 1year Battery Life, Real Flower"
-              src="https://m.media-amazon.com/images/I/31YGiracCNL._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/71X65dZMa1L._AC_SY400_.jpg"
-            />
-          </li>
-          <li class="list-inline-item">
-            <img
-              alt="OtterBox COMMUTER SERIES Case for iPhone 8/7 (NOT PLUS) - Retail Packaging - BLACK"
-              src="https://m.media-amazon.com/images/I/41RzUZ7NUWL._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/51n1RX1TMzL._AC_SY400_.jpg"
-            />
-          </li>
-          <li class="list-inline-item">
-            <img
-              alt="AmazonBasics Double Braided Nylon Lightning to USB Cable, Advanced Collection, MFi Certified Apple iPhone Charger, Dark..."
-              src="https://m.media-amazon.com/images/I/41Lv8P3IcVL._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/81T2DGhCZlL._AC_SY400_.jpg"
-            />
-          </li>
-          <li class="list-inline-item">
-            <img
-              alt="Samsung Galaxy Watch (42mm, GPS, Bluetooth) – Rose Gold (US Version)"
-              src="https://m.media-amazon.com/images/I/41ofVkm4TIL._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/81r-pSMQ1LL._AC_SY400_.jpg"
-            />
-          </li>
-          <li class="list-inline-item">
-            <img
-              alt="OtterBox Symmetry Series Case For iPhone Xr - Retail Packaging - Black"
-              src="https://m.media-amazon.com/images/I/41n25PRgFVL._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/616XyIIxyoL._AC_SY400_.jpg"
-            />
-          </li>
-          <li class="list-inline-item">
-            <img
-              alt="Plantronics Voyager Legend Wireless Bluetooth Headset - Compatible with iPhone, Android, and Other Leading Smartphones -..."
-              src="https://m.media-amazon.com/images/I/31zmMYroiCL._AC_SY200_.jpg"
-              class="product-image"
-              height="200px"
-              data-a-hires="https://m.media-amazon.com/images/I/51sc6e37-DL._AC_SY400_.jpg"
-            />
-          </li>
+          ]
         </ul>
       </div>
     </div>

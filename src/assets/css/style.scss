@@ -3,18 +3,17 @@
   padding: 0;
   box-sizing: border-box;
 }
-.SE-btn{
+.SE-btn {
   background: #f0c14b;
   border-color: #a88734 #9c7e31 #846a29;
   border-radius: 4px;
   color: #111;
   &:active {
-  box-shadow: 1.5px 1.5px 5px  #ff9900;
-}
-&:focus {
-  box-shadow: 2px 2px 7px  #ff9900;
-}
-
+    box-shadow: 1.5px 1.5px 5px #ff9900;
+  }
+  &:focus {
+    box-shadow: 2px 2px 7px #ff9900;
+  }
 }
 .container {
   max-width: 1600px;
@@ -35,7 +34,11 @@ body {
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 2;
+  z-index: 3;
+
+  transition: opacity 1s;
+  -webkit-transition: opacity 1s;
+  opacity: 1;
   cursor: pointer;
 }
 

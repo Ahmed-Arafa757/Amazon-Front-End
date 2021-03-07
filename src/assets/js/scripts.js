@@ -23,7 +23,7 @@ function AH_openNav() {
     document.getElementById("AH_Sidenav").style.zIndex = "3";
     document.getElementById("AH_sidenav-head").style.zIndex = "3";
     document.getElementById("AH_closebtn").style.display = "block";
-    document.getElementById("AH_closebtn").style.right = "380px";
+    document.getElementById("AH_closebtn").style.right = "450px";
     document.getElementsByTagName("body")[0].style = "overflow: hidden;";
     document.getElementById("overlay").style.display = "block";
     document.getElementsByTagName("body")[0].style.overflow = "hidden";

@@ -82,9 +82,9 @@
     "SHOP_LAPTOPS_&_TABLETS": "تسوق أجهزة الكمبيوتر المحمولة والأجهزة اللوحية",
     "EXPLORE_HOME_BEDDING": "اكتشف مفروشات المنزل",
     "CREATE_WITH_STRIP_LIGHTS": "إنشاء مع أضواء الشريط",
-    "GIFTS_IN_VIDEO_GAMES_UNDER": "هدايا في ألعاب الفيديو أقل من 30 دولارًا",
-    "STUFFED_ANIMALS_&_TOYS_UNDER": "حيوانات وألعاب محشوة بأقل من 10 دولارات",
-    "MUST_HAVE_WIRELESS_PRODUCTS": "يجب أن يكون لديك منتجات لاسلكية",
+    "COMPUTER_&_VIDEO_GAMES": "مكونات الكمبيوتر وألعاب الفيديو",
+    "PHONE": "الهواتف الذكية",
+    "CLOTHES_&_SHOES": "الأحذية والملابس",
     "BEST_SELLERS_IN_BABY": "الأفضل مبيعًا في قسم الاطفال الرضع",
     "OUR_FAVORITE_TOYS": "ألعابنا المفضلة",
     "BEST_SELLERS_IN_KINDLE_EBOOKS": "الأكثر مبيعًا في Kindle eBooks",
@@ -376,7 +376,8 @@
     "OtherSellers": "بائعون آخرون على Amazon",
     "Cart": "أضف إلى العربة",
     "FreeShipping": "شحن مجاني على طلبات التوصيل",
-    "Related": "منتجات مرتبطة بهذا المنتج"
+    "Related": "منتجات مرتبطة بهذا المنتج",
+    "PRODUCT_Share": "مشاركة"
   },
   "SIDENAV": {
     "HELLO": "مرحبا ,",

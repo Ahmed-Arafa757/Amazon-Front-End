@@ -64,8 +64,11 @@ export class HeaderComponent implements OnInit, DoCheck {
     );
     
     console.log('header on init');
+    
   }
-
+  searchByCategory(name){
+    this.router.navigate(['search-results/category/'],{queryParams:{category:name}});
+  }
   ngDoCheck() {
     if (this.isLogged === false) {
       if (
@@ -101,24 +104,21 @@ export class HeaderComponent implements OnInit, DoCheck {
         this.isLogged = false;
       }
     }
-    if(localStorage.getItem('sellerLoginStorage')){
-      let myObj = localStorage.getItem('sellerLoginStorage');
-      let mySellerId = JSON.parse(myObj)._id;
-      this.sellersService.getSellerById(mySellerId).subscribe(
-        (res) => {
-          this.mySeller = res;
-        },
-        (err) => {
-          console.log(err);
-        },
-        () => {}
-      );
-      this.loggedInSeller=true
-      
-    }else{
-      this.loggedInSeller=false
-      
+    if(this.loggedInSeller === false){
+      if(localStorage.getItem('sellerLoginStorage')){
+        this.loggedInSeller=true
+        let myObj = localStorage.getItem('sellerLoginStorage');
+        let mySellerId = JSON.parse(myObj)._id;
+        this.sellersService.getSellerById(mySellerId).subscribe(
+          (res) => {
+            this.mySeller = res;
+          }
+        );
+      }else{
+        this.loggedInSeller=false
+      }
     }
+    
   }
 
   changeCurrentLanguage(lang: string) {
