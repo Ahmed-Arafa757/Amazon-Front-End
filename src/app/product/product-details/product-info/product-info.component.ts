@@ -15,8 +15,12 @@ import { SellersService } from 'src/app/_services/sellers.service';
 })
 export class ProductInfoComponent implements OnInit {
   sellers;
-  currerntLang = localStorage.getItem('currentLang');
+  static currerntLang = localStorage.getItem('currentLang');
+
   imageShowIndex = 0;
+  maxProductNumber = 1;
+  timeInterval = 2000000;
+
   productInfo = [];
   productDescription;
   sellerNM;
@@ -50,6 +54,10 @@ export class ProductInfoComponent implements OnInit {
   relatedProducts = [];
   similarProduct = { productImages: [], finalPrice: 0, productName: '' };
   similarProductReview;
+
+  get currerntLang() {
+    return ProductInfoComponent.currerntLang;
+  }
   searchProductsByKeywords(...params) {
   
 
@@ -103,7 +111,8 @@ export class ProductInfoComponent implements OnInit {
           this.product = res;
           this.categoryID = this.product.productCategory;
           console.log(this.product.productInfo[0]);
-
+          this.maxProductNumber = this.product.productImages.length;
+          this.timeInterval = 1000;
           for (const key in this.product.productInfo[0]) {
             if (key == 'color') {
               continue;

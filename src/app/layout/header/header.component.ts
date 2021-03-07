@@ -9,6 +9,7 @@ import { UsersService } from '../../_services/users.service';
 import { LoginComponent } from '../../auth/login/login.component';
 import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
+import { ProductInfoComponent } from 'src/app/product/product-details/product-info/product-info.component';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -104,19 +105,18 @@ export class HeaderComponent implements OnInit, DoCheck {
       }
     }
 
-
     if (this.loggedInSeller === false) {
       if (localStorage.hasOwnProperty('sellerLoginStorage')) {
         this.loggedInSeller = true;
         let myObj = localStorage.getItem('sellerLoginStorage');
         let mySellerId = JSON.parse(myObj)._id;
         this.sellersService.getSellerById(mySellerId).subscribe((res) => {
-        this.mySeller = res;
+          this.mySeller = res;
         });
       } else {
         this.loggedInSeller = false;
       }
-    }else{
+    } else {
       if (localStorage.hasOwnProperty('sellerLoginStorage')) {
         this.loggedInSeller = true;
       } else {
@@ -129,7 +129,7 @@ export class HeaderComponent implements OnInit, DoCheck {
     this.translate.use(lang);
     localStorage.setItem('currentLang', lang);
     this.currentLang = lang;
-
+    ProductInfoComponent.currerntLang = lang;
     //Changing the html lang attribute also
     document.documentElement.lang = lang;
     if (lang === 'en') {
