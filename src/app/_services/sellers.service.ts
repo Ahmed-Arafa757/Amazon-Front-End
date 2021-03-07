@@ -7,8 +7,8 @@ import { Seller } from '../_model/sellers';
 })
 export class SellersService {
   sellers: Seller[] = [];
-  //baseUrl = 'https://iti-amzon-backend.herokuapp.com/';
-  baseUrl = 'http://localhost:3000/';
+  baseUrl = 'https://iti-amzon-backend.herokuapp.com/';
+  /* baseUrl = 'http://localhost:3000/'; */
   constructor(private httpClinet: HttpClient) {}
 
   getAllSellers() {
