@@ -100,90 +100,51 @@
         <!-- [routerLink]="['/search-results']" -->
         <form class="d-flex MM_SearchInput ms-2 me-3">
           <div class="input-group">
-            <select class="form-select" aria-label="Default select example">
+            <select #cat (change)='searchByCategory(cat.value)' style="cursor: pointer;" class="form-select" aria-label="Default select example">
               <option selected disabled>{{ "HEADER.ALL" | translate }}</option>
-              <option value="search-alias=aps">
-                {{ "HEADER.ALL_DEPARTMENTS" | translate }}
-              </option>
-              <option value="search-alias=arts-crafts-intl-ship">
+              <option value="5ff7bf7d1c1a3e395fc30547">
                 {{ "HEADER.ARTS_&_CRAFTS" | translate }}
               </option>
-              <option value="search-alias=automotive-intl-ship">
+              <option value="5ff7bf111c1a3e395fc30546">
                 {{ "HEADER.AUTOMOTIVE" | translate }}
               </option>
-              <option value="search-alias=baby-products-intl-ship">
-                {{ "HEADER.BABY" | translate }}
-              </option>
-              <option value="search-alias=beauty-intl-ship">
+              <option value="5ff7bcf21c1a3e395fc3053f">
                 {{ "HEADER.BEAUTY_&_PERSONAL_CARE" | translate }}
               </option>
-              <option value="search-alias=stripbooks-intl-ship">
-                {{ "HEADER.BOOKS" | translate }}
-              </option>
-              <option value="search-alias=computers-intl-ship">
+              <option value="5ff7bc741c1a3e395fc3053d">
                 {{ "HEADER.COMPUTERS" | translate }}
               </option>
-              <option value="search-alias=digital-music">
-                {{ "HEADER.DIGITAL_MUSIC" | translate }}
-              </option>
-              <option value="search-alias=electronics-intl-ship">
+              <option value="6044442cccd07354d1efc936">
                 {{ "HEADER.ELECTRONICS" | translate }}
               </option>
-              <option value="search-alias=digital-text">
-                {{ "HEADER.KINDLE_STORE" | translate }}
-              </option>
-              <option value="search-alias=instant-video">
-                {{ "HEADER.PRIME_VIDEO" | translate }}
-              </option>
-              <option value="search-alias=fashion-womens-intl-ship">
-                {{ "HEADER.WOMENS_FASHION" | translate }}
-              </option>
-              <option value="search-alias=fashion-mens-intl-ship">
+              <option value="5ff7be7f1c1a3e395fc30543">
                 {{ "HEADER.MENS_FASHION" | translate }}
               </option>
-              <option value="search-alias=fashion-girls-intl-ship">
+              <option value="5ff7bec01c1a3e395fc30544">
                 {{ "HEADER.GIRLS_FASHION" | translate }}
               </option>
-              <option value="search-alias=fashion-boys-intl-ship">
+              <option value="5ff7beed1c1a3e395fc30545">
                 {{ "HEADER.BOYS_FASHION" | translate }}
               </option>
-              <option value="search-alias=deals-intl-ship">
-                {{ "HEADER.DEALS" | translate }}
-              </option>
-              <option value="search-alias=hpc-intl-ship">
-                {{ "HEADER.HEALTH_&_HOUSEHOLD" | translate }}
-              </option>
-              <option value="search-alias=kitchen-intl-ship">
+              <option value="5ff7bd231c1a3e395fc30540">
                 {{ "HEADER.HOME_&_KITCHEN" | translate }}
               </option>
-              <option value="search-alias=industrial-intl-ship">
+              <option value="5ff7bdeb1c1a3e395fc30541">
                 {{ "HEADER.INDUSTRIAL_&_SCIENTIFIC" | translate }}
               </option>
-              <option value="search-alias=luggage-intl-ship">
-                {{ "HEADER.LUGGAGE" | translate }}
-              </option>
-              <option value="search-alias=movies-tv-intl-ship">
+              <option value="5ff7bcb11c1a3e395fc3053e">
                 {{ "HEADER.MOVIES_&_TV" | translate }}
               </option>
-              <option value="search-alias=music-intl-ship">
-                {{ "HEADER.MUSIC_CDS_&_VINYL" | translate }}
-              </option>
-              <option value="search-alias=pets-intl-ship">
+              <option value="5ff7c1021c1a3e395fc3054c">
                 {{ "HEADER.PET_SUPPLIES" | translate }}
               </option>
-              <option value="search-alias=software-intl-ship">
-                {{ "HEADER.SOFTWARE" | translate }}
-              </option>
-              <option value="search-alias=sporting-intl-ship">
+              <option value="5ff7c0d71c1a3e395fc3054b">
                 {{ "HEADER.SPORTS_&_OUTDOORS" | translate }}
               </option>
-              <option value="search-alias=tools-intl-ship">
+              <option value="5ff7c0301c1a3e395fc30549">
                 {{ "HEADER.TOOLS_&_HOME_IMPROVEMENT" | translate }}
               </option>
-              <option value="search-alias=toys-and-games-intl-ship">
-                {{ "HEADER.TOYS_&_GAMES" | translate }}
-              </option>
-              <option value="search-alias=videogames-intl-ship">
+              <option value="5ff7be1d1c1a3e395fc30542">
                 {{ "HEADER.VIDEO_GAMES" | translate }}
               </option>
             </select>
@@ -199,7 +160,7 @@
               (keyup.enter)='searchBTN.click()'
             />
             <span class="input-group-text MM_bg-search" id="basic-addon1">
-              <a (click)='search(searchString)' #searchBTN>
+              <a style="cursor: pointer;" (click)='search(searchString)' #searchBTN>
                 <i class="fas fa-search" style="color: #000"></i>
               </a>
             </span>

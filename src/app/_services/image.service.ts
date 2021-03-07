@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ImageService {
   // private url: string = 'https://iti-upload.herokuapp.com/';
-  private url: string = 'http://localhost:3200/';
+  private url: string = 'http://localhost:3000/';
   constructor(private http: HttpClient) {}
 
   upload(img, id) {
