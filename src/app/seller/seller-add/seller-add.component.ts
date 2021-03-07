@@ -257,6 +257,7 @@ this.categoryService.getAllSubCategoriesOfACategryById(this.product.productCateg
               (res)=>{
                 console.log(res);
                 alert('Product Updated');
+                window.location.reload();
               },
               (err)=>{console.error(err)},
               ()=>{}
@@ -276,6 +277,7 @@ this.categoryService.getAllSubCategoriesOfACategryById(this.product.productCateg
                     (res)=>{
                       console.log(res);
                       alert('Product Updated');
+                      window.location.reload();
                     },
                     (err)=>{console.error(err)},
                     ()=>{}
@@ -342,6 +344,7 @@ this.categoryService.getAllSubCategoriesOfACategryById(this.product.productCateg
                   (res)=>{
                     console.log(res);
                     alert('Product Added');
+                    window.location.reload();
                   },
                   (err)=>{console.error(err)},
                   ()=>{}
@@ -362,6 +365,7 @@ this.categoryService.getAllSubCategoriesOfACategryById(this.product.productCateg
           (res)=>{
             console.log(res);
             alert('Product Added');
+            window.location.reload();
           },
           (err)=>{console.error(err)},
           ()=>{}
