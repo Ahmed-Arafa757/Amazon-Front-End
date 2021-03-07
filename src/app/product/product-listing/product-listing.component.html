@@ -10,16 +10,20 @@
     <div class="col-10">
       <div class="row">
         <div class="col-12">
-          <p class="h2">{{ "PRODUCTS_LISTING.OUR_FULL_SELECTION" | translate }}</p>
+          <p class="h2">
+            {{ "PRODUCTS_LISTING.OUR_FULL_SELECTION" | translate }}
+          </p>
           <p id="AA_topProducts">
-          {{ "PRODUCTS_LISTING.TOP_PRODUCTS_SHIPPED" | translate }}
+            {{ "PRODUCTS_LISTING.TOP_PRODUCTS_SHIPPED" | translate }}
           </p>
 
           <div class="card">
             <div class="card-body">
               <span id="AA_1-12">
-               {{ "PRODUCTS_LISTING.OVER_2000" | translate }}
-                <span id="AA_exploreBest">{{ "PRODUCTS_LISTING.EXPLORE" | translate }} </span>
+                {{ "PRODUCTS_LISTING.OVER_2000" | translate }}
+                <span id="AA_exploreBest"
+                  >{{ "PRODUCTS_LISTING.EXPLORE" | translate }}
+                </span>
               </span>
             </div>
           </div>
@@ -36,7 +40,7 @@
         </app-product-item>
       </div>
 
-      <div class="row">
+      <div class="row my-2">
         <div class="col-12">
           <!-- <div class="d-grid gap-2" id="AA_SeeResultsBtn">
             <button class="btn btn-outline-light" type="button">
@@ -56,7 +60,8 @@
                 "
                 style="cursor: pointer"
               >
-                <i class="fas fa-long-arrow-alt-left"></i>{{ "PRODUCTS_LISTING.PREVIOUS" | translate }} 
+                <i class="fas fa-long-arrow-alt-left"></i
+                >{{ "PRODUCTS_LISTING.PREVIOUS" | translate }}
               </li>
 
               <li
@@ -78,7 +83,8 @@
                 "
                 style="cursor: pointer"
               >
-                <i class="fas fa-long-arrow-alt-right"></i>{{ "PRODUCTS_LISTING.NEXT" | translate }} 
+                <i class="fas fa-long-arrow-alt-right"></i
+                >{{ "PRODUCTS_LISTING.NEXT" | translate }}
               </li>
             </ul>
           </nav>
@@ -90,15 +96,21 @@
   <div *ngIf="SignedIn() === false" class="row">
     <div class="col-12" id="AA_lastRow">
       <hr />
-      <p class="h6" id="AA_startHere">{{ "PRODUCTS_LISTING.SEE_PERSONALIZED" | translate }}</p>
+      <p class="h6" id="AA_startHere">
+        {{ "PRODUCTS_LISTING.SEE_PERSONALIZED" | translate }}
+      </p>
       <a [routerLink]="['/login']">
         <div class="d-grid gap-2 col-2 mx-auto">
-          <button class="btn" type="button" id="AA_signInBtn">{{ "PRODUCTS_LISTING.SIGN_IN" | translate }}</button>
+          <button class="btn" type="button" id="AA_signInBtn">
+            {{ "PRODUCTS_LISTING.SIGN_IN" | translate }}
+          </button>
         </div>
       </a>
       <p class="h6" id="AA_startHere">
-      {{ "PRODUCTS_LISTING.NEW_CUSTOMER" | translate }} <a [routerLink]="['/register']">
-        {{ "PRODUCTS_LISTING.START_HERE" | translate }}</a>
+        {{ "PRODUCTS_LISTING.NEW_CUSTOMER" | translate }}
+        <a [routerLink]="['/register']">
+          {{ "PRODUCTS_LISTING.START_HERE" | translate }}</a
+        >
       </p>
 
       <hr />

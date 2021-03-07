@@ -9,6 +9,7 @@ import { UsersService } from '../../_services/users.service';
 import { LoginComponent } from '../../auth/login/login.component';
 import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
+import { ProductInfoComponent } from 'src/app/product/product-details/product-info/product-info.component';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -19,7 +20,7 @@ export class HeaderComponent implements OnInit, DoCheck {
   currentLang: string;
   cartArray = [];
   totalQuantity = 0;
-  loggedInSeller:boolean=false;
+  loggedInSeller: boolean = false;
   mySeller;
   searchString: string = '';
   loggedInUser;
@@ -32,7 +33,7 @@ export class HeaderComponent implements OnInit, DoCheck {
     private usersService: UsersService,
     private loginService: LoginComponent,
     public translate: TranslateService,
-    private sellersService:SellersService
+    private sellersService: SellersService
   ) {
     this.currentLang = localStorage.getItem('currentLang') || 'en';
     this.translate.use(this.currentLang);
@@ -44,8 +45,8 @@ export class HeaderComponent implements OnInit, DoCheck {
       this.langFlag = '../../../assets/images/icons/arabic.png';
     }
   }
-  search(key){
-    this.router.navigate(['search-results/'],{queryParams:{id:key}});
+  search(key) {
+    this.router.navigate(['search-results/'], { queryParams: { id: key } });
   }
   ngOnInit(): void {
     this.productService.productAdded.subscribe(
@@ -62,19 +63,17 @@ export class HeaderComponent implements OnInit, DoCheck {
         alert('Subscribe Operation Compeleted');
       }
     );
-    
+
     console.log('header on init');
-    if(localStorage.getItem('sellerLoginStorage')){
-      this.loggedInSeller=true
+    if (localStorage.getItem('sellerLoginStorage')) {
+      this.loggedInSeller = true;
       let myObj = localStorage.getItem('sellerLoginStorage');
       let mySellerId = JSON.parse(myObj)._id;
-      this.sellersService.getSellerById(mySellerId).subscribe(
-        (res) => {
-          this.mySeller = res;
-        }
-      );
-    }else{
-      this.loggedInSeller=false
+      this.sellersService.getSellerById(mySellerId).subscribe((res) => {
+        this.mySeller = res;
+      });
+    } else {
+      this.loggedInSeller = false;
     }
   }
 
@@ -84,20 +83,18 @@ export class HeaderComponent implements OnInit, DoCheck {
         localStorage.hasOwnProperty('token') &&
         localStorage.hasOwnProperty('user id')
       ) {
-
-
-        this.usersService.getUserById(localStorage.getItem('user id')).subscribe(
-          (res) => {
-            console.log('res');
-            this.loggedInUser = res['userName']; 
-
-
-          },
-          (err)=>{console.log(err);
-          },
-          ()=>{}
-        )
-
+        this.usersService
+          .getUserById(localStorage.getItem('user id'))
+          .subscribe(
+            (res) => {
+              console.log('res');
+              this.loggedInUser = res['userName'];
+            },
+            (err) => {
+              console.log(err);
+            },
+            () => {}
+          );
 
         this.isLogged = true;
       } else {
@@ -113,14 +110,13 @@ export class HeaderComponent implements OnInit, DoCheck {
         this.isLogged = false;
       }
     }
-    
   }
 
   changeCurrentLanguage(lang: string) {
     this.translate.use(lang);
     localStorage.setItem('currentLang', lang);
     this.currentLang = lang;
-
+    ProductInfoComponent.currerntLang = lang;
     //Changing the html lang attribute also
     document.documentElement.lang = lang;
     if (lang === 'en') {
@@ -128,16 +124,15 @@ export class HeaderComponent implements OnInit, DoCheck {
     } else {
       this.langFlag = '../../../assets/images/icons/arabic.png';
     }
-    this.currentLang=lang;
+    this.currentLang = lang;
   }
 
   logout() {
     localStorage.removeItem('user id');
     localStorage.removeItem('token');
   }
-  logoutSeller(){
+  logoutSeller() {
     localStorage.removeItem('sellerLoginStorage');
     this.router.navigate(['/home']);
   }
-
 }
