@@ -51,7 +51,7 @@ export class ProductInfoComponent implements OnInit {
   similarProduct = { productImages: [], finalPrice: 0, productName: '' };
   similarProductReview;
   searchProductsByKeywords(...params) {
-    console.log(params);
+  
 
     this.productService.getAllProducts().subscribe(
       (res: any) => {

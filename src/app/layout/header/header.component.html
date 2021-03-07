@@ -375,7 +375,7 @@
       class="text-white ps-4 py-3 fs-4 fw-bold AH_Sidenav-header d-block text-decoration-none"
     >
       <i class="fas fa-user-circle"></i> {{ "SIDENAV.HELLO" | translate }}
-      <span *ngIf="loggedInSeller">{{ mySeller.sellerName }}</span>
+      <span *ngIf="loggedInSeller && mySeller">{{ mySeller.sellerName }}</span>
       <span *ngIf="!loggedInSeller">{{
         isLogged ? loggedInUser : ("SIDENAV.SIGNIN" | translate)
       }}</span>

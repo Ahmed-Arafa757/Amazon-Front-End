@@ -72,8 +72,7 @@ export class SellerAddComponent implements OnInit {
         (res) => {
           this.product = res;
           this.arrayOfImages = this.product.productImages.slice();
-          console.log(this.product.productInfo[0].color);
-          console.log(res);
+         
           this.applySub();
           //images
           for (let img of this.product.productImages) {
@@ -256,20 +255,20 @@ export class SellerAddComponent implements OnInit {
       let index = 0;
       this.product.productImages = [];
       for (let i = 0; i < this.arrayOfImages.length; i++) {
-        console.log(typeof this.arrayOfImages[i]);
+       
         if (
           typeof this.arrayOfImages[i] === 'string' &&
           i != this.arrayOfImages.length - 1
         ) {
           this.product.productImages.push(this.arrayOfImages[i]);
-          console.log('string and not last index');
+         
           continue;
         } else if (
           typeof this.arrayOfImages[i] === 'string' &&
           i === this.arrayOfImages.length - 1
         ) {
           this.product.productImages.push(this.arrayOfImages[i]);
-          console.log('string and last index');
+          
           this.productService.updateProduct(this.product).subscribe(
             (res) => {
               console.log(res);
@@ -377,7 +376,7 @@ export class SellerAddComponent implements OnInit {
                     () => {}
                   );
                 } else {
-                  console.log(this.product);
+                 
                 }
               },
               (err) => {

@@ -33,8 +33,7 @@ export class ProductService {
     return this.httpClinet.delete(this.baseUrl + 'api/product/' + id);
   }
   addProduct(product: Product) {
-    console.log(product);
-
+   
     return this.httpClinet.post(this.baseUrl + 'api/product/add', product);
   }
 
@@ -43,7 +42,7 @@ export class ProductService {
     this.productAdded.emit(this.cartProducts);
   }
   getProductByCategory(category){
-    console.log(category);
+    
     
   }
 }
