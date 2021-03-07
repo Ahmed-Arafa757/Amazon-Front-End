@@ -11,6 +11,29 @@ import { ProductService } from 'src/app/_services/product.service';
 export class TodayDealsComponent implements OnInit {
   products: Product[] = [];
   productsResult = [];
+  mySearch:string;
+  onKey(event) {
+    this.mySearch = event.target.value.toLowerCase()
+    this.productService.getAllProducts().subscribe(
+      (res: any) => {
+        this.products = res;
+        this.onSaleProducts=res.filter((p)=>{return p.productPrice.onSale==="0"})
+        this.productsResult = JSON.parse(JSON.stringify(this.onSaleProducts));
+        this.productsResult = this.productsResult.filter(
+          (p) =>{return p.productName.toLowerCase().includes(this.mySearch)}
+        );
+        this.currentPage = 0;
+        this.lastPage = this.productsResult.length / this.pageSize;
+        this.calculateNumOfPages();
+       
+      },
+      (err) => {
+        console.error(err);
+      },
+      () => {}
+    );
+  }
+  
   searchInput: string = '';
   onSaleProducts;
   numOfPages: number[] = [];
@@ -25,24 +48,18 @@ export class TodayDealsComponent implements OnInit {
       (res: any) => {
         this.products = res;
         this.onSaleProducts=res.filter((p)=>{return p.productPrice.onSale==="0"})
-        /* this.activatedRoute.params.subscribe(
-          (params) => {
-            this.productsResult = JSON.parse(JSON.stringify(this.onSaleProducts));
-            this.searchInput = params.id.toLowerCase();
-            this.productsResult = this.productsResult.filter(
-              (p) =>
-                p.productName &&
-                p.productName.toLowerCase().includes(this.searchInput)
-            );
-            this.currentPage = 0;
-            this.lastPage = this.productsResult.length / this.pageSize;
-            this.calculateNumOfPages();
-          },
-          (err) => {
-            console.log(err);
-          },
-          () => {}
-        ); */
+        this.productsResult = JSON.parse(JSON.stringify(this.onSaleProducts));
+        this.searchInput = this.mySearch;
+        console.log(this.mySearch)
+        this.productsResult = this.productsResult.filter(
+          (p) =>
+            p.productName &&
+            p.productName.toLowerCase().includes(this.searchInput)
+        );
+        this.currentPage = 0;
+        this.lastPage = this.productsResult.length / this.pageSize;
+        this.calculateNumOfPages();
+       
       },
       (err) => {
         console.error(err);

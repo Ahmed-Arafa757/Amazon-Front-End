@@ -15,7 +15,7 @@ import { ProductService } from 'src/app/_services/product.service';
 })
 export class ProductItemComponent implements OnInit {
   @Input() product: Product; 
-sellers;
+sellers:any=[];
   stars = [];
   iconClass = {
     0: 'far fa-star',
@@ -62,7 +62,7 @@ sellers;
     }
   }
   sellerName(id){​​​​    
-    if(id){​​​​
+    if(id!=undefined && this.sellers.length!=0){​​​​
       return this.sellers.find((seller)=>seller._id===id).sellerName
     }​​​​else{​​​​
       return 'undefined' 
