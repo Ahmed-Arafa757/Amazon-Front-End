@@ -199,7 +199,7 @@
               (keyup.enter)='searchBTN.click()'
             />
             <span class="input-group-text MM_bg-search" id="basic-addon1">
-              <a [routerLink]="['/search-results', searchString]" #searchBTN>
+              <a (click)='search(searchString)' #searchBTN>
                 <i class="fas fa-search" style="color: #000"></i>
               </a>
             </span>
@@ -372,7 +372,8 @@
       class="text-white ps-4 py-3 fs-4 fw-bold AH_Sidenav-header d-block text-decoration-none"
     >
       <i class="fas fa-user-circle"></i> {{'SIDENAV.HELLO' | translate}}
-      <span>{{  isLogged ? loggedInUser : ("SIDENAV.SIGNIN" | translate) }}</span>
+      <span *ngIf="loggedInSeller && mySeller!=undefined  && mySeller.length!=0 ">{{  mySeller.sellerName  }}</span>
+      <span *ngIf="!loggedInSeller">{{  isLogged ? loggedInUser : ("SIDENAV.SIGNIN" | translate) }}</span>
     </a>
     <span style="cursor: pointer" id="AH_closebtn" onclick="AH_closeNav()"
       >&times;</span
@@ -589,7 +590,7 @@
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link AH_link" aria-current="page" href="">{{
+          <a class="nav-link AH_link" aria-current="page" [routerLink]="['/deals']">{{
             "HEADER.TODAYS_DEALS" | translate
           }}</a>
         </li>
@@ -645,7 +646,7 @@
               </a>
             </li>
             <li *ngIf="loggedInSeller" class="dropdown-item text-center">
-              <button (click)="logoutSeller()" type="button" class="btn bg-gradient">
+              <button (click)="logoutSeller()" type="button" class="btn SE-btn w-100">
                 {{ "HEADER.LOGOUT" | translate }}
               </button>
             </li>

@@ -54,6 +54,8 @@ import { UserOrdersComponent } from './user/user-account/user-orders/user-orders
 import { UserLoginSecurityComponent } from './user/user-account/user-login-security/user-login-security.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TodayDealsComponent } from './additional/today-deals/today-deals.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, '../assets/i18n/', '.json');
@@ -91,6 +93,7 @@ export function createTranslateLoader(http: HttpClient) {
     UserAccountComponent,
     UserOrdersComponent,
     UserLoginSecurityComponent,
+    TodayDealsComponent,
   ],
   imports: [
     BrowserModule,
@@ -107,6 +110,7 @@ export function createTranslateLoader(http: HttpClient) {
         deps: [HttpClient],
       },
     }),
+    BrowserAnimationsModule
   ],
   providers: [
     ReviewsService,

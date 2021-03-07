@@ -1,3 +1,4 @@
+import { SellersService } from 'src/app/_services/sellers.service';
 import { Component, EventEmitter, OnInit, DoCheck } from '@angular/core';
 import { Product } from 'src/app/_model/product';
 import { ProductService } from 'src/app/_services/product.service';
@@ -19,6 +20,7 @@ export class HeaderComponent implements OnInit, DoCheck {
   cartArray = [];
   totalQuantity = 0;
   loggedInSeller:boolean=false;
+  mySeller;
   searchString: string = '';
   loggedInUser;
   isLogged: boolean = false;
@@ -29,7 +31,8 @@ export class HeaderComponent implements OnInit, DoCheck {
     private router: Router,
     private usersService: UsersService,
     private loginService: LoginComponent,
-    public translate: TranslateService
+    public translate: TranslateService,
+    private sellersService:SellersService
   ) {
     this.currentLang = localStorage.getItem('currentLang') || 'en';
     this.translate.use(this.currentLang);
@@ -41,7 +44,9 @@ export class HeaderComponent implements OnInit, DoCheck {
       this.langFlag = '../../../assets/images/icons/arabic.png';
     }
   }
-
+  search(key){
+    this.router.navigate(['search-results/'],{queryParams:{id:key}});
+  }
   ngOnInit(): void {
     this.productService.productAdded.subscribe(
       (res) => {
@@ -59,6 +64,18 @@ export class HeaderComponent implements OnInit, DoCheck {
     );
     
     console.log('header on init');
+    if(localStorage.getItem('sellerLoginStorage')){
+      this.loggedInSeller=true
+      let myObj = localStorage.getItem('sellerLoginStorage');
+      let mySellerId = JSON.parse(myObj)._id;
+      this.sellersService.getSellerById(mySellerId).subscribe(
+        (res) => {
+          this.mySeller = res;
+        }
+      );
+    }else{
+      this.loggedInSeller=false
+    }
   }
 
   ngDoCheck() {
@@ -96,13 +113,7 @@ export class HeaderComponent implements OnInit, DoCheck {
         this.isLogged = false;
       }
     }
-    if(localStorage.getItem('sellerLoginStorage')){
-      this.loggedInSeller=true
-      
-    }else{
-      this.loggedInSeller=false
-      
-    }
+    
   }
 
   changeCurrentLanguage(lang: string) {
