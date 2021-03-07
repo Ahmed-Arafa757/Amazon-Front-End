@@ -49,8 +49,6 @@ export class TodayDealsComponent implements OnInit {
         this.products = res;
         this.onSaleProducts=res.filter((p)=>{return p.productPrice.onSale==="0"})
         this.productsResult = JSON.parse(JSON.stringify(this.onSaleProducts));
-        this.searchInput = this.mySearch;
-        console.log(this.mySearch)
         this.productsResult = this.productsResult.filter(
           (p) =>
             p.productName &&
