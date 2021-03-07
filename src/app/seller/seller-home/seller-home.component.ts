@@ -3,16 +3,21 @@ import { SellersService } from 'src/app/_services/sellers.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Seller } from 'src/app/_model/sellers';
-
+import {  bounceInLeftOnEnterAnimation,fadeInOnEnterAnimation, fadeOutOnLeaveAnimation } from 'angular-animations';
 @Component({
   selector: 'app-seller-home',
   templateUrl: './seller-home.component.html',
   styleUrls: ['./seller-home.component.scss'],
+  animations: [
+    
+    fadeOutOnLeaveAnimation({ duration: 400 }),
+    bounceInLeftOnEnterAnimation({duration:500})
+  ]
 })
 export class SellerHomeComponent implements OnInit {
   loggedInSeller: Seller = { sellerName: '', email: '' };
   products = [];
-
+log:boolean=false
   numOfPages: number[] = [];
   myObj;
   mySellerId;
@@ -80,5 +85,12 @@ export class SellerHomeComponent implements OnInit {
       },
       () => {}
     );
+  }
+  toggleShow(){
+    if(this.log===false){
+      this.log=true
+    }else{
+      this.log=false
+    }
   }
 }
