@@ -42,11 +42,7 @@ export class HomeComponent implements OnInit, DoCheck {
     }
     this.productService.getAllProducts().subscribe(
       (res: Product[]) => {
-        console.log(res);
-        for (let index = 0; index < res.length; index++) {
-          console.log(res[index].productSubCategory);
-        }
-
+        
         for (let index = 0; index < res.length; index++) {
           if (
             res[index].productSubCategory === 'Skin Care' ||
@@ -94,7 +90,7 @@ export class HomeComponent implements OnInit, DoCheck {
           .getUserById(localStorage.getItem('user id'))
           .subscribe(
             (res) => {
-              console.log(res);
+              
               this.loggedInUser = res['userName'];
             },
             (err) => {

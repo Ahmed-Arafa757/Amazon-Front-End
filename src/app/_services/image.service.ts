@@ -10,7 +10,7 @@ export class ImageService {
   constructor(private http: HttpClient) {}
 
   upload(img, id) {
-    /* console.log(img); */
+    
     const data: FormData = new FormData();
     data.append('file', img);
     return this.http.post(this.url + 'upload/' + id, data);
