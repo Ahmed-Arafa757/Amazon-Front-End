@@ -29,6 +29,7 @@
 
 body {
   background-color: #eaeded;
+  overflow-x: hidden;
 }
 
 /* Amr */
@@ -43,7 +44,6 @@ body {
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 3;
-
   transition: opacity 1s;
   -webkit-transition: opacity 1s;
   opacity: 1;
@@ -55,17 +55,23 @@ body {
   position: absolute;
   width: 30%;
   top: 68px;
-  left: -40%;
   z-index: 9999;
-  -webkit-transition: left 1s;
-  transition: left 1s;
   overflow-x: hidden;
   overflow-y: auto;
   font-size: 13px;
   padding-bottom: 5px;
   bottom: 0;
+} 
+.ar{
+  right: -40%;
+  transition: right 1s;
+  -webkit-transition: right 1s;
 }
-
+.en{
+  left: -40%;
+  transition: left 1s;
+  -webkit-transition: left 1s;
+}
 .AH_icon-img {
   width: 20px;
 }
@@ -138,11 +144,8 @@ body {
 }
 
 #AH_sidenav-head {
-  -webkit-transition: left 1s;
-  transition: left 1s;
   position: fixed;
   top: 0;
-  left: -40%;
   width: 30%;
 }
 
