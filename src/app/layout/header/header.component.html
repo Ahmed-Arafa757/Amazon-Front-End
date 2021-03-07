@@ -200,8 +200,8 @@
             />
             <span
               class="input-group-text MM_bg-search"
-              id="basic-addon1"
               style="cursor: pointer"
+              id="basic-addon1"
             >
               <a (click)="search(searchString)" #searchBTN>
                 <i class="fas fa-search" style="color: #000"></i>
@@ -305,7 +305,6 @@
             </li>
             <li>
               <!-- <li>
-
               <hr class="dropdown-divider" />
             </li> -->
               <ul *ngIf="isLogged" class="MM_ulDropDown">
@@ -318,16 +317,13 @@
               <!-- <li *ngIf="isLogged">
               <hr class="dropdown-divider" />
             </li>
-
              <ul class="MM_ulDropDown">
               <li>
                 <a class="dropdown-item" href="">Recommendations</a>
               </li>
-
               <li>
                 <a class="dropdown-item" href="">Watchlist</a>
               </li>
-
               <li>
                 <a class="dropdown-item" href="">Subscribe & Save Items</a>
               </li>
@@ -379,10 +375,7 @@
       class="text-white ps-4 py-3 fs-4 fw-bold AH_Sidenav-header d-block text-decoration-none"
     >
       <i class="fas fa-user-circle"></i> {{ "SIDENAV.HELLO" | translate }}
-      <span
-        *ngIf="loggedInSeller && mySeller != undefined && mySeller.length != 0"
-        >{{ mySeller.sellerName }}</span
-      >
+      <span *ngIf="loggedInSeller">{{ mySeller.sellerName }}</span>
       <span *ngIf="!loggedInSeller">{{
         isLogged ? loggedInUser : ("SIDENAV.SIGNIN" | translate)
       }}</span>

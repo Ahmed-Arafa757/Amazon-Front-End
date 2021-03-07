@@ -6,6 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CategoryService } from 'src/app/_services/category.service';
 import { ReviewsService } from 'src/app/_services/reviews.service';
 import { HeaderComponent } from 'src/app/layout/header/header.component';
+import { SellersService } from 'src/app/_services/sellers.service';
 
 @Component({
   selector: 'app-product-info',
@@ -13,8 +14,13 @@ import { HeaderComponent } from 'src/app/layout/header/header.component';
   styleUrls: ['./product-info.component.css'],
 })
 export class ProductInfoComponent implements OnInit {
+  sellers;
   currerntLang = localStorage.getItem('currentLang');
-
+  imageShowIndex = 0;
+  productInfo = [];
+  productDescription;
+  sellerNM;
+  categoryID;
   product: Product = {
     productId: 0,
     productName: '',
@@ -74,16 +80,58 @@ export class ProductInfoComponent implements OnInit {
     private productService: ProductService,
     private activeRoute: ActivatedRoute,
     private categoryService: CategoryService,
-    private reviwService: ReviewsService
+    private reviwService: ReviewsService,
+    private sellerService: SellersService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
     this.reviwService.latestReviews.subscribe((res) => {});
     console.log(this.product);
+    this.sellerService.getAllSellers().subscribe(
+      (res) => {
+        this.sellers = res;
+      },
+      (err) => {
+        console.error(err);
+      },
+      () => {}
+    );
     this.activeRoute.url.subscribe(
       (res) => {
         this.productService.productById(res[2].path).subscribe((res) => {
           this.product = res;
+          this.categoryID = this.product.productCategory;
+          console.log(this.product.productInfo[0]);
+
+          for (const key in this.product.productInfo[0]) {
+            if (key == 'color') {
+              continue;
+            }
+            if (key == 'description') {
+              this.productDescription = this.product.productInfo[0][key];
+              continue;
+            }
+            this.productInfo.push({
+              name: key,
+              value: this.product.productInfo[0][key],
+            });
+          }
+          this.sellerNM = this.sellerName(this.product.productSales);
+          this.productDescription = this.productDescription.split('\n');
+
+          console.log(this.productInfo);
+
+          this.categoryService
+            .geCategoryById(this.product.productCategory)
+            .subscribe((res) => {
+              console.log(res);
+              this.product.productCategory = res['name'];
+              console.log(this.product.productCategory);
+
+              res;
+            });
+          console.log(this.product);
 
           this.searchProductsByKeywords(
             this.product.keywords[0],
@@ -95,6 +143,17 @@ export class ProductInfoComponent implements OnInit {
       () => {}
     );
     // this.productService.productById( )
+  }
+  changeMainImge(i) {
+    this.imageShowIndex = i;
+    console.log(this.imageShowIndex);
+  }
+  sellerName(id) {
+    if (id != undefined && this.sellers.length != 0) {
+      return this.sellers.find((seller) => seller._id === id).sellerName;
+    } else {
+      return 'undefined';
+    }
   }
 
   addToCart() {
@@ -121,5 +180,16 @@ export class ProductInfoComponent implements OnInit {
     }
 
     this.productService.addProductsToCart(this.cartArray);
+  }
+
+  searchByCategory() {
+    this.router.navigate(['search-results/category/'], {
+      queryParams: { category: this.categoryID },
+    });
+  }
+  searchBySubCategory() {
+    this.router.navigate(['search-results/sub_category/'], {
+      queryParams: { sub: this.product.productSubCategory },
+    });
   }
 }

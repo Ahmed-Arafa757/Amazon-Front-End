@@ -76,10 +76,20 @@
   <div class="row">
     <nav aria-label="breadcrumb m-0">
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="#">Video Games</a></li>
-        <li class="breadcrumb-item"><a href="#">PC</a></li>
-        <li class="breadcrumb-item"><a href="#">Accessories</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Gaming Mice</li>
+        <li class="breadcrumb-item">
+          <a class="AH_card-link" (click)="searchByCategory()">{{
+            product.productCategory
+          }}</a>
+        </li>
+        <li class="breadcrumb-item">
+          <a class="AH_card-link" (click)="searchBySubCategory()">{{
+            product.productSubCategory
+          }}</a>
+        </li>
+
+        <li class="breadcrumb-item active" aria-current="page">
+          {{ product.productType || " item" }}
+        </li>
       </ol>
     </nav>
   </div>
@@ -88,7 +98,7 @@
       <div class="col-12 d-flex ps-3 justify-content-center sticky-top test">
         <div style="padding: 20px">
           <img
-            [src]="product.productImages[0]"
+            [src]="product.productImages[imageShowIndex]"
             onload="if(this.width/this.height > 1.0){this.className += ' a-stretch-horizontal'}else{this.className += ' a-stretch-vertical'};this.onload='';"
             data-a-image-name="landingImage"
             class="a-dynamic-image a-stretch-vertical row test"
@@ -106,6 +116,7 @@
           <img
             *ngFor="let img of product.productImages; let i = index"
             [src]="product.productImages[i]"
+            (click)="changeMainImge(i)"
             class="img-thumbnail product-thumbnail"
             alt="..."
           />
@@ -165,7 +176,7 @@
         <div class="row">
           <div class="col-3">
             <span class="text-secondary">
-              Price: {{ "PRODUCT_INFO.Price" | translate }}
+              {{ "PRODUCT_INFO.Price" | translate }}
             </span>
           </div>
           <div class="col-9 ps-0">
@@ -206,31 +217,11 @@
 
         <!-- specs -->
         <div id="specsDiv" class="mt-2">
-          <div class="row gy-2">
+          <div *ngFor="let prop of productInfo" class="row gy-2 mt-2">
             <div class="col-lg-4">
-              <span class="font-weight-bold">Connections</span>
+              <span class="font-weight-bold">{{ prop.name }}</span>
             </div>
-            <div class="col-lg-8 ps-lg-0">Wired, USB</div>
-
-            <div class="col-lg-4">
-              <span class="font-weight-bold">Connections</span>
-            </div>
-            <div class="col-lg-8 ps-lg-0">Wired, USB</div>
-
-            <div class="col-lg-4">
-              <span class="font-weight-bold">Connections</span>
-            </div>
-            <div class="col-lg-8 ps-lg-0">Wired, USB</div>
-
-            <div class="col-lg-4">
-              <span class="font-weight-bold">Connections</span>
-            </div>
-            <div class="col-lg-8 ps-lg-0">Wired, USB</div>
-
-            <div class="col-lg-4">
-              <span class="font-weight-bold">Connections</span>
-            </div>
-            <div class="col-lg-8 ps-lg-0">Wired, USB</div>
+            <div class="col-lg-8 ps-lg-0">{{ prop.value }}</div>
           </div>
         </div>
         <hr />
@@ -241,17 +232,8 @@
             {{ "PRODUCT_INFO.About_this" | translate }}
           </h6>
           <ul type="disk " class="ps-2">
-            <li>
-              Nine programmable controls: Move keyboard commands to mouse
-              buttons that are in easy reach
-            </li>
-            <li>
-              Symmetrical compact shape: Feels comfortable in either hand and
-              perfect for gamers who don't want a large mouse
-            </li>
-            <li>
-              Gaming-grade optical sensor: Tracks accurately on a wide variety
-              of surfaces and is tunable to achieve the responsiveness you need
+            <li *ngFor="let item of productDescription" class="my-2">
+              {{ item }}
             </li>
           </ul>
           <a class="AH_card-link"> {{ "PRODUCT_INFO.Compare" | translate }}</a>
@@ -265,7 +247,7 @@
         </div>
         <hr />
         <!--Similar item to consider -->
-        <div>
+        <div *ngIf="relatedProducts.length > 3">
           <h5 class="font-weight-bold">
             {{ "PRODUCT_INFO.Similar" | translate }}
           </h5>
@@ -280,7 +262,7 @@
             </div>
             <div class="col-lg-9 ps-0">
               <h6 class="word-break AH_card-link">
-                {{ similarProduct.productName  }}
+                {{ similarProduct.productName }}
               </h6>
               <div class="price" style="font-size: 14px">
                 {{ "PRODUCT_INFO.EGP" | translate }}
@@ -368,7 +350,7 @@
             <span class="col-5 fs-7">
               {{ "PRODUCT_INFO.Sold_by" | translate }}
             </span>
-            <a class="col-7 AH_card-link fs-7">LWOUTLET </a>
+            <a class="col-7 AH_card-link fs-7">{{ sellerNM }} </a>
           </div>
         </div>
         <hr class="m-0" />
@@ -428,7 +410,7 @@
 
             <div class="button p-1">
               <div class="fw-7">
-                Add To Cart {{ "PRODUCT_INFO.Cart" | translate }}
+                {{ "PRODUCT_INFO.Cart" | translate }}
               </div>
             </div>
           </div>
@@ -443,7 +425,7 @@
     </div>
   </div>
   <hr class="mt-4" />
-  <div *ngIf="relatedProducts.length > 0" class="row tp-product-slider my-3">
+  <div *ngIf="relatedProducts.length > 3" class="row tp-product-slider my-3">
     <span class="h4 mb-3" style="color: #a53d01">
       {{ "PRODUCT_INFO.Related" | translate }}
     </span>
