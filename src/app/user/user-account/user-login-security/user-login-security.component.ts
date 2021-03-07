@@ -38,7 +38,7 @@ export class UserLoginSecurityComponent implements OnInit, DoCheck {
         this.usersService.getUserById(localStorage.getItem('user id')).subscribe(
           (res) => {
             this.loggedInUser = res;
-            console.log('DoCheck ',this.loggedInUser);
+            
 
           },
           (err) => {
@@ -66,18 +66,18 @@ export class UserLoginSecurityComponent implements OnInit, DoCheck {
   }
 
   onSubmit() {
-    console.log('on Submit ',this.loggedInUser);
+    
 
     this.usersService.updateUser(this.loggedInUser).subscribe(
       (res)=>{
-        console.log('on Done clicked', res);
+       
 
 
       },
       (err) => {
         console.log(err);
         this.responseText = err['error'].text;
-        console.log(this.responseText);
+       
 
 
       },

@@ -11,7 +11,7 @@ export interface Product {
   productImages?: string[];
   productType?: string;
   productCategory?: string; //CategoryID
-  productSubCategory?: number; //Category -> Sub array[]
+  productSubCategory?: string; //Category -> Sub array[]
   keywords?: string[];
   warehouseId?: string; //warehouseId
   productStock?: number;

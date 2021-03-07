@@ -155,7 +155,7 @@ export class AdvertisementsService {
     advertisements;
 
 
-    baseUrl = 'http://localhost:3000/';
+    baseUrl = 'https://iti-amzon-backend.herokuapp.com/';
 
     constructor(private httpClient: HttpClient) { }
 
@@ -187,8 +187,7 @@ export class AdvertisementsService {
             img: advertisement.img,
 
         };
-        // this.advertisements.push(newAd);
-        // console.log(this.advertisements);
+        
         this.httpClient.post(`${this.baseUrl}api/advertisement`, newAd);
 
     }

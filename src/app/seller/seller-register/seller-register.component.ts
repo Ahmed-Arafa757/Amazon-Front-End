@@ -51,7 +51,7 @@ export class SellerRegisterComponent implements OnInit {
           },
           (err)=>{this.errors = err.error;
             console.log(err.error)},
-          () => {console.log() },
+          () => { },
           )
       },
       (err) => {

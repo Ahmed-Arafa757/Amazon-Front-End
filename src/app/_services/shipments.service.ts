@@ -35,7 +35,7 @@ export class ShipmentsService {
         newShipment
       )
       .subscribe((responseShipment) => {
-        console.log(responseShipment);
+        
       });
   }
 

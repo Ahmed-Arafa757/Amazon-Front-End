@@ -39,7 +39,7 @@ export class ProductInfoComponent implements OnInit {
     productImages: [''],
     productType: '',
     productCategory: '', //CategoryID
-    productSubCategory: 0, //Category -> Sub array[]
+    productSubCategory: '', //Category -> Sub array[]
     keywords: [''],
     warehouseId: '', //warehouseId
     productStock: 0,
@@ -59,7 +59,7 @@ export class ProductInfoComponent implements OnInit {
     return ProductInfoComponent.currerntLang;
   }
   searchProductsByKeywords(...params) {
-    console.log(params);
+  
 
     this.productService.getAllProducts().subscribe(
       (res: any) => {

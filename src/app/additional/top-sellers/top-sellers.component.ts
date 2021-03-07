@@ -21,7 +21,7 @@ export class TopSellersComponent implements OnInit {
     if (localStorage.hasOwnProperty("personId")) {
 
       this.loggedInPerson = this.personService.getPersonById(localStorage.getItem("personId"));
-      // console.log('this.loggedInPerson from header', this.loggedInPerson);
+     
       return true;
 
     }

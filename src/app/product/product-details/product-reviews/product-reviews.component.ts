@@ -49,7 +49,7 @@ export class ProductReviewsComponent implements OnInit {
     this.activatedRoute.params.subscribe(
       (params) => {
         this.productID = params.id;
-        // console.log(params.id);
+       
         this.reviewsService.getReviewsByProductId(params.id);
         this.getReviews();
       },

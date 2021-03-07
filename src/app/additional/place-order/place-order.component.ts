@@ -23,7 +23,7 @@ export class PlaceOrderComponent implements OnInit {
 
   ngOnInit(): void {
     const placedOrder = { ...this.orderService.placedOrder };
-    console.log(placedOrder);
+   
     this.totalToPay = placedOrder['totalAmount'];
 
     paypal
@@ -64,8 +64,7 @@ export class PlaceOrderComponent implements OnInit {
         },
         onApprove: (data, actions) => {
           return actions.order.capture().then((details) => {
-            console.log(details);
-            console.log(data);
+           
             this.paidFor = true;
             this.orderID = data.orderID;
             this.productService.addProductsToCart([]);
@@ -79,7 +78,7 @@ export class PlaceOrderComponent implements OnInit {
               userAddress: placedOrder['userAddress'],
               userID: placedOrder['userID'],
             };
-            console.log(orderFullDetails);
+            
             this.orderService.addOrder(orderFullDetails);
 
             const shippingDate = new Date();
@@ -99,7 +98,7 @@ export class PlaceOrderComponent implements OnInit {
               paymentMethod: 'Paypal',
               shippingCompany: 'DHL',
             };
-            console.log(shippingDetails);
+            
             this.shipmentsService.addShipment(shippingDetails);
           });
         },
