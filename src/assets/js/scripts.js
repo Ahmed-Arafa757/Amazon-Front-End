@@ -1,7 +1,6 @@
 /* Amr */
 function AH_openNav() {
-  if(localStorage.getItem('currentLang')==='en')
-  {
+  if (localStorage.getItem("currentLang") === "en") {
     document.getElementById("AH_Sidenav").style.right = null;
     document.getElementById("AH_sidenav-head").style.right = null;
     document.getElementById("AH_Sidenav").style.left = "0%";
@@ -13,11 +12,9 @@ function AH_openNav() {
     document.getElementsByTagName("body")[0].style = "overflow: hidden;";
     document.getElementById("overlay").style.display = "block";
     /* document.getElementsByTagName("body")[0].style.overflow = "hidden"; */
-  }
-  else
-  {
-  document.getElementById("AH_Sidenav").style.left = null;
-  document.getElementById("AH_sidenav-head").style.left = null;
+  } else {
+    document.getElementById("AH_Sidenav").style.left = null;
+    document.getElementById("AH_sidenav-head").style.left = null;
     document.getElementById("AH_Sidenav").style.right = "0%";
     document.getElementById("AH_sidenav-head").style.right = "0%";
     document.getElementById("AH_Sidenav").style.zIndex = "3";
@@ -31,24 +28,22 @@ function AH_openNav() {
 }
 
 function AH_closeNav() {
-  if(localStorage.getItem('currentLang')==='en')
-  {
-  document.getElementById("AH_Sidenav").style.left = "-40%";
-  document.getElementById("AH_sidenav-head").style.left = "-40%";
-  document.getElementById("AH_closebtn").style.display = "none";
-  document.getElementsByTagName("body")[0].style = "overflow: hidden;";
-  document.getElementsByTagName("body")[0].style = "background-color: none;";
-  document.getElementById("overlay").style.display = "none";
-  /* document.getElementsByTagName("body")[0].style.overflow = "scroll"; */
-  }else
-  {
+  if (localStorage.getItem("currentLang") === "en") {
+    document.getElementById("AH_Sidenav").style.left = "-40%";
+    document.getElementById("AH_sidenav-head").style.left = "-40%";
+    document.getElementById("AH_closebtn").style.display = "none";
+    document.getElementsByTagName("body")[0].style = "overflow: hidden;";
+    document.getElementsByTagName("body")[0].style = "background-color: none;";
+    document.getElementById("overlay").style.display = "none";
+    /* document.getElementsByTagName("body")[0].style.overflow = "scroll"; */
+  } else {
     document.getElementById("AH_Sidenav").style.right = "-40%";
-  document.getElementById("AH_sidenav-head").style.right = "-40%";
-  document.getElementById("AH_closebtn").style.display = "none";
-  document.getElementsByTagName("body")[0].style = "overflow: hidden;";
-  document.getElementsByTagName("body")[0].style = "background-color: none;";
-  document.getElementById("overlay").style.display = "none";
-  /* document.getElementsByTagName("body")[0].style.overflow = "scroll"; */
+    document.getElementById("AH_sidenav-head").style.right = "-40%";
+    document.getElementById("AH_closebtn").style.display = "none";
+    document.getElementsByTagName("body")[0].style = "overflow: hidden;";
+    document.getElementsByTagName("body")[0].style = "background-color: none;";
+    document.getElementById("overlay").style.display = "none";
+    /* document.getElementsByTagName("body")[0].style.overflow = "scroll"; */
   }
 }
 
