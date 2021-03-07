@@ -380,7 +380,8 @@
     "Share": "Share",
     "OtherSellers": "Other Sellers on Amazon",
     "Cart": "Add To Cart",
-    "Related": "Products related to this item"
+    "Related": "Products related to this item",
+    "PRODUCT_Share": "Share"
   },
   "SIDENAV": {
     "HELLO": "Hello,",
