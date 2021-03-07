@@ -1,3 +1,4 @@
+import { SellersService } from 'src/app/_services/sellers.service';
 import { Component, EventEmitter, OnInit, DoCheck } from '@angular/core';
 import { Product } from 'src/app/_model/product';
 import { ProductService } from 'src/app/_services/product.service';
@@ -19,6 +20,7 @@ export class HeaderComponent implements OnInit, DoCheck {
   cartArray = [];
   totalQuantity = 0;
   loggedInSeller:boolean=false;
+  mySeller;
   searchString: string = '';
   loggedInUser;
   isLogged: boolean = false;
@@ -29,7 +31,8 @@ export class HeaderComponent implements OnInit, DoCheck {
     private router: Router,
     private usersService: UsersService,
     private loginService: LoginComponent,
-    public translate: TranslateService
+    public translate: TranslateService,
+    private sellersService:SellersService
   ) {
     this.currentLang = localStorage.getItem('currentLang') || 'en';
     this.translate.use(this.currentLang);
@@ -99,6 +102,17 @@ export class HeaderComponent implements OnInit, DoCheck {
       }
     }
     if(localStorage.getItem('sellerLoginStorage')){
+      let myObj = localStorage.getItem('sellerLoginStorage');
+      let mySellerId = JSON.parse(myObj)._id;
+      this.sellersService.getSellerById(mySellerId).subscribe(
+        (res) => {
+          this.mySeller = res;
+        },
+        (err) => {
+          console.log(err);
+        },
+        () => {}
+      );
       this.loggedInSeller=true
       
     }else{
