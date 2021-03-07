@@ -1,73 +1,39 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Product } from 'src/app/_model/product';
-import { CategoryService } from 'src/app/_services/category.service';
 import { ProductService } from 'src/app/_services/product.service';
 
 @Component({
-  selector: 'app-search-results',
-  templateUrl: './search-results.component.html',
-  styleUrls: ['./search-results.component.scss'],
+  selector: 'app-today-deals',
+  templateUrl: './today-deals.component.html',
+  styleUrls: ['./today-deals.component.css']
 })
-export class SearchResultsComponent implements OnInit {
+export class TodayDealsComponent implements OnInit {
   products: Product[] = [];
   productsResult = [];
   searchInput: string = '';
-  categories;
+  onSaleProducts;
   numOfPages: number[] = [];
   pageSize = 12;
   currentPage = 0;
   lastPage = 0;
-
-  constructor(
-    private productService: ProductService,
-    private activatedRoute: ActivatedRoute,
-    private categoryService:CategoryService
-  ) {}
+  constructor( private productService: ProductService,
+    private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.productService.getAllProducts().subscribe(
       (res: any) => {
         this.products = res;
-
-        this.activatedRoute.queryParams.subscribe(
+        this.onSaleProducts=res.filter((p)=>{return p.productPrice.onSale==="0"})
+        /* this.activatedRoute.params.subscribe(
           (params) => {
-            this.productsResult = JSON.parse(JSON.stringify(this.products));
-            if(params.id)
-            {            
-              this.searchInput = params.id.toLowerCase();
-              this.productsResult = this.productsResult.filter(
-                (p) =>
-                  p.productName &&
-                  p.productName.toLowerCase().includes(this.searchInput)
-              );
-
-            }
-            else if(params.category)
-            {            
-              this.searchInput = params.category;
-              this.productsResult = this.productsResult.filter(
-                (p) =>
-                  p.productCategory === this.searchInput
-              );
-                this.categoryService.geCategoryById(this.searchInput).subscribe(
-                  (res:any)=>{
-                    this.searchInput = res.name;
-                  },
-                  (err)=>{console.error(err)},
-                  ()=>{},
-                ) 
-            }
-            else if(params.sub)
-            {            
-              this.searchInput = params.sub;
-              this.productsResult = this.productsResult.filter(
-                (p) =>
-                  p.productSubCategory === this.searchInput
-              );
-            }
-
-
+            this.productsResult = JSON.parse(JSON.stringify(this.onSaleProducts));
+            this.searchInput = params.id.toLowerCase();
+            this.productsResult = this.productsResult.filter(
+              (p) =>
+                p.productName &&
+                p.productName.toLowerCase().includes(this.searchInput)
+            );
             this.currentPage = 0;
             this.lastPage = this.productsResult.length / this.pageSize;
             this.calculateNumOfPages();
@@ -76,7 +42,7 @@ export class SearchResultsComponent implements OnInit {
             console.log(err);
           },
           () => {}
-        );
+        ); */
       },
       (err) => {
         console.error(err);
@@ -84,7 +50,6 @@ export class SearchResultsComponent implements OnInit {
       () => {}
     );
   }
-
   sort(selectOption) {
     this.currentPage = 0;
 

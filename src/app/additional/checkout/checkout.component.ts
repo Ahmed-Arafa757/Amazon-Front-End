@@ -44,8 +44,8 @@ export class CheckoutComponent implements OnInit {
       next: (user: any) => {
         this.user = user;
         console.log(this.user);
-
-        this.addresses = this.user.address;
+        this.addresses = JSON.parse(JSON.stringify(this.user.address));
+        // this.addresses = this.user.address;
         console.log(this.addresses);
       },
       error: (err) => {
@@ -121,7 +121,15 @@ export class CheckoutComponent implements OnInit {
   onAddUserAddress(addressForm: NgForm) {
     let newAddress = Object.assign({}, this.addNewUserAddress);
     this.addresses.push(newAddress);
-    this.user.address = this.addresses;
+    this.user.address.push(newAddress);
+    this.usersService.updateUser(this.user).subscribe({
+      next: (res) => {
+        console.log(res);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
 
     // this.usersService.updateUser(this.user);
     // this.user = JSON.parse(
@@ -158,5 +166,25 @@ export class CheckoutComponent implements OnInit {
       userID: this.user._id,
       userAddress: this.selectedAddress,
     };
+  }
+
+  onRemoveAddress(address) {
+    if (address === this.selectedAddress) {
+      this.isSelectedAddress = false;
+    }
+    const filteredAddresses = this.addresses.filter(
+      (addressObj) => addressObj['_id'] !== address._id
+    );
+    this.addresses = JSON.parse(JSON.stringify(filteredAddresses));
+
+    this.user.address = JSON.parse(JSON.stringify(filteredAddresses));
+    this.usersService.updateUser(this.user).subscribe({
+      next: (res) => {
+        console.log(res);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
   }
 }

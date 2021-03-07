@@ -78,6 +78,8 @@ export class UserLoginSecurityComponent implements OnInit, DoCheck {
         console.log(err);
         this.responseText = err['error'].text;
         console.log(this.responseText);
+
+
       },
       ()=>{},
     )

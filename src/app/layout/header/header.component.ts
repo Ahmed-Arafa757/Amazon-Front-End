@@ -41,7 +41,9 @@ export class HeaderComponent implements OnInit, DoCheck {
       this.langFlag = '../../../assets/images/icons/arabic.png';
     }
   }
-
+  search(key){
+    this.router.navigate(['search-results/'],{queryParams:{id:key}});
+  }
   ngOnInit(): void {
     this.productService.productAdded.subscribe(
       (res) => {
@@ -67,18 +69,20 @@ export class HeaderComponent implements OnInit, DoCheck {
         localStorage.hasOwnProperty('token') &&
         localStorage.hasOwnProperty('user id')
       ) {
-        this.usersService
-          .getUserById(localStorage.getItem('user id'))
-          .subscribe(
-            (res) => {
-              console.log(res);
-              this.loggedInUser = res['userName'];
-            },
-            (err) => {
-              console.log(err);
-            },
-            () => {}
-          );
+
+
+        this.usersService.getUserById(localStorage.getItem('user id')).subscribe(
+          (res) => {
+            console.log('res');
+            this.loggedInUser = res['userName']; 
+
+
+          },
+          (err)=>{console.log(err);
+          },
+          ()=>{}
+        )
+
 
         this.isLogged = true;
       } else {

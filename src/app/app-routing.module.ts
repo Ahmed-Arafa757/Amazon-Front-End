@@ -26,11 +26,12 @@ import { UserAccountComponent } from './user/user-account/user-account.component
 import { UserOrdersComponent } from './user/user-account/user-orders/user-orders.component';
 import { UserLoginSecurityComponent } from './user/user-account/user-login-security/user-login-security.component';
 import { TranslateModule } from '@ngx-translate/core';
-
+import { TodayDealsComponent } from './additional/today-deals/today-deals.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', redirectTo: '', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
+  { path: 'deals', component: TodayDealsComponent },
   { path: 'resetpassword', component: ResetpasswordComponent },
   {
     path: 'outh/password/:resetToken/:id',
@@ -51,6 +52,8 @@ const routes: Routes = [
   { path: 'departments', component: DepartmentsComponent },
   { path: 'discover-amazon', component: DiscoverAmazonComponent },
   { path: 'search-results/:id', component: SearchResultsComponent },
+  { path: 'search-results/category/:category', component: SearchResultsComponent },
+  { path: 'search-results/sub_category/:sub', component: SearchResultsComponent },
   {
     path: 'search-results',
     redirectTo: 'search-results/',

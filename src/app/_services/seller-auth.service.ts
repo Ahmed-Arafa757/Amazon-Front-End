@@ -9,25 +9,22 @@ export class SellerAuthService {
 
   // baseUrl = 'https://iti-amzon-backend.herokuapp.com/';
   baseUrl = 'http://localhost:3000/';
+
   constructor(private httpClient: HttpClient) {}
 
   signInWithGoogle(socialUser) {
-    console.log(socialUser);
     return this.httpClient.post(`${this.baseUrl}api/seller/google`, socialUser);
   }
   signInWithFB(socialUser) {
-    console.log(socialUser);
     return this.httpClient.post(
       `${this.baseUrl}api/seller/facebook`,
       socialUser
     );
   }
   register(seller: Seller) {
-    console.log('register' + seller);
     return this.httpClient.post(`${this.baseUrl}api/sellers/register`, seller);
   }
   login(seller: Seller) {
-    console.log(seller);
     return this.httpClient.post(`${this.baseUrl}api/sellers/login`, seller);
     // .subscribe(
     //   (seller)=>{console.log(seller)},

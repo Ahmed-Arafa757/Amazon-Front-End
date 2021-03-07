@@ -1,1 +1,9 @@
-{"version":3,"sources":[],"names":[],"mappings":"","file":"side-nav.component.css"}
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "side-nav.component.scss"
+    ],
+    "names": [],
+    "file": "side-nav.component.css"
+}

@@ -18,8 +18,7 @@ export class MyInterceptorService implements HttpInterceptor {
         authorization: token
       });
       reqClone = req.clone({ headers });
-      console.log(headers);
-      console.log(reqClone);
+     
 
     } else {
       reqClone = req;

@@ -196,9 +196,10 @@
               [placeholder]="'HEADER.SEARCH' | translate"
               aria-label="Search"
               name="searchInput"
+              (keyup.enter)='searchBTN.click()'
             />
             <span class="input-group-text MM_bg-search" id="basic-addon1">
-              <a [routerLink]="['/search-results', searchString]">
+              <a (click)='search(searchString)' #searchBTN>
                 <i class="fas fa-search" style="color: #000"></i>
               </a>
             </span>
@@ -588,7 +589,7 @@
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link AH_link" aria-current="page" href="">{{
+          <a class="nav-link AH_link" aria-current="page" [routerLink]="['/deals']">{{
             "HEADER.TODAYS_DEALS" | translate
           }}</a>
         </li>
