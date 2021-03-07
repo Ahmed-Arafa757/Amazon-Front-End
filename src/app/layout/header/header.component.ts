@@ -77,7 +77,9 @@ export class HeaderComponent implements OnInit, DoCheck {
       this.loggedInSeller=false
     }
   }
-
+  searchByCategory(name){
+    this.router.navigate(['search-results/category/'],{queryParams:{category:name}});
+  }
   ngDoCheck() {
     if (this.isLogged === false) {
       if (
