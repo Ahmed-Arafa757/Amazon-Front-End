@@ -42,7 +42,7 @@ export class ProductInfoComponent implements OnInit {
   shippingFees: number = 36.3;
   DeliverTo: string = this.currerntLang == 'en' ? 'Egypt' : 'مصر';
   relatedProducts = [];
-  similarProduct={productImages:[],finalPrice:0};
+  similarProduct={productImages:[],finalPrice:0,productName:'' };
   similarProductReview;
   searchProductsByKeywords(...params) {
     console.log(params);
