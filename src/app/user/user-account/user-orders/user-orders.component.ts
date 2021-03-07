@@ -56,9 +56,7 @@ export class UserOrdersComponent implements OnInit {
   }
 
   cancelUserOrder(order) {
-    console.log(order);
-    console.log(order._id);
-    console.log(order.orderStatus);
+    
     order.orderStatus = 'Cancelled';
     this.orderService.cancelUserOrder(order._id, order).subscribe({
       next: (responseDate: any) => {
@@ -75,7 +73,7 @@ export class UserOrdersComponent implements OnInit {
   }
 
   switchOrders(orders) {
-    console.log(orders.name);
+   
     if (orders.name === 'allOrders') {
       this.displayedOrders = this.allOrders;
     } else if (orders.name === 'currentOrders') {

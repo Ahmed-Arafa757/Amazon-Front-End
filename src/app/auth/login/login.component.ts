@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
               localStorage.setItem('token', res.accessToken);
               localStorage.setItem('user id', res.userId);
              
-              console.log('res on login', res);
+             
               this.router.navigate(['/home']);
             },
             (err) => {
@@ -77,11 +77,11 @@ export class LoginComponent implements OnInit {
         (user) => {
           this.usersService.signInWithFB(user).subscribe(
             (res: any) => {
-              console.log(res); 
-              // this.loggedIn = (user != null);
+              
+             
               localStorage.setItem('token', res.accessToken);
               localStorage.setItem('user id', res.userId);
-              console.log('res on login', res);
+             
               this.router.navigate(['/home']);
             },
             (err) => {
@@ -108,7 +108,7 @@ export class LoginComponent implements OnInit {
     this.socialAuthService.signOut();
   }
   onLogin(useR) {
-    console.log('this.user', useR);
+   
    
 
     this.authService.login(useR).subscribe(
@@ -116,7 +116,7 @@ export class LoginComponent implements OnInit {
        
         localStorage.setItem('token', res['accessToken']);
         localStorage.setItem('user id', res['userId']);
-        console.log('res on login', res);
+        
 
 
         this.router.navigate(['/home']);

@@ -43,10 +43,9 @@ export class CheckoutComponent implements OnInit {
     this.usersService.getUserById(userID).subscribe({
       next: (user: any) => {
         this.user = user;
-        console.log(this.user);
+       
         this.addresses = JSON.parse(JSON.stringify(this.user.address));
-        // this.addresses = this.user.address;
-        console.log(this.addresses);
+      
       },
       error: (err) => {
         console.log(err);
@@ -55,13 +54,13 @@ export class CheckoutComponent implements OnInit {
 
     this.cartArray = this.productService.cartProducts;
     this.updateQuantityPrice();
-    console.log(this.cartArray);
+   
 
     this.paymentMethodsService.getAllPaymentMethods();
     this.paymentMethodsService.latestPaymentMethods.subscribe(
       (res) => {
         this.paymentMethods = res;
-        console.log(this.paymentMethods);
+       
       },
       (err) => {
         console.log(err);
@@ -148,7 +147,7 @@ export class CheckoutComponent implements OnInit {
 
   onCheckAddress() {
     this.isSelectedAddress = true;
-    console.log(this.selectedAddress);
+   
   }
 
   onAddNewAddress() {

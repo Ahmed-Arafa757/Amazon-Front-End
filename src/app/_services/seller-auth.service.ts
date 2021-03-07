@@ -26,11 +26,7 @@ export class SellerAuthService {
   }
   login(seller: Seller) {
     return this.httpClient.post(`${this.baseUrl}api/sellers/login`, seller);
-    // .subscribe(
-    //   (seller)=>{console.log(seller)},
-    //   ()=>{},
-    //   ()=>{},
-    //      )
+    
   }
 
   isAuthenticated(): boolean {

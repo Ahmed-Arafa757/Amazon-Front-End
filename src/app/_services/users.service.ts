@@ -23,7 +23,7 @@ export class UsersService {
   }
 
   resetPassword(id: string) {
-    console.log(this.baseUrl + 'resetpassword/sendEmail/' + id);
+   
     return this.httpClient.get(this.baseUrl + 'resetpassword/sendEmail/' + id);
   }
 
@@ -70,11 +70,11 @@ export class UsersService {
     return this.httpClient.delete(`${this.baseUrl}user/${id}`);
   }
   signInWithGoogle(socialUser) {
-    console.log(socialUser);
+   
     return this.httpClient.post(`${this.baseUrl}user/login/google`, socialUser);
   }
   signInWithFB(socialUser) {
-    console.log(socialUser);
+   
     return this.httpClient.post(
       `${this.baseUrl}user/login/facebook`,
       socialUser

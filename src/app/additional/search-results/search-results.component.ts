@@ -102,7 +102,7 @@ export class SearchResultsComponent implements OnInit {
       this.productsResult.sort((a, b) => {
         return b.productPrice.finalPrice - a.productPrice.finalPrice;
       });
-      console.log(this.productsResult);
+     
     }
 
     if (selectOption.value === '4') {

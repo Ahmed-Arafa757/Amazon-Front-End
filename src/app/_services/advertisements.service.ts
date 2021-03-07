@@ -187,8 +187,7 @@ export class AdvertisementsService {
             img: advertisement.img,
 
         };
-        // this.advertisements.push(newAd);
-        // console.log(this.advertisements);
+        
         this.httpClient.post(`${this.baseUrl}api/advertisement`, newAd);
 
     }
