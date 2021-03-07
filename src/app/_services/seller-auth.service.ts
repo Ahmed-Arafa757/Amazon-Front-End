@@ -2,44 +2,45 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Seller } from '../_model/sellers';
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SellerAuthService {
-  seller: Seller[] = []
-    
+  seller: Seller[] = [];
 
+  // baseUrl = 'https://iti-amzon-backend.herokuapp.com/';
+  baseUrl = 'http://localhost:3000/';
+  constructor(private httpClient: HttpClient) {}
 
-  baseUrl = 'https://iti-amzon-backend.herokuapp.com/';
-   /* baseUrl = 'http://localhost:3000/' */
-  constructor(private httpClient: HttpClient) { }
-
-  signInWithGoogle(socialUser){
+  signInWithGoogle(socialUser) {
     console.log(socialUser);
-    return this.httpClient.post(`${this.baseUrl}api/seller/google`,socialUser)
+    return this.httpClient.post(`${this.baseUrl}api/seller/google`, socialUser);
   }
-  signInWithFB(socialUser){
+  signInWithFB(socialUser) {
     console.log(socialUser);
-    return this.httpClient.post(`${this.baseUrl}api/seller/facebook`,socialUser)
+    return this.httpClient.post(
+      `${this.baseUrl}api/seller/facebook`,
+      socialUser
+    );
   }
-  register(seller:Seller){
-    console.log("register"+ seller);
-   return this.httpClient.post(`${this.baseUrl}api/sellers/register`,seller)
+  register(seller: Seller) {
+    console.log('register' + seller);
+    return this.httpClient.post(`${this.baseUrl}api/sellers/register`, seller);
   }
-  login(seller:Seller){
+  login(seller: Seller) {
     console.log(seller);
-    return this.httpClient.post(`${this.baseUrl}api/sellers/login`,seller)
+    return this.httpClient.post(`${this.baseUrl}api/sellers/login`, seller);
     // .subscribe(
     //   (seller)=>{console.log(seller)},
     //   ()=>{},
     //   ()=>{},
     //      )
   }
- 
-isAuthenticated():boolean{
-  if(localStorage.getItem('sellerLoginStorage')){
-    return true;
-  }else{
-    return false;
+
+  isAuthenticated(): boolean {
+    if (localStorage.getItem('sellerLoginStorage')) {
+      return true;
+    } else {
+      return false;
+    }
   }
-}
 }
