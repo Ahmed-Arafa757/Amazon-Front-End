@@ -1,18 +1,22 @@
 <!--  [style.backgroundImage]="'url('+Advertisement.img[0]+')'" -->
 
-<div class="card p-3 m-1" style="width: 100%;min-height:440px;max-height: 440px;" id="AA_productCard">
+<div class="card p-3 m-1" style="width: 100%;min-height:460px;max-height: 460px;" id="AA_productCard">
   <div *ngIf="product.productPrice.onSale==='0'" class="sale-tag"><span>SALE</span></div>
   <a style="width: 100%;height:100%;" [routerLink]="['/product', 'details', product._id]" class="d-flex justify-content-center align-items-center">
-      <img [src]="product.productImages[0]" style="width: 250px;max-width: 100%;height:250px;max-height: 100%; object-fit: cover;"  id="AA_productsImgs" /></a>
+      <img [src]="product.productImages[0]" style="width: 250px;max-width: 100%;height:250px;max-height: 90%; object-fit: contain;"  id="AA_productsImgs" /></a>
 
-  <div class="card-body">
-    <a [routerLink]="['/product', 'details', product._id]" class="card-title" id="AA_cardText">
-      {{ product.productName }}
-    </a>
-    <p class="card-text">
-      <span class="AA_byAmazon">by : {{sellerName(product.productSales)}} </span>
-      <br />
-
+  <div class="card-body d-flex flex-column justify-content-start align-items-start">
+    <div >
+      <a [routerLink]="['/product', 'details', product._id]" class="card-title" id="AA_cardText">
+        {{ product.productName| slice:0:15 }}
+      </a>
+      
+    </div>
+    <div>
+      <span class="AA_byAmazon my-1">Sold by: {{sellerName(product.productSales)| slice:0:15 }} </span>
+    </div>
+    
+    <div>
       <span class="AA_ratingStars">
         <i *ngFor="let star of stars" [class]="iconClass[star]"></i> </span><br />
       <sup class="AA_sup"></sup><span class="AA_mainPrice">{{ getPrice() | currency}}</span>
@@ -20,7 +24,11 @@
         <del *ngIf="product.productPrice.discount > 0">
           {{ product.productPrice.currentPrice | currency}}</del>
       </span>
-    </p>
-   
+    </div>
+      
+      
+      
+      
+      <button class="w-100 SE-btn mt-2" (click)="addToCart()">Add to Cart</button>
   </div>
 </div>

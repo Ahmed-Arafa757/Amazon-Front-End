@@ -6,6 +6,23 @@
           box-sizing: border-box;
 }
 
+.SE-btn {
+  background: #f0c14b;
+  border-color: #a88734 #9c7e31 #846a29;
+  border-radius: 4px;
+  color: #111;
+}
+
+.SE-btn:active {
+  -webkit-box-shadow: 1.5px 1.5px 5px  #ff9900;
+          box-shadow: 1.5px 1.5px 5px  #ff9900;
+}
+
+.SE-btn:focus {
+  -webkit-box-shadow: 2px 2px 7px  #ff9900;
+          box-shadow: 2px 2px 7px  #ff9900;
+}
+
 .container {
   max-width: 1600px;
 }

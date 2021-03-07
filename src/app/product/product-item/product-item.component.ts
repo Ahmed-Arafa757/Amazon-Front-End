@@ -5,6 +5,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Advertisement } from 'src/app/_model/advertisements';
 import { Product } from 'src/app/_model/product';
 import { AdvertisementsService } from 'src/app/_services/advertisements.service';
+import { ProductService } from 'src/app/_services/product.service';
 
 
 @Component({
@@ -21,8 +22,10 @@ sellers;
     0.5: 'fas fa-star-half-alt',
     1: 'fas fa-star',
   };
-
-  constructor(private sellerService:SellersService) {}
+  tempProduct;
+  cartArray = [];
+  cartQuantity = 0;
+  constructor(private sellerService:SellersService, private productService: ProductService,) {}
 
   ngOnInit(): void {
     this.fillStars();
@@ -65,6 +68,30 @@ sellers;
       return 'undefined' 
      }​​​​
   }
-  ​​​​
+  ​​​​addToCart() {
+    this.cartArray = this.productService.cartProducts.slice();
+    this.tempProduct = JSON.parse(JSON.stringify(this.product));
+    this.tempProduct.quantity = 1;
+    let inCart = false;
+
+    for (let index = 0; index < this.cartArray.length; index++) {
+      if (this.cartArray[index]._id === this.product._id) {
+        if (this.cartArray[index].quantity < 5) {
+          this.cartArray[index].quantity += 1;
+          this.cartQuantity++;
+        }
+        inCart = true;
+        break;
+      }
+    }
+
+    if (inCart === false) {
+      let deepCopy = JSON.parse(JSON.stringify(this.tempProduct));
+      this.cartArray.push(deepCopy);
+      this.cartQuantity++;
+    }
+
+    this.productService.addProductsToCart(this.cartArray);
+  }
   
 }
