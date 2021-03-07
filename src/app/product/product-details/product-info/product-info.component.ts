@@ -35,7 +35,7 @@ export class ProductInfoComponent implements OnInit {
     productImages: [''],
     productType: '',
     productCategory: '', //CategoryID
-    productSubCategory: 0, //Category -> Sub array[]
+    productSubCategory: '', //Category -> Sub array[]
     keywords: [''],
     warehouseId: '', //warehouseId
     productStock: 0,
