@@ -54,7 +54,7 @@
                   style="background-color: #f0f0f0"
                 >
                   <h5 class="modal-title" id="exampleModalLabel">
-                    {{"HEADER.LOCATION" | translate}}
+                    {{ "HEADER.LOCATION" | translate }}
                   </h5>
                   <button
                     type="button"
@@ -67,7 +67,7 @@
                   <div class="row">
                     <div class="col-12">
                       <div>
-                        {{"HEADER.LOCATION_MESSAGE" | translate}}
+                        {{ "HEADER.LOCATION_MESSAGE" | translate }}
                       </div>
                       <div class="text-center">
                         <button
@@ -76,7 +76,7 @@
                           class="btn bg-gradient mt-3 p-1 w-75"
                           style="background-color: #ffd04f; font-size: 1em"
                         >
-                          {{"HEADER.LOCATION_SIGNIN" | translate}}
+                          {{ "HEADER.LOCATION_SIGNIN" | translate }}
                         </button>
                       </div>
                     </div>
@@ -89,7 +89,7 @@
                     data-bs-dismiss="modal"
                     style="background-color: #ffd04f"
                   >
-                  {{"HEADER.LOCATION_BTN" | translate}}
+                    {{ "HEADER.LOCATION_BTN" | translate }}
                   </button>
                 </div>
               </div>
@@ -196,10 +196,14 @@
               [placeholder]="'HEADER.SEARCH' | translate"
               aria-label="Search"
               name="searchInput"
-              (keyup.enter)='searchBTN.click()'
+              (keyup.enter)="searchBTN.click()"
             />
-            <span class="input-group-text MM_bg-search" id="basic-addon1">
-              <a (click)='search(searchString)' #searchBTN>
+            <span
+              class="input-group-text MM_bg-search"
+              id="basic-addon1"
+              style="cursor: pointer"
+            >
+              <a (click)="search(searchString)" #searchBTN>
                 <i class="fas fa-search" style="color: #000"></i>
               </a>
             </span>
@@ -264,8 +268,7 @@
             data-bs-toggle="dropdown"
             aria-expanded="false"
           >
-
-            <span *ngIf="!loggedInSeller" >{{
+            <span *ngIf="!loggedInSeller">{{
               isLogged
                 ? ("HEADER.HELLO" | translate) + loggedInUser
                 : ("HEADER.HELLO" | translate) + ("HEADER.SIGNIN" | translate)
@@ -274,7 +277,11 @@
             {{ "HEADER.ACCOUNT" | translate }}
           </a>
 
-          <ul *ngIf="!loggedInSeller" class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <ul
+            *ngIf="!loggedInSeller"
+            class="dropdown-menu"
+            aria-labelledby="navbarDropdown"
+          >
             <li *ngIf="isLogged === false" class="text-center MM_SignIn">
               <a [routerLink]="['/login']"
                 ><button type="button" class="btn bg-gradient">
@@ -365,15 +372,20 @@
 </nav>
 <!-- Amr -->
 <div id="overlay" onclick="AH_closeNav()"></div>
-<div dir="auto" id="AH_Sidenav" [ngClass]=' currentLang '>
-  <div id="AH_sidenav-head"  [ngClass]=' currentLang '>
+<div dir="auto" id="AH_Sidenav" [ngClass]="currentLang">
+  <div id="AH_sidenav-head" [ngClass]="currentLang">
     <a
       [routerLink]="['/login']"
       class="text-white ps-4 py-3 fs-4 fw-bold AH_Sidenav-header d-block text-decoration-none"
     >
-      <i class="fas fa-user-circle"></i> {{'SIDENAV.HELLO' | translate}}
-      <span *ngIf="loggedInSeller && mySeller!=undefined  && mySeller.length!=0 ">{{  mySeller.sellerName  }}</span>
-      <span *ngIf="!loggedInSeller">{{  isLogged ? loggedInUser : ("SIDENAV.SIGNIN" | translate) }}</span>
+      <i class="fas fa-user-circle"></i> {{ "SIDENAV.HELLO" | translate }}
+      <span
+        *ngIf="loggedInSeller && mySeller != undefined && mySeller.length != 0"
+        >{{ mySeller.sellerName }}</span
+      >
+      <span *ngIf="!loggedInSeller">{{
+        isLogged ? loggedInUser : ("SIDENAV.SIGNIN" | translate)
+      }}</span>
     </a>
     <span style="cursor: pointer" id="AH_closebtn" onclick="AH_closeNav()"
       >&times;</span
@@ -381,139 +393,240 @@
   </div>
   <div class="position-relative">
     <div class="AH_sidenav-body pt-3 row">
-      <h5>{{"SIDENAV.DIGITAL_CONTENT"|translate}}</h5>
+      <h5>{{ "SIDENAV.DIGITAL_CONTENT" | translate }}</h5>
       <div class="AH_sidenav-link row">
-        <div class="col-11">{{"SIDENAV.AMAZON_MUSIC"|translate}}</div>
-        <div class="col-1" *ngIf='currentLang==="en"'><i class="fas fa-chevron-right"></i></div>
-        <div class="col-1" *ngIf='currentLang==="ar"'><i class="fas fa-chevron-left"></i></div>
+        <div class="col-11">{{ "SIDENAV.AMAZON_MUSIC" | translate }}</div>
+        <div class="col-1" *ngIf="currentLang === 'en'">
+          <i class="fas fa-chevron-right"></i>
+        </div>
+        <div class="col-1" *ngIf="currentLang === 'ar'">
+          <i class="fas fa-chevron-left"></i>
+        </div>
       </div>
       <div class="AH_sidenav-link row">
-        <div class="col-11">{{"SIDENAV.KINDLE"|translate}}</div>
-        <div class="col-1" *ngIf='currentLang==="en"'><i class="fas fa-chevron-right"></i></div>
-        <div class="col-1" *ngIf='currentLang==="ar"'><i class="fas fa-chevron-left"></i></div>
+        <div class="col-11">{{ "SIDENAV.KINDLE" | translate }}</div>
+        <div class="col-1" *ngIf="currentLang === 'en'">
+          <i class="fas fa-chevron-right"></i>
+        </div>
+        <div class="col-1" *ngIf="currentLang === 'ar'">
+          <i class="fas fa-chevron-left"></i>
+        </div>
       </div>
       <div class="AH_sidenav-link row">
-        <div class="col-11">{{"SIDENAV.APPSTORE"|translate}}</div>
-        <div class="col-1" *ngIf='currentLang==="en"'><i class="fas fa-chevron-right"></i></div>
-        <div class="col-1" *ngIf='currentLang==="ar"'><i class="fas fa-chevron-left"></i></div>
+        <div class="col-11">{{ "SIDENAV.APPSTORE" | translate }}</div>
+        <div class="col-1" *ngIf="currentLang === 'en'">
+          <i class="fas fa-chevron-right"></i>
+        </div>
+        <div class="col-1" *ngIf="currentLang === 'ar'">
+          <i class="fas fa-chevron-left"></i>
+        </div>
       </div>
       <hr />
-      <h5>{{"SIDENAV.CATEGORIES"|translate}}</h5>
+      <h5>{{ "SIDENAV.CATEGORIES" | translate }}</h5>
       <div class="AH_sidenav-link col-12 row">
         <div class="col-11">Electronics</div>
-        <div class="col-1" *ngIf='currentLang==="en"'><i class="fas fa-chevron-right"></i></div>
-        <div class="col-1" *ngIf='currentLang==="ar"'><i class="fas fa-chevron-left"></i></div>
+        <div class="col-1" *ngIf="currentLang === 'en'">
+          <i class="fas fa-chevron-right"></i>
+        </div>
+        <div class="col-1" *ngIf="currentLang === 'ar'">
+          <i class="fas fa-chevron-left"></i>
+        </div>
       </div>
       <div class="AH_sidenav-link col-12 row">
         <div class="col-11">Computers</div>
-        <div class="col-1" *ngIf='currentLang==="en"'><i class="fas fa-chevron-right"></i></div>
-        <div class="col-1" *ngIf='currentLang==="ar"'><i class="fas fa-chevron-left"></i></div>
+        <div class="col-1" *ngIf="currentLang === 'en'">
+          <i class="fas fa-chevron-right"></i>
+        </div>
+        <div class="col-1" *ngIf="currentLang === 'ar'">
+          <i class="fas fa-chevron-left"></i>
+        </div>
       </div>
       <div class="AH_sidenav-link col-12 row">
         <div class="col-11">Smart Home</div>
-        <div class="col-1" *ngIf='currentLang==="en"'><i class="fas fa-chevron-right"></i></div>
-        <div class="col-1" *ngIf='currentLang==="ar"'><i class="fas fa-chevron-left"></i></div>
+        <div class="col-1" *ngIf="currentLang === 'en'">
+          <i class="fas fa-chevron-right"></i>
+        </div>
+        <div class="col-1" *ngIf="currentLang === 'ar'">
+          <i class="fas fa-chevron-left"></i>
+        </div>
       </div>
       <div class="AH_sidenav-link col-12 row">
         <div class="col-11">Arts & Crafts</div>
-        <div class="col-1" *ngIf='currentLang==="en"'><i class="fas fa-chevron-right"></i></div>
-        <div class="col-1" *ngIf='currentLang==="ar"'><i class="fas fa-chevron-left"></i></div>
+        <div class="col-1" *ngIf="currentLang === 'en'">
+          <i class="fas fa-chevron-right"></i>
+        </div>
+        <div class="col-1" *ngIf="currentLang === 'ar'">
+          <i class="fas fa-chevron-left"></i>
+        </div>
       </div>
       <div id="shopSeeMore" class="col-12 row m-0 p-0">
         <hr class="w-75 m-auto" />
         <div class="AH_sidenav-link col-12 row">
           <div class="col-11">Automotive</div>
-          <div class="col-1" *ngIf='currentLang==="en"'><i class="fas fa-chevron-right"></i></div>
-        <div class="col-1" *ngIf='currentLang==="ar"'><i class="fas fa-chevron-left"></i></div>
+          <div class="col-1" *ngIf="currentLang === 'en'">
+            <i class="fas fa-chevron-right"></i>
+          </div>
+          <div class="col-1" *ngIf="currentLang === 'ar'">
+            <i class="fas fa-chevron-left"></i>
+          </div>
         </div>
         <div class="AH_sidenav-link col-12 row">
           <div class="col-11">Baby</div>
-          <div class="col-1" *ngIf='currentLang==="en"'><i class="fas fa-chevron-right"></i></div>
-        <div class="col-1" *ngIf='currentLang==="ar"'><i class="fas fa-chevron-left"></i></div>
+          <div class="col-1" *ngIf="currentLang === 'en'">
+            <i class="fas fa-chevron-right"></i>
+          </div>
+          <div class="col-1" *ngIf="currentLang === 'ar'">
+            <i class="fas fa-chevron-left"></i>
+          </div>
         </div>
         <div class="AH_sidenav-link col-12 row">
           <div class="col-11">Beauty and personal care</div>
-          <div class="col-1" *ngIf='currentLang==="en"'><i class="fas fa-chevron-right"></i></div>
-        <div class="col-1" *ngIf='currentLang==="ar"'><i class="fas fa-chevron-left"></i></div>
+          <div class="col-1" *ngIf="currentLang === 'en'">
+            <i class="fas fa-chevron-right"></i>
+          </div>
+          <div class="col-1" *ngIf="currentLang === 'ar'">
+            <i class="fas fa-chevron-left"></i>
+          </div>
         </div>
         <div class="AH_sidenav-link col-12 row">
           <div class="col-11">Women's Fashion</div>
-          <div class="col-1" *ngIf='currentLang==="en"'><i class="fas fa-chevron-right"></i></div>
-        <div class="col-1" *ngIf='currentLang==="ar"'><i class="fas fa-chevron-left"></i></div>
+          <div class="col-1" *ngIf="currentLang === 'en'">
+            <i class="fas fa-chevron-right"></i>
+          </div>
+          <div class="col-1" *ngIf="currentLang === 'ar'">
+            <i class="fas fa-chevron-left"></i>
+          </div>
         </div>
         <div class="AH_sidenav-link col-12 row">
           <div class="col-11">Men's Fashion</div>
-          <div class="col-1" *ngIf='currentLang==="en"'><i class="fas fa-chevron-right"></i></div>
-        <div class="col-1" *ngIf='currentLang==="ar"'><i class="fas fa-chevron-left"></i></div>
+          <div class="col-1" *ngIf="currentLang === 'en'">
+            <i class="fas fa-chevron-right"></i>
+          </div>
+          <div class="col-1" *ngIf="currentLang === 'ar'">
+            <i class="fas fa-chevron-left"></i>
+          </div>
         </div>
         <div class="AH_sidenav-link col-12 row">
           <div class="col-11">Girls' Fashion</div>
-          <div class="col-1" *ngIf='currentLang==="en"'><i class="fas fa-chevron-right"></i></div>
-        <div class="col-1" *ngIf='currentLang==="ar"'><i class="fas fa-chevron-left"></i></div>
+          <div class="col-1" *ngIf="currentLang === 'en'">
+            <i class="fas fa-chevron-right"></i>
+          </div>
+          <div class="col-1" *ngIf="currentLang === 'ar'">
+            <i class="fas fa-chevron-left"></i>
+          </div>
         </div>
         <div class="AH_sidenav-link col-12 row">
           <div class="col-11">Boys' Fashion</div>
-          <div class="col-1" *ngIf='currentLang==="en"'><i class="fas fa-chevron-right"></i></div>
-        <div class="col-1" *ngIf='currentLang==="ar"'><i class="fas fa-chevron-left"></i></div>
+          <div class="col-1" *ngIf="currentLang === 'en'">
+            <i class="fas fa-chevron-right"></i>
+          </div>
+          <div class="col-1" *ngIf="currentLang === 'ar'">
+            <i class="fas fa-chevron-left"></i>
+          </div>
         </div>
         <div class="AH_sidenav-link col-12 row">
           <div class="col-11">Health and Household</div>
-          <div class="col-1" *ngIf='currentLang==="en"'><i class="fas fa-chevron-right"></i></div>
-        <div class="col-1" *ngIf='currentLang==="ar"'><i class="fas fa-chevron-left"></i></div>
+          <div class="col-1" *ngIf="currentLang === 'en'">
+            <i class="fas fa-chevron-right"></i>
+          </div>
+          <div class="col-1" *ngIf="currentLang === 'ar'">
+            <i class="fas fa-chevron-left"></i>
+          </div>
         </div>
         <div class="AH_sidenav-link col-12 row">
           <div class="col-11">Home and Kitchen</div>
-          <div class="col-1" *ngIf='currentLang==="en"'><i class="fas fa-chevron-right"></i></div>
-        <div class="col-1" *ngIf='currentLang==="ar"'><i class="fas fa-chevron-left"></i></div>
+          <div class="col-1" *ngIf="currentLang === 'en'">
+            <i class="fas fa-chevron-right"></i>
+          </div>
+          <div class="col-1" *ngIf="currentLang === 'ar'">
+            <i class="fas fa-chevron-left"></i>
+          </div>
         </div>
         <div class="AH_sidenav-link col-12 row">
           <div class="col-11">Industrial and Scientific</div>
-          <div class="col-1" *ngIf='currentLang==="en"'><i class="fas fa-chevron-right"></i></div>
-        <div class="col-1" *ngIf='currentLang==="ar"'><i class="fas fa-chevron-left"></i></div>
+          <div class="col-1" *ngIf="currentLang === 'en'">
+            <i class="fas fa-chevron-right"></i>
+          </div>
+          <div class="col-1" *ngIf="currentLang === 'ar'">
+            <i class="fas fa-chevron-left"></i>
+          </div>
         </div>
         <div class="AH_sidenav-link col-12 row">
           <div class="col-11">Luggage</div>
-          <div class="col-1" *ngIf='currentLang==="en"'><i class="fas fa-chevron-right"></i></div>
-        <div class="col-1" *ngIf='currentLang==="ar"'><i class="fas fa-chevron-left"></i></div>
+          <div class="col-1" *ngIf="currentLang === 'en'">
+            <i class="fas fa-chevron-right"></i>
+          </div>
+          <div class="col-1" *ngIf="currentLang === 'ar'">
+            <i class="fas fa-chevron-left"></i>
+          </div>
         </div>
         <div class="AH_sidenav-link col-12 row">
           <div class="col-11">Movies & Television</div>
-          <div class="col-1" *ngIf='currentLang==="en"'><i class="fas fa-chevron-right"></i></div>
-        <div class="col-1" *ngIf='currentLang==="ar"'><i class="fas fa-chevron-left"></i></div>
+          <div class="col-1" *ngIf="currentLang === 'en'">
+            <i class="fas fa-chevron-right"></i>
+          </div>
+          <div class="col-1" *ngIf="currentLang === 'ar'">
+            <i class="fas fa-chevron-left"></i>
+          </div>
         </div>
         <div class="AH_sidenav-link col-12 row">
           <div class="col-11">Pet supplies</div>
-          <div class="col-1" *ngIf='currentLang==="en"'><i class="fas fa-chevron-right"></i></div>
-        <div class="col-1" *ngIf='currentLang==="ar"'><i class="fas fa-chevron-left"></i></div>
+          <div class="col-1" *ngIf="currentLang === 'en'">
+            <i class="fas fa-chevron-right"></i>
+          </div>
+          <div class="col-1" *ngIf="currentLang === 'ar'">
+            <i class="fas fa-chevron-left"></i>
+          </div>
         </div>
         <div class="AH_sidenav-link col-12 row">
           <div class="col-11">Software</div>
-          <div class="col-1" *ngIf='currentLang==="en"'><i class="fas fa-chevron-right"></i></div>
-        <div class="col-1" *ngIf='currentLang==="ar"'><i class="fas fa-chevron-left"></i></div>
+          <div class="col-1" *ngIf="currentLang === 'en'">
+            <i class="fas fa-chevron-right"></i>
+          </div>
+          <div class="col-1" *ngIf="currentLang === 'ar'">
+            <i class="fas fa-chevron-left"></i>
+          </div>
         </div>
         <div class="AH_sidenav-link col-12 row">
           <div class="col-11">Sports and Outdoors</div>
-          <div class="col-1" *ngIf='currentLang==="en"'><i class="fas fa-chevron-right"></i></div>
-        <div class="col-1" *ngIf='currentLang==="ar"'><i class="fas fa-chevron-left"></i></div>
+          <div class="col-1" *ngIf="currentLang === 'en'">
+            <i class="fas fa-chevron-right"></i>
+          </div>
+          <div class="col-1" *ngIf="currentLang === 'ar'">
+            <i class="fas fa-chevron-left"></i>
+          </div>
         </div>
         <div class="AH_sidenav-link col-12 row">
           <div class="col-11">Tools & Home Improvement</div>
-          <div class="col-1" *ngIf='currentLang==="en"'><i class="fas fa-chevron-right"></i></div>
-        <div class="col-1" *ngIf='currentLang==="ar"'><i class="fas fa-chevron-left"></i></div>
+          <div class="col-1" *ngIf="currentLang === 'en'">
+            <i class="fas fa-chevron-right"></i>
+          </div>
+          <div class="col-1" *ngIf="currentLang === 'ar'">
+            <i class="fas fa-chevron-left"></i>
+          </div>
         </div>
         <div class="AH_sidenav-link col-12 row">
           <div class="col-11">Toys and Games</div>
-          <div class="col-1" *ngIf='currentLang==="en"'><i class="fas fa-chevron-right"></i></div>
-        <div class="col-1" *ngIf='currentLang==="ar"'><i class="fas fa-chevron-left"></i></div>
+          <div class="col-1" *ngIf="currentLang === 'en'">
+            <i class="fas fa-chevron-right"></i>
+          </div>
+          <div class="col-1" *ngIf="currentLang === 'ar'">
+            <i class="fas fa-chevron-left"></i>
+          </div>
         </div>
         <div class="AH_sidenav-link col-12 row">
           <div class="col-11">Video Games</div>
-          <div class="col-1" *ngIf='currentLang==="en"'><i class="fas fa-chevron-right"></i></div>
-        <div class="col-1" *ngIf='currentLang==="ar"'><i class="fas fa-chevron-left"></i></div>
+          <div class="col-1" *ngIf="currentLang === 'en'">
+            <i class="fas fa-chevron-right"></i>
+          </div>
+          <div class="col-1" *ngIf="currentLang === 'ar'">
+            <i class="fas fa-chevron-left"></i>
+          </div>
         </div>
         <div class="AH_sidenav-link row" onclick="shopSeeLess()">
           <div class="col-12 shopSeeMore">
-            {{"SIDENAV.SEE_LESS"|translate}} <i class="fas fa-chevron-up"></i>
+            {{ "SIDENAV.SEE_LESS" | translate }}
+            <i class="fas fa-chevron-up"></i>
           </div>
         </div>
       </div>
@@ -523,53 +636,89 @@
         onclick="shopSeeMore()"
       >
         <div class="col-12 shopSeeMore">
-          {{"SIDENAV.SEE_ALL"|translate}} <i class="fas fa-chevron-down"></i>
+          {{ "SIDENAV.SEE_ALL" | translate }}
+          <i class="fas fa-chevron-down"></i>
         </div>
       </div>
       <hr />
-      <h5>{{"SIDENAV.FEATURES"|translate}}</h5>
+      <h5>{{ "SIDENAV.FEATURES" | translate }}</h5>
       <div class="AH_sidenav-link row">
-        <div class="col-11">{{"SIDENAV.GIFT"|translate}}</div>
-        <div class="col-1" *ngIf='currentLang==="en"'><i class="fas fa-chevron-right"></i></div>
-        <div class="col-1" *ngIf='currentLang==="ar"'><i class="fas fa-chevron-left"></i></div>
+        <div class="col-11">{{ "SIDENAV.GIFT" | translate }}</div>
+        <div class="col-1" *ngIf="currentLang === 'en'">
+          <i class="fas fa-chevron-right"></i>
+        </div>
+        <div class="col-1" *ngIf="currentLang === 'ar'">
+          <i class="fas fa-chevron-left"></i>
+        </div>
       </div>
       <div class="AH_sidenav-link row">
-        <div class="col-11">{{"SIDENAV.FOUNDATION"|translate}}</div>
-        <div class="col-1" *ngIf='currentLang==="en"'><i class="fas fa-chevron-right"></i></div>
-        <div class="col-1" *ngIf='currentLang==="ar"'><i class="fas fa-chevron-left"></i></div>
+        <div class="col-11">{{ "SIDENAV.FOUNDATION" | translate }}</div>
+        <div class="col-1" *ngIf="currentLang === 'en'">
+          <i class="fas fa-chevron-right"></i>
+        </div>
+        <div class="col-1" *ngIf="currentLang === 'ar'">
+          <i class="fas fa-chevron-left"></i>
+        </div>
       </div>
       <div class="AH_sidenav-link row">
-        <div class="col-11">{{"SIDENAV.LIVE"|translate}}</div>
-        <div class="col-1" *ngIf='currentLang==="en"'><i class="fas fa-chevron-right"></i></div>
-        <div class="col-1" *ngIf='currentLang==="ar"'><i class="fas fa-chevron-left"></i></div>
+        <div class="col-11">{{ "SIDENAV.LIVE" | translate }}</div>
+        <div class="col-1" *ngIf="currentLang === 'en'">
+          <i class="fas fa-chevron-right"></i>
+        </div>
+        <div class="col-1" *ngIf="currentLang === 'ar'">
+          <i class="fas fa-chevron-left"></i>
+        </div>
       </div>
       <div class="AH_sidenav-link row">
-        <div class="col-11">{{"SIDENAV.INTERNATIONAL"|translate}}</div>
-        <div class="col-1" *ngIf='currentLang==="en"'><i class="fas fa-chevron-right"></i></div>
-        <div class="col-1" *ngIf='currentLang==="ar"'><i class="fas fa-chevron-left"></i></div>
+        <div class="col-11">{{ "SIDENAV.INTERNATIONAL" | translate }}</div>
+        <div class="col-1" *ngIf="currentLang === 'en'">
+          <i class="fas fa-chevron-right"></i>
+        </div>
+        <div class="col-1" *ngIf="currentLang === 'ar'">
+          <i class="fas fa-chevron-left"></i>
+        </div>
       </div>
       <div class="AH_sidenav-link row">
-        <div class="col-11">{{"SIDENAV.SECOND_CHANCE"|translate}}</div>
-        <div class="col-1" *ngIf='currentLang==="en"'><i class="fas fa-chevron-right"></i></div>
-        <div class="col-1" *ngIf='currentLang==="ar"'><i class="fas fa-chevron-left"></i></div>
+        <div class="col-11">{{ "SIDENAV.SECOND_CHANCE" | translate }}</div>
+        <div class="col-1" *ngIf="currentLang === 'en'">
+          <i class="fas fa-chevron-right"></i>
+        </div>
+        <div class="col-1" *ngIf="currentLang === 'ar'">
+          <i class="fas fa-chevron-left"></i>
+        </div>
       </div>
       <div class="AH_sidenav-link row">
-        <div class="col-11">{{"SIDENAV.FULL_DIRECTORY"|translate}}</div>
-        <div class="col-1" *ngIf='currentLang==="en"'><i class="fas fa-chevron-right"></i></div>
-        <div class="col-1" *ngIf='currentLang==="ar"'><i class="fas fa-chevron-left"></i></div>
+        <div class="col-11">{{ "SIDENAV.FULL_DIRECTORY" | translate }}</div>
+        <div class="col-1" *ngIf="currentLang === 'en'">
+          <i class="fas fa-chevron-right"></i>
+        </div>
+        <div class="col-1" *ngIf="currentLang === 'ar'">
+          <i class="fas fa-chevron-left"></i>
+        </div>
       </div>
       <hr />
-      <h5>{{"SIDENAV.HELP_SETTING"|translate}}</h5>
+      <h5>{{ "SIDENAV.HELP_SETTING" | translate }}</h5>
       <div class="AH_sidenav-link row">
-        <div class="col-11" ><a class="text-decoration-none text-dark w-100" onclick="AH_closeNav()" [routerLink]="['/account']"><div>{{"SIDENAV.ACCOUNT"|translate}}</div></a></div>
-        <div class="col-1" *ngIf='currentLang==="en"'><i class="fas fa-chevron-right"></i></div>
-        <div class="col-1" *ngIf='currentLang==="ar"'><i class="fas fa-chevron-left"></i></div>
+        <div class="col-11">
+          <a
+            class="text-decoration-none text-dark w-100"
+            onclick="AH_closeNav()"
+            [routerLink]="['/account']"
+            ><div>{{ "SIDENAV.ACCOUNT" | translate }}</div></a
+          >
+        </div>
+        <div class="col-1" *ngIf="currentLang === 'en'">
+          <i class="fas fa-chevron-right"></i>
+        </div>
+        <div class="col-1" *ngIf="currentLang === 'ar'">
+          <i class="fas fa-chevron-left"></i>
+        </div>
       </div>
       <div class="AH_sidenav-link row">
-        <div class="col-12">{{"SIDENAV.HELP"|translate}}</div>
+        <div class="col-12">{{ "SIDENAV.HELP" | translate }}</div>
       </div>
       <div class="AH_sidenav-link row">
-        <div *ngIf=" isLogged === false" class="col-12">
+        <div *ngIf="isLogged === false" class="col-12">
           <a [routerLink]="['/login']">{{ "HEADER.SIGNIN" | translate }}</a>
         </div>
       </div>
@@ -590,9 +739,12 @@
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link AH_link" aria-current="page" [routerLink]="['/deals']">{{
-            "HEADER.TODAYS_DEALS" | translate
-          }}</a>
+          <a
+            class="nav-link AH_link"
+            aria-current="page"
+            [routerLink]="['/deals']"
+            >{{ "HEADER.TODAYS_DEALS" | translate }}</a
+          >
         </li>
         <li class="nav-item">
           <a
@@ -646,7 +798,11 @@
               </a>
             </li>
             <li *ngIf="loggedInSeller" class="dropdown-item text-center">
-              <button (click)="logoutSeller()" type="button" class="btn SE-btn w-100">
+              <button
+                (click)="logoutSeller()"
+                type="button"
+                class="btn SE-btn w-100"
+              >
                 {{ "HEADER.LOGOUT" | translate }}
               </button>
             </li>

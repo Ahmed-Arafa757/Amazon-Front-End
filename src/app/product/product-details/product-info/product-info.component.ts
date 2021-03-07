@@ -29,7 +29,7 @@ export class ProductInfoComponent implements OnInit {
     productImages: [''],
     productType: '',
     productCategory: '', //CategoryID
-    productSubCategory: 0, //Category -> Sub array[]
+    productSubCategory: '', //Category -> Sub array[]
     keywords: [''],
     warehouseId: '', //warehouseId
     productStock: 0,
@@ -42,14 +42,14 @@ export class ProductInfoComponent implements OnInit {
   shippingFees: number = 36.3;
   DeliverTo: string = this.currerntLang == 'en' ? 'Egypt' : 'مصر';
   relatedProducts = [];
-  similarProduct={productImages:[],finalPrice:0,productName:'' };
+  similarProduct = { productImages: [], finalPrice: 0, productName: '' };
   similarProductReview;
   searchProductsByKeywords(...params) {
     console.log(params);
 
     this.productService.getAllProducts().subscribe(
-      (res:any) => {
-        var results = res ;
+      (res: any) => {
+        var results = res;
 
         var related = results.filter((p) => {
           return p.keywords.includes(params[0]);
