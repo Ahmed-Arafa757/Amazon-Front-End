@@ -7,8 +7,8 @@ import { User } from '../_model/users';
   providedIn: 'root',
 })
 export class AuthService {
-  baseUrl = 'http://localhost:3000/';
-  // baseUrl = 'https://iti-amzon-backend.herokuapp.com/';
+  
+  baseUrl = 'https://iti-amzon-backend.herokuapp.com/';
   // userLoggedIn = new EventEmitter<User>();
 
   constructor(private httpClient: HttpClient) {}

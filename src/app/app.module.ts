@@ -124,13 +124,14 @@ export function createTranslateLoader(http: HttpClient) {
           {
             id: GoogleLoginProvider.PROVIDER_ID,
             provider: new GoogleLoginProvider(
-              '743289630383-4umh6dlkrkutrllclka0c3gopfjj4jft.apps.googleusercontent.com'
+              '743289630383-sduts6iqmro726je1vn2o02kggtrcqtm.apps.googleusercontent.com'
             ),
           },
           {
             id: FacebookLoginProvider.PROVIDER_ID,
             provider: new FacebookLoginProvider(
               '76756941c5bbe9a9bc952b4264fa41ea'
+              
             ),
           },
           {
