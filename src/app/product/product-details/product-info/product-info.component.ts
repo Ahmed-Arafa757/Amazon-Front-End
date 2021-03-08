@@ -20,7 +20,7 @@ export class ProductInfoComponent implements OnInit {
   imageShowIndex = 0;
   maxProductNumber = 1;
   timeInterval = 2000000;
-
+  loggedInSeller:Boolean=false
   productInfo = [];
   productDescription;
   sellerNM;
@@ -152,6 +152,11 @@ export class ProductInfoComponent implements OnInit {
       () => {}
     );
     // this.productService.productById( )
+    if(localStorage.getItem('sellerLoginStorage')){
+      this.loggedInSeller=true
+    }else{
+      this.loggedInSeller=false
+    }
   }
   changeMainImge(i) {
     this.imageShowIndex = i;
