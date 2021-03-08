@@ -21,9 +21,9 @@
       <div *ngIf="log" [@bounceInLeftOnEnter] [@fadeOutOnLeave] class="col-md-12 ">
         <div class="container-fluid">
           <div class="row">
-            <h5 *ngIf="products.length === 0">
+            <h5  *ngIf="products.length === 0">
               {{ "SELLER.ADD_MESSAGE" | translate }}
-              <a [routerLink]="['/seller', 'add']">
+              <a class="text-white" [routerLink]="['/seller', 'add']">
                 {{ "HEADER.ADD" | translate }}
               </a>
             </h5>

@@ -3,7 +3,12 @@
     <div class="row">
       <div class="col-sm-12 col-md-6 col-lg-4 mx-auto text-center mt-3 mb-3">
         <a [routerLink]="['']">
-          <img src="../../../assets/images/logo/SellerCentral.png" alt="" width="70%" height="auto" />
+          <img
+            src="../../../assets/images/logo/SellerCentral.png"
+            alt=""
+            width="70%"
+            height="auto"
+          />
         </a>
       </div>
     </div>
@@ -19,45 +24,96 @@
                 </p>
 
                 <div>
-                  <label for="exampleInputEmail1" class="form-label">{{ "SELLER.EMAIL" | translate }}
+                  <label for="exampleInputEmail1" class="form-label"
+                    >{{ "SELLER.EMAIL" | translate }}
                   </label>
-                  <input [ngClass]="{'is-invalid': UserEmail.invalid && UserEmail.touched,'is-valid':UserEmail.valid}"
-                    required minlength="10" maxlength="30" [(ngModel)]="seller.email" #UserEmail="ngModel" type="email"
-                    class="form-control" name="email" id="inputEmail" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" />
-                  <div class="alert alert-danger my-1 py-1" role="alert" *ngIf="UserEmail.invalid && UserEmail.touched">
-                    {{ "SELLER.EMAIL_VALID" | translate }}</div>
+                  <input
+                    [ngClass]="{
+                      'is-invalid': UserEmail.invalid && UserEmail.touched,
+                      'is-valid': UserEmail.valid
+                    }"
+                    required
+                    minlength="10"
+                    maxlength="30"
+                    [(ngModel)]="seller.email"
+                    #UserEmail="ngModel"
+                    type="email"
+                    class="form-control"
+                    name="email"
+                    id="inputEmail"
+                    pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
+                  />
+                  <div
+                    class="alert alert-danger my-1 py-1"
+                    role="alert"
+                    *ngIf="UserEmail.invalid && UserEmail.touched"
+                  >
+                    {{ "SELLER.EMAIL_VALID" | translate }}
+                  </div>
                 </div>
 
                 <br />
 
-                <div >
+                <div>
                   <label class="form-label">Password </label>
-                  <input [ngClass]="{'is-invalid': password.invalid && password.touched,'is-valid':password.valid}"
-                    required minlength="6" maxlength="20" [(ngModel)]="seller.password" #password="ngModel"
-                    type="password" class="form-control" id="password" name="password"
-                    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$" />
-                    <div id="eye" class="d-flex justify-content-end align-items-center">
-                      <i (click)="showPassword()" [ngClass]="{'fa-eye-slash': showPass}" class="far fa-eye fa-2x "
-                      id="togglePassword"></i>
-                    </div>
-                 
-                  <div class="alert alert-danger my-1 py-1" role="alert" *ngIf="password.invalid && password.touched">
-                    {{ "SELLER.PASSWORD_VALID" | translate }}</div>
+                  <input
+                    [ngClass]="{
+                      'is-invalid': password.invalid && password.touched,
+                      'is-valid': password.valid
+                    }"
+                    required
+                    minlength="6"
+                    maxlength="20"
+                    [(ngModel)]="seller.password"
+                    #password="ngModel"
+                    type="password"
+                    class="form-control"
+                    id="password"
+                    name="password"
+                    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$"
+                  />
+                  <div
+                    id="eye"
+                    class="d-flex justify-content-end align-items-center"
+                  >
+                    <i
+                      (click)="showPassword()"
+                      [ngClass]="{ 'fa-eye-slash': showPass }"
+                      class="far fa-eye fa-2x"
+                      id="togglePassword"
+                    ></i>
+                  </div>
+
+                  <div
+                    class="alert alert-danger my-1 py-1"
+                    role="alert"
+                    *ngIf="password.invalid && password.touched"
+                  >
+                    {{ "SELLER.PASSWORD_VALID" | translate }}
+                  </div>
                 </div>
 
                 <br />
               </div>
-              <div class="alert alert-danger my-2 py-2" *ngIf='errors.length != 0'>
-                {{errors}}
+              <div
+                class="alert alert-danger my-2 py-2"
+                *ngIf="errors.length != 0"
+              >
+                {{ errors }}
               </div>
-              <button type="submit" class="btn bg-gradient col-12 mb-3" (click)="onLogin(seller)">
+              <button
+                type="submit"
+                class="btn bg-gradient col-12 mb-3"
+                (click)="onLogin(seller)"
+              >
                 {{ "SELLER.LOGIN" | translate }}
               </button>
               <div class="loginBtns">
                 <div id="google" class="loginBtn" (click)="signInWithGoogle()">
                   <img
                     src="../../../assets/images/logo/kisspng-google-logo-google-search-search-engine-optimizati-5be4b4e65a01a8.7135521715417151743687.png"
-                    style="width: 25px" />
+                    style="width: 25px"
+                  />
                   Google
                 </div>
                 <div id="faceBook" class="loginBtn" (click)="signInWithFB()">
@@ -68,15 +124,25 @@
             <span>
               By continuing, you agree to Amazon's
               <a href="#">Conditions of Use</a> and
-              <a href="#">Privacy Notice</a>.</span>
+              <a href="#">Privacy Notice</a>.</span
+            >
 
             <div class="dropdown mt-3">
-              <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
-                aria-expanded="false">
+              <a
+                class="dropdown-toggle"
+                href="#"
+                role="button"
+                id="dropdownMenuLink"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
                 Need help?
               </a>
 
-              <ul class="dropdown-menu position-relative pt-0 pb-4" aria-labelledby="dropdownMenuLink">
+              <ul
+                class="dropdown-menu position-relative pt-0 pb-4"
+                aria-labelledby="dropdownMenuLink"
+              >
                 <li class="mb-2">
                   <a href="#">Forgot your password?</a>
                 </li>
@@ -91,16 +157,21 @@
     </div>
 
     <div class="row">
-      <div class="col-sm-12 col-md-6 col-lg-4 mx-auto text-center mt-4 mb-2 MM_newToAmazon">
+      <div
+        class="col-sm-12 col-md-6 col-lg-4 mx-auto text-center mt-4 mb-2 MM_newToAmazon"
+      >
         <p><span> New to Amazon? </span></p>
         <a [routerLink]="['/seller/signup']">
           <button type="submit" class="btn bg-gradient col-12 p-1">
             Create your Amazon account
-          </button></a>
+          </button></a
+        >
       </div>
     </div>
     <div class="row">
-      <div class="col-sm-12 col-md-8 col-lg-6 mx-auto text-center MM_buttomRights">
+      <div
+        class="col-sm-12 col-md-8 col-lg-6 mx-auto text-center MM_buttomRights"
+      >
         <hr />
         <a href="#">Conditions</a>
         <a href="#">Privacy Notice</a>
